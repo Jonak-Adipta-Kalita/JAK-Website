@@ -1,0 +1,38 @@
+	{% extends 'base.html' %}
+	{% block title %} Games | My Own {% endblock %}
+    {% block navbarlink %}
+		<li class="nav-item font-weight-bold">
+            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item font-weight-bold">
+            <a class="nav-link" href="/about/">About<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item font-weight-bold">
+            <a class="nav-link" href="/social_media/">Social Media<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item font-weight-bold">
+            <a class="nav-link" href="/contact_me/">Contact<span class="sr-only">(current)</span></a>
+        </li>
+	{% endblock %}
+	{% block body %}
+	{% load static %}
+    <div class="container">
+		<div class="row">
+		
+			<!--
+			{% for i in games_own %}
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<img src="{{ i.image }}" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">
+						{{ i.game_name }}
+					</h5>
+					<a href="{{ i.game_link }}" class="btn btn-primary">Play</a>
+				</div>
+			</div> 
+			{% endfor %}
+			-->
+			
+		</div>
+	</div>
+	{% endblock %}

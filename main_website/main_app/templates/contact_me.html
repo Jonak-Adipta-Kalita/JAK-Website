@@ -1,0 +1,44 @@
+	{% extends 'base.html' %}
+	{% block title %} Contact Me {% endblock %}
+	{% block navbarlink %}
+    <li class="nav-item font-weight-bold">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item font-weight-bold">
+        <a class="nav-link" href="/about/">About<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item font-weight-bold">
+        <a class="nav-link" href="/social_media/">Social Media<span class="sr-only">(current)</span></a>
+    </li>
+	{% endblock %}
+	{% block body %}
+    <div class="container">
+            <form action="/" method='post'>
+				<input type="hidden" name="csrfmiddlewaretoken" value="URUEJWogLBBjsjxjV8Fn5cLf8PmQfQ63GSqpyrIfdUFZqFmd0iB4BI2RfJDqGJFT">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="name" class="form-control" id="name" placeholder="Enter your Name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" class="form-control" id="cemail" placeholder="Enter your Email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Your Phone Number (with country code)</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Enter your Phone Number" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="description">Describe why do you want to contact me, here</label>
+                    <textarea type="text" class="form-control" id="message" placeholder="Your message" name="message" style="margin-top: 0px; margin-bottom: 0px; height: 174px;"></textarea>
+                </div>
+				<div class="g-recaptcha" data-sitekey="6LfHr-QZAAAAAE1TWFmznDAg6GsWsyLjljBqU702"></div>
+				<br/>
+				{% csrf_token %}
+                <button type="submit" class="btn btn-primary">
+					Submit
+				</button>
+            </form>
+			<br/>
+			<br/>
+	</div>
+	{% endblock %}

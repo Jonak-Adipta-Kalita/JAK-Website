@@ -1,0 +1,49 @@
+	{% extends 'base.html' %}
+	{% block title %} Home {% endblock %}
+	{% block navbarlink %}
+	<li class="nav-item font-weight-bold">
+        <a class="nav-link" href="/about/">About<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item font-weight-bold">
+        <a class="nav-link" href="/social_media/">Social Media<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item font-weight-bold">
+        <a class="nav-link" href="/contact_me/">Contact<span class="sr-only">(current)</span></a>
+    </li>
+	{% endblock %}
+	{% block body %}
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">My Photos</h5>
+                        <p class="card-text text-center">
+                            Here you'll find my Photos.
+                        </p>
+                        <a href="my_photos/" class="btn btn-primary d-block">Go to My Photos</a>
+                    </div>
+                </div>
+				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">My Games</h5>
+                        <p class="card-text text-center">
+                            Here you'll find my Games.
+                        </p>
+                        <a href="games/" class="btn btn-primary d-block">Go to My Games</a>
+                    </div>
+                </div>
+				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">My Anouncements</h5>
+                        <p class="card-text text-center">
+                            Here you'll all find the Announcements.
+                        </p>
+                        <a href="anouncements/" class="btn btn-primary d-block">Go to Anouncements</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<br/>
+    </div>
+	{% endblock %}
