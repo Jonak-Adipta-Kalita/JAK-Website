@@ -23,8 +23,6 @@ admin.site.index_title = "JAK Website"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("main_app.urls")),
-    path('games/', include("games.urls")),
-    path('anouncements/', include('anouncement.urls')),
 ]
 
 # handler404 = 'main_app.views.error_404_view'
