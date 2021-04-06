@@ -1,6 +1,4 @@
-# Alert: Project Not Complete
-
-## JAK-Website
+# JAK-Website
 
 ### Installing The Required Modules
 To install the required modules, just open any terminal in the directory where this project is downloaded. Now type: `pip install -r .\requirements.txt` and hit enter.
