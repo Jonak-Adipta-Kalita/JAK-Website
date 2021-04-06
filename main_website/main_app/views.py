@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth.models import User
+from django.contrib import messages
 from .models import Game_Own, Game_Fav
 
 def index(request):
@@ -35,3 +37,34 @@ def anouncements(request):
 
 def PokeGocode(request):
     return render(request, 'PokeGocode.html')
+
+def error_404_view(request):
+    return render(request, '404Error.html')
+
+def handleSignup(request):
+    if request.method == "POST":
+        username = request.POST['signUpUsername']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        pass1 = request.POST['signUpPass1']
+        pass2 = request.POST['signUpPass2']
+        if len(username) > 10:
+            messages.error(request, "Username must be under 10 Characters!!")
+            return redirect('home')
+        if not username.isalnum():
+            messages.error(request, "Username should only contain Alpha-Numeric Characters!!")
+            return redirect('home')
+        if pass1 != pass2:
+            messages.error(request, "Passwords do not match!!")
+            return redirect('home')
+        myUser = User.objects.create_user(username, email, pass1)
+        myUser.first_name = fname
+        myUser.last_name = lname
+        myUser.save()
+        return redirect('home')
+    else:
+        return render(request, '404Error.html')
+
+def handleLogin(request):
+    pass

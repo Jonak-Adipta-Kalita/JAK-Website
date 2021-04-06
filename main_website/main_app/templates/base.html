@@ -52,12 +52,23 @@
 					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#signupModal">SignUp</button>
 				</div>
             </nav>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Welcome to the my website!! </strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				  <span aria-hidden="true">&times;</span>
-				</button>
-            </div>
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+						<strong>Message: </strong> {{ message }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>Welcome to my Website!! </strong>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			{% endif %}
         </div>
     </div>
 	
@@ -72,32 +83,33 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form action="/signup/" method='post'>
+						{% csrf_token %}
 						<div class="form-group">
 							<label for="signUpUsername">Username</label>
-							<input type="text" class="form-control" id="signUpUsername" name="signUpUsername" placeholder="Choose a Unique Username...">
+							<input type="text" required class="form-control" id="signUpUsername" name="signUpUsername" placeholder="Choose a Unique Username... (Lowercase & AlphaNumeric)">
 						</div>
 						<div class="form-group">
 							<label for="fname">First Name</label>
-							<input type="text" class="form-control" id="fname" name="fname" placeholder="Your First Name...">
+							<input type="text" required class="form-control" id="fname" name="fname" placeholder="Your First Name...">
 						</div>
 						<div class="form-group">
 							<label for="lname">Last Name</label>
-							<input type="text" class="form-control" id="lname" name="lname" placeholder="Your Last Name...">
+							<input type="text" required class="form-control" id="lname" name="lname" placeholder="Your Last Name...">
 						</div>
 						<div class="form-group">
 							<label for="email">Email Address</label>
-							<input type="email" class="form-control" id="email" name="email" placeholder="Your Email Address...">
+							<input type="email" required class="form-control" id="email" name="email" placeholder="Your Email Address...">
 						</div>
 						<div class="form-group">
 							<label for="signUpPass1">Choose a Password</label>
-							<input type="password" class="form-control" id="signUpPass1" name="signUpPass1" placeholder="Choose a Password...">
+							<input type="password" required class="form-control" id="signUpPass1" name="signUpPass1" placeholder="Choose a Password...">
 						</div>
 						<div class="form-group">
 							<label for="signUpPass2">Confirm Password</label>
-							<input type="password" class="form-control" id="signUpPass2" name="signUpPass2" placeholder="Enter your Password again...">
+							<input type="password" required class="form-control" id="signUpPass2" name="signUpPass2" placeholder="Enter your Password again...">
 						</div>
-						<button type="button" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 				</div>
 			</div>
@@ -118,11 +130,11 @@
 					<form>
 						<div class="form-group">
 							<label for="loginUsername">Username</label>
-							<input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter your Username...">
+							<input type="text" required class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter your Username...">
 						</div>
 						<div class="form-group">
 							<label for="loginPass1">Enter Password</label>
-							<input type="password" class="form-control" id="loginPass1" name="loginPass1" placeholder="Enter your Password...">
+							<input type="password" required class="form-control" id="loginPass1" name="loginPass1" placeholder="Enter your Password...">
 						</div>
 						<button type="button" class="btn btn-primary">Submit</button>
 					</form>
