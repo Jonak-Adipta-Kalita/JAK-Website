@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Game_Own, Game_Fav
 
@@ -62,9 +63,27 @@ def handleSignup(request):
         myUser.first_name = fname
         myUser.last_name = lname
         myUser.save()
+        messages.success(request, "Successfully Created User!!")
         return redirect('home')
     else:
         return render(request, '404Error.html')
 
 def handleLogin(request):
-    pass
+    if request.method == "POST":
+        loginUsername = request.POST['loginUsername']
+        loginPassword = request.POST['loginPass']
+        user = authenticate(username=loginUsername, password=loginPassword)
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Successfully Logged In!!")
+            return redirect('home')
+        else:
+            messages.error(request, "Invalid Credentials, Please Try Again!!")
+            return redirect('home')
+    else:
+        return render(request, '404Error.html')
+
+def handleLogout(request):
+    logout(request)
+    messages.success(request, "Successfully Logged Out!!")
+    return redirect('home')
