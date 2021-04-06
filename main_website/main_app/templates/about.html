@@ -11,9 +11,14 @@
         <a class="nav-link" href="/contact_me/">Contact<span class="sr-only">(current)</span></a>
     </li>
 	{% endblock %}
+	{% block style %}
+		.main_text {
+			font-size: 20px !important;
+		}
+	{% endblock %}
 	{% block body %}
         <center>
-            <div className="aboutPage__header">
+            <div class="aboutPage__header">
                 <div className="aboutPage__header_heading">
                 </div>
                 <h4>Hey Guys, If You've come here to know about me!!</h4>
@@ -21,11 +26,17 @@
                 <br/>
             </div>
         </center>
-        <div className="aboutPage__body">
-            <p>
-                My name is JONAK ADIPTA KALITA. I am a student in Kendriya Vidyalaya Mangaldoi, I am currently studying in standard '7th'. My mom is a Banker and my Dad is a Mathematics Teacher. I am a Coder and also a 'Home Game Developer'. I code for fun but som -etimes
-                I also teach some of my colleagues some 'Python'. I am a master in Python and Java. I do have a crush but no one knows about it. I am a Youtuber too. I love to play Games such as NFS, COD, AC, Among Us, GTA, etc. I am a huge fan of Anime
-                and wat -ched 'Pokemon', 'One_Piece', 'Beyblade', 'DBG'. If you want to get to my Instagram, Github, Reddit you have to find it by yourse- lf. Actually you'll find my Social Medias in the Social Media Page.
+        <div class="container">
+            <p class="main_text">
+                My name is JONAK ADIPTA KALITA. I am a student in Kendriya Vidyalaya Mangaldoi, I am 
+				currently studying in standard '7th'. My mom is a Banker and my Dad is a Mathematics 
+				Teacher. I am a Coder and also a 'Home Game Developer'. I code for fun but sometimes
+                I also teach some of my colleagues some 'Python'. I am a master in Python and JavaScript.
+				I do have a crush but no one knows about it. I am a Youtuber too. I love to play Games 
+				such as NFS, COD, AC, Among Us, GTA, etc. I am a huge fan of Anime and watched 'Pokemon',
+				'One_Piece', 'Beyblade', 'DBG'. If you want to get to my Instagram, Github, Reddit you 
+				have to find it by yourself. Actually you'll find my Social Medias in the Social 
+				Media Page.
             </p>
             <center>
                 <p>
