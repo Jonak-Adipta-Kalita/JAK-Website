@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Game_Own, Game_Fav
+from .models import Game_Own, Game_Fav, Contact
 
 def index(request):
     return render(request, 'home.html')
@@ -11,6 +11,14 @@ def about(request):
     return render(request, 'about.html')
 
 def contact_me(request):
+    if request.method == "POST":
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        phone = request.POST.get('phone', '')
+        desc = request.POST.get('desc', '')
+        contact = Contact(name=name, email=email, phone=phone, desc=desc)
+        contact.save()
+        messages.success(request, "Message Sent!!")
     return render(request, 'contact_me.html')
 
 def social_media(request):
