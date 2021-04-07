@@ -15,14 +15,10 @@
         </li>
 	{% endblock %}
 	{% block body %}
-	{% load static %}
     <div class="container">
 		<div class="row">
-
-			<!--
 			{% for i in games_fav %}
 			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-				<img src="{{ i.image }}" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">
 						{{ i.game_name }}
@@ -30,64 +26,7 @@
 					<a href="{{ i.game_link }}" class="btn btn-primary">Play</a>
 				</div>
 			</div> 
-			{% endfor %}
-			-->
-
-			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-				<img src="{%static 'image/Krunker.png'%}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">
-						Krunker.io
-					</h5>
-					<a href="https://krunker.io/" class="btn btn-primary">Play</a>
-				</div>
-			</div>
-			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-				<img src="{%static 'image/Scribbl.png'%}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">
-						Scribbl.io
-					</h5>
-					<a href="https://skribbl.io/" class="btn btn-primary">Play</a>
-				</div>
-			</div>
-			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-				<img src="{%static 'image/Agar.png'%}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">
-						Agar.io
-					</h5>
-					<a href="https://agar.io/" class="btn btn-primary">Play</a>
-				</div>
-			</div>
-			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-				<img src="{%static 'image/Hole-io.png'%}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">
-						Hole.io
-					</h5>
-					<a href="https://hole-io.com/" class="btn btn-primary">Play</a>
-				</div>
-			</div>
-			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-				<img src="{%static 'image/Ducklings.png'%}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">
-						Ducklings.io
-					</h5>
-					<a href="https://ducklings.io/" class="btn btn-primary">Play</a>
-				</div>
-			</div>
-			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-				<img src="{%static 'image/Paper1.png'%}" class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">
-						Paper.io
-					</h5>
-					<a href="https://paper-io.com/" class="btn btn-primary">Play</a>
-				</div>
-			</div>
-			
+			{% endfor %}			
 		</div>
 	</div>
 	<br/>

@@ -25,7 +25,10 @@ def social_media(request):
     return render(request, 'social_media.html')
 
 def search(request):
-    return render(request, 'search.html')
+    GamesFav = Game_Fav.objects.all()
+    GamesOwn = Game_Own.objects.all()
+    params = {"GamesFav": GamesFav, "GamesOwn": GamesOwn}
+    return render(request, 'search.html', params)
 
 def my_photos(request):
     return render(request, 'my_photos.html')
