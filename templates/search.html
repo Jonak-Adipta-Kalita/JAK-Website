@@ -15,6 +15,9 @@
     </li>
 	{% endblock %}
 	{% block body %}
+	<div class="container my-3">
+		<h3>Search Results:</h3>
+	</div>
 	{% if GamesFav or GamesOwn %}
 		<div class="container">
 			<div class="row">
@@ -41,6 +44,26 @@
 			</div>
 		</div>
 	{% else %}
-		<center><h1>Nothing...</h1></center>
+		<div class="container my-3">
+			<p>
+				Your search - <b>{{query}}</b> - did not match any Documents!!
+				<br />
+				Suggestions:
+				<ul>
+					<li>
+						Try different Keywords!!
+					</li>
+					<li>
+						Make sure that all words are spelled Correctly!!
+					</li>
+					<li>
+						Try more general Keywords!!
+					</li>
+					<li>
+						Try fewer Keywords!!
+					</li>
+				</ul>
+			</p>
+		</div>
 	{% endif %}
 	{% endblock %}

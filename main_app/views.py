@@ -26,9 +26,13 @@ def social_media(request):
 
 def search(request):
     query = request.GET['query']
-    allGamesFav = Game_Fav.objects.filter(game_name__icontains=query)
-    allGamesOwn = Game_Own.objects.filter(game_name__icontains=query)
-    params = {"GamesFav": allGamesFav, "GamesOwn": allGamesOwn}
+    if len(query) > 10:
+        allGamesFav = []
+        allGamesOwn = []
+    else:
+        allGamesFav = Game_Fav.objects.filter(game_name__icontains=query)
+        allGamesOwn = Game_Own.objects.filter(game_name__icontains=query)
+    params = {"GamesFav": allGamesFav, "GamesOwn": allGamesOwn, "query": query}
     return render(request, 'search.html', params)
 
 def my_photos(request):
