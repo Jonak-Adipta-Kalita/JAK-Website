@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Game_Own, Game_Fav, Contact
+import requests, json
 
 def index(request):
     return render(request, 'home.html')
@@ -19,9 +20,21 @@ def contact_me(request):
         email = request.POST.get('email', '')
         phone = request.POST.get('phone', '')
         desc = request.POST.get('desc', '')
-        contact = Contact(name=name, email=email, phone=phone, desc=desc)
-        contact.save()
-        messages.success(request, "Message Sent!!")
+        client_key = request.POST['g-recaptcha-response']
+        secret_key = '6LdC8KAaAAAAALYaDETpXQxAaX50_LM7Dlw29n6o'
+        captchaData = {
+            'secret': secret_key,
+            'response': client_key
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+        response = json.loads(r.text)
+        verify = response['success']
+        if verify:
+            contact = Contact(name=name, email=email, phone=phone, desc=desc)
+            contact.save()
+            messages.success(request, "Message Sent!!")
+        else:
+            messages.error(request, "Invalid Recaptch/Credentials!!")
     return render(request, 'contact_me.html')
 
 def social_media(request):
