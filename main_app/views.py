@@ -34,7 +34,7 @@ def contact_me(request):
             contact.save()
             messages.success(request, "Message Sent!!")
         else:
-            messages.error(request, "Invalid Recaptch/Credentials!!")
+            messages.error(request, "Invalid Recaptcha/Credentials!!")
     return render(request, 'contact_me.html')
 
 def social_media(request):
@@ -82,6 +82,15 @@ def handleSignup(request):
         email = request.POST['email']
         pass1 = request.POST['signUpPass1']
         pass2 = request.POST['signUpPass2']
+        client_key = request.POST['g-recaptcha-response']
+        secret_key = '6LdC8KAaAAAAALYaDETpXQxAaX50_LM7Dlw29n6o'
+        captchaData = {
+            'secret': secret_key,
+            'response': client_key
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+        response = json.loads(r.text)
+        verify = response['success']
         if len(username) > 10:
             messages.error(request, "Username must be under 10 Characters!!")
             return redirect('home')
@@ -91,11 +100,14 @@ def handleSignup(request):
         if pass1 != pass2:
             messages.error(request, "Passwords do not match!!")
             return redirect('home')
-        myUser = User.objects.create_user(username, email, pass1)
-        myUser.first_name = fname
-        myUser.last_name = lname
-        myUser.save()
-        messages.success(request, "Successfully Created User!!")
+        if verify:
+            myUser = User.objects.create_user(username, email, pass1)
+            myUser.first_name = fname
+            myUser.last_name = lname
+            myUser.save()
+            messages.success(request, "Successfully Created User!!")
+        else:
+            messages.error(request, "Invalid Recaptcha/Credentials!!")
         return redirect('home')
     else:
         return render(request, '404Error.html')
@@ -104,13 +116,22 @@ def handleLogin(request):
     if request.method == "POST":
         loginUsername = request.POST['loginUsername']
         loginPassword = request.POST['loginPass']
+        client_key = request.POST['g-recaptcha-response']
+        secret_key = '6LdC8KAaAAAAALYaDETpXQxAaX50_LM7Dlw29n6o'
+        captchaData = {
+            'secret': secret_key,
+            'response': client_key
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+        response = json.loads(r.text)
+        verify = response['success']
         user = authenticate(username=loginUsername, password=loginPassword)
-        if user is not None:
+        if verify and user is not None:
             login(request, user)
             messages.success(request, "Successfully Logged In!!")
             return redirect('home')
         else:
-            messages.error(request, "Invalid Credentials, Please Try Again!!")
+            messages.error(request, "Invalid Recaptcha/Credentials, Please Try Again!!")
             return redirect('home')
     else:
         return render(request, '404Error.html')
