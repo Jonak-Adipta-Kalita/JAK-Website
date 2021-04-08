@@ -12,7 +12,10 @@ def about(request):
     return render(request, 'about.html')
 
 def my_account(request):
-    return render(request, 'my_account.html')
+    if request.user.is_authenticated:
+        return render(request, 'my_account.html')
+    else:
+        return render(request, '404Error.html')
 
 def contact_me(request):
     if request.method == "POST":
