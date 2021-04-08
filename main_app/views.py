@@ -13,7 +13,10 @@ def about(request):
 
 def my_account(request):
     if request.user.is_authenticated:
-        return render(request, 'my_account.html')
+        context = {
+            'user': request.user
+        }
+        return render(request, 'my_account.html', context)
     else:
         return render(request, '404Error.html')
 
