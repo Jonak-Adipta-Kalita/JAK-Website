@@ -11,9 +11,16 @@
         <a class="nav-link" href="/contact_me/">Contact<span class="sr-only">(current)</span></a>
     </li>
 	{% endblock %}
+	{% block style %}
+		.give_some_padding_pls_jonak {
+			padding-bottom: 10px;
+		}
+	{% endblock %}
 	{% block body %}
+	<br />
     <div class="container-fluid">
         <div class="container">
+			<center><h3 class="give_some_padding_pls_jonak"><span id="typed"></span></h3></center>
             <div class="row">
 				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
                     <div class="card-body">
@@ -46,4 +53,18 @@
         </div>
 		<br/>
     </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js" async defer></script>
+	{% endblock %}
+	{% block script %}
+	window.onload = function () {
+        var typed = new Typed('#typed', {
+            strings: ["Welcome to BeastNight-TV!!", "Check out the Announcements!!", "Buy my cool Merch!!", "Contact Me!!", "Become a Member of the Beast Family!!", "Learn Programming!!"],
+            backSpeed: 15,
+            smartBackspace: true,
+            backDelay: 1200,
+            startDelay: 1000,
+            typeSpeed: 25,
+            loop: true,
+        });
+    };
 	{% endblock %}
