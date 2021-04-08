@@ -27,7 +27,7 @@ SECRET_KEY = '(8s-_e&&b#&&8!!asuuafog(o%*l)3cufrpnzvr$u@h6fj@8k_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jonakadiptakalita.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles'
-    
 ]
 
 MIDDLEWARE = [
