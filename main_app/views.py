@@ -143,6 +143,9 @@ def handleLogin(request):
         return render(request, '404Error.html')
 
 def handleLogout(request):
-    logout(request)
-    messages.success(request, "Successfully Logged Out!!")
-    return redirect('home')
+    if request.user.is_authenticated:
+        logout(request)
+        messages.success(request, "Successfully Logged Out!!")
+        return redirect('home')
+    else:
+        return render(request, '404Error.html')
