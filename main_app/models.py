@@ -27,3 +27,10 @@ class Contact(models.Model):
     desc = models.CharField(max_length=500, default="")
     def __str__(self):
         return self.name
+        
+class My_Photo(models.Model):
+    photo_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50, default="")
+    image = models.ImageField(upload_to="image", default="")
+    def __str__(self):
+        return self.name

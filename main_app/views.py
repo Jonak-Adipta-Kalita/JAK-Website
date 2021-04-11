@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Game_Own, Game_Fav, Contact
+from .models import Game_Own, Game_Fav, Contact, My_Photo
 import requests, json
 
 def index(request):
@@ -51,14 +51,17 @@ def search(request):
     if len(query) > 10:
         allGamesFav = []
         allGamesOwn = []
+        allMyPhotos = []
     else:
         allGamesFav = Game_Fav.objects.filter(game_name__icontains=query)
         allGamesOwn = Game_Own.objects.filter(game_name__icontains=query)
-    params = {"GamesFav": allGamesFav, "GamesOwn": allGamesOwn, "query": query}
+        allMyPhotos = My_Photo.objects.filter(name__icontains=query)
+    params = {"GamesFav": allGamesFav, "GamesOwn": allGamesOwn, "MyPhotos": allMyPhotos, "query": query}
     return render(request, 'search.html', params)
 
 def my_photos(request):
-    return render(request, 'my_photos.html')
+    my_photo = My_Photo.objects.all()
+    return render(request, 'my_photos.html', {"my_photo": my_photo})
 
 def games(request):
     return render(request, 'games.html')
