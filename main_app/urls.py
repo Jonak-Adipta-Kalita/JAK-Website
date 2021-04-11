@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name="home"),
@@ -18,4 +20,4 @@ urlpatterns = [
     path('login/', views.handleLogin, name='handleLogin'),
     path('logout/', views.handleLogout, name='handleLogout'),
     path('my_account/', views.my_account, name='my_account')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
