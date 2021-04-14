@@ -80,7 +80,7 @@ def anouncements(request):
 def PokeGocode(request):
     return render(request, 'PokeGocode.html')
 
-def error_404_view(request):
+def handler404(request, *args, **argv):
     return render(request, '404Error.html')
 
 def handleSignup(request):
