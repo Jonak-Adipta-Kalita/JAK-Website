@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '(8s-_e&&b#&&8!!asuuafog(o%*l)3cufrpnzvr$u@h6fj@8k_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['jonakadiptakalita.herokuapp.com', 'jonakadiptakalita.com', 'localhost', '127.0.0.1']
 
