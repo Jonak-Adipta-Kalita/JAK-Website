@@ -1,5 +1,7 @@
 # JAK-Website
 
+Go to the [Website](https://jonakadiptakalita.herokuapp.com/)
+
 ### Clone the Repository
 To Clone this Repository, open a terminal in a empty folder and type 
 ```bash
