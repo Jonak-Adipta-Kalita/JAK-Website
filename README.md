@@ -17,7 +17,4 @@ and hit enter.
 To run the server, open a terminal in the directory. Now type 
 ```bash
 python manage.py runserver``` 
-to run the server. After you did that, open any browser and enter this url: 
-```web 
-http://127.0.0.1:8000/
-```.
+to run the server. After you did that, go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
