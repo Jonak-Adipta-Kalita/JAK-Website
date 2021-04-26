@@ -2,6 +2,8 @@
 
 Go to the [Website](https://jonakadiptakalita.herokuapp.com/)
 
+## You have to follow following steps to run this project
+
 ### Clone the Repository
 To Clone this Repository, open a terminal in a empty folder and type 
 ```bash
