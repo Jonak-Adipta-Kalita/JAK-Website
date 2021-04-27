@@ -25,7 +25,6 @@ To run the server, open a terminal in the directory. Now type
 ```bash
 python manage.py makemigrations
 python manage.py migrate
-python manage.py createsuperuser
 python manage.py runserver
 ``` 
 to run the server. After you did that, go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
