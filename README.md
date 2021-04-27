@@ -2,7 +2,7 @@
 
 Go to the [Website](https://jonakadiptakalita.herokuapp.com/)
 
-## You have to follow following steps to run this project
+## Steps
 
 ### Clone the Repository
 To Clone this Repository, open a terminal in a empty folder and type 
@@ -28,3 +28,8 @@ python manage.py migrate
 python manage.py runserver
 ``` 
 to run the server. After you did that, go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
+## Contributors
+<a href = "https://github.com/Jonak-Adipta-Kalita/JAK-Website/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=Jonak-Adipta-Kalita/JAK-Website"/>
+</a>
