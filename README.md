@@ -1,4 +1,8 @@
+<div align=center>
+
 # JAK-Website
+
+</div>
 
 Go to the [Website](https://jonakadiptakalita.herokuapp.com/)
 
