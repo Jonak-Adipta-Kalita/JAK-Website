@@ -12,15 +12,16 @@
     </li>
 	{% endblock %}
 	{% block style %}
-		.give_some_padding_pls_jonak {
+		.typed_js_text {
 			padding-bottom: 10px;
+			font-size: 20px !important;
 		}
 	{% endblock %}
 	{% block body %}
 	<br />
     <div class="container-fluid">
         <div class="container">
-			<center><h3 class="give_some_padding_pls_jonak"><span id="typed"></span></h3></center>
+			<center><p class="typed_js_text font-weight-bold"><span id="typed"></span></p></center>
             <div class="row">
 				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
                     <div class="card-body">
@@ -58,7 +59,7 @@
 	{% block script %}
 	window.onload = function () {
         var typed = new Typed('#typed', {
-            strings: ["Welcome to BeastNight-TV!!", "Check out the Announcements!!", "Buy my cool Merch!!", "Contact Me!!", "Become a Member of the Beast Family!!", "Learn Programming!!"],
+            strings: ["Welcome to my Website!!", "Contact Me!!", "Learn Coding!!"],
             backSpeed: 15,
             smartBackspace: true,
             backDelay: 1200,
