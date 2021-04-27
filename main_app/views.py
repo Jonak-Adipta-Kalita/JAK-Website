@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Game_Own, Game_Fav, Contact, My_Photo
 import requests, json
+import credentials
 
 def index(request):
     return render(request, 'home.html')
@@ -27,7 +28,7 @@ def contact_me(request):
         phone = request.POST.get('phone', '')
         desc = request.POST.get('desc', '')
         client_key = request.POST['g-recaptcha-response']
-        secret_key = '6LdC8KAaAAAAALYaDETpXQxAaX50_LM7Dlw29n6o'
+        secret_key = credentials.RECAPTCHA_SECRET_KEY
         captchaData = {
             'secret': secret_key,
             'response': client_key
@@ -92,7 +93,7 @@ def handleSignup(request):
         pass1 = request.POST['signUpPass1']
         pass2 = request.POST['signUpPass2']
         client_key = request.POST['g-recaptcha-response']
-        secret_key = '6LdC8KAaAAAAALYaDETpXQxAaX50_LM7Dlw29n6o'
+        secret_key = credentials.RECAPTCHA_SECRET_KEY
         captchaData = {
             'secret': secret_key,
             'response': client_key
@@ -126,7 +127,7 @@ def handleLogin(request):
         loginUsername = request.POST['loginUsername']
         loginPassword = request.POST['loginPass']
         client_key = request.POST['g-recaptcha-response']
-        secret_key = '6LdC8KAaAAAAALYaDETpXQxAaX50_LM7Dlw29n6o'
+        secret_key = credentials.RECAPTCHA_SECRET_KEY
         captchaData = {
             'secret': secret_key,
             'response': client_key
