@@ -17,13 +17,18 @@ def handleChangePassword(request):
         current_pass = request.POST['changepass_currentpass']
         new_pass = request.POST['changepass_newpass']
         new_pass_confirm = request.POST['changepass_newpassconfirm']
+        if current_pass == User.password:
+            messages.error(request, "Please Enter your Current Password Correctly!!")
+            return redirect('home')
         if new_pass != new_pass_confirm:
             messages.error(request, "Passwords do not match!!")
             return redirect('home')
         else:
+            user = User.objects.get(username=request.user.username)
+            user.set_password(new_pass)
+            user.save()
             messages.success(request, 'Password Changed Successfully!!')
             return redirect('home')
-        #TODO: Write the Code for Changing Password
         return redirect('home')
     else:
         return render(request, '404Error.html')
