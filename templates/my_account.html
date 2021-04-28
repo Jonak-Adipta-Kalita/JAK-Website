@@ -38,12 +38,6 @@
 		<form class="mb-3" action="change_password/" method="post">
 			{% csrf_token %}
 			<div class="form-row">
-				<div class="form-group col-md-12">
-					<label for="changepass_currentpass">Your Password</label>
-					<input required type="password" class="form-control" id="changepass_currentpass" name="changepass_currentpass" placeholder="Your Password">
-				</div>
-			</div>
-			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="changepass_newpass">New Password</label>
 					<input required type="password" class="form-control" id="changepass_newpass"  name="changepass_newpass" placeholder="New Password">

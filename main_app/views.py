@@ -14,12 +14,8 @@ def about(request):
 
 def handleChangePassword(request):
     if request.user.is_authenticated and request.method == "POST":
-        current_pass = request.POST['changepass_currentpass']
         new_pass = request.POST['changepass_newpass']
         new_pass_confirm = request.POST['changepass_newpassconfirm']
-        if current_pass == User.password:
-            messages.error(request, "Please Enter your Current Password Correctly!!")
-            return redirect('home')
         if new_pass != new_pass_confirm:
             messages.error(request, "Passwords do not match!!")
             return redirect('home')
