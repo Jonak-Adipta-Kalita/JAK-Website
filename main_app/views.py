@@ -2,7 +2,6 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.views import PasswordChangeView
 from .models import Game_Own, Game_Fav, Contact, My_Photo
 import requests, json
 import credentials
