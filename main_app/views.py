@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.views import PasswordChangeView
 from .models import Game_Own, Game_Fav, Contact, My_Photo
 import requests, json
 import credentials
@@ -11,6 +12,22 @@ def index(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def handleChangePassword(request):
+    if request.user.is_authenticated and request.method == "POST":
+        current_pass = request.POST['changepass_currentpass']
+        new_pass = request.POST['changepass_newpass']
+        new_pass_confirm = request.POST['changepass_newpassconfirm']
+        if new_pass != new_pass_confirm:
+            messages.error(request, "Passwords do not match!!")
+            return redirect('home')
+        else:
+            messages.success(request, 'Password Changed Successfully!!')
+            return redirect('home')
+        #TODO: Write the Code for Changing Password
+        return redirect('home')
+    else:
+        return render(request, '404Error.html')
 
 def my_account(request):
     if request.user.is_authenticated:

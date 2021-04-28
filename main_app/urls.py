@@ -19,5 +19,6 @@ urlpatterns = [
     path('signup/', views.handleSignup, name='handleSignup'),
     path('login/', views.handleLogin, name='handleLogin'),
     path('logout/', views.handleLogout, name='handleLogout'),
-    path('my_account/', views.my_account, name='my_account')
+    path('my_account/', views.my_account, name='my_account'),
+    path('my_account/change_password/', views.handleChangePassword, name="change_password"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
