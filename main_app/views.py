@@ -26,7 +26,9 @@ def handleChangePassword(request):
         r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
         response = json.loads(r.text)
         verify = response['success']
-        #TODO: Add Current Pass checking code
+        if not request.user.check_password(current_pass):
+            messages.error(request, "Invalid Current Password!!")
+            return redirect('home')
         if new_pass != new_pass_confirm:
             messages.error(request, "Passwords do not match!!")
             return redirect('home')
