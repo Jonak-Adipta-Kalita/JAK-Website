@@ -116,6 +116,14 @@ def PokeGocode(request):
 def handler404(request, *args, **argv):
     return render(request, '404Error.html')
 
+def notifications(request):
+    if request.user.is_authenticated:
+        notification = False
+        context = {"notification": notification}
+        return render(request, 'notifications.html', context)
+    else:
+        return render(request, '404Error.html')
+
 def handleSignup(request):
     if request.method == "POST":
         username = request.POST['signUpUsername']

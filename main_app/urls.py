@@ -21,4 +21,5 @@ urlpatterns = [
     path('logout/', views.handleLogout, name='handleLogout'),
     path('my_profile/my_account/', views.my_account, name='my_account'),
     path('my_profile/my_account/change_password/', views.handleChangePassword, name="change_password"),
+    path('my_profile/notifications', views.notifications, name="notifications"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
