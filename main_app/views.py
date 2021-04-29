@@ -108,7 +108,10 @@ def anouncements(request):
     return render(request, 'anouncement.html')
 
 def PokeGocode(request):
-    return render(request, 'PokeGocode.html')
+    if request.user.is_authenticated:
+        return render(request, 'PokeGocode.html')
+    else:
+        return render(request, '404Error.html')
 
 def handler404(request, *args, **argv):
     return render(request, '404Error.html')

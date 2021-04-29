@@ -17,18 +17,22 @@
 	{% block body %}
 	{% load static %}
 	<div class="container">
-		<div class="row">
-			{% for i in my_photo %}
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<img src="/media/{{i.image}}" class="card-img-top" alt="image"/>
-					<div class="card-body">
-						<h5 class="card-title">
-							{{i.name}}
-						</h5>
+		{% if user.is_authenticated %}
+			<div class="row">
+				{% for i in my_photo %}
+					<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+						<img src="/media/{{i.image}}" class="card-img-top" alt="image"/>
+						<div class="card-body">
+							<h5 class="card-title">
+								{{i.name}}
+							</h5>
+						</div>
 					</div>
-				</div>
-			{% endfor %}
-		</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<center><h1>You need to Login or SignUp</h1></center>
+		{% endif %}
 	</div>
 	<br />
 	<br />

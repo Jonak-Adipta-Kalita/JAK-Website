@@ -16,35 +16,39 @@
     {% endblock %}
 	{% block body %}
 		<div class="container">
-            <div class="row">
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My PokeGo Code</h5>
-						<p class="card-text text-center">
-							Become My Friend In PokeGo!!
-						</p>
-						<a href="PokeGoCode/" class="btn btn-primary d-block">CODE</a>
+			{% if user.is_authenticated %}
+				<div class="row">
+					<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title text-center">My PokeGo Code</h5>
+							<p class="card-text text-center">
+								Become My Friend In PokeGo!!
+							</p>
+							<a href="PokeGoCode/" class="btn btn-primary d-block">CODE</a>
+						</div>
+					</div>
+					<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title text-center">My WhatsApp Group</h5>
+							<p class="card-text text-center">
+								Join my Whatsapp Group!!
+							</p>
+							<a href="https://chat.whatsapp.com/EOOq0J7ixKsBeiOOyrCyZH" class="btn btn-primary d-block">LINK</a>
+						</div>
+					</div>
+					<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title text-center">My API</h5>
+							<p class="card-text text-center">
+								Checkout my Own API!!
+							</p>
+							<a href="http://jak-api-dot-com.herokuapp.com/" class="btn btn-primary d-block">LINK</a>
+						</div>
 					</div>
 				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My WhatsApp Group</h5>
-						<p class="card-text text-center">
-							Join my Whatsapp Group!!
-						</p>
-						<a href="https://chat.whatsapp.com/EOOq0J7ixKsBeiOOyrCyZH" class="btn btn-primary d-block">LINK</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My API</h5>
-						<p class="card-text text-center">
-							Checkout my Own API!!
-						</p>
-						<a href="http://jak-api-dot-com.herokuapp.com/" class="btn btn-primary d-block">LINK</a>
-					</div>
-				</div>
-			</div>
+			{% else %}
+				<center><h1>You need to Login or SignUp</h1></center>
+			{% endif %}
 		</div>
 		<br />
 	{% endblock %}
