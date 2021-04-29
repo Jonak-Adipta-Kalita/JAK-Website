@@ -15,20 +15,22 @@
     </li>
     {% endblock %}
 	{% block body %}
-	{% if notification %}
-	<div class="container">
-		<div class="row">
-			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Notification_title</h5>
-                    <p class="card-text text-center">
-                        Notification_text
-                    </p>
-                </div>
-            </div>
-		</div>
-	</div>
-	{% else %}
-	<center><h1>Sorry, Its still in Process</h1></center>
-	{% endif %}
+		{% if notifications %}
+			{% for notification in notifications%}
+				<div class="container">
+					<div class="row">
+						<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title text-center">{{notification.notification_name}}</h5>
+								<p class="card-text text-center">
+									{{notification.notification_text}}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		{% else %}
+			<center><h1>All Set!!</h1></center>
+		{% endif %}
 	{% endblock %}

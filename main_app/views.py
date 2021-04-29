@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Game_Own, Game_Fav, Contact, My_Photo
+from .models import Game_Own, Game_Fav, Contact, My_Photo, Notfication
 import requests, json
 import credentials
 
@@ -118,8 +118,8 @@ def handler404(request, *args, **argv):
 
 def notifications(request):
     if request.user.is_authenticated:
-        notification = False
-        context = {"notification": notification}
+        notifications = Notfication.objects.all()
+        context = {"notifications": notifications}
         return render(request, 'notifications.html', context)
     else:
         return render(request, '404Error.html')
