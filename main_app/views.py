@@ -16,8 +16,20 @@ def handleChangePassword(request):
     if request.user.is_authenticated and request.method == "POST":
         new_pass = request.POST['changepass_newpass']
         new_pass_confirm = request.POST['changepass_newpassconfirm']
+        client_key = request.POST['g-recaptcha-response']
+        secret_key = credentials.RECAPTCHA_SECRET_KEY
+        captchaData = {
+            'secret': secret_key,
+            'response': client_key
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+        response = json.loads(r.text)
+        verify = response['success']
         if new_pass != new_pass_confirm:
             messages.error(request, "Passwords do not match!!")
+            return redirect('home')
+        if not verify:
+            messages.error(request, "Invalid Recaptcha!!")
             return redirect('home')
         else:
             user = User.objects.get(username=request.user.username)
