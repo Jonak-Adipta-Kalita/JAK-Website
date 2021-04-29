@@ -51,26 +51,29 @@ def my_account(request):
         return render(request, '404Error.html')
 
 def contact_me(request):
-    if request.method == "POST":
-        name = request.POST.get('name', '')
-        email = request.POST.get('email', '')
-        phone = request.POST.get('phone', '')
-        desc = request.POST.get('desc', '')
-        client_key = request.POST['g-recaptcha-response']
-        secret_key = credentials.RECAPTCHA_SECRET_KEY
-        captchaData = {
-            'secret': secret_key,
-            'response': client_key
-        }
-        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
-        response = json.loads(r.text)
-        verify = response['success']
-        if verify:
-            contact = Contact(name=name, email=email, phone=phone, desc=desc)
-            contact.save()
-            messages.success(request, "Message Sent!!")
-        else:
-            messages.error(request, "Invalid Recaptcha/Credentials!!")
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            name = request.POST.get('name', '')
+            email = request.POST.get('email', '')
+            phone = request.POST.get('phone', '')
+            desc = request.POST.get('desc', '')
+            client_key = request.POST['g-recaptcha-response']
+            secret_key = credentials.RECAPTCHA_SECRET_KEY
+            captchaData = {
+                'secret': secret_key,
+                'response': client_key
+            }
+            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+            response = json.loads(r.text)
+            verify = response['success']
+            if verify:
+                contact = Contact(name=name, email=email, phone=phone, desc=desc)
+                contact.save()
+                messages.success(request, "Message Sent!!")
+            else:
+                messages.error(request, "Invalid Recaptcha/Credentials!!")
+    else:
+        messages.error(request, "Please Login or SingUp!!")
     return render(request, 'contact_me.html')
 
 def social_media(request):
