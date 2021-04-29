@@ -35,21 +35,19 @@
 	<div>
 		<br />
 		<h3>Change Password</h3>
-		<form class="mb-3" action="change_password/" method="post">
+		<form action="change_password/" method="post">
 			{% csrf_token %}
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="changepass_currentpass">Current Password</label>
-					<input required type="password" class="form-control" id="changepass_currentpass"  name="changepass_currentpass" placeholder="Current Password" />
-				</div>
-				<div class="form-group col-md-6">
-					<label for="changepass_newpass">New Password</label>
-					<input required type="password" class="form-control" id="changepass_newpass"  name="changepass_newpass" placeholder="New Password" />
-				</div>
-				<div class="form-group col-md-6">
-					<label for="changepass_newpassconfirm">Confirm New Password</label>
-					<input required type="password" class="form-control" id="changepass_newpassconfirm"  name="changepass_newpassconfirm" placeholder="Confirm New Password" />
-				 </div>
+			<div class="form-group">
+				<label for="changepass_currentpass">Current Password</label>
+				<input required type="password" class="form-control" id="changepass_currentpass" name="changepass_currentpass" placeholder="Current Password" />
+			</div>
+			<div class="form-group">
+				<label for="changepass_newpass">New Password</label>
+				<input required type="password" class="form-control" id="changepass_newpass" name="changepass_newpass" placeholder="New Password" />
+			</div>
+			<div class="form-group">
+				<label for="changepass_newpassconfirm">Confirm New Password</label>
+				<input required type="password" class="form-control" id="changepass_newpassconfirm"  name="changepass_newpassconfirm" placeholder="Confirm New Password" />
 			</div>
 			<div class="g-recaptcha" data-sitekey="6LdC8KAaAAAAALZ2keQ9F4S5gnXwC9xXRG3rxQjT"></div>
 			<br />
