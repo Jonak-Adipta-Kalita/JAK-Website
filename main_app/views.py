@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Game_Own, Game_Fav, Contact, My_Photo, Notification
-import requests, json
+import requests, json, math
 import credentials
 
 def index(request):
@@ -97,8 +97,24 @@ def search(request):
     return render(request, 'search.html', params)
 
 def my_photos(request):
+    no_of_pic = 9
+    page = request.GET.get('page')
+    if page is None:
+        page = 1
+    else:
+        page = int(page)
     my_photo = My_Photo.objects.all()
-    return render(request, 'my_photos.html', {"my_photo": my_photo})
+    lenght = len(my_photo)
+    my_photo = My_Photo.objects.all()[(page - 1) * no_of_pic: page * no_of_pic]
+    if page > 1:
+        prev = page - 1
+    else:
+        prev = None
+    if page < math.ceil(lenght / no_of_pic):
+        nxt = page + 1
+    else:
+        nxt = None
+    return render(request, 'my_photos.html', {"my_photo": my_photo, 'prev': prev, 'nxt': nxt})
 
 def games(request):
     return render(request, 'games.html')
