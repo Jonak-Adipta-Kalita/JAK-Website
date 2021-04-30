@@ -85,15 +85,38 @@ def social_media(request):
 
 def search(request):
     query = request.GET['query']
+    no_of_results = 9
+    page = request.GET.get('page')
+    if page is None:
+        page = 1
+    else:
+        page = int(page)
     if len(query) > 10:
         allGamesFav = []
         allGamesOwn = []
         allMyPhotos = []
     else:
         allGamesFav = Game_Fav.objects.filter(game_name__icontains=query)
+        allGamesFav_length = len(allGamesFav)
+        allGamesFav = Game_Fav.objects.filter(game_name__icontains=query)[(page - 1) * no_of_results: page * no_of_results]
+
         allGamesOwn = Game_Own.objects.filter(game_name__icontains=query)
+        allGamesOwn_length = len(allGamesOwn)
+        allGamesOwn = Game_Own.objects.filter(game_name__icontains=query)[(page - 1) * no_of_results: page * no_of_results]
+
         allMyPhotos = My_Photo.objects.filter(name__icontains=query)
-    params = {"GamesFav": allGamesFav, "GamesOwn": allGamesOwn, "MyPhotos": allMyPhotos, "query": query}
+        allMyPhotos_length = len(allMyPhotos)
+        allMyPhotos = My_Photo.objects.filter(name__icontains=query)[(page - 1) * no_of_results: page * no_of_results]
+
+    if page > 1:
+        prev = page - 1
+    else:
+        prev = None
+    if page < (math.ceil(allGamesFav_length / no_of_results)) or (math.ceil(allGamesOwn_length / no_of_results)) or (math.ceil(allMyPhotos_length / no_of_results)):
+        nxt = page + 1
+    else:
+        nxt = None
+    params = {"GamesFav": allGamesFav, "GamesOwn": allGamesOwn, "MyPhotos": allMyPhotos, "query": query, 'prev': prev, 'nxt': nxt}
     return render(request, 'search.html', params)
 
 def my_photos(request):
@@ -104,13 +127,13 @@ def my_photos(request):
     else:
         page = int(page)
     my_photo = My_Photo.objects.all()
-    lenght = len(my_photo)
+    length = len(my_photo)
     my_photo = My_Photo.objects.all()[(page - 1) * no_of_pic: page * no_of_pic]
     if page > 1:
         prev = page - 1
     else:
         prev = None
-    if page < math.ceil(lenght / no_of_pic):
+    if page < math.ceil(length / no_of_pic):
         nxt = page + 1
     else:
         nxt = None

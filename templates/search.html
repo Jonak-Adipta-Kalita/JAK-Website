@@ -54,6 +54,19 @@
 					</div>
 				{% endfor %}
 			</div>
+			<div class="my-3">
+				{% if prev %}
+					<button class="btn btn-primary"><a class="text-light text-decoration-none" href="/search?query={{query}}&page={{prev}}">&laquo; Previous</a></button>
+				{% else %}
+					<button disabled class="btn btn-primary"><a class="text-light text-decoration-none">&laquo; Previous</a></button>
+				{% endif %}
+
+				{% if nxt %}
+					<button class="btn btn-primary float-right"><a class="text-light text-decoration-none" href="/search?query={{query}}&page={{nxt}}">Next &raquo;</a></button>
+				{% else %}
+					<button disabled class="btn btn-primary float-right"><a class="text-light text-decoration-none">Next &raquo;</a></button>
+				{% endif %}
+			</div>
 		</div>
 		<br />
 		<br />
