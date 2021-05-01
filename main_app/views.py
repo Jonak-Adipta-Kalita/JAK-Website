@@ -77,7 +77,7 @@ def contact_me(request):
             else:
                 messages.error(request, "Invalid Recaptcha/Credentials!!")
     else:
-        messages.error(request, "Please Login or SingUp!!")
+        messages.error(request, "Please Login or SignUp!!")
     return render(request, 'contact_me.html')
 
 def social_media(request):
