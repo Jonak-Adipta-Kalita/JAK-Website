@@ -1,4 +1,5 @@
 	{% extends 'base.html' %}
+	{% load static %}
 	{% block title %} Home {% endblock %}
 	{% block navbarlink %}
 	<li class="nav-item font-weight-bold">
@@ -11,11 +12,8 @@
         <a class="nav-link" href="/contact_me/">Contact<span class="sr-only">(current)</span></a>
     </li>
 	{% endblock %}
-	{% block style %}
-		.typed_js_text {
-			padding-bottom: 10px;
-			font-size: 20px !important;
-		}
+	{% block head %}
+	<link rel="stylesheet" href="{% static 'styles/home.css' %}">
 	{% endblock %}
 	{% block body %}
 	<br />
@@ -54,18 +52,6 @@
         </div>
 		<br/>
     </div>
+	<script src="{% static 'scripts/home.js' %}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js" async defer></script>
-	{% endblock %}
-	{% block script %}
-	window.onload = function () {
-        var typed = new Typed('#typed', {
-            strings: ["I'm a Coder", "I'm a Student", "I'm an Assamese", "I'm a Designer", "I'm a Gamer", "I'm a Sushi Lover", ],
-            backSpeed: 30,
-            smartBackspace: true,
-            backDelay: 1500,
-            startDelay: 1000,
-            typeSpeed: 25,
-            loop: true,
-        });
-    };
 	{% endblock %}

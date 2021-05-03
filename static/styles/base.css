@@ -1,0 +1,34 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+	display: block;
+}
+
+.close_button {
+	outline: none !important;
+}
+
+.give__margin_pls {
+	margin-right: 8px;
+}
+
+body::-webkit-scrollbar {
+	width: 0 !important;
+}
+
+body {
+	overflow: -moz-scrollbars-none;
+}
+
+body {
+	-ms-overflow-style: none;
+}
+
+.notification-bell {
+	position: absolute;
+}
