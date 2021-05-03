@@ -91,6 +91,9 @@ def search(request):
         page = 1
     else:
         page = int(page)
+    if len(query) == 0:
+        messages.error(request, "Please pass something in the input!!")
+        return redirect('home')
     if len(query) > 10:
         allGamesFav = []
         allGamesOwn = []
