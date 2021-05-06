@@ -44,10 +44,15 @@
 					{% endif %}
 				</div>
 			{% else %}
-				<center><h3>You don't have Permission.</h3></center>
+				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">You don't have Permission</h5>
+                        <a href="grant_permission" class="btn btn-primary d-block">Grant Permission</a>
+                    </div>
+                </div>
 			{% endif %}
 		{% else %}
-			<center><h3>You need to Login or SignUp</h3></center>
+			<center><h5>You need to Login or SignUp</h5></center>
 		{% endif %}
 	</div>
 	<br />
