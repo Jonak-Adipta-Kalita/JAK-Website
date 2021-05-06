@@ -41,3 +41,11 @@ class Notification(models.Model):
     notification_text = models.CharField(max_length=300, default="")
     def __str__(self):
         return self.notification_name
+
+class My_Photo_Permission_Grant(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=70, default="")
+    desc = models.CharField(max_length=500, default="")
+    def __str__(self):
+        return self.name

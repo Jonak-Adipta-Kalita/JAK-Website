@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name="home"),
     path('my_photos/', views.my_photos, name="my_photos"),
+    path('my_photos/grant_permission/', views.my_photos_grant_permission, name="grant_permission_for_view_photos"),
     path('about/', views.about, name="about"),
     path('contact_me/', views.contact_me, name="contact_me"),
     path('social_media/', views.social_media, name="social_media"),

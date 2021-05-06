@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Game_Own, Game_Fav, Contact, My_Photo, Notification
+from .models import My_Photo_Permission_Grant
 import requests, json, math
 import credentials
 
@@ -122,7 +123,33 @@ def search(request):
     params = {"GamesFav": allGamesFav, "GamesOwn": allGamesOwn, "MyPhotos": allMyPhotos, "query": query, 'prev': prev, 'nxt': nxt}
     return render(request, 'search.html', params)
 
+def my_photos_grant_permission(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            name = request.POST.get('name_grant_my_photos', '')
+            email = request.POST.get('email_grant_my_photos', '')
+            desc = request.POST.get('desc_grant_my_photos', '')
+            client_key = request.POST['g-recaptcha-response']
+            secret_key = credentials.RECAPTCHA_SECRET_KEY
+            captchaData = {
+                'secret': secret_key,
+                'response': client_key
+            }
+            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+            response = json.loads(r.text)
+            verify = response['success']
+            grant = My_Photo_Permission_Grant(name=name, email=email, desc=desc)
+            if verify:
+                grant.save()
+                messages.success(request, "Message Sent!!")
+            else:
+                messages.error(request, "Invalid Recaptcha/Credentials!!")
+        return render(request, 'my_photos_grant_permission.html')
+    else:
+        return render(request, '404Error.html')
+
 def my_photos(request):
+    permission = False
     no_of_pic = 9
     page = request.GET.get('page')
     if page is None:
@@ -140,7 +167,6 @@ def my_photos(request):
         nxt = page + 1
     else:
         nxt = None
-    permission = False
     return render(request, 'my_photos.html', {"my_photo": my_photo, 'prev': prev, 'nxt': nxt, 'permission': permission})
 
 def games(request):
