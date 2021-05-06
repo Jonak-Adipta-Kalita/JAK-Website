@@ -140,7 +140,8 @@ def my_photos(request):
         nxt = page + 1
     else:
         nxt = None
-    return render(request, 'my_photos.html', {"my_photo": my_photo, 'prev': prev, 'nxt': nxt, 'permission': False})
+    permission = False
+    return render(request, 'my_photos.html', {"my_photo": my_photo, 'prev': prev, 'nxt': nxt, 'permission': permission})
 
 def games(request):
     return render(request, 'games.html')
