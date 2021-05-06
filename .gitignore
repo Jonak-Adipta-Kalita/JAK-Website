@@ -254,4 +254,5 @@ Thumbs.db #thumbnail cache on Windows
 
 ### vscode ###
 .vscode/*
+.vscode
 *.code-workspace
