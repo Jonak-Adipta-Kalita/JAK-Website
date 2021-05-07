@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Game_Own, Game_Fav, Contact, My_Photo, Notification
-from .models import My_Photo_Permission_Grant
 import requests, json, math
 import credentials
+
+myPhotos_view_permission = False
 
 def index(request):
     return render(request, 'home.html')
@@ -124,32 +125,15 @@ def search(request):
     return render(request, 'search.html', params)
 
 def my_photos_grant_permission(request):
+    global myPhotos_view_permission
     if request.user.is_authenticated:
-        if request.method == "POST":
-            name = request.POST.get('name_grant_my_photos', '')
-            email = request.POST.get('email_grant_my_photos', '')
-            desc = request.POST.get('desc_grant_my_photos', '')
-            client_key = request.POST['g-recaptcha-response']
-            secret_key = credentials.RECAPTCHA_SECRET_KEY
-            captchaData = {
-                'secret': secret_key,
-                'response': client_key
-            }
-            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
-            response = json.loads(r.text)
-            verify = response['success']
-            grant = My_Photo_Permission_Grant(name=name, email=email, desc=desc)
-            if verify:
-                grant.save()
-                messages.success(request, "Message Sent!!")
-            else:
-                messages.error(request, "Invalid Recaptcha/Credentials!!")
-        return render(request, 'my_photos_grant_permission.html')
+        myPhotos_view_permission = True
+        messages.success(request, 'Permission Granted!!')
+        return redirect('/my_photos/')
     else:
         return render(request, '404Error.html')
 
 def my_photos(request):
-    permission = False
     no_of_pic = 9
     page = request.GET.get('page')
     if page is None:
@@ -167,7 +151,7 @@ def my_photos(request):
         nxt = page + 1
     else:
         nxt = None
-    return render(request, 'my_photos.html', {"my_photo": my_photo, 'prev': prev, 'nxt': nxt, 'permission': permission})
+    return render(request, 'my_photos.html', {"my_photo": my_photo, 'prev': prev, 'nxt': nxt, 'permission': myPhotos_view_permission})
 
 def games(request):
     return render(request, 'games.html')
