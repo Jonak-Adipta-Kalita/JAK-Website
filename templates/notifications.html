@@ -18,10 +18,10 @@
     </li>
     {% endblock %}
 	{% block body %}
-		{% if notifications %}
-			{% for notification in notifications%}
-				<div class="container">
-					<div class="row">
+		<div class="container">
+			<div class="row">
+				{% if notifications %}
+					{% for notification in notifications%}
 						<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
 							<div class="card-body">
 								<h5 class="card-title text-center">{{notification.notification_name}}</h5>
@@ -30,10 +30,10 @@
 								</p>
 							</div>
 						</div>
-					</div>
-				</div>
-			{% endfor %}
-		{% else %}
-			<center><h1>All Set!!</h1></center>
-		{% endif %}
+					{% endfor %}
+				{% else %}
+					<center><h5>All Set!!</h5></center>
+				{% endif %}
+			</div>
+		</div>
 	{% endblock %}
