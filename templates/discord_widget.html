@@ -1,10 +1,10 @@
 	{% extends 'base.html' %}
-	{% block title %} 404 - Page Not Found {% endblock %}
-	{% block navbarlink %}
+	{% block title %} Anouncements {% endblock %}
+    {% block navbarlink %}
     <li class="nav-item font-weight-bold">
         <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
     </li>
-	<li class="nav-item font-weight-bold">
+    <li class="nav-item font-weight-bold">
         <a class="nav-link" href="/about/">About<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item font-weight-bold">
@@ -13,23 +13,13 @@
     <li class="nav-item font-weight-bold">
         <a class="nav-link" href="/contact_me/">Contact<span class="sr-only">(current)</span></a>
     </li>
-	<li class="nav-item font-weight-bold">
-        <a class="nav-link" href="/discord_widget/">Discord Widget<span class="sr-only">(current)</span></a>
-    </li>
-	{% endblock %}
+    {% endblock %}
 	{% block body %}
-		<div>
-            <center>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<h1 class="title">
-					404 - Page Not Found!!
-				</h1>
+		<br />
+		<div class="container">
+			<center>
+				<iframe src="https://discord.com/widget?id=752800104112717826&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 			</center>
 		</div>
 	{% endblock %}
+

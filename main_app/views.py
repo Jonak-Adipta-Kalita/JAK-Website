@@ -184,6 +184,9 @@ def notifications(request):
     else:
         return render(request, '404Error.html')
 
+def discord_widget(request):
+    return render(request, 'discord_widget.html')
+
 def handleSignup(request):
     if request.method == "POST":
         username = request.POST['signUpUsername']
