@@ -1,20 +1,6 @@
 	{% extends 'base.html' %}
 	{% load static %}
 	{% block title %} Home {% endblock %}
-	{% block navbarlink %}
-	<li class="nav-item font-weight-bold">
-        <a class="nav-link" href="/about/">About<span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item font-weight-bold">
-        <a class="nav-link" href="/social_media/">Social Media<span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item font-weight-bold">
-        <a class="nav-link" href="/contact_me/">Contact<span class="sr-only">(current)</span></a>
-    </li>
-	<li class="nav-item font-weight-bold">
-        <a class="nav-link" href="/discord_widget/">Discord Widget<span class="sr-only">(current)</span></a>
-    </li>
-	{% endblock %}
 	{% block head %}
 	<link rel="stylesheet" href="{% static 'styles/home.css' %}">
 	{% endblock %}
@@ -51,6 +37,15 @@
                             Here you'll find the Announcements.
                         </p>
                         <a href="anouncements/" class="btn btn-primary d-block">Go to Anouncements</a>
+                    </div>
+                </div>
+				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">My Discord Widget</h5>
+                        <p class="card-text text-center">
+                            Here you'll find the Widget of my Discord Server.
+                        </p>
+                        <a href="discord_widget/" class="btn btn-primary d-block">Go to Discord Widget</a>
                     </div>
                 </div>
 			</div>
