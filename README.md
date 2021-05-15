@@ -55,6 +55,12 @@ python manage.py runserver
 to run the server. After you did that, go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or 
 [http://localhost:8000/](http://localhost:8000/).
 
+## Technology(s) Used
+- Language: [Python](https://www.python.org/)
+- Language Framework: [Django](https://www.djangoproject.com/)
+- CSS Framework: [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- Hosted: [Heroku](https://heroku.com/)
+
 ## Contributors
 <a href = "https://github.com/Jonak-Adipta-Kalita/JAK-Website/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=Jonak-Adipta-Kalita/JAK-Website"/>
