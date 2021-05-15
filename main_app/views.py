@@ -187,6 +187,9 @@ def notifications(request):
 def discord_widget(request):
     return render(request, 'discord_widget.html')
 
+def web_builds(request):
+    return render(request, 'web_builds.html')
+
 def handleSignup(request):
     if request.method == "POST":
         username = request.POST['signUpUsername']
