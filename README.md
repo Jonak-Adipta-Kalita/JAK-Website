@@ -1,6 +1,7 @@
 <div align=center>
 
 # JAK-Website
+![Website](https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Fjonakadiptakalita.herokuapp.com)
 
 </div>
 
@@ -63,5 +64,5 @@ to run the server. After you did that, go to [http://127.0.0.1:8000/](http://127
 
 ## Contributors
 <a href = "https://github.com/Jonak-Adipta-Kalita/JAK-Website/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=Jonak-Adipta-Kalita/JAK-Website"/>
+	<img src = "https://contrib.rocks/image?repo=Jonak-Adipta-Kalita/JAK-Website"/>
 </a>
