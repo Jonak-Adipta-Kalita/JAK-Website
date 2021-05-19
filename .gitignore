@@ -253,4 +253,4 @@ Thumbs.db #thumbnail cache on Windows
 .vscode/*
 
 ### Credentials ##
-credentials.py
+# credentials.py
