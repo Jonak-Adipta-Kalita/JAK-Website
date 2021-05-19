@@ -61,6 +61,7 @@ to run the server. After you did that, go to [http://127.0.0.1:8000/](http://127
 - Language Framework: [Django](https://www.djangoproject.com/)
 - CSS Framework: [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 - Hosted: [Heroku](https://heroku.com/)
+- Icon: [Font Awesome](https://fontawesome.com/)
 
 ## Contributors
 <a href = "https://github.com/Jonak-Adipta-Kalita/JAK-Website/graphs/contributors">
