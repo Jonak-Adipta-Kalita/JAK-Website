@@ -190,6 +190,10 @@ def discord_widget(request):
 def web_builds(request):
     return render(request, 'web_builds.html')
 
+def youtube_videos(request):
+    context = {}
+    return render(request, 'youtube_videos.html', context)
+
 def handleSignup(request):
     if request.method == "POST":
         username = request.POST['signUpUsername']

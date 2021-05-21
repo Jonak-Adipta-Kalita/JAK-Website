@@ -25,4 +25,5 @@ urlpatterns = [
     path('my_profile/notifications', views.notifications, name="notifications"),
     path('discord_widget/', views.discord_widget, name="discord_widget"),
     path('web_builds/', views.web_builds, name="web_builds"),
+    path('youtube_videos/', views.youtube_videos, name="youtube_videos"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
