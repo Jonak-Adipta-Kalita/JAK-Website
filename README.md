@@ -29,7 +29,7 @@ and hit enter.
 `python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'`
 type this in your Terminal. Copy the Output. This is Your DJANGO_SECRET_KEY.
 
-### Getting Recaptcha Secret Key
+### Getting Recaptcha Keys
 Go to [Google Recaptcha](https://www.google.com/recaptcha/about/) and click on "V3 Admin Console".
 In that Page, click on the Plus sign and Register a New Site. In the Label, give whatever name
 you wanna give. In the reCaptcha Type, click on reCaptcha v2 and then "I'am not a Robot" tickbox.
