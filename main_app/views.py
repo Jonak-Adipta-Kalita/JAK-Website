@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Game_Own, Game_Fav, Contact, My_Photo, Notification, YouTubeVideo
+from .models import Game_Own, Game_Fav, Contact, My_Photo, Notification, Youtube_Video
 import requests, json, math
 import credentials
 
@@ -191,7 +191,7 @@ def web_builds(request):
     return render(request, 'web_builds.html')
 
 def youtube_videos(request):
-    youtube_videos = YouTubeVideo.objects.all()
+    youtube_videos = Youtube_Video.objects.all()
     context = {"youtube_videos": youtube_videos}
     return render(request, 'youtube_videos.html', context)
 
