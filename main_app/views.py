@@ -154,22 +154,22 @@ def my_photos(request):
     return render(request, 'my_photos.html', {"my_photo": my_photo, 'prev': prev, 'nxt': nxt, 'permission': myPhotos_view_permission})
 
 def games(request):
-    return render(request, 'games.html')
+    return render(request, 'games/games.html')
 
 def fav(request):
     games_fav = Game_Fav.objects.all()
-    return render(request, 'my_fav.html', {"games_fav": games_fav})
+    return render(request, 'games/my_fav.html', {"games_fav": games_fav})
 
 def own(request):
     games_own = Game_Own.objects.all()
-    return render(request, 'my_own.html', {"games_own": games_own})
+    return render(request, 'games/my_own.html', {"games_own": games_own})
 
 def anouncements(request):
-    return render(request, 'anouncement.html')
+    return render(request, 'announcements/anouncement.html')
 
-def PokeGocode(request):
+def poke_go_code(request):
     if request.user.is_authenticated:
-        return render(request, 'PokeGocode.html')
+        return render(request, 'announcements/poke_go_code.html')
     else:
         return render(request, '404Error.html')
 
