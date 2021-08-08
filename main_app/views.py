@@ -187,9 +187,6 @@ def notifications(request):
 def discord_widget(request):
     return render(request, 'discord_widget.html')
 
-def web_builds(request):
-    return render(request, 'web_builds.html')
-
 def youtube_videos(request):
     youtube_videos = Youtube_Video.objects.all()
     context = {"youtube_videos": youtube_videos}
