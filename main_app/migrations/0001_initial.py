@@ -7,28 +7,43 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Game_Fav',
+            name="Game_Fav",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('game_name', models.CharField(max_length=500)),
-                ('game_link', models.CharField(max_length=500)),
-                ('desc', models.CharField(max_length=5000)),
-                ('image', models.ImageField(default='', upload_to='')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("game_name", models.CharField(max_length=500)),
+                ("game_link", models.CharField(max_length=500)),
+                ("desc", models.CharField(max_length=5000)),
+                ("image", models.ImageField(default="", upload_to="")),
             ],
         ),
         migrations.CreateModel(
-            name='Game_Own',
+            name="Game_Own",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('game_name', models.CharField(max_length=500)),
-                ('game_link', models.CharField(max_length=500)),
-                ('desc', models.CharField(max_length=5000)),
-                ('image', models.ImageField(default='', upload_to='')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("game_name", models.CharField(max_length=500)),
+                ("game_link", models.CharField(max_length=500)),
+                ("desc", models.CharField(max_length=5000)),
+                ("image", models.ImageField(default="", upload_to="")),
             ],
         ),
     ]

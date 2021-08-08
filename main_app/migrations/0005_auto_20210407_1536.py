@@ -6,46 +6,46 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0004_auto_20210407_1528'),
+        ("main_app", "0004_auto_20210407_1528"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='game_fav',
-            name='image',
+            model_name="game_fav",
+            name="image",
         ),
         migrations.RemoveField(
-            model_name='game_own',
-            name='image',
+            model_name="game_own",
+            name="image",
         ),
         migrations.AlterField(
-            model_name='game_fav',
-            name='desc',
-            field=models.CharField(default='', max_length=5000),
+            model_name="game_fav",
+            name="desc",
+            field=models.CharField(default="", max_length=5000),
         ),
         migrations.AlterField(
-            model_name='game_fav',
-            name='game_link',
-            field=models.CharField(default='', max_length=500),
+            model_name="game_fav",
+            name="game_link",
+            field=models.CharField(default="", max_length=500),
         ),
         migrations.AlterField(
-            model_name='game_fav',
-            name='game_name',
-            field=models.CharField(default='', max_length=500),
+            model_name="game_fav",
+            name="game_name",
+            field=models.CharField(default="", max_length=500),
         ),
         migrations.AlterField(
-            model_name='game_own',
-            name='desc',
-            field=models.CharField(default='', max_length=5000),
+            model_name="game_own",
+            name="desc",
+            field=models.CharField(default="", max_length=5000),
         ),
         migrations.AlterField(
-            model_name='game_own',
-            name='game_link',
-            field=models.CharField(default='', max_length=500),
+            model_name="game_own",
+            name="game_link",
+            field=models.CharField(default="", max_length=500),
         ),
         migrations.AlterField(
-            model_name='game_own',
-            name='game_name',
-            field=models.CharField(default='', max_length=500),
+            model_name="game_own",
+            name="game_name",
+            field=models.CharField(default="", max_length=500),
         ),
     ]

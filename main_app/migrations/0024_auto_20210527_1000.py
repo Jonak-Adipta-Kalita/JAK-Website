@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0023_youtubevideos'),
+        ("main_app", "0023_youtubevideos"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='YouTubeVideos',
-            new_name='YouTubeVideo',
+            old_name="YouTubeVideos",
+            new_name="YouTubeVideo",
         ),
     ]

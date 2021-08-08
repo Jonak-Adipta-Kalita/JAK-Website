@@ -6,11 +6,11 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0019_auto_20210507_1453'),
+        ("main_app", "0019_auto_20210507_1453"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='My_Photo_Permission_Grant',
+            name="My_Photo_Permission_Grant",
         ),
     ]

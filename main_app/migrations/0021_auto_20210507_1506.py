@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0020_delete_my_photo_permission_grant'),
+        ("main_app", "0020_delete_my_photo_permission_grant"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='my_photo',
-            options={'permissions': (('can_view_my_photos', 'Can View The Photos'),)},
+            name="my_photo",
+            options={"permissions": (("can_view_my_photos", "Can View The Photos"),)},
         ),
     ]

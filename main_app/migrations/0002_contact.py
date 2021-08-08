@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0001_initial'),
+        ("main_app", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('msg_id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=500)),
-                ('email', models.CharField(default='', max_length=500)),
-                ('phone', models.CharField(default='', max_length=500)),
-                ('desc', models.CharField(default='', max_length=5000)),
+                ("msg_id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=500)),
+                ("email", models.CharField(default="", max_length=500)),
+                ("phone", models.CharField(default="", max_length=500)),
+                ("desc", models.CharField(default="", max_length=5000)),
             ],
         ),
     ]

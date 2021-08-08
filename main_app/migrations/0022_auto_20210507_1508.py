@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0021_auto_20210507_1506'),
+        ("main_app", "0021_auto_20210507_1506"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='my_photo',
+            name="my_photo",
             options={},
         ),
     ]

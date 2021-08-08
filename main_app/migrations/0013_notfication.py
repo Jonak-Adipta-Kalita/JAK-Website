@@ -6,16 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0012_auto_20210411_1201'),
+        ("main_app", "0012_auto_20210411_1201"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Notfication',
+            name="Notfication",
             fields=[
-                ('notification_id', models.AutoField(primary_key=True, serialize=False)),
-                ('notification_name', models.CharField(default='', max_length=10)),
-                ('notification_text', models.CharField(default='', max_length=100)),
+                (
+                    "notification_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                ("notification_name", models.CharField(default="", max_length=10)),
+                ("notification_text", models.CharField(default="", max_length=100)),
             ],
         ),
     ]

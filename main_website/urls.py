@@ -10,11 +10,11 @@ admin.site.site_title = ""
 admin.site.index_title = "JAK Website"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include("main_app.urls")),
-    url(r'^$', page_not_found, name="page_not_found"),
-    url(r'^media/(?P<path>.*)$', serve, { 'document_root': settings.MEDIA_ROOT }),
-    url(r'^static/(?P<path>.*)$', serve, { 'document_root': settings.STATIC_ROOT }),
+    path("admin/", admin.site.urls),
+    path("", include("main_app.urls")),
+    url(r"^$", page_not_found, name="page_not_found"),
+    url(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    url(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]
 
-handler404 = 'main_app.views.handler404'
+handler404 = "main_app.views.handler404"

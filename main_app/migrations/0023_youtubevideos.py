@@ -6,17 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0022_auto_20210507_1508'),
+        ("main_app", "0022_auto_20210507_1508"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='YouTubeVideos',
+            name="YouTubeVideos",
             fields=[
-                ('youtube_videos_id', models.AutoField(primary_key=True, serialize=False)),
-                ('title', models.CharField(default='', max_length=25)),
-                ('link', models.CharField(default='', max_length=50)),
-                ('thumbnail', models.CharField(default='', max_length=50)),
+                (
+                    "youtube_videos_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                ("title", models.CharField(default="", max_length=25)),
+                ("link", models.CharField(default="", max_length=50)),
+                ("thumbnail", models.CharField(default="", max_length=50)),
             ],
         ),
     ]

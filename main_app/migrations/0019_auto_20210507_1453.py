@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0018_auto_20210507_1441'),
+        ("main_app", "0018_auto_20210507_1441"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='my_photo_permission_grant',
+            name="my_photo_permission_grant",
             options={},
         ),
     ]

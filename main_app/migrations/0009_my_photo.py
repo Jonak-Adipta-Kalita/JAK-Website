@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0008_auto_20210411_1136'),
+        ("main_app", "0008_auto_20210411_1136"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='My_Photo',
+            name="My_Photo",
             fields=[
-                ('photo_id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=50)),
-                ('desc', models.CharField(default='', max_length=500)),
-                ('image', models.ImageField(default='', upload_to='image')),
+                ("photo_id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=50)),
+                ("desc", models.CharField(default="", max_length=500)),
+                ("image", models.ImageField(default="", upload_to="image")),
             ],
         ),
     ]

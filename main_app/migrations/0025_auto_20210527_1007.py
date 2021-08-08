@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0024_auto_20210527_1000'),
+        ("main_app", "0024_auto_20210527_1000"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='youtubevideo',
-            name='link',
-            field=models.CharField(default='', max_length=60),
+            model_name="youtubevideo",
+            name="link",
+            field=models.CharField(default="", max_length=60),
         ),
         migrations.AlterField(
-            model_name='youtubevideo',
-            name='thumbnail',
-            field=models.CharField(default='', max_length=60),
+            model_name="youtubevideo",
+            name="thumbnail",
+            field=models.CharField(default="", max_length=60),
         ),
         migrations.AlterField(
-            model_name='youtubevideo',
-            name='title',
-            field=models.TextField(default=''),
+            model_name="youtubevideo",
+            name="title",
+            field=models.TextField(default=""),
         ),
     ]

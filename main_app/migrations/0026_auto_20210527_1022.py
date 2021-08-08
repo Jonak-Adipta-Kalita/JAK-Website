@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0025_auto_20210527_1007'),
+        ("main_app", "0025_auto_20210527_1007"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='youtubevideo',
-            name='link',
-            field=models.CharField(default='', max_length=300),
+            model_name="youtubevideo",
+            name="link",
+            field=models.CharField(default="", max_length=300),
         ),
         migrations.AlterField(
-            model_name='youtubevideo',
-            name='thumbnail',
-            field=models.CharField(default='', max_length=300),
+            model_name="youtubevideo",
+            name="thumbnail",
+            field=models.CharField(default="", max_length=300),
         ),
     ]
