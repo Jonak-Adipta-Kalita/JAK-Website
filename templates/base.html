@@ -47,7 +47,7 @@
 						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 					</form>
 					{% if user.is_authenticated %}
-						<a class="text-light mx-3" href="/my_profile/notifications" role="button">
+						<a class="text-light mx-3" href="/your_profile/notifications" role="button">
 							<i class="fa fa-bell fa-2x"></i>
 							<span class="badge notification-bell badge-danger"></span>
 						</a>
@@ -57,7 +57,7 @@
 									Welcome {{request.user}}
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="/my_profile/my_account/">My Profile</a>
+									<a class="dropdown-item" href="/your_profile/your_account/">Your Profile</a>
 									<a class="dropdown-item" href="/logout/">Logout</a>
 								</div>
 							</li>

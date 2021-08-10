@@ -50,10 +50,10 @@ def handleChangePassword(request):
         return render(request, "404Error.html")
 
 
-def my_account(request):
+def your_account(request):
     if request.user.is_authenticated:
         context = {"user": request.user}
-        return render(request, "my_account.html", context)
+        return render(request, "your_profile/your_account.html", context)
     else:
         return render(request, "404Error.html")
 
@@ -218,7 +218,7 @@ def notifications(request):
     if request.user.is_authenticated:
         notifications = Notification.objects.all()
         context = {"notifications": notifications}
-        return render(request, "notifications.html", context)
+        return render(request, "your_profile/notifications.html", context)
     else:
         return render(request, "404Error.html")
 

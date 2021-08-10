@@ -28,13 +28,13 @@ urlpatterns = [
     path("signup/", views.handleSignup, name="handleSignup"),
     path("login/", views.handleLogin, name="handleLogin"),
     path("logout/", views.handleLogout, name="handleLogout"),
-    path("my_profile/my_account/", views.my_account, name="my_account"),
+    path("your_profile/your_account/", views.your_account, name="my_account"),
     path(
-        "my_profile/my_account/change_password/",
+        "your_profile/your_account/change_password/",
         views.handleChangePassword,
         name="change_password",
     ),
-    path("my_profile/notifications", views.notifications, name="notifications"),
+    path("your_profile/notifications", views.notifications, name="notifications"),
     path("discord_widget/", views.discord_widget, name="discord_widget"),
     path("youtube_videos/", views.youtube_videos, name="youtube_videos"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
