@@ -1,9 +1,11 @@
+from decouple import config
+
 PORTS = [
     "jonakadiptakalita.herokuapp.com",
     "jonakadiptakalita.com",
     "localhost",
     "127.0.0.1",
 ]
-SECRET_KEY = "(8s-_e&&b#&&8!!asuuafog(o%*l)3cufrpnzvr$u@h6fj@8k_"
-RECAPTCHA_SECRET_KEY = "6LdC8KAaAAAAALYaDETpXQxAaX50_LM7Dlw29n6o"
-RECAPTCHA_CLIENT_KEY = "6LdC8KAaAAAAALZ2keQ9F4S5gnXwC9xXRG3rxQjT"
+SECRET_KEY = config("SECRET_KEY")
+RECAPTCHA_SECRET_KEY = config("RECAPTCHA_SECRET_KEY")
+RECAPTCHA_CLIENT_KEY = config("RECAPTCHA_CLIENT_KEY")
