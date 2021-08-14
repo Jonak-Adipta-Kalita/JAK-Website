@@ -37,13 +37,12 @@ In domains Enter `http://127.0.0.1:8000/`. Accept the Terms and Services and Cli
 copy the Secret Key and The Client Key.
 
 ### Passing the Required Credentials
-Create a new file `credentails.py` in the Base Directory. In the `credentails.py` file,
+Create a new file `.env` in the Base Directory. In the `.env` file,
 paste the following:
-```python
-PORTS = ['localhost', '127.0.0.1']
-SECRET_KEY = "<YOUR_DJANGO_SECRET_KEY>"
-RECAPTCHA_SECRET_KEY = "<YOUR_RECAPTCHA_SECRET_KEY>"
-RECAPTCHA_CLIENT_KEY = "<YOUR_RECAPTCHA_CLIENT_KEY>"
+```env
+SECRET_KEY=<YOUR_DJANGO_SECRET_KEY>
+RECAPTCHA_SECRET_KEY=<YOUR_RECAPTCHA_SECRET_KEY>
+RECAPTCHA_CLIENT_KEY=<YOUR_RECAPTCHA_CLIENT_KEY>
 ```
 
 ### Running the server:
