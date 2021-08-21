@@ -3,6 +3,9 @@
 # JAK-Website
 ![Website](https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Fjonakadiptakalita.herokuapp.com)
 [![Code Style: Black](https://img.shields.io/badge/Code%20Style-Black-000000.svg?style=for-the-badge)](https://github.com/psf/black)
+![GitHub Repo Stars](https://img.shields.io/github/stars/Jonak-Adipta-Kalita/JAK-Website?style=for-the-badge)
+![GitHub Forks](https://img.shields.io/github/forks/Jonak-Adipta-Kalita/JAK-Website?style=for-the-badge)
+![GitHub Watchers](https://img.shields.io/github/watchers/Jonak-Adipta-Kalita/JAK-Website?style=for-the-badge)
 
 </div>
 
