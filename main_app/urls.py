@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.conf import settings
@@ -19,12 +18,6 @@ urlpatterns = [
     path("games/", views.games, name="GamesHome"),
     path("games/my_fav/", views.fav, name="GamesFav"),
     path("games/my_own/", views.own, name="GamesOwn"),
-    path("anouncements/", views.anouncements, name="AnouncementHome"),
-    path(
-        "anouncements/poke_go_code/",
-        views.poke_go_code,
-        name="AnouncementPokeGoCodeHome",
-    ),
     path("signup/", views.handleSignup, name="handleSignup"),
     path("login/", views.handleLogin, name="handleLogin"),
     path("logout/", views.handleLogout, name="handleLogout"),

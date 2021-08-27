@@ -34,6 +34,7 @@ ALLOWED_HOSTS = credentials.PORTS
 
 INSTALLED_APPS = [
     "main_app.apps.MainAppConfig",
+    "announcements.apps.AnnouncementsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

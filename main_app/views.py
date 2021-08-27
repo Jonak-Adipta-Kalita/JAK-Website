@@ -199,17 +199,6 @@ def own(request):
     return render(request, "games/my_own.html", {"games_own": games_own})
 
 
-def anouncements(request):
-    return render(request, "announcements/anouncement.html")
-
-
-def poke_go_code(request):
-    if request.user.is_authenticated:
-        return render(request, "announcements/poke_go_code.html")
-    else:
-        return render(request, "404Error.html")
-
-
 def handler404(request, *args, **argv):
     return render(request, "404Error.html")
 
