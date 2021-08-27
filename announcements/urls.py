@@ -9,5 +9,5 @@ urlpatterns = [
         "poke_go_code/",
         views.poke_go_code,
         name="poke_go_code",
-    )
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
