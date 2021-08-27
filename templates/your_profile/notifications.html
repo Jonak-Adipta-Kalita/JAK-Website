@@ -1,22 +1,27 @@
-	{% extends 'base.html' %}
-	{% block title %} Notifications {% endblock %}
-	{% block body %}
-		<div class="container">
-			<div class="row">
-				{% if notifications %}
-					{% for notification in notifications%}
-						<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-							<div class="card-body">
-								<h5 class="card-title text-center">{{notification.notification_name}}</h5>
-								<p class="card-text text-center">
-									{{notification.notification_text}}
-								</p>
-							</div>
+{% extends "base.html" %}
+{% block title %} Notifications {% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="row">
+			{% if notifications %}
+				{% for notification in notifications%}
+					<div
+						class="card mx-auto my-2 p-2 align-items-center"
+						style="width: 18rem;"
+					>
+						<div class="card-body">
+							<h5 class="card-title text-center">
+								{{ notification.notification_name }}
+							</h5>
+							<p class="card-text text-center">
+								{{ notification.notification_text }}
+							</p>
 						</div>
-					{% endfor %}
-				{% else %}
-					<center><h5>All Set!!</h5></center>
-				{% endif %}
-			</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<center><h5>All Set!!</h5></center>
+			{% endif %}
 		</div>
-	{% endblock %}
+	</div>
+{% endblock %}

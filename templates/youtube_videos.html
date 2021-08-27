@@ -1,14 +1,27 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block title %} YouTube Videos {% endblock %}
 {% block body %}
 	<div class="container">
 		<div class="row">
 			{% for video in youtube_videos %}
 				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 20rem;">
-					<img loading="lazy" src="{{video.thumbnail}}" class="padded card-img-top" alt="thumbnail" />
+					<img
+						loading="lazy"
+						src="{{ video.thumbnail }}"
+						class="padded card-img-top"
+						alt="thumbnail"
+					/>
 					<div class="card-body">
-						<p class="card-text text-center">{{video.title}}</p>
-						<center><a href="{{video.link}}" target="_blank" class="btn btn-primary">LINK <i class="fas fa-external-link-alt"></i></a></center>
+						<p class="card-text text-center">{{ video.title }}</p>
+						<center>
+							<a
+								href="{{ video.link }}"
+								target="_blank"
+								class="btn btn-primary"
+							>
+								LINK <i class="fas fa-external-link-alt"></i>
+							</a>
+						</center>
 					</div>
 				</div>
 			{% endfor %}

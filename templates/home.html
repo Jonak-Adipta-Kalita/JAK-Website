@@ -1,14 +1,18 @@
-	{% extends 'base.html' %}
-	{% load static %}
-	{% block title %} Home {% endblock %}
-	{% block head %}
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block head %}
 	<link rel="stylesheet" href="{% static 'styles/home.css' %}">
-	{% endblock %}
-	{% block body %}
+{% endblock %}
+{% block body %}
 	<br />
     <div class="container-fluid">
         <div class="container">
-			<center><p class="typed_js_text font-weight-bold"><span id="typed"></span></p></center>
+			<center>
+				<p class="typed_js_text font-weight-bold">
+					<span id="typed"></span>
+				</p>
+			</center>
             <div class="row">
 				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
                     <div class="card-body">
@@ -36,7 +40,9 @@
                         <p class="card-text text-center">
                             Here you'll find the Announcements.
                         </p>
-                        <a href="anouncements/" class="btn btn-primary d-block">Go to Anouncements</a>
+                        <a href="anouncements/" class="btn btn-primary d-block">
+							Go to Anouncements
+						</a>
                     </div>
                 </div>
 				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
@@ -45,7 +51,9 @@
                         <p class="card-text text-center">
                             Here you'll find the Widget of my Discord Server.
                         </p>
-                        <a href="discord_widget/" class="btn btn-primary d-block">Go to Discord Widget</a>
+                        <a href="discord_widget/" class="btn btn-primary d-block">
+							Go to Discord Widget
+						</a>
                     </div>
                 </div>
 				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
@@ -54,7 +62,9 @@
                         <p class="card-text text-center">
                             Here you'll find all my YouTube Videos.
                         </p>
-                        <a href="youtube_videos/" class="btn btn-primary d-block">Go to My YouTube Videos</a>
+                        <a href="youtube_videos/" class="btn btn-primary d-block">
+							Go to My YouTube Videos
+						</a>
                     </div>
                 </div>
 			</div>
@@ -62,5 +72,8 @@
 		<br/>
     </div>
 	<script src="{% static 'scripts/home.js' %}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js" async defer></script>
-	{% endblock %}
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"
+		async defer
+	></script>
+{% endblock %}

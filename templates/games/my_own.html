@@ -1,17 +1,28 @@
-	{% extends 'base.html' %}
-	{% block title %} Games | My Own {% endblock %}
-	{% block body %}
+{% extends "base.html" %}
+{% block title %} Games | My Own {% endblock %}
+{% block body %}
 	{% if games_own %}
 		<div class="container">
 			<div class="row">
 				{% for i in games_own %}
 					<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-						<img loading="lazy" src="/media/{{i.image}}" class="padded card-img-top" alt="game_img" />
+						<img
+							loading="lazy"
+							src="/media/{{ i.image }}"
+							class="padded card-img-top"
+							alt="game_img"
+						/>
 						<div class="card-body">
 							<h5 class="card-title">
 								{{ i.game_name }}
 							</h5>
-							<a href="{{ i.game_link }}" target="_blank" class="btn btn-primary">Play <i class="fas fa-external-link-alt"></i></a>
+							<a
+								href="{{ i.game_link }}"
+								target="_blank"
+								class="btn btn-primary"
+							>
+								Play <i class="fas fa-external-link-alt"></i>
+							</a>
 						</div>
 					</div> 
 				{% endfor %}
@@ -20,4 +31,4 @@
 	{% else %}
 		<center><h5>Nothing...</h5></center>
 	{% endif %}
-	{% endblock %}
+{% endblock %}
