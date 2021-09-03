@@ -10,6 +10,8 @@
 
 </div>
 
+- 	Note: [Formatting](#format-code) the Code before Pushing is Important!!
+
 Go to the [Website](https://jonakadiptakalita.herokuapp.com/)
 
 ## Steps
@@ -59,6 +61,15 @@ python manage.py runserver
 ``` 
 to run the server. After you did that, go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or 
 [http://localhost:8000/](http://localhost:8000/).
+
+## Format Code
+In a terminal, type
+```bash
+.\venv\Scripts\activate
+black .
+deactivate
+```
+and press Enter.
 
 ## Technology(s) Used
 - Language: [Python](https://www.python.org/)
