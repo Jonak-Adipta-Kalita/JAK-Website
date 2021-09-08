@@ -10,7 +10,7 @@ idna==2.10
 marshmallow==3.12.1
 oauthlib==3.1.1
 Panda3D==1.10.7
-Pillow==8.3.0
+Pillow>=8.3.2
 pycparser==2.20
 PyJWT==2.1.0
 python-decouple==3.4
