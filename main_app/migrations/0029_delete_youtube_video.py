@@ -6,11 +6,11 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0028_auto_20210827_1503'),
+        ("main_app", "0028_auto_20210827_1503"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='Youtube_Video',
+            name="Youtube_Video",
         ),
     ]
