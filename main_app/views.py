@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .models import Game_Own, Game_Fav, Contact, My_Photo, Notification, Youtube_Video
+from .models import Game_Own, Game_Fav, Contact, My_Photo, Notification
 import requests, json, math
 import credentials
 
@@ -17,7 +17,7 @@ def about(request):
     return render(request, "about.html")
 
 
-def handleChangePassword(request):
+def handle_change_password(request):
     if request.user.is_authenticated and request.method == "POST":
         current_pass = request.POST["changepass_currentpass"]
         new_pass = request.POST["changepass_newpass"]
@@ -216,13 +216,7 @@ def discord_widget(request):
     return render(request, "discord_widget.html")
 
 
-def youtube_videos(request):
-    youtube_videos = Youtube_Video.objects.all()
-    context = {"youtube_videos": youtube_videos}
-    return render(request, "youtube_videos.html", context)
-
-
-def handleSignup(request):
+def handle_signup(request):
     if request.method == "POST":
         username = request.POST["signUpUsername"]
         fname = request.POST["fname"]
@@ -262,7 +256,7 @@ def handleSignup(request):
         return render(request, "404Error.html")
 
 
-def handleLogin(request):
+def handle_login(request):
     if request.method == "POST":
         loginUsername = request.POST["loginUsername"]
         loginPassword = request.POST["loginPass"]
@@ -286,7 +280,7 @@ def handleLogin(request):
         return render(request, "404Error.html")
 
 
-def handleLogout(request):
+def handle_logout(request):
     if request.user.is_authenticated:
         logout(request)
         messages.success(request, "Successfully Logged Out!!")

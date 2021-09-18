@@ -51,13 +51,3 @@ class Notification(models.Model):
 
     def __str__(self):
         return self.notification_name
-
-
-class Youtube_Video(models.Model):
-    youtube_videos_id = models.AutoField(primary_key=True)
-    title = models.TextField(default="")
-    link = models.CharField(max_length=300, default="")
-    thumbnail = models.CharField(max_length=300, default="")
-
-    def __str__(self):
-        return self.title
