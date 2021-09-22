@@ -12,6 +12,7 @@ admin.site.index_title = "JAK Website"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("main_app.urls")),
+    path("your_profile/", include("your_profile.urls")),
     path("announcements/", include("announcements.urls")),
     url(r"^$", page_not_found, name="page_not_found"),
     url(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),

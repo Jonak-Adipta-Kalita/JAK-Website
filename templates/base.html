@@ -127,7 +127,12 @@
 										>
 											Your Profile
 										</a>
-										<a class="dropdown-item" href="/logout/">Logout</a>
+										<a
+											class="dropdown-item"
+											href="/your_profile/logout/"
+										>
+											Logout
+										</a>
 									</div>
 								</li>
 							</ul>
@@ -219,7 +224,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form action="/signup/" method='post'>
+						<form action="/your_profile/signup/" method='post'>
 							{% csrf_token %}
 							<div class="form-group">
 								<label for="signUpUsername">Username</label>
@@ -322,7 +327,7 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form action="/login/" method='post'>
+						<form action="/your_profile/login/" method='post'>
 							{% csrf_token %}
 							<div class="form-group">
 								<label for="loginUsername">Username</label>

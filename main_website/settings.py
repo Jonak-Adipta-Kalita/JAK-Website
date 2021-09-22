@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = credentials.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = credentials.PORTS
 
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = credentials.PORTS
 
 INSTALLED_APPS = [
     "main_app.apps.MainAppConfig",
+    "your_profile.apps.YourProfileConfig",
     "announcements.apps.AnnouncementsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
