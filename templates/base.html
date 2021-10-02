@@ -31,20 +31,6 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="{% static 'styles/base.css' %}" />
-		<script type="text/javascript">
-			if ("serviceWorker" in navigator) {
-				navigator.serviceWorker.register("/serviceworker.js", {
-					scope: "."
-				}).then((registration) => {
-					console.log(
-						"ServiceWorker registration successful with scope: ", 
-						registration.scope
-					);
-				}, (err) => {
-					console.log("ServiceWorker registration failed: ", err);
-				});
-			}
-		</script>
 		<title>JAK Website | {% block title%} {% endblock %}</title>
 		{% block head %} {% endblock %}
 	</head>

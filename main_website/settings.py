@@ -16,6 +16,7 @@ PWA_APP_SCOPE = "/"
 PWA_APP_DEBUG_MODE = False
 PWA_APP_ICONS = [{"src": "/static/images/logo.png", "sizes": "160x160"}]
 PWA_APP_ICONS_APPLE = [{"src": "/static/images/logo.png", "sizes": "160x160"}]
+PWA_APP_LANG = "en-US"
 
 SECRET_KEY = credentials.SECRET_KEY
 
