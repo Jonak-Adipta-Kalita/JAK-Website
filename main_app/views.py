@@ -162,3 +162,7 @@ def handler404(request, *args, **argv):
 
 def discord_widget(request):
     return render(request, "discord_widget.html")
+    
+
+def base_layout(request):
+    return render(request, "base.html")

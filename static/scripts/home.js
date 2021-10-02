@@ -1,10 +1,10 @@
 const stringsArray = [
-	"I'm a Coder",
-	"I'm a Student",
-	"I'm an Assamese",
-	"I'm a Designer",
-	"I'm a Gamer",
-	"I'm a Sushi Lover",
+    "I'm a Coder",
+    "I'm a Student",
+    "I'm an Assamese",
+    "I'm a Designer",
+    "I'm a Gamer",
+    "I'm a Sushi Lover",
 ];
 
 window.onload = () => {

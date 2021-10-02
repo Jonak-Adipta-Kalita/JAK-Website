@@ -6,33 +6,33 @@
     background-color: #7a7566;
     color: white;
     text-align: center;
-	display: block;
+    display: block;
 }
 
 .close_button {
-	outline: none !important;
+    outline: none !important;
 }
 
 .give__margin_pls {
-	margin-right: 8px;
+    margin-right: 8px;
 }
 
 body::-webkit-scrollbar {
-	width: 0 !important;
+    width: 0 !important;
 }
 
 body {
-	overflow: -moz-scrollbars-none;
+    overflow: -moz-scrollbars-none;
 }
 
 body {
-	-ms-overflow-style: none;
+    -ms-overflow-style: none;
 }
 
 .notification-bell {
-	position: absolute;
+    position: absolute;
 }
 
 .cursor-not-allowed {
-	cursor: not-allowed !important;
+    cursor: not-allowed !important;
 }
