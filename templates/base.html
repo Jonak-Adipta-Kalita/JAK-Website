@@ -2,6 +2,7 @@
 <html lang="en">
 {% load pwa %}
 {% load static %}
+
 	<head>
 		<meta charset="utf-8" />
 		<link rel="manifest" href="/manifest.json" />
@@ -118,7 +119,7 @@
 								<span class="badge notification-bell badge-danger"></span>
 							</a>
 							<ul class="navbar-nav navbar-default">
-								<li class="nav-item dropdown give__margin_pls">
+								<li class="nav-item dropdown" style="margin-right: 8px;">
 									<a
 										class="nav-link dropdown-toggle"
 										href="#"
@@ -130,7 +131,10 @@
 									>
 										Welcome {{ request.user }}
 									</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<div
+										class="dropdown-menu"
+										aria-labelledby="navbarDropdown"
+									>
 										<a
 											class="dropdown-item"
 											href="/your_profile/your_account/"
@@ -186,11 +190,14 @@
 						</div>
 					{% endfor %}
 				{% else %}
-					<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<div
+						class="alert alert-success alert-dismissible fade show"
+						role="alert"
+					>
 						<strong>Welcome to my Website!!</strong>
 						<button
 							type="button"
-							class="close close_button"
+							class="close close-button"
 							data-dismiss="alert"
 							aria-label="Close"
 						>
@@ -204,8 +211,12 @@
 			<br />
 			<br />
 			<br />
-			{% block body %}
-			{% endblock %}
+			<div class="container">
+				{% block body %}
+				{% endblock %}
+			</div>
+			<br />
+			<br />
 			<footer class="footer">
 				<p class="mb-0 mt-0 text-center">&copy; 2021 jonakadiptakalita.com</p>
 			</footer>

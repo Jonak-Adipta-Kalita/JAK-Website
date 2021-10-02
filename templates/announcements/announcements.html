@@ -1,143 +1,139 @@
 {% extends "base.html" %}
 {% block title %} Anouncements {% endblock %}
 {% block body %}
-	<div class="container">
-		{% if user.is_authenticated %}
-			<div class="row">
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My PokeGo Code</h5>
-						<p class="card-text text-center">
-							Become My Friend In PokeGo!!
-						</p>
-						<a href="poke_go_code/" class="btn btn-primary d-block">CODE</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My WhatsApp Group</h5>
-						<p class="card-text text-center">
-							Join my Whatsapp Group!!
-						</p>
-						<a
-							href="https://chat.whatsapp.com/EOOq0J7ixKsBeiOOyrCyZH"
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							LINK <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My API</h5>
-						<p class="card-text text-center">
-							Checkout my Own API!!
-						</p>
-						<a
-							href="https://jak-api-dot-com.herokuapp.com/"
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							LINK <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My Discord Bot</h5>
-						<p class="card-text text-center">
-							Invite my Discord Bot to your Discord Server!!
-						</p>
-						<a
-							href="https://discord.com/oauth2/authorize?client_id=756402881913028689&scope=bot" 
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							INVITE <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My Discord Template</h5>
-						<p class="card-text text-center">
-							Use my Discord Template to Create your Server!!
-						</p>
-						<a
-							href="https://discord.new/3xd7Cj7um9Az"
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							LINK <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My WhatsApp Sticker Pack</h5>
-						<p class="card-text text-center">
-							Use my WhatsApp Sticker Pack!!
-						</p>
-						<a
-							href="http://sticker.ly/s/N4ILIZ"
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							LINK <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My Python Package</h5>
-						<p class="card-text text-center">
-							Use my Python Package!!
-						</p>
-						<a
-							href="https://pypi.org/project/beast-night-tv/"
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							LINK <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My JavaScript Package</h5>
-						<p class="card-text text-center">
-							Use my JavaScript Package!!
-						</p>
-						<a 
-							href="https://www.npmjs.com/package/@xxjonakadiptaxx/jak_javascript_package"
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							LINK <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
-				</div>
-				<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title text-center">My VSCode Extension</h5>
-						<p class="card-text text-center">
-							Use my VSCode Extension!!
-						</p>
-						<a 
-							href="https://marketplace.visualstudio.com/items?itemName=JAKVSCodeExtension.jak-vscode-extension"
-							target="_blank"
-							class="btn btn-primary d-block"
-						>
-							LINK <i class="fas fa-external-link-alt"></i>
-						</a>
-					</div>
+	{% if user.is_authenticated %}
+		<div class="row">
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My PokeGo Code</h5>
+					<p class="card-text text-center">
+						Become My Friend In PokeGo!!
+					</p>
+					<a href="poke_go_code/" class="btn btn-primary d-block">CODE</a>
 				</div>
 			</div>
-		{% else %}
-			<center><h5>You need to Login or SignUp</h5></center>
-		{% endif %}
-	</div>
-	<br />
-	<br />
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My WhatsApp Group</h5>
+					<p class="card-text text-center">
+						Join my Whatsapp Group!!
+					</p>
+					<a
+						href="https://chat.whatsapp.com/EOOq0J7ixKsBeiOOyrCyZH"
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+						LINK <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My API</h5>
+					<p class="card-text text-center">
+						Checkout my Own API!!
+					</p>
+					<a
+						href="https://jak-api-dot-com.herokuapp.com/"
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+						LINK <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My Discord Bot</h5>
+					<p class="card-text text-center">
+						Invite my Discord Bot to your Discord Server!!
+					</p>
+					<a
+						href="https://discord.com/oauth2/authorize?client_id=756402881913028689&scope=bot" 
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+						INVITE <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My Discord Template</h5>
+					<p class="card-text text-center">
+						Use my Discord Template to Create your Server!!
+					</p>
+					<a
+						href="https://discord.new/3xd7Cj7um9Az"
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+						LINK <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My WhatsApp Sticker Pack</h5>
+					<p class="card-text text-center">
+						Use my WhatsApp Sticker Pack!!
+					</p>
+					<a
+						href="http://sticker.ly/s/N4ILIZ"
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+						LINK <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My Python Package</h5>
+					<p class="card-text text-center">
+						Use my Python Package!!
+					</p>
+					<a
+						href="https://pypi.org/project/beast-night-tv/"
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+						LINK <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My JavaScript Package</h5>
+					<p class="card-text text-center">
+						Use my JavaScript Package!!
+					</p>
+					<a 
+						href="https://www.npmjs.com/package/@xxjonakadiptaxx/jak_javascript_package"
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+						LINK <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+			<div class="card mx-auto my-2 p-2 align-items-center" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title text-center">My VSCode Extension</h5>
+					<p class="card-text text-center">
+						Use my VSCode Extension!!
+					</p>
+					<a 
+						href="https://marketplace.visualstudio.com/items?itemName=JAKVSCodeExtension.jak-vscode-extension"
+						target="_blank"
+						class="btn btn-primary d-block"
+					>
+					LINK <i class="fas fa-external-link-alt"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	{% else %}
+		<center><h5>You need to Login or SignUp</h5></center>
+	{% endif %}
 {% endblock %}
