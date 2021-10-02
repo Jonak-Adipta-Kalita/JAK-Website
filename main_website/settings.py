@@ -7,6 +7,16 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, "static", "serviceworker.js")
 
+PWA_APP_NAME = "JAK Website"
+PWA_APP_DESCRIPTION = "Jonak Adipta Kalita's Website"
+PWA_APP_THEME_COLOR = "#d4edda"
+PWA_APP_BACKGROUND_COLOR = "#ffffff"
+PWA_APP_DISPLAY = "standalone"
+PWA_APP_SCOPE = "/"
+PWA_APP_DEBUG_MODE = False
+PWA_APP_ICONS = [{"src": "/static/images/logo.png", "sizes": "160x160"}]
+PWA_APP_ICONS_APPLE = [{"src": "/static/images/logo.png", "sizes": "160x160"}]
+
 SECRET_KEY = credentials.SECRET_KEY
 
 DEBUG = False
