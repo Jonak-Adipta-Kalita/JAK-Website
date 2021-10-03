@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-SITE_ID = 1
+SECURE_SSL_REDIRECT = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
