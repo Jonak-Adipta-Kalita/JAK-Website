@@ -4,10 +4,13 @@ from main_app.views import handler404 as page_not_found
 from django.conf.urls import url
 from django.conf import settings
 from django.views.static import serve
+from django.views.generic import TemplateView
 
 admin.site.site_header = "Developer: Jonak"
 admin.site.site_title = ""
 admin.site.index_title = "JAK Website"
+
+sitemaps = {}
 
 urlpatterns = [
     path("admin/", admin.site.urls),

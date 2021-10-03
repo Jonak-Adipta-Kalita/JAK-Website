@@ -14,8 +14,34 @@ PWA_APP_BACKGROUND_COLOR = "#ffffff"
 PWA_APP_DISPLAY = "standalone"
 PWA_APP_SCOPE = "/"
 PWA_APP_DEBUG_MODE = False
-PWA_APP_ICONS = [{"src": "/static/images/logo.png", "sizes": "160x160"}]
-PWA_APP_ICONS_APPLE = [{"src": "/static/images/logo.png", "sizes": "160x160"}]
+PWA_APP_ICONS = [
+    {
+        "src": "/static/images/logo.png",
+        "sizes": "460x460",
+        "purpose": "any maskable",
+    },
+    {
+        "src": "/static/images/badges/gamer.png",
+        "sizes": "936x936",
+        "purpose": "any maskable",
+    },
+    {
+        "src": "/static/images/badges/picture_perm.png",
+        "sizes": "708x708",
+        "purpose": "any maskable",
+    },
+    {
+        "src": "/static/images/badges/programmer.png",
+        "sizes": "1024x1024",
+        "purpose": "any maskable",
+    },
+    {
+        "src": "/static/images/badges/staff.png",
+        "sizes": "858x858",
+        "purpose": "any maskable",
+    },
+]
+PWA_APP_ICONS_APPLE = [{"src": "/static/images/logo.png", "sizes": "460x460"}]
 PWA_APP_LANG = "en-US"
 
 SECRET_KEY = credentials.SECRET_KEY
@@ -91,6 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

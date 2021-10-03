@@ -1,5 +1,5 @@
 const staticCacheName = `jonakadiptakalita-v${new Date().getTime()}`;
-const filesToCache = ["/base_layout", "/static/images/logo.png"];
+const filesToCache = ["/offline/", "/static/images/logo.png"];
 
 self.addEventListener("install", (event) => {
     this.skipWaiting();

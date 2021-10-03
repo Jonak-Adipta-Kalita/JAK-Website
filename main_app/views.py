@@ -164,5 +164,5 @@ def discord_widget(request):
     return render(request, "discord_widget.html")
 
 
-def base_layout(request):
-    return render(request, "base.html")
+def offline(request):
+    return render(request, "offline.html")
