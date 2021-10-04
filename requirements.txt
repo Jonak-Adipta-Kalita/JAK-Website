@@ -9,7 +9,7 @@ colorama==0.4.4
 cryptography==35.0.0
 defusedxml==0.7.1
 Django==3.2.7
-django-appconf==1.0.4
+django-appconf==1.0.5
 django-progressive-web-app==0.1.1
 gunicorn==20.1.0
 idna==3.2
