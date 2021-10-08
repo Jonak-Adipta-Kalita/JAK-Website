@@ -46,6 +46,8 @@ def social_media(request):
 
 
 def search(request):
+    online = True
+
     if online:
         query = request.GET["query"]
         no_of_results = 9
