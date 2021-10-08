@@ -46,7 +46,10 @@ PWA_APP_LANG = "en-US"
 
 SECRET_KEY = credentials.SECRET_KEY
 
-DEBUG = False
+if credentials.PRODUCTION:
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = credentials.PORTS
 
@@ -118,7 +121,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-SECURE_SSL_REDIRECT = True
+if credentials.PRODUCTION:
+    SECURE_SSL_REDIRECT = True
+else:
+    SECURE_SSL_REDIRECT = False
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
