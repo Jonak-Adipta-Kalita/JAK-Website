@@ -44,7 +44,7 @@ PWA_APP_LANG = "en-US"
 
 SECRET_KEY = credentials.SECRET_KEY
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = credentials.PORTS
 
