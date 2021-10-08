@@ -44,10 +44,7 @@ PWA_APP_LANG = "en-US"
 
 SECRET_KEY = credentials.SECRET_KEY
 
-if credentials.PRODUCTION:
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = credentials.PORTS
 
