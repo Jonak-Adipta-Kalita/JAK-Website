@@ -7,7 +7,6 @@ const filesToCache = [
 	"/about/",
 	"/contact_me/",
 	"/social_media/",
-	"/search",
 	"/games/",
 	"/games/my_fav/",
 	"/games/my_own/",
