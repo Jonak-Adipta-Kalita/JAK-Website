@@ -162,7 +162,3 @@ def handler404(request, *args, **argv):
 
 def discord_widget(request):
     return render(request, "discord_widget.html")
-
-
-def offline(request):
-    return render(request, "offline.html")

@@ -19,5 +19,4 @@ urlpatterns = [
     path("games/my_fav/", views.fav, name="games_fav"),
     path("games/my_own/", views.own, name="games_own"),
     path("discord_widget/", views.discord_widget, name="discord_widget"),
-    path("offline/", views.offline, name="offline"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
