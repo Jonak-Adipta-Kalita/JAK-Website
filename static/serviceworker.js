@@ -1,7 +1,7 @@
 const staticCacheName = `jonakadiptakalita-v${new Date().getTime()}`;
 const filesToCache = [
 	"/",
-	"/manifest.json"
+	"/manifest.json",
 	"/my_photos/",
 	"/my_photos/grant_permission/",
 	"/about/",
