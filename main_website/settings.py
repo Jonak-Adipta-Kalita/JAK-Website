@@ -6,7 +6,6 @@ import credentials
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, "static", "serviceworker.js")
-
 PWA_APP_NAME = "JAK Website"
 PWA_APP_DESCRIPTION = "Jonak Adipta Kalita's Website"
 PWA_APP_THEME_COLOR = "#d4edda"
