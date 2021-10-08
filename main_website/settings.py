@@ -1,7 +1,6 @@
 from pathlib import Path
 from django.contrib.messages import constants as messages
-import os
-import credentials
+import os, credentials
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
