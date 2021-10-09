@@ -1,5 +1,9 @@
 .main-text {
-    font-size: 20px !important;
+    font-size: 19px !important;
+}
+
+.emojis {
+	font-size: 20px !important;
 }
 
 .header .heading {
