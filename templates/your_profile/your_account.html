@@ -8,6 +8,7 @@
 	<div class="your-profile">
 		<h3>Your Profile</h3>
 		<form>
+			{% csrf_token %}
 			<div class="form-group">
 				<label for="my_accountName">Your Name</label>
 				<input
