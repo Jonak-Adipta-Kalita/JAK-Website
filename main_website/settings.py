@@ -46,8 +46,12 @@ SECRET_KEY = credentials.SECRET_KEY
 
 if credentials.PRODUCTION:
     DEBUG = False
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 else:
     DEBUG = True
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
 
 ALLOWED_HOSTS = credentials.PORTS
 
