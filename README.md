@@ -29,10 +29,10 @@ To install the required modules, just open a terminal in the directory where thi
 For the Backend:
 
 ```bash
+cd backend
 pip install virtualenv
 virtualenv venv
 .\venv\Scripts\activate
-cd backend
 pip install -r .\requirements.txt
 ``` 
 
@@ -87,8 +87,8 @@ to run the frontend. After you did that, go to [http://127.0.0.1:3000/](http://1
 ## Format Code
 In a terminal, type
 ```bash
-.\venv\Scripts\activate
 cd backend
+.\venv\Scripts\activate
 black .
 deactivate
 ```
