@@ -5,5 +5,5 @@ PORTS = [
     "localhost",
     "127.0.0.1",
 ]
-PRODUCTION = False
+PRODUCTION = True
 SECRET_KEY = config("SECRET_KEY")
