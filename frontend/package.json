@@ -1,24 +1,35 @@
 {
-  "name": "jak-website",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "latest",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "@types/node": "17.0.4",
-    "@types/react": "17.0.38",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.5",
-    "prettier": "^2.5.1",
-    "prettier-plugin-tailwindcss": "^0.1.1",
-    "tailwindcss": "^3.0.7",
-    "typescript": "4.5.4"
-  }
+    "name": "jak-website",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "prettier": "prettier **/*.{js,jsx,tsx,ts,md,json,css}",
+        "prettier:fix": "prettier --write **/*.{js,jsx,tsx,ts,md,json,css}",
+        "format": "eslint --fix . && prettier --write **/*.{js,jsx,tsx,ts,md,json,css}",
+        "check:version": "ncu"
+    },
+    "dependencies": {
+        "next": "latest",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+        "@types/node": "17.0.4",
+        "@types/react": "17.0.38",
+        "@typescript-eslint/eslint-plugin": "^5.10.1",
+        "@typescript-eslint/parser": "^5.10.1",
+        "autoprefixer": "^10.4.0",
+        "eslint": "^8.8.0",
+        "eslint-plugin-react": "^7.28.0",
+        "npm-check-updates": "^12.2.1",
+        "postcss": "^8.4.5",
+        "prettier": "^2.5.1",
+        "prettier-plugin-tailwindcss": "^0.1.1",
+        "tailwindcss": "^3.0.7",
+        "typescript": "4.5.4"
+    }
 }
