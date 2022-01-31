@@ -1,11 +1,12 @@
 from django.http import HttpResponse
 from rest_framework import generics, response, status
-from .models import Game_Own, Game_Fav, Notification, My_Photo
+from .models import Game_Own, Game_Fav, Notification, My_Photo, Contact
 from .serializers import (
     GameOwnSerializer,
     GameFavSerializer,
     NotificationSerializer,
     MyPhotoSerializer,
+    ContactSerializer
 )
 
 
@@ -72,3 +73,10 @@ class MyPhotoDetailAPIView(generics.GenericAPIView):
         if query_set:
             return response.Response(self.serializer_class(query_set).data)
         return response.Response("Not found", status=status.HTTP_404_NOT_FOUND)
+
+
+class ContactAPIView(generics.CreateAPIView):
+    serializer_class = ContactSerializer
+
+    def get_queryset(self):
+        return Contact.objects.all()

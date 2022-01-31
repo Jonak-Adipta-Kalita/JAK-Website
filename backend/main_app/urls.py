@@ -22,4 +22,9 @@ urlpatterns = [
         views.NotificationListAPIView.as_view(),
         name="notifications",
     ),
+    path(
+        "api/contact_jak",
+        views.ContactAPIView.as_view(),
+        name="contact_jak",
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
