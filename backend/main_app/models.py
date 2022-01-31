@@ -42,6 +42,7 @@ class My_Photo(models.Model):
     def __str__(self):
         return self.name
 
+
 class Notification(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, default="")

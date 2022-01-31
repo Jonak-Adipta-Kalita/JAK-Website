@@ -7,54 +7,69 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=50)),
-                ('email', models.CharField(default='', max_length=70)),
-                ('phone', models.CharField(default='', max_length=70)),
-                ('desc', models.TextField(default='')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=50)),
+                ("email", models.CharField(default="", max_length=70)),
+                ("phone", models.CharField(default="", max_length=70)),
+                ("desc", models.TextField(default="")),
             ],
         ),
         migrations.CreateModel(
-            name='Game_Fav',
+            name="Game_Fav",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='', max_length=500)),
-                ('link', models.CharField(default='', max_length=500)),
-                ('desc', models.TextField(default='')),
-                ('image', models.ImageField(default='', upload_to='images/games/fav')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="", max_length=500)),
+                ("link", models.CharField(default="", max_length=500)),
+                ("desc", models.TextField(default="")),
+                ("image", models.ImageField(default="", upload_to="images/games/fav")),
             ],
         ),
         migrations.CreateModel(
-            name='Game_Own',
+            name="Game_Own",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='', max_length=500)),
-                ('link', models.CharField(default='', max_length=500)),
-                ('desc', models.TextField(default='')),
-                ('image', models.ImageField(default='', upload_to='images/games/own')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="", max_length=500)),
+                ("link", models.CharField(default="", max_length=500)),
+                ("desc", models.TextField(default="")),
+                ("image", models.ImageField(default="", upload_to="images/games/own")),
             ],
         ),
         migrations.CreateModel(
-            name='My_Photo',
+            name="My_Photo",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(default='', max_length=50)),
-                ('image', models.ImageField(default='', upload_to='images/my_photos')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(default="", max_length=50)),
+                ("image", models.ImageField(default="", upload_to="images/my_photos")),
             ],
         ),
         migrations.CreateModel(
-            name='Notification',
+            name="Notification",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(default='', max_length=50)),
-                ('text', models.TextField(default='')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(default="", max_length=50)),
+                ("text", models.TextField(default="")),
             ],
         ),
     ]
