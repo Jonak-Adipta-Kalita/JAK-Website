@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "OtomanopeeOne";
+    font-weight: 600;
+    src: url(/fonts/OtomanopeeOne-Regular-Regular.ttf) format("truetype");
+}
+
+body {
+    @apply font-otomanopee-one;
+}

@@ -4,7 +4,11 @@ module.exports = {
         "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                "otomanopee-one": ["OtomanopeeOne", "sans-serif"],
+            },
+        },
     },
     plugins: [require("tailwind-scrollbar-hide")],
 };
