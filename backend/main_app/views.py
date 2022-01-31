@@ -6,7 +6,7 @@ from .serializers import (
     GameFavSerializer,
     NotificationSerializer,
     MyPhotoSerializer,
-    ContactSerializer
+    ContactSerializer,
 )
 
 
