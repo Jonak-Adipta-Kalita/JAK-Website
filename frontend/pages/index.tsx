@@ -11,7 +11,7 @@ const Home = () => {
             </Head>
             <Header />
             <main className="flex-1 overflow-y-auto scrollbar-hide">
-                <div className="mt-[50px]">
+                <div className="mx-auto mb-5 mt-10 space-y-4 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
                     <div className="flex justify-center">
                         <h3 className="text-3xl">
                             <Typed

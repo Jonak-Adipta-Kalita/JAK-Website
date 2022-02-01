@@ -1,9 +1,15 @@
 from decouple import config
 
-PORTS = [
-    "jonakadiptakalita.herokuapp.com",
-    "localhost",
-    "127.0.0.1",
-]
-PRODUCTION = True
+PRODUCTION = False
+PORTS = []
 SECRET_KEY = config("SECRET_KEY")
+
+if PRODUCTION:
+    PORTS = [
+        "jonakadiptakalita.herokuapp.com",
+    ]
+else:
+    PORTS = [
+        "localhost",
+        "127.0.0.1",
+    ]
