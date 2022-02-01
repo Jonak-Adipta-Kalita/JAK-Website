@@ -5,7 +5,7 @@
 @font-face {
     font-family: "OtomanopeeOne";
     font-weight: 600;
-    src: url(/fonts/OtomanopeeOne-Regular-Regular.ttf) format("truetype");
+    src: url(/fonts/OtomanopeeOne-Regular.ttf) format("truetype");
 }
 
 body {
