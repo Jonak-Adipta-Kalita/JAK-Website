@@ -21,7 +21,7 @@ const Header = () => {
                 />
                 <h1 className="font-bold text-white">JAK Website</h1>
             </div>
-            <div className="relative mx-auto pt-2 text-gray-600">
+            <div className="relative mx-auto hidden pt-2 text-gray-600 md:inline">
                 <input
                     className="h-10 rounded-lg border-2 border-gray-300 bg-white px-5 pr-16 text-sm focus:outline-none"
                     type="text"
