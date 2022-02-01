@@ -39,7 +39,7 @@ const Home = () => {
                     </div>
                     <div className="mx-[40px] border-b-[5px]" />
                     <div className="pt-10">
-                        <div className="grid grid-cols-2 md:grid-cols-3">
+                        <div className="grid grid-cols-1 px-20 sm:px-0 md:grid-cols-2 xl:grid-cols-3">
                             <Card
                                 title="About"
                                 description="Know about Jonak Adipta Kalita"
