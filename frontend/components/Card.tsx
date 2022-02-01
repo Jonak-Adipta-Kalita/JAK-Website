@@ -3,6 +3,7 @@ import { ExternalLinkIcon } from "@heroicons/react/outline";
 interface Props {
     title: string;
     description: string;
+    centerMain?: boolean;
     button?: {
         title: string;
         onClick(): void;
@@ -12,13 +13,32 @@ interface Props {
         target: string;
         url: string;
     };
+    image?: string;
 }
 
-const Card = ({ title, description, button, link }: Props) => {
+const Card = ({
+    title,
+    description,
+    button,
+    link,
+    image,
+    centerMain,
+}: Props) => {
     return (
-        <div className="m-2 mb-[20px] flex items-center border-[0.1px]">
+        <div
+            className={`m-2 mb-[20px] flex ${
+                centerMain && "justify-center"
+            } border-[0.1px]`}
+        >
             <div className="block max-w-sm rounded-lg bg-[#272934] p-6 p-4 shadow-lg">
-                <h5 className="mb-2 text-xl font-medium leading-tight text-gray-200">
+                {image && (
+                    <img src={image} className="h-[270px] w-[500px] rounded" />
+                )}
+                <h5
+                    className={`mb-2 text-xl font-medium leading-tight text-gray-200 ${
+                        image && "mt-[20px]"
+                    }`}
+                >
                     {title}
                 </h5>
                 <p className="mb-4 text-base text-gray-400">{description}</p>

@@ -1,13 +1,8 @@
 import Head from "next/head";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { GetServerSideProps } from "next";
-
-interface Picture {
-    id: number;
-    image: string;
-    name: string;
-}
+import { Picture } from "../typings";
 
 interface Props {
     pictures: Picture[];
