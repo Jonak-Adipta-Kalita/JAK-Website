@@ -6,7 +6,7 @@ const _404 = () => {
     return (
         <div className="flex h-screen flex-col bg-[#272934]">
             <Head>
-                <title>JAK Discord Bot | Page Not Found</title>
+                <title>JAK Website | Page Not Found</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />

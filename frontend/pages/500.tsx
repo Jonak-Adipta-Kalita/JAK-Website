@@ -6,7 +6,7 @@ const _500 = () => {
     return (
         <div className="flex h-screen flex-col bg-[#272934]">
             <Head>
-                <title>JAK Discord Bot | 500 Error</title>
+                <title>JAK Website | 500 Error</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
