@@ -2,8 +2,12 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Typed from "react-typed";
+import Card from "../components/Card";
+import { useRouter } from "next/router";
 
 const Home = () => {
+    const router = useRouter();
+
     return (
         <div className="flex h-screen flex-col bg-[#272934] text-gray-300">
             <Head>
@@ -33,7 +37,61 @@ const Home = () => {
                             />
                         </h3>
                     </div>
-                    <div className=""></div>
+                    <div className="mx-[40px] border-b-[5px]" />
+                    <div className="pt-10">
+                        <div className="grid grid-cols-2 md:grid-cols-3">
+                            <Card
+                                title="About"
+                                description="Know about Jonak Adipta Kalita"
+                                button={{
+                                    title: "Link",
+                                    onClick: () => router.push("/about"),
+                                }}
+                            />
+                            <Card
+                                title="Contact"
+                                description="Contact Jonak Adipta Kalita"
+                                button={{
+                                    title: "Link",
+                                    onClick: () => router.push("/contact"),
+                                }}
+                            />
+                            <Card
+                                title="Games"
+                                description="Know about JAK' Games"
+                                button={{
+                                    title: "Link",
+                                    onClick: () => router.push("/games"),
+                                }}
+                            />
+                            <Card
+                                title="Discord Widget"
+                                description="Look at JAK's Discord Widget"
+                                button={{
+                                    title: "Link",
+                                    onClick: () =>
+                                        router.push("/discord_widget"),
+                                }}
+                            />
+                            <Card
+                                title="Pictures"
+                                description="Look at JAK's Pictures"
+                                button={{
+                                    title: "Link",
+                                    onClick: () => router.push("/pictures"),
+                                }}
+                            />
+                            <Card
+                                title="Social Media"
+                                description="Social Medias of JAK"
+                                button={{
+                                    title: "Link",
+                                    onClick: () =>
+                                        router.push("/social_medias"),
+                                }}
+                            />
+                        </div>
+                    </div>
                 </div>
             </main>
             <Footer />
