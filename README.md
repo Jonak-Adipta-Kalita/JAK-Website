@@ -14,7 +14,7 @@
 
 -   Note: [Formatting](#format-code) the Code before Pushing is Important!!
 
-Go to the [Website](https://jonakadiptakalita.herokuapp.com/)
+Go to the [Website](https://jonakadiptakalita.vercel.app/)
 
 ## Steps
 
