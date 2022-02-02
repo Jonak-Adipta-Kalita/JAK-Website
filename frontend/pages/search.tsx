@@ -145,13 +145,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     ).json();
 
     pictures
-        .filter((picture: Picture) => picture.name.includes(query!))
+        .filter((picture: Picture) =>
+            picture.name.toLowerCase().includes(query.toLowerCase()!)
+        )
         .map((picture: Picture) => picturesResultsFound.push(picture));
     ownGames
-        .filter((game: Game) => game.name.includes(query!))
+        .filter((game: Game) =>
+            game.name.toLowerCase().includes(query.toLowerCase()!)
+        )
         .map((game: Game) => gameOwnResultsFound.push(game));
     favGames
-        .filter((game: Game) => game.name.includes(query!))
+        .filter((game: Game) =>
+            game.name.toLowerCase().includes(query.toLowerCase()!)
+        )
         .map((game: Game) => gameFavResultsFound.push(game));
 
     return {
