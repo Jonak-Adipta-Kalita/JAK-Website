@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from rest_framework import generics, response, status
+from rest_framework import generics, response, status, authentication, permissions
 from .models import Game_Own, Game_Fav, Notification, My_Photo, Contact
 from .serializers import (
     GameOwnSerializer,
@@ -77,6 +77,8 @@ class MyPhotoDetailAPIView(generics.GenericAPIView):
 
 class ContactAPIView(generics.CreateAPIView):
     serializer_class = ContactSerializer
+    authentication_classes = [authentication.SessionAuthentication, authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Contact.objects.all()

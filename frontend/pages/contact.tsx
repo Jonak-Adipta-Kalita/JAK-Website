@@ -30,6 +30,11 @@ const Contact = () => {
                 },
             }
         );
+
+        setName("");
+        setEmail("");
+        setMessage("");
+        setPhone("");
     };
 
     return (
