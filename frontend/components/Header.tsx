@@ -5,15 +5,16 @@ import { SearchIcon } from "@heroicons/react/solid";
 
 const Header = () => {
     const router = useRouter();
-    const [search, setSearch] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
 
-    const searchFunc = (e: MouseEvent | FormEvent) => {
+    const search = (e: MouseEvent | FormEvent) => {
         e.preventDefault();
-        if (search === "") return;
+        if (searchQuery === "") return;
         router.push({
             pathname: "/search",
-            query: { query: search },
+            query: { query: searchQuery },
         });
+        setSearchQuery("");
     };
 
     const login = () => {};
@@ -36,18 +37,18 @@ const Header = () => {
             </div>
             <form
                 className="relative mx-auto hidden pt-2 text-gray-600 md:inline"
-                onSubmit={(e) => searchFunc(e)}
+                onSubmit={(e) => search(e)}
             >
                 <input
                     className="h-10 rounded-lg border-2 border-gray-300 bg-white px-5 pr-16 text-sm focus:outline-none"
                     type="text"
                     placeholder="Search"
-                    onChange={(e) => setSearch(e.target.value)}
-                    value={search}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    value={searchQuery}
                 />
                 <button type="submit">
                     <SearchIcon
-                        onClick={(e) => searchFunc(e)}
+                        onClick={(e) => search(e)}
                         className="absolute right-0 top-0 mt-4 mr-3 h-6 w-6 cursor-pointer hover:text-gray-400"
                     />
                 </button>

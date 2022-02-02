@@ -124,18 +124,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const query: string = context.query.query
         ? String(context.query.query)
         : "";
-    const picturesResultsFound: Picture[] = [];
-    const gameOwnResultsFound: Game[] = [];
-    const gameFavResultsFound: Game[] = [];
+    let picturesResultsFound: Picture[] = [];
+    let gameOwnResultsFound: Game[] = [];
+    let gameFavResultsFound: Game[] = [];
 
     const pictures = await (
         await fetch(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/my_photos?format=json`
-        )
-    ).json();
-    const favGames = await (
-        await fetch(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/fav?format=json`
         )
     ).json();
     const ownGames = await (
@@ -143,22 +138,41 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/own?format=json`
         )
     ).json();
+    const favGames = await (
+        await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/fav?format=json`
+        )
+    ).json();
 
-    pictures
-        .filter((picture: Picture) =>
-            picture.name.toLowerCase().includes(query.toLowerCase()!)
-        )
-        .map((picture: Picture) => picturesResultsFound.push(picture));
-    ownGames
-        .filter((game: Game) =>
-            game.name.toLowerCase().includes(query.toLowerCase()!)
-        )
-        .map((game: Game) => gameOwnResultsFound.push(game));
-    favGames
-        .filter((game: Game) =>
-            game.name.toLowerCase().includes(query.toLowerCase()!)
-        )
-        .map((game: Game) => gameFavResultsFound.push(game));
+    if (
+        query === "pictures" ||
+        query === "games" ||
+        query === "fav_games" ||
+        query === "own_games"
+    ) {
+        if (query === "pictures") picturesResultsFound = pictures;
+        else if (query === "games") {
+            gameOwnResultsFound = ownGames;
+            gameFavResultsFound = favGames;
+        } else if (query === "own_games") gameOwnResultsFound = ownGames;
+        else if (query === "fav_games") gameFavResultsFound = favGames;
+    } else {
+        pictures
+            .filter((picture: Picture) =>
+                picture.name.toLowerCase().includes(query.toLowerCase()!)
+            )
+            .map((picture: Picture) => picturesResultsFound.push(picture));
+        ownGames
+            .filter((game: Game) =>
+                game.name.toLowerCase().includes(query.toLowerCase()!)
+            )
+            .map((game: Game) => gameOwnResultsFound.push(game));
+        favGames
+            .filter((game: Game) =>
+                game.name.toLowerCase().includes(query.toLowerCase()!)
+            )
+            .map((game: Game) => gameFavResultsFound.push(game));
+    }
 
     return {
         props: {
