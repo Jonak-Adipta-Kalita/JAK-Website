@@ -1,4 +1,5 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Game_Own(models.Model):
@@ -27,7 +28,7 @@ class Contact(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=70, default="")
-    phone = models.CharField(max_length=10, default="")
+    phone = PhoneNumberField()
     description = models.TextField(default="")
 
     def __str__(self):

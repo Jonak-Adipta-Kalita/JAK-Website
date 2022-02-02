@@ -49,7 +49,7 @@ export default GamesFav;
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const req = await fetch(
-        `${process.env.BACKEND_URL}/api/games/fav?format=json`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/fav?format=json`
     );
     const games = await req.json();
 

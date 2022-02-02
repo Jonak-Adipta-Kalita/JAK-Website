@@ -15,6 +15,26 @@ else:
     SESSION_COOKIE_SECURE = False
 
 ALLOWED_HOSTS = credentials.PORTS
+CORS_ALLOWED_ORIGINS = credentials.FRONTEND_PORTS
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "UTC"
+
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+MEDIA_URL = "/media/"
+STATIC_URL = "/static/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+ROOT_URLCONF = "main_website.urls"
+
+WSGI_APPLICATION = "main_website.wsgi.application"
 
 INSTALLED_APPS = [
     "main_app.apps.MainAppConfig",
@@ -25,12 +45,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "corsheaders",
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -38,12 +61,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "main_website.urls"
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates"],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -55,9 +76,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = "main_website.wsgi.application"
-
 
 DATABASES = {
     "default": {
@@ -80,21 +98,3 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-MEDIA_URL = "/media/"
-STATIC_URL = "/static/"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-STATIC_ROOT = os.path.join(BASE_DIR, "static")

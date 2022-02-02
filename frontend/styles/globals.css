@@ -11,3 +11,9 @@
 body {
     @apply font-otomanopee-one;
 }
+
+@layer components {
+    .contactInput {
+        @apply w-[400px] rounded-lg border-[5px] border-gray-300 bg-[#272934] p-4 outline-none sm:w-[500px];
+    }
+}

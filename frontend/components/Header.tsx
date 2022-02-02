@@ -42,9 +42,12 @@ const Header = () => {
                 />
             </div>
             <div className="">
-                <div className="mr-4">
-                    <button className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-4 px-10 transition duration-100 ease-out hover:scale-125 focus:outline-none focus:ring-2">
+                <div className="mr-4 flex space-x-5">
+                    <button className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125">
                         Login
+                    </button>
+                    <button className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125">
+                        Sign Up
                     </button>
                 </div>
             </div>

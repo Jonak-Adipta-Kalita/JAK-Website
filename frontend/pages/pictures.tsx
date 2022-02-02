@@ -46,7 +46,7 @@ export default Pictures;
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const req = await fetch(
-        `${process.env.BACKEND_URL}/api/my_photos?format=json`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/my_photos?format=json`
     );
     const pictures = await req.json();
 

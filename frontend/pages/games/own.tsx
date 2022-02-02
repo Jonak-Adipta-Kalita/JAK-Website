@@ -49,7 +49,7 @@ export default GamesOwn;
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const req = await fetch(
-        `${process.env.BACKEND_URL}/api/games/own?format=json`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/own?format=json`
     );
     const games = await req.json();
 

@@ -12,12 +12,12 @@ const About = () => {
             <main className="flex-1 overflow-y-auto scrollbar-hide">
                 <div className="mx-auto mb-5 mt-3 space-y-4 md:mt-10 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
                     <div className="mt-[10px] flex flex-col items-center px-2 font-bold">
-                        <p className="text-xl">
+                        <p className="text-lg md:text-xl">
                             Hey Guys, If You&rsquo;ve come here to know about
                             me!!
                         </p>
-                        <p className="text-xl">
-                            Her&rsquo;s all you should know about me!!
+                        <p className="text-lg md:text-xl">
+                            Here&rsquo;s all you should know about me!!
                         </p>
                     </div>
                     <div className="px-10">

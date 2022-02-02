@@ -12,7 +12,7 @@
 
 </div>
 
--           Note: [Formatting](#format-code) the Code before Pushing is Important!!
+-   Note: [Formatting](#format-code) the Code before Pushing is Important!!
 
 Go to the [Website](https://jonakadiptakalita.herokuapp.com/)
 
@@ -69,7 +69,7 @@ SECRET_KEY=<YOUR_DJANGO_SECRET_KEY>
 and in the `.env.local` file, paste the following:
 
 ```env
-BACKEND_URL=http://127.0.0.1:8000
+NEXT_PUBLIC_BACKEND_URL=http://127.0.0.1:8000
 ```
 
 ### Running the Backend:
