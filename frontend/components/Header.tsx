@@ -16,6 +16,10 @@ const Header = () => {
         });
     };
 
+    const login = () => {};
+
+    const signUp = () => {};
+
     return (
         <header className="flex items-center justify-between bg-[#272934] p-4 py-5 text-gray-400 shadow-xl md:px-10 lg:px-20">
             <div
@@ -50,10 +54,16 @@ const Header = () => {
             </form>
             <div className="">
                 <div className="mr-4 flex space-x-5">
-                    <button className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125">
+                    <button
+                        className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
+                        onClick={login}
+                    >
                         Login
                     </button>
-                    <button className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125">
+                    <button
+                        className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
+                        onClick={signUp}
+                    >
                         Sign Up
                     </button>
                 </div>
