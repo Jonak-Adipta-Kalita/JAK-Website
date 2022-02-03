@@ -1,7 +1,8 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useRef } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from "axios";
 
 const Contact = () => {
@@ -11,20 +12,13 @@ const Contact = () => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [hCaptchaToken, setHCaptchaToken] = useState("");
+    const captchaRef = useRef<any>(null);
 
     const sendContact = (e: FormEvent) => {
         e.preventDefault();
 
-        if (
-            name === "" ||
-            email === "" ||
-            message === "" ||
-            phone === "" ||
-            password === "" ||
-            confirmPassword === "" ||
-            confirmPassword !== password
-        )
-            return;
+        if (confirmPassword !== password || !hCaptchaToken) return;
 
         if (phone.length <= 10 || !phone.startsWith("+")) {
             alert("Phone Number must be correct!!");
@@ -129,6 +123,14 @@ const Contact = () => {
                         onChange={(e) => setMessage(e.target.value)}
                         className="contactInput"
                         placeholder="Your Message"
+                    />
+                    <HCaptcha
+                        sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY!}
+                        onVerify={setHCaptchaToken}
+                        onLoad={() => {
+                            captchaRef.current.execute();
+                        }}
+                        ref={captchaRef}
                     />
                     <div className="py-[30px]">
                         <button
