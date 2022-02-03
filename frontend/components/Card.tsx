@@ -32,7 +32,11 @@ const Card = ({
         >
             <div className="block max-w-sm rounded-lg bg-[#272934] p-6 p-4 shadow-lg">
                 {image && (
-                    <img src={image} className="h-[270px] w-[500px] rounded" />
+                    <img
+                        src={image}
+                        className="h-[270px] w-[500px] rounded"
+                        loading="lazy"
+                    />
                 )}
                 <h5
                     className={`mb-2 text-xl font-medium leading-tight text-gray-200 ${
