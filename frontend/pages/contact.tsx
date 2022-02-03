@@ -9,32 +9,62 @@ const Contact = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [phone, setPhone] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const sendContact = (e: FormEvent) => {
         e.preventDefault();
 
-        if (name === "" || email === "" || message === "" || phone === "")
+        if (
+            name === "" ||
+            email === "" ||
+            message === "" ||
+            phone === "" ||
+            password === "" ||
+            confirmPassword === "" ||
+            confirmPassword !== password
+        )
             return;
 
-        axios.post(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contact_jak`,
-            JSON.stringify({
-                name,
-                email,
-                phone,
-                description: message,
-            }),
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-        );
-
-        setName("");
-        setEmail("");
-        setMessage("");
-        setPhone("");
+        axios
+            .post(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/get_token`,
+                JSON.stringify({
+                    username: name,
+                    password: password,
+                }),
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            )
+            .then((response) => response.data.token)
+            .then((token: string) => {
+                axios.post(
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contact_jak`,
+                    JSON.stringify({
+                        name,
+                        email,
+                        phone,
+                        description: message,
+                    }),
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Token ${token}`,
+                        },
+                    }
+                );
+            })
+            .then(() => {
+                setName("");
+                setPassword("");
+                setConfirmPassword("");
+                setEmail("");
+                setMessage("");
+                setPhone("");
+            });
     };
 
     return (
@@ -54,7 +84,23 @@ const Contact = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="contactInput"
-                        placeholder="Your Name"
+                        placeholder="Your Username"
+                    />
+                    <input
+                        type="password"
+                        required
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="contactInput"
+                        placeholder="Your Password"
+                    />
+                    <input
+                        type="password"
+                        required
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="contactInput"
+                        placeholder="Confirm Your Password"
                     />
                     <input
                         type="email"
@@ -79,7 +125,7 @@ const Contact = () => {
                         className="contactInput"
                         placeholder="Your Message"
                     />
-                    <div className="pt-[30px]">
+                    <div className="py-[30px]">
                         <button
                             type="submit"
                             className="transform rounded-lg border-[0.1px] border-gray-300 p-4 transition duration-100 ease-out hover:scale-125"

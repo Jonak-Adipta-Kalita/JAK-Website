@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from rest_framework.authtoken import views as authtoken_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,4 +28,5 @@ urlpatterns = [
         views.ContactAPIView.as_view(),
         name="contact_jak",
     ),
+    path("api/auth/get_token", authtoken_views.obtain_auth_token, name="get_token")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
