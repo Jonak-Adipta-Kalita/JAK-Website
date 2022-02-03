@@ -26,6 +26,11 @@ const Contact = () => {
         )
             return;
 
+        if (phone.length <= 10 || !phone.startsWith("+")) {
+            alert("Phone Number must be correct!!");
+            return;
+        }
+
         axios
             .post(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/get_token`,
