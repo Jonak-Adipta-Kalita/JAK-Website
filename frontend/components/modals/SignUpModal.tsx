@@ -1,4 +1,5 @@
-import { Fragment } from "react";
+import { FormEvent, Fragment, useRef, useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon } from "@heroicons/react/outline";
 import { useRecoilState } from "recoil";
@@ -6,11 +7,25 @@ import { signUpModalState } from "../../atoms/modalsAtom";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);
+    const [hCaptchaToken, setHCaptchaToken] = useState("");
+    const [username, setUsername] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const captchaRef = useRef<any>(null);
+
+    const signUp = (e: FormEvent) => {
+        e.preventDefault();
+
+        if (!hCaptchaToken) return;
+    };
 
     return (
         <Transition show={open} as={Fragment}>
             <Dialog
-                className="fixed inset-0 z-10 overflow-y-auto"
+                className="-pb-[10px] fixed inset-0 overflow-y-auto pt-[30px] scrollbar-hide md:z-10 md:pt-0"
                 as="div"
                 onClose={setOpen}
             >
@@ -53,8 +68,90 @@ const SignUpModal = () => {
                                     />
                                 </div>
                             </div>
-                            <form method="post"></form>
-                            <div className=""></div>
+                            <div className="my-[15px] border-b-[5px]" />
+                            <form
+                                method="post"
+                                className="flex flex-col items-center space-y-2"
+                                onSubmit={signUp}
+                            >
+                                <input
+                                    type="username"
+                                    required
+                                    className="authInput"
+                                    placeholder="Your Username"
+                                    value={username}
+                                    onChange={(e) =>
+                                        setUsername(e.target.value)
+                                    }
+                                />
+                                <input
+                                    type="first-name"
+                                    required
+                                    className="authInput"
+                                    placeholder="Your First Name"
+                                    value={firstName}
+                                    onChange={(e) =>
+                                        setFirstName(e.target.value)
+                                    }
+                                />
+                                <input
+                                    type="last-name"
+                                    required
+                                    className="authInput"
+                                    placeholder="Your Last Name"
+                                    value={lastName}
+                                    onChange={(e) =>
+                                        setLastName(e.target.value)
+                                    }
+                                />
+                                <input
+                                    type="email"
+                                    required
+                                    className="authInput"
+                                    placeholder="Your Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <input
+                                    type="password"
+                                    required
+                                    className="authInput"
+                                    placeholder="Choose a Password"
+                                    value={password}
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                />
+                                <input
+                                    type="password"
+                                    required
+                                    className="authInput"
+                                    placeholder="Enter your Password again"
+                                    value={confirmPassword}
+                                    onChange={(e) =>
+                                        setConfirmPassword(e.target.value)
+                                    }
+                                />
+                                <HCaptcha
+                                    sitekey={
+                                        process.env
+                                            .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
+                                    }
+                                    onVerify={setHCaptchaToken}
+                                    onLoad={() => {
+                                        captchaRef.current.execute();
+                                    }}
+                                    ref={captchaRef}
+                                />
+                                <div className="flex justify-center py-[25px]">
+                                    <button
+                                        type="submit"
+                                        className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
+                                    >
+                                        Sign Up
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </Transition.Child>
                 </div>

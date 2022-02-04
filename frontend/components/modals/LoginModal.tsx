@@ -1,16 +1,27 @@
-import { Fragment } from "react";
+import { Fragment, useState, FormEvent, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon } from "@heroicons/react/outline";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRecoilState } from "recoil";
 import { loginModalState } from "../../atoms/modalsAtom";
 
 const LoginModal = () => {
     const [open, setOpen] = useRecoilState(loginModalState);
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const [hCaptchaToken, setHCaptchaToken] = useState("");
+    const captchaRef = useRef<any>(null);
+
+    const login = (e: FormEvent) => {
+        e.preventDefault();
+
+        if (!hCaptchaToken) return;
+    };
 
     return (
         <Transition show={open} as={Fragment}>
             <Dialog
-                className="fixed inset-0 z-10 overflow-y-auto"
+                className="fixed left-0 right-0 bottom-0 overflow-y-auto scrollbar-hide md:inset-0 md:z-10"
                 as="div"
                 onClose={setOpen}
             >
@@ -53,8 +64,50 @@ const LoginModal = () => {
                                     />
                                 </div>
                             </div>
-                            <form method="post"></form>
-                            <div className=""></div>
+                            <div className="my-[15px] border-b-[5px]" />
+                            <form
+                                onSubmit={login}
+                                method="post"
+                                className="flex flex-col items-center space-y-2"
+                            >
+                                <input
+                                    type="name"
+                                    required
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="authInput"
+                                    placeholder="Your Username"
+                                />
+                                <input
+                                    type="password"
+                                    required
+                                    value={password}
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                    className="authInput"
+                                    placeholder="Your Password"
+                                />
+                                <HCaptcha
+                                    sitekey={
+                                        process.env
+                                            .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
+                                    }
+                                    onVerify={setHCaptchaToken}
+                                    onLoad={() => {
+                                        captchaRef.current.execute();
+                                    }}
+                                    ref={captchaRef}
+                                />
+                                <div className="flex justify-center py-[25px]">
+                                    <button
+                                        type="submit"
+                                        className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
+                                    >
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </Transition.Child>
                 </div>
