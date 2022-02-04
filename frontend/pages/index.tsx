@@ -24,9 +24,8 @@ const Home = () => {
                                 strings={[
                                     "I'm a Programmer",
                                     "I'm a Student",
-                                    "I'm an Assamese",
-                                    "I'm a Designer",
                                     "I'm a Gamer",
+                                    "I'm a Guitarist",
                                     "I'm a Sushi Lover",
                                 ]}
                                 backSpeed={30}
