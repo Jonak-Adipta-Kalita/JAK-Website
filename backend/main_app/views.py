@@ -8,10 +8,13 @@ from .serializers import (
     MyPhotoSerializer,
     ContactSerializer,
 )
+import credentials
 
 
 def index(request):
-    return HttpResponse("<h3>Use as Backend!!</h3>")
+    return HttpResponse(
+        f"<h3>Using as Backend for <a href={credentials.FRONTEND_PORTS[0]}>this site</a></h3>"
+    )
 
 
 class GameOwnListAPIView(generics.ListAPIView):
