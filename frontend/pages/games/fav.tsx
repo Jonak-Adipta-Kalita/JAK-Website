@@ -4,6 +4,8 @@ import Footer from "../../components/Footer";
 import Card from "../../components/Card";
 import { GetServerSideProps } from "next";
 import { Game } from "../../typings";
+import LoginModal from "../../components/modals/LoginModal";
+import SignUpModal from "../../components/modals/SignUpModal";
 
 interface Props {
     games: Game[];
@@ -40,6 +42,8 @@ const GamesFav = ({ games }: Props) => {
                     )}
                 </div>
             </main>
+            <LoginModal />
+            <SignUpModal />
             <Footer />
         </div>
     );

@@ -3,6 +3,8 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Card from "../../components/Card";
 import { useRouter } from "next/router";
+import LoginModal from "../../components/modals/LoginModal";
+import SignUpModal from "../../components/modals/SignUpModal";
 
 const Games = () => {
     const router = useRouter();
@@ -35,6 +37,8 @@ const Games = () => {
                     </div>
                 </div>
             </main>
+            <LoginModal />
+            <SignUpModal />
             <Footer />
         </div>
     );

@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { GetServerSideProps } from "next";
 import { Picture } from "../typings";
+import LoginModal from "../components/modals/LoginModal";
+import SignUpModal from "../components/modals/SignUpModal";
 
 interface Props {
     pictures: Picture[];
@@ -37,6 +39,8 @@ const Pictures = ({ pictures }: Props) => {
                     </div>
                 </div>
             </main>
+            <LoginModal />
+            <SignUpModal />
             <Footer />
         </div>
     );

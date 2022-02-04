@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import LoginModal from "../components/modals/LoginModal";
+import SignUpModal from "../components/modals/SignUpModal";
 
 const DiscordWidget = () => {
     return (
@@ -21,6 +23,8 @@ const DiscordWidget = () => {
                     ></iframe>
                 </div>
             </main>
+            <LoginModal />
+            <SignUpModal />
             <Footer />
         </div>
     );

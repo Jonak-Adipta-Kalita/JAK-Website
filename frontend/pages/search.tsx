@@ -5,6 +5,8 @@ import Card from "../components/Card";
 import { useRouter } from "next/router";
 import { Game, Picture } from "../typings";
 import { GetServerSideProps } from "next";
+import LoginModal from "../components/modals/LoginModal";
+import SignUpModal from "../components/modals/SignUpModal";
 
 interface Props {
     gameOwnResultsFound: Game[];
@@ -113,6 +115,8 @@ const Search = ({
                     )}
                 </div>
             </main>
+            <LoginModal />
+            <SignUpModal />
             <Footer />
         </div>
     );

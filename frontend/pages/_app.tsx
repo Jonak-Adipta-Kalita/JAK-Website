@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Progressbar from "@badrap/bar-of-progress";
 import Router from "next/router";
+import { RecoilRoot } from "recoil";
 
 const progress = new Progressbar({
     size: 4,
@@ -15,7 +16,11 @@ Router.events.on("routeChangeComplete", progress.finish);
 Router.events.on("routeChangeError", progress.finish);
 
 function MyApp({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} />;
+    return (
+        <RecoilRoot>
+            <Component {...pageProps} />
+        </RecoilRoot>
+    );
 }
 
 export default MyApp;

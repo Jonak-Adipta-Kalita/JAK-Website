@@ -2,6 +2,8 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import LoginModal from "../components/modals/LoginModal";
+import SignUpModal from "../components/modals/SignUpModal";
 
 const SocialMedias = () => {
     return (
@@ -97,6 +99,8 @@ const SocialMedias = () => {
                     </div>
                 </div>
             </main>
+            <LoginModal />
+            <SignUpModal />
             <Footer />
         </div>
     );

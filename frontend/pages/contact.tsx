@@ -4,6 +4,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from "axios";
+import LoginModal from "../components/modals/LoginModal";
+import SignUpModal from "../components/modals/SignUpModal";
 
 const Contact = () => {
     const [name, setName] = useState("");
@@ -142,6 +144,8 @@ const Contact = () => {
                     </div>
                 </form>
             </main>
+            <LoginModal />
+            <SignUpModal />
             <Footer />
         </div>
     );

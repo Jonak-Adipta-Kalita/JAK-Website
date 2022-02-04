@@ -2,10 +2,14 @@ import { useState, FormEvent } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/solid";
+import { loginModalState, signUpModalState } from "../atoms/modalsAtom";
+import { useSetRecoilState } from "recoil";
 
 const Header = () => {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState("");
+    const setLoginModalOpen = useSetRecoilState(loginModalState);
+    const setSignUpModalOpen = useSetRecoilState(signUpModalState);
 
     const search = (e: MouseEvent | FormEvent) => {
         e.preventDefault();
@@ -16,10 +20,6 @@ const Header = () => {
         });
         setSearchQuery("");
     };
-
-    const login = () => {};
-
-    const signUp = () => {};
 
     return (
         <header className="flex items-center justify-between bg-[#272934] p-4 py-5 text-gray-400 shadow-xl md:px-10 lg:px-20">
@@ -57,13 +57,13 @@ const Header = () => {
                 <div className="mr-4 flex space-x-5">
                     <button
                         className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
-                        onClick={login}
+                        onClick={() => setLoginModalOpen(true)}
                     >
                         Login
                     </button>
                     <button
                         className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
-                        onClick={signUp}
+                        onClick={() => setSignUpModalOpen(true)}
                     >
                         Sign Up
                     </button>
