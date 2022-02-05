@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse
 from rest_framework import generics, response, status, authentication, permissions
 from .models import Game_Own, Game_Fav, Notification, My_Photo, Contact
 from .serializers import (
@@ -11,7 +11,7 @@ from .serializers import (
 import credentials
 
 
-def index(request):
+def index(request: HttpRequest):
     return HttpResponse(
         f"<h3>Using as Backend for <a href={credentials.FRONTEND_PORTS[0]}>this site</a></h3>"
     )

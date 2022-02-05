@@ -11,3 +11,9 @@ export interface Game {
     link: string;
     image: string;
 }
+
+export interface Notification {
+    id: number;
+    name: string;
+    text: string;
+}
