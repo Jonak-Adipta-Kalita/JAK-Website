@@ -142,6 +142,7 @@ const SignUpModal = () => {
                                         captchaRef.current.execute();
                                     }}
                                     ref={captchaRef}
+                                    theme="dark"
                                 />
                                 <div className="flex justify-center py-[25px]">
                                     <button

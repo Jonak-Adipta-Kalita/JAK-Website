@@ -133,6 +133,7 @@ const Contact = () => {
                             captchaRef.current.execute();
                         }}
                         ref={captchaRef}
+                        theme="dark"
                     />
                     <div className="py-[30px]">
                         <button
