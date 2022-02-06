@@ -7,6 +7,7 @@ import { useSetRecoilState } from "recoil";
 
 const Header = () => {
     const router = useRouter();
+    const [isAuthenticated] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const setLoginModalOpen = useSetRecoilState(loginModalState);
     const setSignUpModalOpen = useSetRecoilState(signUpModalState);
@@ -54,20 +55,24 @@ const Header = () => {
                 </button>
             </form>
             <div className="">
-                <div className="mr-4 flex space-x-5">
-                    <button
-                        className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
-                        onClick={() => setLoginModalOpen(true)}
-                    >
-                        Login
-                    </button>
-                    <button
-                        className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
-                        onClick={() => setSignUpModalOpen(true)}
-                    >
-                        Sign Up
-                    </button>
-                </div>
+                {!isAuthenticated ? (
+                    <div className="mr-4 flex space-x-5">
+                        <button
+                            className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
+                            onClick={() => setLoginModalOpen(true)}
+                        >
+                            Login
+                        </button>
+                        <button
+                            className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
+                            onClick={() => setSignUpModalOpen(true)}
+                        >
+                            Sign Up
+                        </button>
+                    </div>
+                ) : (
+                    <div className=""></div>
+                )}
             </div>
         </header>
     );
