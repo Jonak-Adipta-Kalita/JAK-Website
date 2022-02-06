@@ -2,7 +2,7 @@ import { useState, FormEvent } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/solid";
-import { loginModalState, signUpModalState } from "../atoms/modalsAtom";
+import { loginModalState, signUpModalState } from "../atoms/authModalsAtom";
 import { useSetRecoilState } from "recoil";
 
 const Header = () => {

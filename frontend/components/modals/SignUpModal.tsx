@@ -1,12 +1,16 @@
 import { FormEvent, Fragment, useRef, useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Dialog, Transition } from "@headlessui/react";
-import { XCircleIcon } from "@heroicons/react/outline";
+import { XCircleIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { useRecoilState } from "recoil";
-import { signUpModalState } from "../../atoms/modalsAtom";
+import {
+    showPasswordState,
+    signUpModalState,
+} from "../../atoms/authModalsAtom";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);
+    const [showPassword, setShowPassword] = useRecoilState(showPasswordState);
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const [username, setUsername] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -112,26 +116,65 @@ const SignUpModal = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
-                                <input
-                                    type="password"
-                                    required
-                                    className="authInput"
-                                    placeholder="Choose a Password"
-                                    value={password}
-                                    onChange={(e) =>
-                                        setPassword(e.target.value)
-                                    }
-                                />
-                                <input
-                                    type="password"
-                                    required
-                                    className="authInput"
-                                    placeholder="Enter your Password again"
-                                    value={confirmPassword}
-                                    onChange={(e) =>
-                                        setConfirmPassword(e.target.value)
-                                    }
-                                />
+                                <div className="relative">
+                                    <input
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
+                                        required
+                                        className="authInput"
+                                        placeholder="Choose a Password"
+                                        value={password}
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
+                                    />
+                                    {showPassword ? (
+                                        <EyeOffIcon
+                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                            onClick={() =>
+                                                setShowPassword(!showPassword)
+                                            }
+                                        />
+                                    ) : (
+                                        <EyeIcon
+                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                            onClick={() =>
+                                                setShowPassword(!showPassword)
+                                            }
+                                        />
+                                    )}
+                                </div>
+                                <div className="relative">
+                                    <input
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
+                                        required
+                                        className="authInput"
+                                        placeholder="Enter your Password again"
+                                        value={confirmPassword}
+                                        onChange={(e) =>
+                                            setConfirmPassword(e.target.value)
+                                        }
+                                    />
+                                    {showPassword ? (
+                                        <EyeOffIcon
+                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                            onClick={() =>
+                                                setShowPassword(!showPassword)
+                                            }
+                                        />
+                                    ) : (
+                                        <EyeIcon
+                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                            onClick={() =>
+                                                setShowPassword(!showPassword)
+                                            }
+                                        />
+                                    )}
+                                </div>
+
                                 <HCaptcha
                                     sitekey={
                                         process.env
