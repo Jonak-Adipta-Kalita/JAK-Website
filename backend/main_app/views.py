@@ -80,11 +80,6 @@ class MyPhotoDetailAPIView(generics.GenericAPIView):
 
 class ContactAPIView(generics.CreateAPIView):
     serializer_class = ContactSerializer
-    authentication_classes = [
-        authentication.SessionAuthentication,
-        authentication.TokenAuthentication,
-    ]
-    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Contact.objects.all()

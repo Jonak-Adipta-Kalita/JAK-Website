@@ -12,15 +12,13 @@ const Contact = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [phone, setPhone] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
 
     const sendContact = (e: FormEvent) => {
         e.preventDefault();
 
-        if (confirmPassword !== password || !hCaptchaToken) return;
+        if (!hCaptchaToken) return;
 
         if (phone.length <= 10 || !phone.startsWith("+")) {
             alert("Phone Number must be correct!!");
@@ -29,10 +27,12 @@ const Contact = () => {
 
         axios
             .post(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/get_token`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contact_jak`,
                 JSON.stringify({
-                    username: name,
-                    password: password,
+                    name,
+                    email,
+                    phone,
+                    description: message,
                 }),
                 {
                     headers: {
@@ -40,28 +40,8 @@ const Contact = () => {
                     },
                 }
             )
-            .then((response) => response.data.token)
-            .then((token: string) => {
-                axios.post(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contact_jak`,
-                    JSON.stringify({
-                        name,
-                        email,
-                        phone,
-                        description: message,
-                    }),
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                            Authorization: `Token ${token}`,
-                        },
-                    }
-                );
-            })
             .then(() => {
                 setName("");
-                setPassword("");
-                setConfirmPassword("");
                 setEmail("");
                 setMessage("");
                 setPhone("");
@@ -86,22 +66,6 @@ const Contact = () => {
                         onChange={(e) => setName(e.target.value)}
                         className="contactInput"
                         placeholder="Your Username"
-                    />
-                    <input
-                        type="password"
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="contactInput"
-                        placeholder="Your Password"
-                    />
-                    <input
-                        type="password"
-                        required
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="contactInput"
-                        placeholder="Confirm Your Password"
                     />
                     <input
                         type="email"
