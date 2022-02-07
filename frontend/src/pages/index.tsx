@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import Card from "../components/Card";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
+import { getSession } from "next-auth/react";
+import { GetServerSideProps } from "next";
 
 const Home = () => {
     const router = useRouter();
@@ -103,3 +105,13 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const session = await getSession(context);
+
+    return {
+        props: {
+            session,
+        },
+    };
+};

@@ -57,6 +57,10 @@ yarn
 `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"`
 type this in your Terminal. Copy the Output. This is Your DJANGO_SECRET_KEY.
 
+### Getting JWT Secret
+
+Use the [passwordgenerator](https://passwordsgenerator.net/) website to generate your secret.
+
 ### Gettigng hCaptcha Keys
 
 ### Passing the Required Credentials
@@ -66,6 +70,7 @@ Create a new file `.env` in the `backend` folder and new file `.env.local` in th
 
 ```env
 SECRET_KEY=<YOUR_DJANGO_SECRET_KEY>
+JWT_SECRET=<YOUR_JWT_SECRET>
 ```
 
 and in the `.env.local` file, paste the following:
@@ -74,6 +79,7 @@ and in the `.env.local` file, paste the following:
 NEXT_PUBLIC_BACKEND_URL=http://127.0.0.1:8000
 NEXT_PUBLIC_HCAPTCHA_SITE_KEY=<YOUR_HCAPTCHA_SITE_KEY>
 HCAPTCHA_SECRET_KEY=<YOUR_HCAPTCHA_SECRET_KEY>
+JWT_SECRET=<YOUR_JWT_SECRET>
 ```
 
 ### Running the Backend:

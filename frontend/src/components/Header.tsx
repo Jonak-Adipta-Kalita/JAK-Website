@@ -4,10 +4,11 @@ import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/solid";
 import { loginModalState, signUpModalState } from "../atoms/authModalsAtom";
 import { useSetRecoilState } from "recoil";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
     const router = useRouter();
-    const [isAuthenticated] = useState(false);
+    const { data: session } = useSession();
     const [searchQuery, setSearchQuery] = useState("");
     const setLoginModalOpen = useSetRecoilState(loginModalState);
     const setSignUpModalOpen = useSetRecoilState(signUpModalState);
@@ -55,7 +56,7 @@ const Header = () => {
                 </button>
             </form>
             <div className="">
-                {!isAuthenticated ? (
+                {!session ? (
                     <div className="mr-4 flex space-x-5">
                         <button
                             className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
