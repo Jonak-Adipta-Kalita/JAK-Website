@@ -191,6 +191,7 @@ const SignUpModal = () => {
                                     <button
                                         type="submit"
                                         className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
+                                        aria-label="sign-up"
                                     >
                                         Sign Up
                                     </button>

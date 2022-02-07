@@ -289,3 +289,7 @@ frontend/.vercel
 # typescript
 frontend/*.tsbuildinfo
 
+# pwa
+frontend/public/sw.*
+frontend/public/workbox-*
+

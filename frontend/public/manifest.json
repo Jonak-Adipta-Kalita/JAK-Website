@@ -1,0 +1,43 @@
+{
+    "short_name": "JAK Webiste",
+    "name": "JAK Website",
+    "description": "Website of Jonak Adipta Kalita",
+    "icons": [
+        {
+            "src": "/images/favicon.png",
+            "type": "image/png",
+            "sizes": "460x460",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/badges/gamer.png",
+            "type": "image/png",
+            "sizes": "936x936",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/badges/picture_perm.png",
+            "type": "image/png",
+            "sizes": "708x708",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/badges/programmer.png",
+            "type": "image/png",
+            "sizes": "1024x1024",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/badges/staff.png",
+            "type": "image/png",
+            "sizes": "858x858",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#272934",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#272934",
+    "orientation": "landscape"
+}

@@ -48,7 +48,7 @@ const Header = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     value={searchQuery}
                 />
-                <button type="submit">
+                <button type="submit" aria-label="search-button">
                     <SearchIcon
                         onClick={(e) => search(e)}
                         className="absolute right-0 top-0 mt-4 mr-3 h-6 w-6 cursor-pointer hover:text-gray-400"
@@ -61,12 +61,14 @@ const Header = () => {
                         <button
                             className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
                             onClick={() => setLoginModalOpen(true)}
+                            aria-label="login"
                         >
                             Login
                         </button>
                         <button
                             className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"
                             onClick={() => setSignUpModalOpen(true)}
+                            aria-label="sign-up"
                         >
                             Sign Up
                         </button>

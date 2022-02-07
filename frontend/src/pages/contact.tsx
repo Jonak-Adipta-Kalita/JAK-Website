@@ -103,6 +103,7 @@ const Contact = () => {
                         <button
                             type="submit"
                             className="transform rounded-lg border-[0.1px] border-gray-300 p-4 transition duration-100 ease-out hover:scale-125"
+                            aria-label="send-contact"
                         >
                             Send
                         </button>
