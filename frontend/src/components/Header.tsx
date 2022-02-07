@@ -23,7 +23,7 @@ const Header = () => {
     };
 
     return (
-        <header className="flex items-center justify-between bg-[#272934] p-4 py-5 text-gray-400 shadow-xl md:px-10 lg:px-20">
+        <header className="flex items-center justify-between  p-4 py-5 text-gray-400 shadow-xl md:px-10 lg:px-20">
             <div
                 onClick={() => router.push("/")}
                 className="flex cursor-pointer items-center space-x-4"

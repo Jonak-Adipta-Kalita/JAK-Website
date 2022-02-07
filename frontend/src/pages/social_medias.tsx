@@ -7,9 +7,9 @@ import SignUpModal from "../components/modals/SignUpModal";
 
 const SocialMedias = () => {
     return (
-        <div className="flex h-screen flex-col bg-[#272934] text-gray-300">
+        <div className="flex h-screen flex-col  text-gray-300">
             <Head>
-                <title>JAK Website | Discord Widget</title>
+                <title>JAK Website | Social Medias</title>
             </Head>
             <Header />
             <main className="flex-1 overflow-y-auto scrollbar-hide">

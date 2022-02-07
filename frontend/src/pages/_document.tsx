@@ -38,7 +38,7 @@ class MyDocument extends Document {
                         content="default"
                     />
                 </Head>
-                <body>
+                <body className="bg-bg-color">
                     <Main />
                     <NextScript />
                 </body>

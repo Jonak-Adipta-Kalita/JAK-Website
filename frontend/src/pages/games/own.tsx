@@ -13,7 +13,7 @@ interface Props {
 
 const GamesOwn = ({ games }: Props) => {
     return (
-        <div className="flex h-screen flex-col bg-[#272934] text-gray-300">
+        <div className="flex h-screen flex-col  text-gray-300">
             <Head>
                 <title>JAK Website | Games | Own</title>
             </Head>

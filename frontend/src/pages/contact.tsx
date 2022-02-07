@@ -49,12 +49,12 @@ const Contact = () => {
     };
 
     return (
-        <div className="flex h-screen flex-col bg-[#272934] text-gray-300">
-            <Head>
-                <title>JAK Website | Contact</title>
-            </Head>
+        <div className="flex h-screen flex-col text-gray-300">
             <Header />
             <main className="flex-1 overflow-y-auto scrollbar-hide">
+                <Head>
+                    <title>JAK Website | Contact</title>
+                </Head>
                 <form
                     onSubmit={sendContact}
                     className="mx-auto mt-5 flex flex-col items-center space-y-4 md:mt-10 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl"
