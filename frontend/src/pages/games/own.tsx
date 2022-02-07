@@ -38,7 +38,7 @@ const GamesOwn = ({ games }: Props) => {
                             ))}
                         </div>
                     ) : (
-                        <p className="font-2xl font-bold">Nothing</p>
+                        <p className="font-2xl font-bold">No Game!!</p>
                     )}
                 </div>
             </main>
