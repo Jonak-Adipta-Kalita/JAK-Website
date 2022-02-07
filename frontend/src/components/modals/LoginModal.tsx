@@ -81,7 +81,9 @@ const LoginModal = () => {
                                 />
                                 <div className="relative">
                                     <input
-                                        type={showPassword ? "text": "password"}
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
                                         required
                                         value={password}
                                         onChange={(e) =>
