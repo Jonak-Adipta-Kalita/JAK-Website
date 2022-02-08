@@ -34,6 +34,50 @@
             "purpose": "any maskable"
         }
     ],
+    "shortcuts": [
+        {
+            "name": "JAK's Pictures",
+            "short_name": "Pictures",
+            "description": "View JAK's Pictures!!",
+            "url": "/pictures",
+            "icons": [
+                {
+                    "src": "/images/shortcut_images/pictures.png",
+                    "type": "image/png",
+                    "sizes": "576x460",
+                    "purpose": "any maskable"
+                }
+            ]
+        },
+        {
+            "name": "JAK's Games",
+            "short_name": "Own Games",
+            "description": "View JAK's Own Games!!",
+            "url": "/games/own",
+            "icons": [
+                {
+                    "src": "/images/shortcut_images/games.png",
+                    "type": "image/png",
+                    "sizes": "576x460",
+                    "purpose": "any maskable"
+                }
+            ]
+        },
+        {
+            "name": "JAK's Favourite Games",
+            "short_name": "Fav Games",
+            "description": "View JAK's Favourite Games!!",
+            "url": "/games/fav",
+            "icons": [
+                {
+                    "src": "/images/shortcut_images/games.png",
+                    "type": "image/png",
+                    "sizes": "576x460",
+                    "purpose": "any maskable"
+                }
+            ]
+        }
+    ],
     "start_url": "/",
     "background_color": "#272934",
     "display": "standalone",
