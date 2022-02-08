@@ -35,7 +35,7 @@ const Search = ({
                     gameFavResultsFound.length !== 0 ||
                     picturesResultsFound.length !== 0 ? (
                         <div className="pl-20">
-                            <h1 className="mb-6">Results: </h1>
+                            <p className="mb-6">Results: </p>
                             {gameOwnResultsFound.length !== 0 && (
                                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                                     {gameOwnResultsFound.map((game) => (
@@ -85,9 +85,9 @@ const Search = ({
                                                 className="rounded"
                                                 loading="lazy"
                                             />
-                                            <h1 className="font-justify mt-2">
+                                            <p className="font-justify mt-2">
                                                 {picture.name}
-                                            </h1>
+                                            </p>
                                         </div>
                                     ))}
                                 </div>

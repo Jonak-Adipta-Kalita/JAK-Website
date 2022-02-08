@@ -17,8 +17,10 @@ const Notifications = ({ notifications }: Props) => {
     const router = useRouter();
     const { data: session } = useSession();
 
-    if (!session) return router.push("/page-not-found");
-
+    if (!session) {
+        router.push("/page-not-found");
+        return;
+    }
     return (
         <div className="flex h-screen flex-col  text-gray-300">
             <Head>

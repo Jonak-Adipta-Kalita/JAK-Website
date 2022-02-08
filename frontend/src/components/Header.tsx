@@ -35,7 +35,7 @@ const Header = () => {
                     height={60}
                     width={60}
                 />
-                <h1 className="font-bold text-white">JAK Website</h1>
+                <p className="font-bold text-white">JAK Website</p>
             </div>
             <form
                 className="relative mx-auto hidden pt-2 text-gray-600 md:inline"

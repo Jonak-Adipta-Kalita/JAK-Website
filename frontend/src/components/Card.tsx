@@ -38,13 +38,13 @@ const Card = ({
                         loading="lazy"
                     />
                 )}
-                <h5
+                <p
                     className={`mb-2 text-xl font-medium leading-tight text-gray-200 ${
                         image && "mt-[20px]"
                     }`}
                 >
                     {title}
-                </h5>
+                </p>
                 <p className="mb-4 text-base text-gray-400">{description}</p>
                 {button && (
                     <button

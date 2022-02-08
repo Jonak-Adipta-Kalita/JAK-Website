@@ -6,6 +6,7 @@
     font-family: "OtomanopeeOne";
     font-weight: 600;
     src: url(/fonts/OtomanopeeOne-Regular.ttf) format("truetype");
+    font-display: swap;
 }
 
 body {

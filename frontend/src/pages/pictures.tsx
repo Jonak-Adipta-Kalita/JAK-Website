@@ -31,9 +31,9 @@ const Pictures = ({ pictures }: Props) => {
                                     className="rounded"
                                     loading="lazy"
                                 />
-                                <h1 className="font-justify mt-2">
+                                <p className="font-justify mt-2">
                                     {picture.name}
-                                </h1>
+                                </p>
                             </div>
                         ))}
                     </div>

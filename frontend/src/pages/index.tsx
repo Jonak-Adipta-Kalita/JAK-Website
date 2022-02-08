@@ -21,7 +21,7 @@ const Home = () => {
             <main className="flex-1 overflow-y-auto scrollbar-hide">
                 <div className="mx-auto mb-5 mt-10 space-y-4 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
                     <div className="flex justify-center">
-                        <h3 className="text-3xl">
+                        <p className="text-3xl">
                             <Typed
                                 strings={[
                                     "I'm a Programmer",
@@ -38,7 +38,7 @@ const Home = () => {
                                 loop={true}
                                 className="mb-[50px] font-bold"
                             />
-                        </h3>
+                        </p>
                     </div>
                     <div className="mx-[40px] border-b-[5px]" />
                     <div className="pt-10">
