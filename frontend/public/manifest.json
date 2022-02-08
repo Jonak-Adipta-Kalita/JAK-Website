@@ -51,9 +51,9 @@
         },
         {
             "name": "JAK's Games",
-            "short_name": "Own Games",
-            "description": "View JAK's Own Games!!",
-            "url": "/games/own",
+            "short_name": "Games",
+            "description": "View JAK's Games!!",
+            "url": "/games",
             "icons": [
                 {
                     "src": "/images/shortcut_images/games.png",
@@ -64,13 +64,27 @@
             ]
         },
         {
-            "name": "JAK's Favourite Games",
-            "short_name": "Fav Games",
-            "description": "View JAK's Favourite Games!!",
-            "url": "/games/fav",
+            "name": "JAK's Social Medias",
+            "short_name": "Social Medias",
+            "description": "View JAK's Social Medias!!",
+            "url": "/social_medias",
             "icons": [
                 {
-                    "src": "/images/shortcut_images/games.png",
+                    "src": "/images/shortcut_images/social_medias.png",
+                    "type": "image/png",
+                    "sizes": "576x460",
+                    "purpose": "any maskable"
+                }
+            ]
+        },
+        {
+            "name": "Contact JAK",
+            "short_name": "Contact",
+            "description": "Contact JAK!!",
+            "url": "/contact",
+            "icons": [
+                {
+                    "src": "/images/shortcut_images/contact.png",
                     "type": "image/png",
                     "sizes": "576x460",
                     "purpose": "any maskable"
