@@ -38,6 +38,8 @@ class Contact(models.Model):
 class My_Photo(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, default="")
+    height = models.CharField(max_length=5, default="")
+    width = models.CharField(max_length=5, default="")
     image = models.ImageField(upload_to="images/my_photos", default="")
 
     def __str__(self):

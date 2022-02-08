@@ -84,6 +84,8 @@ const Search = ({
                                                 alt=""
                                                 className="rounded"
                                                 loading="lazy"
+                                                height={picture.height}
+                                                width={picture.width}
                                             />
                                             <p className="font-justify mt-2">
                                                 {picture.name}

@@ -2,6 +2,8 @@ export interface Picture {
     id: number;
     image: string;
     name: string;
+    height: string;
+    width: string;
 }
 
 export interface Game {

@@ -34,8 +34,10 @@ const Card = ({
                 {image && (
                     <img
                         src={image}
-                        className="h-[270px] w-[500px] rounded"
+                        className="rounded"
                         loading="lazy"
+                        height="270"
+                        width="500"
                     />
                 )}
                 <p
