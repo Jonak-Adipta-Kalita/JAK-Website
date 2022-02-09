@@ -61,7 +61,7 @@ const Home = () => {
                             />
                             <Card
                                 title="Games"
-                                description="Know about JAK' Games"
+                                description="Know about JAK's Games"
                                 button={{
                                     title: "Link",
                                     onClick: () => router.push("/games"),
