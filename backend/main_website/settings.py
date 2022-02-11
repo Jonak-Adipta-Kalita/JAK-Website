@@ -89,7 +89,16 @@ REST_FRAMEWORK = {
     ]
 }
 
-SIMPLE_JWT = {"ACESS_TOKEN_LIFETIME": datetime.timedelta(minutes=30)}
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": False,
+    "AUTH_HEADER_TYPES": ["Bearer"],
+    "AUTH_TOKEN_CLASSES": [
+        "rest_framework_simple_jwt.tokens.AccessToken"
+    ],
+    "SIGNING_KEY": credentials.JWT_SECRET,
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

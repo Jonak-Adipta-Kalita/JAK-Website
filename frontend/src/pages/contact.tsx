@@ -1,4 +1,5 @@
 import { FormEvent, useState, useRef } from "react";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,6 +9,7 @@ import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
 
 const Contact = () => {
+    const { data: session } = useSession();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -18,10 +20,18 @@ const Contact = () => {
     const sendContact = (e: FormEvent) => {
         e.preventDefault();
 
-        if (!hCaptchaToken) return;
+        if (!session) {
+            alert("First Login or Sign Up to send Contact!!");
+            return;
+        }
 
         if (phone.length <= 10 || !phone.startsWith("+")) {
             alert("Phone Number must be correct!!");
+            return;
+        }
+
+        if (!hCaptchaToken) {
+            alert("Captcha not Found!!");
             return;
         }
 

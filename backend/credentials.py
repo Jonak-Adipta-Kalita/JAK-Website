@@ -4,6 +4,7 @@ PRODUCTION = False
 PORTS = []
 FRONTEND_PORTS = []
 SECRET_KEY = config("SECRET_KEY")
+JWT_SECRET = config("JWT_SECRET")
 
 if PRODUCTION:
     PORTS = [
