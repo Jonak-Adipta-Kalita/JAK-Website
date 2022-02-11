@@ -1,7 +1,6 @@
-from pathlib import Path
-import os, credentials
+import pathlib, os, credentials, datetime
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+BASE_DIR = pathlib.Path(__file__).resolve(strict=True).parent.parent
 
 SECRET_KEY = credentials.SECRET_KEY
 
@@ -83,6 +82,14 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ]
+}
+
+SIMPLE_JWT = {"ACESS_TOKEN_LIFETIME": datetime.timedelta(minutes=30)}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

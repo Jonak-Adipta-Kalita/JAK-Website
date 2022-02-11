@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0004_alter_contact_phone'),
+        ("main_app", "0004_alter_contact_phone"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='my_photo',
-            name='height',
-            field=models.CharField(default='', max_length=5),
+            model_name="my_photo",
+            name="height",
+            field=models.CharField(default="", max_length=5),
         ),
         migrations.AddField(
-            model_name='my_photo',
-            name='width',
-            field=models.CharField(default='', max_length=5),
+            model_name="my_photo",
+            name="width",
+            field=models.CharField(default="", max_length=5),
         ),
     ]
