@@ -34,7 +34,7 @@ urlpatterns = [
         views.ContactAPIView.as_view(),
         name="contact_jak",
     ),
-    path("api/auth/token/access", simplejwt_views.TokenObtainPairView.as_view(), "access_token"),
-    path("api/auth/token/refresh", simplejwt_views.TokenRefreshView.as_view(), "refresh_token"),
-    path("api/auth/token/verify", simplejwt_views.TokenVerifyView.as_view(), "verify"),
+    path("api/auth/token/", simplejwt_views.TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/auth/token/refresh/", simplejwt_views.TokenRefreshView.as_view(), name="refresh_token"),
+    path("api/auth/token/verify/", simplejwt_views.TokenVerifyView.as_view(), name="verify_token"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

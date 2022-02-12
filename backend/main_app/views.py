@@ -1,5 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from rest_framework import generics, response, status, authentication, permissions
+from rest_framework import generics, response, status
 from .models import Game_Own, Game_Fav, Notification, My_Photo, Contact
 from .serializers import (
     GameOwnSerializer,
