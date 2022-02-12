@@ -23,6 +23,16 @@ const SignUpModal = () => {
     const signUp = (e: FormEvent) => {
         e.preventDefault();
 
+        if (password.length >= 8) {
+            alert("Password must be at least 8 characters in length!!");
+            return;
+        }
+
+        if (password === confirmPassword) {
+            alert("Password and Confirm Password are not same!!");
+            return;
+        }
+
         if (!hCaptchaToken) return;
     };
 

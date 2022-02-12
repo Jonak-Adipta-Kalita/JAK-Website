@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth import models as auth_models
 from .models import Game_Fav, Game_Own, My_Photo, Notification, Contact
 
 
@@ -30,3 +31,13 @@ class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
         fields = "__all__"
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = auth_models.User
+        fields = (
+            "first_name",
+            "last_name",
+            "username",
+        )
