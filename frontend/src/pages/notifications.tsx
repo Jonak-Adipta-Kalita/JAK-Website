@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -17,10 +18,13 @@ const Notifications = ({ notifications }: Props) => {
     const router = useRouter();
     const { data: session } = useSession();
 
-    if (!session) {
-        router.push("/page-not-found");
-        return;
-    }
+    useEffect(() => {
+        if (!session) {
+            router.push("/page-not-found");
+            return;
+        }
+    }, [session]);
+
     return (
         <div className="flex h-screen flex-col  text-gray-300">
             <Head>
