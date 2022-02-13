@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import { User } from "../typings";
 
 export const loginModalState = atom({
     key: "loginModalState",
@@ -15,12 +16,17 @@ export const showPasswordState = atom({
     default: false,
 });
 
-export const sessionState = atom({
+export const sessionState = atom<{
+    user: User | null;
+    isAuthenticated: boolean;
+    isLoading: boolean;
+    isRegisterSuccess: boolean;
+}>({
     key: "sessionState",
     default: {
         user: null,
         isAuthenticated: false,
-        loading: false,
-        registerSuccess: false,
+        isLoading: false,
+        isRegisterSuccess: false,
     },
 });

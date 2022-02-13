@@ -49,6 +49,6 @@ urlpatterns = [
         simplejwt_views.TokenVerifyView.as_view(),
         name="verify_token",
     ),
-    path("api/auth/register", views.RegisterView.as_view()),
-    path("api/auth/user", views.LoadUserView.as_view()),
+    path("api/auth/register", views.RegisterView.as_view(), name="register"),
+    path("api/auth/user", views.LoadUserView.as_view(), name="user"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

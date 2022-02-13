@@ -94,7 +94,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": False,
     "AUTH_HEADER_TYPES": ["Bearer"],
-    "AUTH_TOKEN_CLASSES": ["rest_framework_simple_jwt.tokens.AccessToken"],
+    "AUTH_TOKEN_CLASSES": ["rest_framework_simplejwt.tokens.AccessToken"],
     "SIGNING_KEY": credentials.JWT_SECRET,
 }
 
