@@ -100,16 +100,18 @@ class RegisterView(restframework_views.APIView):
         try:
             data = request.data
 
-            first_name: str = data['first_name']
-            last_name: str = data['last_name']
-            username: str = data['username']
-            password: str = data['password']
+            first_name: str = data["first_name"]
+            last_name: str = data["last_name"]
+            username: str = data["username"]
+            email: str = data["email"]
+            password: str = data["password"]
 
             if not auth_models.User.objects.filter(username=username).exists():
                 user = auth_models.User.objects.create_user(
                     first_name=first_name,
                     last_name=last_name,
                     username=username,
+                    email=email,
                     password=password,
                 )
 
@@ -117,23 +119,23 @@ class RegisterView(restframework_views.APIView):
 
                 if auth_models.User.objects.filter(username=username).exists():
                     return response.Response(
-                        {'success': 'Account created successfully'},
-                        status=status.HTTP_201_CREATED
+                        {"success": "Account created successfully"},
+                        status=status.HTTP_201_CREATED,
                     )
                 else:
                     return response.Response(
-                        {'error': 'Something went wrong when trying to create account'},
-                        status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                        {"error": "Something went wrong when trying to create account"},
+                        status=status.HTTP_500_INTERNAL_SERVER_ERROR,
                     )
             else:
                 return response.Response(
-                    {'error': 'Username already exists'},
-                    status=status.HTTP_400_BAD_REQUEST
+                    {"error": "Username already exists"},
+                    status=status.HTTP_400_BAD_REQUEST,
                 )
         except:
             return response.Response(
-                {'error': 'Something went wrong when trying to register account'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+                {"error": "Something went wrong when trying to register account"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
 
