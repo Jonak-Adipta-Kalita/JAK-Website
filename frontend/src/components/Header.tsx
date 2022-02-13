@@ -2,13 +2,16 @@ import { useState, FormEvent } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/solid";
-import { loginModalState, signUpModalState } from "../atoms/authModalsAtom";
-import { useSetRecoilState } from "recoil";
-import { useSession } from "next-auth/react";
+import {
+    loginModalState,
+    signUpModalState,
+    sessionState,
+} from "../atoms/authAtom";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 
 const Header = () => {
     const router = useRouter();
-    const { data: session } = useSession();
+    const session = useRecoilValue(sessionState);
     const [searchQuery, setSearchQuery] = useState("");
     const setLoginModalOpen = useSetRecoilState(loginModalState);
     const setSignUpModalOpen = useSetRecoilState(signUpModalState);
@@ -58,7 +61,7 @@ const Header = () => {
                 </button>
             </form>
             <div className="">
-                {!session ? (
+                {!session.isAuthenticated ? (
                     <div className="mr-4 flex space-x-5">
                         <button
                             className="transform cursor-pointer rounded-xl border-[0.1px] border-gray-400 p-2 px-5 transition duration-100 ease-out hover:scale-125"

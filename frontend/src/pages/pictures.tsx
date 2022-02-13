@@ -3,16 +3,17 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { GetServerSideProps } from "next";
 import { Picture } from "../typings";
-import { useSession } from "next-auth/react";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
+import { useRecoilValue } from "recoil";
+import { sessionState } from "../atoms/authAtom";
 
 interface Props {
     pictures: Picture[];
 }
 
 const Pictures = ({ pictures }: Props) => {
-    const { data: session } = useSession();
+    const session = useRecoilValue(sessionState);
 
     return (
         <div className="flex h-screen flex-col  text-gray-300">
@@ -21,7 +22,7 @@ const Pictures = ({ pictures }: Props) => {
             </Head>
             <Header />
             <main className="flex-1 overflow-y-auto scrollbar-hide">
-                {session ? (
+                {session.isAuthenticated ? (
                     <div className="mx-auto mb-5 mt-3 space-y-4 md:mt-10 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             {pictures.map((picture) => (

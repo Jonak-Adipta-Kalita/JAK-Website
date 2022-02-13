@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Progressbar from "@badrap/bar-of-progress";
 import Router from "next/router";
-import { SessionProvider } from "next-auth/react";
 import { RecoilRoot } from "recoil";
 
 const progress = new Progressbar({
@@ -16,13 +15,11 @@ Router.events.on("routeChangeStart", progress.start);
 Router.events.on("routeChangeComplete", progress.finish);
 Router.events.on("routeChangeError", progress.finish);
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <SessionProvider session={session}>
-            <RecoilRoot>
-                <Component {...pageProps} />
-            </RecoilRoot>
-        </SessionProvider>
+        <RecoilRoot>
+            <Component {...pageProps} />
+        </RecoilRoot>
     );
 }
 

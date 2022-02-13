@@ -1,5 +1,4 @@
 import { FormEvent, useState, useRef } from "react";
-import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -7,9 +6,11 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from "axios";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
+import { useRecoilValue } from "recoil";
+import { sessionState } from "../atoms/authAtom";
 
 const Contact = () => {
-    const { data: session } = useSession();
+    const session = useRecoilValue(sessionState);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -20,7 +21,7 @@ const Contact = () => {
     const sendContact = (e: FormEvent) => {
         e.preventDefault();
 
-        if (!session) {
+        if (!session.isAuthenticated) {
             alert("First Login or Sign Up to send Contact!!");
             return;
         }

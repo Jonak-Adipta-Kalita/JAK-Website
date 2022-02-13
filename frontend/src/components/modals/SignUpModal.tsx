@@ -3,10 +3,7 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { useRecoilState } from "recoil";
-import {
-    showPasswordState,
-    signUpModalState,
-} from "../../atoms/authModalsAtom";
+import { showPasswordState, signUpModalState } from "../../atoms/authAtom";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);

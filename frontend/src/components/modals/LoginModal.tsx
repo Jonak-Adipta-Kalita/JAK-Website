@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRecoilState } from "recoil";
-import { loginModalState, showPasswordState } from "../../atoms/authModalsAtom";
+import { loginModalState, showPasswordState } from "../../atoms/authAtom";
 
 const LoginModal = () => {
     const [open, setOpen] = useRecoilState(loginModalState);
