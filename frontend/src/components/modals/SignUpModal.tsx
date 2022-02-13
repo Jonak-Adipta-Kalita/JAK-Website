@@ -9,6 +9,7 @@ import {
     signUpModalState,
 } from "../../atoms/authAtom";
 import axios from "axios";
+import { BallTriangle } from "react-loader-spinner";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);
@@ -32,11 +33,21 @@ const SignUpModal = () => {
         });
 
         if (password !== confirmPassword) {
+            setSession({
+                ...session,
+                isLoading: true,
+            });
             alert("Password and Confirm Password are not same!!");
             return;
         }
 
-        if (!hCaptchaToken) return;
+        if (!hCaptchaToken) {
+            setSession({
+                ...session,
+                isLoading: true,
+            });
+            return;
+        }
 
         try {
             const res = await axios.post(
@@ -71,7 +82,7 @@ const SignUpModal = () => {
         } catch (error) {
             alert("Something went Wrong, when registering an account");
         }
-        
+
         setSession({
             ...session,
             isLoading: false,
@@ -228,7 +239,6 @@ const SignUpModal = () => {
                                         />
                                     )}
                                 </div>
-
                                 <HCaptcha
                                     sitekey={
                                         process.env
@@ -242,13 +252,21 @@ const SignUpModal = () => {
                                     theme="dark"
                                 />
                                 <div className="flex justify-center py-[25px]">
-                                    <button
-                                        type="submit"
-                                        className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
-                                        aria-label="sign-up"
-                                    >
-                                        Sign Up
-                                    </button>
+                                    {!session.isLoading ? (
+                                        <button
+                                            type="submit"
+                                            className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
+                                            aria-label="sign-up"
+                                        >
+                                            Sign Up
+                                        </button>
+                                    ) : (
+                                        <BallTriangle
+                                            color="#D1D5DB"
+                                            height={80}
+                                            width={80}
+                                        />
+                                    )}
                                 </div>
                             </form>
                         </div>

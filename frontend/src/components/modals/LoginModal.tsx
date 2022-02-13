@@ -8,6 +8,7 @@ import {
     showPasswordState,
     sessionState,
 } from "../../atoms/authAtom";
+import { BallTriangle } from "react-loader-spinner";
 
 const LoginModal = () => {
     const [open, setOpen] = useRecoilState(loginModalState);
@@ -26,7 +27,13 @@ const LoginModal = () => {
             isLoading: true,
         });
 
-        if (!hCaptchaToken) return;
+        if (!hCaptchaToken) {
+            setSession({
+                ...session,
+                isLoading: false,
+            });
+            return;
+        }
 
         try {
             // Logic
@@ -130,7 +137,6 @@ const LoginModal = () => {
                                         />
                                     )}
                                 </div>
-
                                 <HCaptcha
                                     sitekey={
                                         process.env
@@ -144,13 +150,21 @@ const LoginModal = () => {
                                     theme="dark"
                                 />
                                 <div className="flex justify-center py-[25px]">
-                                    <button
-                                        type="submit"
-                                        className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
-                                        aria-label="login"
-                                    >
-                                        Login
-                                    </button>
+                                    {!session.isLoading ? (
+                                        <button
+                                            type="submit"
+                                            className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
+                                            aria-label="login"
+                                        >
+                                            Login
+                                        </button>
+                                    ) : (
+                                        <BallTriangle
+                                            color="#D1D5DB"
+                                            height={80}
+                                            width={80}
+                                        />
+                                    )}
                                 </div>
                             </form>
                         </div>
