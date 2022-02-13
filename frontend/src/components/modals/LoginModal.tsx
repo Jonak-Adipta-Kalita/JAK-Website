@@ -3,20 +3,31 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRecoilState } from "recoil";
-import { loginModalState, showPasswordState } from "../../atoms/authAtom";
+import {
+    loginModalState,
+    showPasswordState,
+    sessionState,
+} from "../../atoms/authAtom";
 
 const LoginModal = () => {
     const [open, setOpen] = useRecoilState(loginModalState);
     const [showPassword, setShowPassword] = useRecoilState(showPasswordState);
+    const [session, setSession] = useRecoilState(sessionState);
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
 
-    const login = (e: FormEvent) => {
+    const login = async (e: FormEvent) => {
         e.preventDefault();
 
         if (!hCaptchaToken) return;
+
+        try {
+            // Logic
+        } catch (error) {
+            alert("Something went Wrong, when Loging in!!");
+        }
     };
 
     return (
@@ -91,6 +102,7 @@ const LoginModal = () => {
                                         }
                                         className="authInput"
                                         placeholder="Your Password"
+                                        minLength={8}
                                     />
                                     {showPassword ? (
                                         <EyeOffIcon

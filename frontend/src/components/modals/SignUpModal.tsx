@@ -3,11 +3,17 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Dialog, Transition } from "@headlessui/react";
 import { XCircleIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import { useRecoilState } from "recoil";
-import { showPasswordState, signUpModalState } from "../../atoms/authAtom";
+import {
+    sessionState,
+    showPasswordState,
+    signUpModalState,
+} from "../../atoms/authAtom";
+import axios from "axios";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);
     const [showPassword, setShowPassword] = useRecoilState(showPasswordState);
+    const [session, setSession] = useRecoilState(sessionState);
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const [username, setUsername] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -17,20 +23,49 @@ const SignUpModal = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const captchaRef = useRef<any>(null);
 
-    const signUp = (e: FormEvent) => {
+    const signUp = async (e: FormEvent) => {
         e.preventDefault();
 
-        if (password.length >= 8) {
-            alert("Password must be at least 8 characters in length!!");
-            return;
-        }
-
-        if (password === confirmPassword) {
+        if (password !== confirmPassword) {
             alert("Password and Confirm Password are not same!!");
             return;
         }
 
         if (!hCaptchaToken) return;
+
+        try {
+            const res = await axios.post(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/register`,
+                JSON.stringify({
+                    first_name: firstName,
+                    last_name: lastName,
+                    username,
+                    email,
+                    password,
+                }),
+                {
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (res.status === 201) {
+                alert("Account created Successfully");
+            } else {
+                alert(res.data.error);
+            }
+
+            setFirstName("");
+            setLastName("");
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+        } catch (error) {
+            alert("Something went Wrong, when registering an account");
+        }
     };
 
     return (
@@ -132,6 +167,7 @@ const SignUpModal = () => {
                                         className="authInput"
                                         placeholder="Choose a Password"
                                         value={password}
+                                        minLength={8}
                                         onChange={(e) =>
                                             setPassword(e.target.value)
                                         }
@@ -161,6 +197,7 @@ const SignUpModal = () => {
                                         className="authInput"
                                         placeholder="Enter your Password again"
                                         value={confirmPassword}
+                                        minLength={8}
                                         onChange={(e) =>
                                             setConfirmPassword(e.target.value)
                                         }

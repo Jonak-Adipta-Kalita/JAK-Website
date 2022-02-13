@@ -35,17 +35,17 @@ urlpatterns = [
         name="contact_jak",
     ),
     path(
-        "api/auth/token/",
+        "api/auth/token",
         simplejwt_views.TokenObtainPairView.as_view(),
         name="token_obtain_pair",
     ),
     path(
-        "api/auth/token/refresh/",
+        "api/auth/token/refresh",
         simplejwt_views.TokenRefreshView.as_view(),
         name="refresh_token",
     ),
     path(
-        "api/auth/token/verify/",
+        "api/auth/token/verify",
         simplejwt_views.TokenVerifyView.as_view(),
         name="verify_token",
     ),
