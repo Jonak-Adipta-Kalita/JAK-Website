@@ -26,6 +26,11 @@ const SignUpModal = () => {
     const signUp = async (e: FormEvent) => {
         e.preventDefault();
 
+        setSession({
+            ...session,
+            isLoading: true,
+        });
+
         if (password !== confirmPassword) {
             alert("Password and Confirm Password are not same!!");
             return;
@@ -66,6 +71,11 @@ const SignUpModal = () => {
         } catch (error) {
             alert("Something went Wrong, when registering an account");
         }
+        
+        setSession({
+            ...session,
+            isLoading: false,
+        });
     };
 
     return (

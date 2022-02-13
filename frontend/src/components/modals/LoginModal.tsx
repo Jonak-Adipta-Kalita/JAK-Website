@@ -21,6 +21,11 @@ const LoginModal = () => {
     const login = async (e: FormEvent) => {
         e.preventDefault();
 
+        setSession({
+            ...session,
+            isLoading: true,
+        });
+
         if (!hCaptchaToken) return;
 
         try {
@@ -28,6 +33,11 @@ const LoginModal = () => {
         } catch (error) {
             alert("Something went Wrong, when Loging in!!");
         }
+
+        setSession({
+            ...session,
+            isLoading: false,
+        });
     };
 
     return (

@@ -20,13 +20,11 @@ export const sessionState = atom<{
     user: User | null;
     isAuthenticated: boolean;
     isLoading: boolean;
-    isRegisterSuccess: boolean;
 }>({
     key: "sessionState",
     default: {
         user: null,
         isAuthenticated: false,
         isLoading: false,
-        isRegisterSuccess: false,
     },
 });
