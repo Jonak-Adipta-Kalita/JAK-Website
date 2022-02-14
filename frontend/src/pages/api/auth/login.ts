@@ -46,16 +46,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             ]);
 
             return res.status(200).json({
-                success: "Logged in successfully",
+                success: "Logged in successfully!!",
             });
         } else {
             return res.status(apiRes.status).json({
-                error: "Authentication failed",
+                error: "Authentication failed!!",
             });
         }
     } catch (err) {
         return res.status(500).json({
-            error: "Something went wrong when authenticating",
+            error: "Something went wrong when authenticating!!",
         });
     }
 };

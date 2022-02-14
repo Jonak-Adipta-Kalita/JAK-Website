@@ -1,5 +1,6 @@
 import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
+import cookie from "cookie";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (!(req.method === "POST")) {
@@ -30,7 +31,46 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         );
 
         if (apiRes.status === 201) {
-            return res.status(201).json({ success: apiRes.data.success });
+            const token_res = await axios.post(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/token`,
+                JSON.stringify({
+                    username,
+                    password,
+                }),
+                {
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (token_res.status === 200) {
+                res.setHeader("Set-Cookie", [
+                    cookie.serialize("access", token_res.data.access, {
+                        httpOnly: true,
+                        secure: process.env.NODE_ENV !== "development",
+                        maxAge: 60 * 30,
+                        sameSite: "strict",
+                        path: "/api/",
+                    }),
+                    cookie.serialize("refresh", token_res.data.refresh, {
+                        httpOnly: true,
+                        secure: process.env.NODE_ENV !== "development",
+                        maxAge: 60 * 60 * 24,
+                        sameSite: "strict",
+                        path: "/api/",
+                    }),
+                ]);
+
+                return res.status(201).json({
+                    success: "Created account Successfully!!",
+                });
+            } else {
+                return res.status(token_res.status).json({
+                    error: "Authentication failed!!",
+                });
+            }
         } else {
             return res.status(apiRes.status).json({
                 error: apiRes.data.error,
@@ -38,7 +78,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         }
     } catch (err) {
         return res.status(500).json({
-            error: "Something went wrong when registering for an account",
+            error: "Something went wrong when registering for an account!!",
         });
     }
 };
