@@ -9,12 +9,13 @@ import {
     sessionState,
 } from "../../atoms/authAtom";
 import { BallTriangle } from "react-loader-spinner";
+import axios from "axios";
 
 const LoginModal = () => {
     const [open, setOpen] = useRecoilState(loginModalState);
     const [showPassword, setShowPassword] = useRecoilState(showPasswordState);
     const [session, setSession] = useRecoilState(sessionState);
-    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
@@ -36,7 +37,28 @@ const LoginModal = () => {
         }
 
         try {
-            // Logic
+            const res = await axios.post(
+                `/api/auth/login`,
+                JSON.stringify({
+                    username,
+                    password,
+                }),
+                {
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (res.status === 200) {
+                alert(res.data.success);
+            } else {
+                alert(res.data.error);
+            }
+
+            setUsername("");
+            setPassword("");
         } catch (error) {
             alert("Something went Wrong, when Loging in!!");
         }
@@ -102,8 +124,10 @@ const LoginModal = () => {
                                 <input
                                     type="name"
                                     required
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    value={username}
+                                    onChange={(e) =>
+                                        setUsername(e.target.value)
+                                    }
                                     className="authInput"
                                     placeholder="Your Username"
                                 />

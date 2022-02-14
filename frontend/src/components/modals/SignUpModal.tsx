@@ -51,10 +51,10 @@ const SignUpModal = () => {
 
         try {
             const res = await axios.post(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/register`,
+                `/api/auth/register`,
                 JSON.stringify({
-                    first_name: firstName,
-                    last_name: lastName,
+                    firstName,
+                    lastName,
                     username,
                     email,
                     password,
@@ -68,7 +68,7 @@ const SignUpModal = () => {
             );
 
             if (res.status === 201) {
-                alert("Account created Successfully");
+                alert(res.data.success);
             } else {
                 alert(res.data.error);
             }
