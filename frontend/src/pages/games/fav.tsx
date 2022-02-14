@@ -6,6 +6,7 @@ import { GetServerSideProps } from "next";
 import { Game } from "../../typings";
 import LoginModal from "../../components/modals/LoginModal";
 import SignUpModal from "../../components/modals/SignUpModal";
+import axios from "axios";
 
 interface Props {
     games: Game[];
@@ -52,10 +53,10 @@ const GamesFav = ({ games }: Props) => {
 export default GamesFav;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const req = await fetch(
+    const req = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/fav?format=json`
     );
-    const games = await req.json();
+    const games = req.data;
 
     return {
         props: {

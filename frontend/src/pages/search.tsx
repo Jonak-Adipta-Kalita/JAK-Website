@@ -7,6 +7,7 @@ import { Game, Picture } from "../typings";
 import { GetServerSideProps } from "next";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
+import axios from "axios";
 
 interface Props {
     gameOwnResultsFound: Game[];
@@ -135,20 +136,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     let gameFavResultsFound: Game[] = [];
 
     const pictures = await (
-        await fetch(
+        await axios.get(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/my_photos?format=json`
         )
-    ).json();
+    ).data;
     const ownGames = await (
-        await fetch(
+        await axios.get(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/own?format=json`
         )
-    ).json();
+    ).data;
     const favGames = await (
-        await fetch(
+        await axios.get(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/fav?format=json`
         )
-    ).json();
+    ).data;
 
     if (
         query === "pictures" ||

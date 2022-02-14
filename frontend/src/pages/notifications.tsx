@@ -1,3 +1,4 @@
+import axios from "axios";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useRecoilValue } from "recoil";
@@ -53,10 +54,10 @@ const Notifications = ({ notifications }: Props) => {
 export default Notifications;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const req = await fetch(
+    const req = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/notifications?format=json`
     );
-    const notifications = await req.json();
+    const notifications = req.data;
 
     return {
         props: {

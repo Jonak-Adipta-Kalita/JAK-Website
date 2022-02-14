@@ -7,6 +7,7 @@ import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
 import { useRecoilValue } from "recoil";
 import { sessionState } from "../atoms/authAtom";
+import axios from "axios";
 
 interface Props {
     pictures: Picture[];
@@ -63,10 +64,10 @@ const Pictures = ({ pictures }: Props) => {
 export default Pictures;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const req = await fetch(
+    const req = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/my_photos?format=json`
     );
-    const pictures = await req.json();
+    const pictures = req.data;
 
     return {
         props: {
