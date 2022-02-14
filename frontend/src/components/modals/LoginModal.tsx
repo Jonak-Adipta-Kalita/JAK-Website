@@ -65,6 +65,7 @@ const LoginModal = () => {
                     setSession({
                         ...session,
                         user: load_user_res.data,
+                        isAuthenticated: true,
                     });
                 }
             } else {

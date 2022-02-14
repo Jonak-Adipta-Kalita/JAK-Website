@@ -7,12 +7,14 @@ import {
     signUpModalState,
     sessionState,
 } from "../atoms/authAtom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState, useRecoilState } from "recoil";
+import axios from "axios";
 
 const Header = () => {
     const router = useRouter();
-    const session = useRecoilValue(sessionState);
+    const [session, setSession] = useRecoilState(sessionState);
     const [searchQuery, setSearchQuery] = useState("");
+    const [loggedOut, setLoggedOut] = useState(false);
     const setLoginModalOpen = useSetRecoilState(loginModalState);
     const setSignUpModalOpen = useSetRecoilState(signUpModalState);
 
@@ -24,6 +26,45 @@ const Header = () => {
             query: { query: searchQuery },
         });
         setSearchQuery("");
+    };
+
+    const logout = async (e: MouseEvent) => {
+        e.preventDefault();
+
+        setSession({
+            ...session,
+            isLoading: true,
+        });
+
+        try {
+            const res = await axios.post(
+                "/api/auth/logout",
+                JSON.stringify({}),
+                {
+                    headers: {
+                        Accept: "application/json",
+                    },
+                }
+            );
+
+            if (res.status === 200) {
+                alert(res.data.success);
+                setLoggedOut(true);
+            } else {
+                alert(res.data.error);
+                setLoggedOut(false);
+            }
+        } catch (error) {
+            alert("Something went worng when Logging out!!");
+            setLoggedOut(false);
+        }
+
+        setSession({
+            ...session,
+            user: loggedOut ? null : session.user,
+            isLoading: false,
+            isAuthenticated: !loggedOut,
+        });
     };
 
     return (
