@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
         const apiRes = await axios.post(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/token/refresh/`,
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/token/refresh`,
             JSON.stringify({
                 refresh,
             }),

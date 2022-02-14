@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import Typed from "react-typed";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
@@ -6,9 +7,61 @@ import Footer from "../components/Footer";
 import Card from "../components/Card";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
+import { useRecoilState } from "recoil";
+import { sessionState } from "../atoms/authAtom";
+import axios from "axios";
 
 const Home = () => {
     const router = useRouter();
+    const [session, setSession] = useRecoilState(sessionState);
+
+    useEffect(() => {
+        const logic = async () => {
+            try {
+                const res = await axios.get("/api/auth/refresh", {
+                    headers: {
+                        Accept: "application/json",
+                    },
+                });
+
+                if (res.status === 200) {
+                    const verify_res = await axios.get("/api/auth/verify", {
+                        headers: {
+                            Accept: "application/json",
+                        },
+                    });
+
+                    if (verify_res.status === 200) {
+                        const load_user_res = await axios.get(
+                            `/api/auth/user`,
+                            {
+                                headers: {
+                                    Accept: "application/json",
+                                    "Content-Type": "application/json",
+                                },
+                            }
+                        );
+
+                        if (load_user_res.status === 200) {
+                            setSession({
+                                ...session,
+                                user: load_user_res.data,
+                                isAuthenticated: true,
+                            });
+                        }
+                    } else {
+                        alert("Something went wrong!!");
+                    }
+                } else {
+                    alert("Something went wrong!!");
+                }
+            } catch (err) {
+                alert("Something went wrong!!");
+            }
+        };
+
+        logic();
+    }, [router, session]);
 
     return (
         <div className="flex h-screen flex-col text-gray-300">
