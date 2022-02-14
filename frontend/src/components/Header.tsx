@@ -1,4 +1,4 @@
-import { useState, FormEvent, Fragment } from "react";
+import { useState, FormEvent, Fragment, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { SearchIcon, ChevronDownIcon, BellIcon } from "@heroicons/react/solid";
@@ -68,6 +68,54 @@ const Header = () => {
             isAuthenticated: !loggedOut,
         });
     };
+
+    useEffect(() => {
+        const logic = async () => {
+            try {
+                const res = await axios.get("/api/auth/refresh", {
+                    headers: {
+                        Accept: "application/json",
+                    },
+                });
+
+                if (res.status === 200) {
+                    const verify_res = await axios.get("/api/auth/verify", {
+                        headers: {
+                            Accept: "application/json",
+                        },
+                    });
+
+                    if (verify_res.status === 200) {
+                        const load_user_res = await axios.get(
+                            `/api/auth/user`,
+                            {
+                                headers: {
+                                    Accept: "application/json",
+                                    "Content-Type": "application/json",
+                                },
+                            }
+                        );
+
+                        if (load_user_res.status === 200) {
+                            setSession({
+                                ...session,
+                                user: load_user_res.data.user,
+                                isAuthenticated: true,
+                            });
+                        }
+                    } else {
+                        alert("Something went wrong!!");
+                    }
+                } else {
+                    alert("Something went wrong!!");
+                }
+            } catch (err) {
+                alert("Something went wrong!!");
+            }
+        };
+
+        logic();
+    }, [router, session]);
 
     return (
         <header className="flex items-center justify-between p-4 py-5 text-gray-400 shadow-xl md:px-10 lg:px-20">

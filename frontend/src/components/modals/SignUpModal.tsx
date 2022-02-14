@@ -80,7 +80,7 @@ const SignUpModal = () => {
                 if (load_user_res.status === 200) {
                     setSession({
                         ...session,
-                        user: load_user_res.data,
+                        user: load_user_res.data.user,
                         isAuthenticated: true,
                     });
                 }

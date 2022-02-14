@@ -43,7 +43,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     sameSite: "strict",
                     path: "/api/",
                 }),
-                cookie.serialize("refresh", data.refresh, {
+                cookie.serialize("refresh", refresh, {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== "development",
                     maxAge: 60 * 60 * 24,
