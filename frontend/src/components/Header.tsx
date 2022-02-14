@@ -1,7 +1,7 @@
 import { useState, FormEvent, Fragment } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { SearchIcon, ChevronDownIcon } from "@heroicons/react/solid";
+import { SearchIcon, ChevronDownIcon, BellIcon } from "@heroicons/react/solid";
 import { Menu, Transition } from "@headlessui/react";
 import {
     loginModalState,
@@ -103,7 +103,11 @@ const Header = () => {
                     />
                 </button>
             </form>
-            <div className="">
+            <div className="flex items-center space-x-5">
+                <BellIcon
+                    className="h-10 w-10 cursor-pointer hover:text-gray-300"
+                    onClick={() => router.push("/notifications")}
+                />
                 {!session.isAuthenticated ? (
                     <div className="mr-4 flex space-x-5">
                         <button
