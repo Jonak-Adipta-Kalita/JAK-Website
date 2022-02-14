@@ -31,4 +31,8 @@ button {
     .authInput {
         @apply w-[310px] rounded-lg border-[5px] border-gray-300 bg-bg-color p-4 outline-none;
     }
+
+    .menu-item {
+        @apply block cursor-pointer px-4 py-2 text-sm text-gray-300 hover:text-white;
+    }
 }
