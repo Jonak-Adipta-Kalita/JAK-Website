@@ -1,6 +1,6 @@
 from decouple import config
 
-PRODUCTION = False
+PRODUCTION = True
 PORTS = []
 FRONTEND_PORTS = []
 SECRET_KEY = config("SECRET_KEY")
