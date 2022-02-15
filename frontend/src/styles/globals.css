@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "OtomanopeeOne";
+    font-weight: 600;
+    src: url(/fonts/OtomanopeeOne-Regular.ttf) format("truetype");
+    font-display: swap;
+}
+
+body {
+    @apply cursor-default bg-bg-color font-otomanopee-one;
+}
+
+p,
+input {
+    @apply cursor-text;
+}
+
+a,
+button {
+    @apply cursor-pointer;
+}
+
+@layer components {
+    .contactInput {
+        @apply w-[400px] rounded-lg border-[5px] border-gray-300 bg-bg-color p-4 outline-none sm:w-[500px];
+    }
+
+    .authInput {
+        @apply w-[310px] rounded-lg border-[5px] border-gray-300 bg-bg-color p-4 outline-none;
+    }
+
+    .menuItem {
+        @apply block cursor-pointer px-4 py-2 text-sm text-gray-300 hover:text-white;
+    }
+
+    .dashboardText {
+        @apply text-xl font-semibold;
+    }
+}
