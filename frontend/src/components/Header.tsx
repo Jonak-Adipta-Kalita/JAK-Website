@@ -110,7 +110,7 @@ const Header = () => {
                     alert("Something went wrong!!");
                 }
             } catch (err) {
-                alert("You are not Logged in!!");
+                setSignUpModalOpen(true);
             }
         };
 
