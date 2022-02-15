@@ -110,7 +110,7 @@ const Header = () => {
                     alert("Something went wrong!!");
                 }
             } catch (err) {
-                setSignUpModalOpen(true);
+                // Do Nothing
             }
         };
 
