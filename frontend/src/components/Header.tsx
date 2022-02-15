@@ -211,7 +211,7 @@ const Header = () => {
                                                             "/dashboard"
                                                         )
                                                     }
-                                                    className="menu-item"
+                                                    className="menuItem"
                                                 >
                                                     Dashboard
                                                 </p>
