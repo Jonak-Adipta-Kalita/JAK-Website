@@ -110,7 +110,7 @@ const Header = () => {
                     alert("Something went wrong!!");
                 }
             } catch (err) {
-                alert("Something went wrong!!");
+                alert("You are not Logged in!!");
             }
         };
 
