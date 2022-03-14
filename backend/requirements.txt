@@ -19,7 +19,7 @@ gunicorn==20.1.0
 idna==3.3
 importlib-metadata==4.8.1
 Markdown==3.3.6
-marshmallow==3.14.0
+marshmallow==3.15.0
 mypy-extensions==0.4.3
 oauthlib==3.1.1
 Panda3D==1.10.10
