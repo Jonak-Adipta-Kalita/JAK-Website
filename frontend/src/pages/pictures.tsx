@@ -5,8 +5,6 @@ import { GetServerSideProps } from "next";
 import { Picture } from "../typings";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
-import { useRecoilValue } from "recoil";
-import { sessionState } from "../atoms/authAtom";
 import axios from "axios";
 
 interface Props {
@@ -14,8 +12,6 @@ interface Props {
 }
 
 const Pictures = ({ pictures }: Props) => {
-    const session = useRecoilValue(sessionState);
-
     return (
         <div className="flex h-screen flex-col  text-gray-300">
             <Head>
@@ -23,7 +19,7 @@ const Pictures = ({ pictures }: Props) => {
             </Head>
             <Header />
             <main className="flex-1 overflow-y-auto scrollbar-hide">
-                {session.isAuthenticated ? (
+                {pictures.length !== 0 ? (
                     <div className="mx-auto mb-5 mt-3 space-y-4 md:mt-10 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             {pictures.map((picture) => (
@@ -32,7 +28,7 @@ const Pictures = ({ pictures }: Props) => {
                                     key={picture.id}
                                 >
                                     <img
-                                        src={picture.image}
+                                        src={`https://jak-api.vercel.app/${picture.image}`}
                                         alt=""
                                         className="rounded"
                                         loading="lazy"
@@ -47,11 +43,7 @@ const Pictures = ({ pictures }: Props) => {
                         </div>
                     </div>
                 ) : (
-                    <div className="mx-auto mt-5 flex justify-center md:mt-10 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
-                        <p className="font-2xl font-bold">
-                            You need to Sign Up or Login first!!
-                        </p>
-                    </div>
+                    <p className="font-2xl font-bold">No Pictures!!</p>
                 )}
             </main>
             <LoginModal />
@@ -64,10 +56,13 @@ const Pictures = ({ pictures }: Props) => {
 export default Pictures;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const req = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/my_photos?format=json`
-    );
-    const pictures = req.data;
+    const req = await axios.get("https://jak_api.p.rapidapi.com/jak", {
+        headers: {
+            "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
+            "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
+        },
+    });
+    const pictures = req.data.pictures;
 
     return {
         props: {

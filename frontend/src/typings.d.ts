@@ -8,10 +8,11 @@ export interface Picture {
 
 export interface Game {
     id: number;
-    name: string;
+    platform: string;
+    value: string;
     description: string;
+    imageURL: string;
     link: string;
-    image: string;
 }
 
 export interface Notification {

@@ -1,6 +1,6 @@
 from decouple import config
 
-PRODUCTION = True
+PRODUCTION = True if config("PRODUCTION").lower() == "true" else False
 PORTS = []
 FRONTEND_PORTS = []
 SECRET_KEY = config("SECRET_KEY")

@@ -26,8 +26,8 @@ const GamesFav = ({ games }: Props) => {
                             {games.map((game) => (
                                 <Card
                                     key={game.id}
-                                    title={game.name}
-                                    image={game.image}
+                                    title={game.value}
+                                    image={`https://jak-api.vercel.app/${game.imageURL}`}
                                     description={game.description}
                                     link={{
                                         target: "_blank",
@@ -53,10 +53,13 @@ const GamesFav = ({ games }: Props) => {
 export default GamesFav;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const req = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/fav?format=json`
-    );
-    const games = req.data;
+    const req = await axios.get("https://jak_api.p.rapidapi.com/jak", {
+        headers: {
+            "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
+            "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
+        },
+    });
+    const games = req.data.hobby[0].games;
 
     return {
         props: {
