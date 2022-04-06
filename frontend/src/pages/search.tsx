@@ -42,8 +42,8 @@ const Search = ({
                                     {gameOwnResultsFound.map((game) => (
                                         <Card
                                             key={game.id}
-                                            title={game.name}
-                                            image={game.image}
+                                            title={game.value}
+                                            image={`https://jak-api.vercel.app/${game.imageURL}`}
                                             description={game.description}
                                             link={{
                                                 target: "_blank",
@@ -60,8 +60,8 @@ const Search = ({
                                     {gameFavResultsFound.map((game) => (
                                         <Card
                                             key={game.id}
-                                            title={game.name}
-                                            image={game.image}
+                                            title={game.value}
+                                            image={`https://jak-api.vercel.app/${game.imageURL}`}
                                             description={game.description}
                                             link={{
                                                 target: "_blank",
@@ -81,7 +81,7 @@ const Search = ({
                                             key={picture.id}
                                         >
                                             <img
-                                                src={picture.image}
+                                                src={`https://jak-api.vercel.app/${picture.image}`}
                                                 alt=""
                                                 className="rounded"
                                                 loading="lazy"
