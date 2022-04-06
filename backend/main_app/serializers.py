@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from django.contrib.auth import models as auth_models
-from .models import Notification, Contact
+from .models import Notification, Contact, User
 
 
 class NotificationSerializer(serializers.ModelSerializer):
@@ -17,7 +16,7 @@ class ContactSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = auth_models.User
+        model = User
         fields = (
             "first_name",
             "last_name",

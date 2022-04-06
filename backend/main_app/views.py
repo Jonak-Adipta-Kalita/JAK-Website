@@ -6,8 +6,7 @@ from rest_framework import (
     permissions,
     views as restframework_views,
 )
-from django.contrib.auth import models as auth_models
-from .models import Notification, Contact
+from .models import Notification, Contact, User
 from .serializers import (
     NotificationSerializer,
     ContactSerializer,
@@ -49,8 +48,8 @@ class RegisterView(restframework_views.APIView):
             email: str = data["email"]
             password: str = data["password"]
 
-            if not auth_models.User.objects.filter(username=username).exists():
-                user = auth_models.User.objects.create_user(
+            if not User.objects.filter(username=username).exists():
+                user = User.objects.create_user(
                     first_name=first_name,
                     last_name=last_name,
                     username=username,
@@ -60,7 +59,7 @@ class RegisterView(restframework_views.APIView):
 
                 user.save()
 
-                if auth_models.User.objects.filter(username=username).exists():
+                if User.objects.filter(username=username).exists():
                     return response.Response(
                         {"success": "Account created successfully"},
                         status=status.HTTP_201_CREATED,

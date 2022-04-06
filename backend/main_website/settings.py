@@ -35,6 +35,8 @@ ROOT_URLCONF = "main_website.urls"
 
 WSGI_APPLICATION = "main_website.wsgi.application"
 
+AUTH_USER_MODEL = "main_app.User"
+
 INSTALLED_APPS = [
     "main_app.apps.MainAppConfig",
     "django.contrib.admin",

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import *
 
 
@@ -16,3 +17,4 @@ class NotificationModelAdmin(admin.ModelAdmin):
 
 admin.site.register(Contact, ContactModelAdmin)
 admin.site.register(Notification, NotificationModelAdmin)
+admin.site.register(User, UserAdmin)
