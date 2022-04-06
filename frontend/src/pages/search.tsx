@@ -180,12 +180,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             .map((picture: Picture) => picturesResultsFound.push(picture));
         ownGames
             .filter((game: Game) =>
-                game.name.toLowerCase().includes(query.toLowerCase()!)
+                game.value.toLowerCase().includes(query.toLowerCase()!)
             )
             .map((game: Game) => gameOwnResultsFound.push(game));
         favGames
             .filter((game: Game) =>
-                game.name.toLowerCase().includes(query.toLowerCase()!)
+                game.value.toLowerCase().includes(query.toLowerCase()!)
             )
             .map((game: Game) => gameFavResultsFound.push(game));
     }
