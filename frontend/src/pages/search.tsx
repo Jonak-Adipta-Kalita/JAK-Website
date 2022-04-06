@@ -136,20 +136,29 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     let gameFavResultsFound: Game[] = [];
 
     const pictures = await (
-        await axios.get(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/my_photos?format=json`
-        )
-    ).data;
+        await axios.get("https://jak_api.p.rapidapi.com/jak", {
+            headers: {
+                "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
+                "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
+            },
+        })
+    ).data.pictures;
     const ownGames = await (
-        await axios.get(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/own?format=json`
-        )
-    ).data;
+        await axios.get("https://jak_api.p.rapidapi.com/jak", {
+            headers: {
+                "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
+                "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
+            },
+        })
+    ).data.games;
     const favGames = await (
-        await axios.get(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/games/fav?format=json`
-        )
-    ).data;
+        await axios.get("https://jak_api.p.rapidapi.com/jak", {
+            headers: {
+                "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
+                "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
+            },
+        })
+    ).data.hobby[0].games;
 
     if (
         query === "pictures" ||
