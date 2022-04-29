@@ -26,18 +26,18 @@ const About = () => {
                         <p className="font-justify mt-[20px] text-lg font-semibold">
                             My name is JONAK ADIPTA KALITA. I am a student in
                             Kendriya Vidyalaya Mangaldoi, I am currently
-                            studying in standard &rsquo;8th&rsquo;. I am a Coder
-                            and also a &rsquo;Home Game Developer&rsquo;. I code
+                            studying in standard &rsquo;9th&rsquo;. I am a
+                            Programmer and also a &rsquo;Gamer&rsquo;. I code
                             for fun but sometimes I also teach some of my
                             colleagues some &rsquo;Python&rsquo;. I love Python
-                            and JavaScript the most. I am a Youtuber too. I love
-                            to play Games such as NFS, COD, AC, Among Us, GTA,
-                            etc. I am a huge fan of Anime and watched
-                            &rsquo;Pokemon&rsquo;, &rsquo;One_Piece&rsquo;,
-                            &rsquo;Beyblade&rsquo;, &rsquo;DBG&rsquo;. If you
-                            want to get to my Instagram or Github you have to
-                            find it by yourself. Actually you&rsquo;ll find my
-                            Social Medias in the Social Media Page.
+                            and TypeScript/JavaScript the most. I am a Youtuber
+                            too. I love to play Games such as NFS, COD, AC,
+                            Among Us, GTA, etc. I am a huge fan of Anime and
+                            watched &rsquo;Pokemon&rsquo;,
+                            &rsquo;Beyblade&rsquo;, &rsquo;Dragon Ball Z&rsquo;.
+                            If you want to get to my Instagram or Github you
+                            have to find it by yourself. Actually you&rsquo;ll
+                            find my Social Medias in the Social Media Page.
                         </p>
                         <div className="mt-[30px] flex justify-center">
                             <p className="font-2xl">😎😎😎😎😎😎</p>
