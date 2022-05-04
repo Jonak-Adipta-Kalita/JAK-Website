@@ -7,7 +7,7 @@ import { Game, Picture } from "../typings";
 import { GetServerSideProps } from "next";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
-import axios from "axios";
+import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 
 interface Props {
     gameOwnResultsFound: Game[];
@@ -135,30 +135,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     let gameOwnResultsFound: Game[] = [];
     let gameFavResultsFound: Game[] = [];
 
-    const pictures = await (
-        await axios.get("https://jak_api.p.rapidapi.com/jak", {
-            headers: {
-                "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
-                "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
-            },
-        })
-    ).data.pictures;
-    const ownGames = await (
-        await axios.get("https://jak_api.p.rapidapi.com/jak", {
-            headers: {
-                "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
-                "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
-            },
-        })
-    ).data.games;
-    const favGames = await (
-        await axios.get("https://jak_api.p.rapidapi.com/jak", {
-            headers: {
-                "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
-                "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
-            },
-        })
-    ).data.hobby[0].games;
+    const pictures = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
+        .pictures;
+    const ownGames = (await new api(process.env.RAPIDAPI_KEY!).getJAK()).games;
+    const favGames = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
+        .hobby[0].games;
 
     if (
         query === "pictures" ||

@@ -30,9 +30,9 @@ const About = () => {
                             Programmer and also a &rsquo;Gamer&rsquo;. I code
                             for fun but sometimes I also teach some of my
                             colleagues some &rsquo;Python&rsquo;. I love Python
-                            and TypeScript/JavaScript the most. I am a Youtuber
-                            too. I love to play Games such as NFS, COD, AC,
-                            Among Us, GTA, etc. I am a huge fan of Anime and
+                            and TypeScript (JavaScript) the most. I am a
+                            Youtuber too. I love to play Games such as NFS, COD,
+                            AC, Among Us, GTA, etc. I am a huge fan of Anime and
                             watched &rsquo;Pokemon&rsquo;,
                             &rsquo;Beyblade&rsquo;, &rsquo;Dragon Ball Z&rsquo;.
                             If you want to get to my Instagram or Github you

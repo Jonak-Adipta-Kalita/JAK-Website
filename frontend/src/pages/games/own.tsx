@@ -6,7 +6,7 @@ import { GetServerSideProps } from "next";
 import { Game } from "../../typings";
 import LoginModal from "../../components/modals/LoginModal";
 import SignUpModal from "../../components/modals/SignUpModal";
-import axios from "axios";
+import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 
 interface Props {
     games: Game[];
@@ -53,13 +53,7 @@ const GamesOwn = ({ games }: Props) => {
 export default GamesOwn;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const req = await axios.get("https://jak_api.p.rapidapi.com/jak", {
-        headers: {
-            "X-RapidAPI-Host": "jak_api.p.rapidapi.com",
-            "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
-        },
-    });
-    const games = req.data.games;
+    const games = (await new api(process.env.RAPIDAPI_KEY!).getJAK()).games;
 
     return {
         props: {
