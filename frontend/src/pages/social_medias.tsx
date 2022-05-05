@@ -7,7 +7,7 @@ import SignUpModal from "../components/modals/SignUpModal";
 
 const SocialMedias = () => {
     return (
-        <div className="flex h-screen flex-col  text-gray-300">
+        <div className="flex h-screen flex-col text-gray-300">
             <Head>
                 <title>JAK Website | Social Medias</title>
             </Head>

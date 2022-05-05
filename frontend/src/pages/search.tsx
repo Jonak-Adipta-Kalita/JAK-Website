@@ -25,7 +25,7 @@ const Search = ({
     } = useRouter();
 
     return (
-        <div className="flex h-screen flex-col  text-gray-300">
+        <div className="flex h-screen flex-col text-gray-300">
             <Head>
                 <title>JAK Website | Search {query}</title>
             </Head>

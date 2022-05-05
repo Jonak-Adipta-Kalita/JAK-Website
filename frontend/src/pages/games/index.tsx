@@ -10,7 +10,7 @@ const Games = () => {
     const router = useRouter();
 
     return (
-        <div className="flex h-screen flex-col  text-gray-300">
+        <div className="flex h-screen flex-col text-gray-300">
             <Head>
                 <title>JAK Website | Games</title>
             </Head>

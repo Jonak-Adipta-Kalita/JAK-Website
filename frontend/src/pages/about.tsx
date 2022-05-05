@@ -6,7 +6,7 @@ import SignUpModal from "../components/modals/SignUpModal";
 
 const About = () => {
     return (
-        <div className="flex h-screen flex-col  text-gray-300">
+        <div className="flex h-screen flex-col text-gray-300">
             <Head>
                 <title>JAK Website | About</title>
             </Head>

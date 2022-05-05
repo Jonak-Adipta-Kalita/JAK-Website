@@ -91,6 +91,24 @@ const Home = () => {
                                         router.push("/social_medias"),
                                 }}
                             />
+                            <Card
+                                title="Projects"
+                                description="Projects of JAK"
+                                button={{
+                                    title: "Link",
+                                    onClick: () =>
+                                        router.push("/projects"),
+                                }}
+                            />
+                            <Card
+                                title="Skills"
+                                description="Skills of JAK"
+                                button={{
+                                    title: "Link",
+                                    onClick: () =>
+                                        router.push("/skills"),
+                                }}
+                            />
                         </div>
                     </div>
                 </div>

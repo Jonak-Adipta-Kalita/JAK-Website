@@ -14,7 +14,7 @@ interface Props {
 
 const GamesFav = ({ games }: Props) => {
     return (
-        <div className="flex h-screen flex-col  text-gray-300">
+        <div className="flex h-screen flex-col text-gray-300">
             <Head>
                 <title>JAK Website | Games | Fav</title>
             </Head>
