@@ -96,8 +96,7 @@ const Home = () => {
                                 description="Projects of JAK"
                                 button={{
                                     title: "Link",
-                                    onClick: () =>
-                                        router.push("/projects"),
+                                    onClick: () => router.push("/projects"),
                                 }}
                             />
                             <Card
@@ -105,8 +104,7 @@ const Home = () => {
                                 description="Skills of JAK"
                                 button={{
                                     title: "Link",
-                                    onClick: () =>
-                                        router.push("/skills"),
+                                    onClick: () => router.push("/skills"),
                                 }}
                             />
                         </div>

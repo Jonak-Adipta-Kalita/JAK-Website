@@ -1,4 +1,5 @@
 import { ExternalLinkIcon } from "@heroicons/react/outline";
+import Image from "next/image";
 
 interface Props {
     title: string;
@@ -32,12 +33,11 @@ const Card = ({
         >
             <div className="block max-w-sm rounded-lg  p-6 p-4 shadow-lg">
                 {image && (
-                    <img
+                    <Image
                         src={image}
                         className="rounded"
-                        loading="lazy"
-                        height="270"
-                        width="500"
+                        height={270}
+                        width={500}
                     />
                 )}
                 <p

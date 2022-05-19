@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { GetServerSideProps } from "next";
@@ -27,11 +28,9 @@ const Pictures = ({ pictures }: Props) => {
                                     className="m-4 flex transform cursor-pointer flex-col items-center justify-center rounded border-[0.1px] p-4 pb-2 transition duration-100 ease-out hover:scale-105"
                                     key={picture.id}
                                 >
-                                    <img
+                                    <Image
                                         src={`https://jak-api.vercel.app/${picture.image}`}
-                                        alt=""
                                         className="rounded"
-                                        loading="lazy"
                                         height={picture.height}
                                         width={picture.width}
                                     />
