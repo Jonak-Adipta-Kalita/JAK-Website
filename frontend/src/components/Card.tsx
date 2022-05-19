@@ -36,7 +36,7 @@ const Card = ({
                     <Image
                         src={image}
                         className="rounded"
-                        height={270}
+                        height={500}
                         width={500}
                     />
                 )}
