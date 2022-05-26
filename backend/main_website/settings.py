@@ -80,8 +80,12 @@ TEMPLATES = [
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": credentials.POSTGRESS_DATABASE,
+        "USER": credentials.POSTGRESS_USER,
+        "PASSWORD": credentials.POSTGRESS_PASSWORD,
+        "HOST": credentials.POSTGRESS_HOST,
+        "PORT": credentials.POSTGRESS_PORT,
     }
 }
 

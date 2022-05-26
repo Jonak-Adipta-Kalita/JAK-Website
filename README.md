@@ -63,6 +63,8 @@ Use the [passwordgenerator](https://passwordsgenerator.net/) website to generate
 
 ### Gettigng hCaptcha Keys
 
+### Getting PostgresSQL Credentials
+
 ### Passing the Required Credentials
 
 Create a new file `.env` in the `backend` folder and new file `.env.local` in the `frontend` folder. In the
