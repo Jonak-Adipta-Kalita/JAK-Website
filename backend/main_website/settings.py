@@ -38,13 +38,13 @@ WSGI_APPLICATION = "main_website.wsgi.application"
 AUTH_USER_MODEL = "main_app.User"
 
 INSTALLED_APPS = [
-    "main_app.apps.MainAppConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "main_app.apps.MainAppConfig",
     "rest_framework",
     "corsheaders",
     "phonenumber_field",
@@ -80,8 +80,12 @@ TEMPLATES = [
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": credentials.POSTGRESS_DATABASE,
+        "USER": credentials.POSTGRESS_USER,
+        "PASSWORD": credentials.POSTGRESS_PASSWORD,
+        "HOST": credentials.POSTGRESS_HOST,
+        "PORT": credentials.POSTGRESS_PORT,
     }
 }
 

@@ -3,6 +3,10 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import AbstractUser
 
 
+class User(AbstractUser):
+    pass
+
+
 class Contact(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
@@ -21,7 +25,3 @@ class Notification(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class User(AbstractUser):
-    pass
