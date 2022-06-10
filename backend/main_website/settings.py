@@ -38,13 +38,13 @@ WSGI_APPLICATION = "main_website.wsgi.application"
 AUTH_USER_MODEL = "main_app.User"
 
 INSTALLED_APPS = [
-    "main_app.apps.MainAppConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "main_app.apps.MainAppConfig",
     "rest_framework",
     "corsheaders",
     "phonenumber_field",
