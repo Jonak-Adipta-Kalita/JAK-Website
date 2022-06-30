@@ -1,8 +1,4 @@
 import Head from "next/head";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import LoginModal from "../components/modals/LoginModal";
-import SignUpModal from "../components/modals/SignUpModal";
 
 const Card = ({
     title,
@@ -39,219 +35,213 @@ const Card = ({
 
 const Projects = () => {
     return (
-        <div className="flex h-screen flex-col text-gray-300">
+        <main className="flex-1 overflow-y-auto scrollbar-hide">
             <Head>
                 <title>JAK Website | Projects</title>
             </Head>
-            <Header />
-            <main className="flex-1 overflow-y-auto scrollbar-hide">
-                <div className="mx-auto mb-5 mt-10 space-y-4 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
-                    <div className="pt-5">
-                        <div className="grid grid-cols-1 px-20 sm:px-0 md:grid-cols-2 xl:grid-cols-3">
-                            <Card
-                                title="Website"
-                                description="Jonak Adipta Kalita's Website"
-                                buttons={[
-                                    {
-                                        title: "Check Out",
-                                        link: "https://jonakadiptakalita.vercel.app",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Website",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Discord-Bot"
-                                description="JAK's Discord Bot"
-                                buttons={[
-                                    {
-                                        title: "Dashboard",
-                                        link: "https://jak-discord-bot.vercel.app",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Discord-Bot",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="API"
-                                description="Jonak Adipta Kalita's API"
-                                buttons={[
-                                    {
-                                        title: "RapidAPI",
-                                        link: "https://rapidapi.com/Jonak-Adipta-Kalita/api/jak_api",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-API",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Python-Package"
-                                description="JAK's Python Package"
-                                buttons={[
-                                    {
-                                        title: "PyPi",
-                                        link: "https://pypi.org/project/beast-night-tv/",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Python-Package",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="JavaScript-Package"
-                                description="JAK's JavaScript Package"
-                                buttons={[
-                                    {
-                                        title: "NPM",
-                                        link: "https://www.npmjs.com/package/@xxjonakadiptaxx/jak_javascript_package",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-JavaScript-Package",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Programming-Language"
-                                description="JAK's Programming Language"
-                                buttons={[
-                                    {
-                                        title: "Download",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Programming-Language/releases/latest",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Programming-Language",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Mobile-App"
-                                description="JAK's Mobile App"
-                                buttons={[
-                                    {
-                                        title: "Download",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Mobile-App#readme",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Mobile-App",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Command-Line-Tool"
-                                description="JAK's Command Line Tool"
-                                buttons={[
-                                    {
-                                        title: "Download",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Command-Line-Tool/releases/latest",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Command-Line-Tool",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Telegram-Bot"
-                                description="JAK's Telegram Bot"
-                                buttons={[
-                                    {
-                                        title: "Use It",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Telegram-Bot#use-it",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Telegram-Bot",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="VSCode-Extension"
-                                description="JAK's VSCode Extension"
-                                buttons={[
-                                    {
-                                        title: "Install",
-                                        link: "https://marketplace.visualstudio.com/items?itemName=JAKVSCodeExtension.jak-vscode-extension",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-VSCode-Extension",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Desktop-App"
-                                description="JAK's Desktop App"
-                                buttons={[
-                                    {
-                                        title: "Download",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Desktop-App/releases/latest",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Desktop-App",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Chrome-Extension"
-                                description="JAK's Chrome Extension"
-                                buttons={[
-                                    {
-                                        title: "Install",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/releases/latest",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Minecraft-Datapack"
-                                description="JAK's Minecraft Datapack"
-                                buttons={[
-                                    {
-                                        title: "Install",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Minecraft-Datapack/releases/latest",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/JAK-Minecraft-Datapack",
-                                    },
-                                ]}
-                            />
-                            <Card
-                                title="Github-Readme-Profile"
-                                description="JAK's Github Readme Profile"
-                                buttons={[
-                                    {
-                                        title: "Check Out",
-                                        link: "https://github.com/Jonak-Adipta-Kalita",
-                                    },
-                                    {
-                                        title: "Source Code",
-                                        link: "https://github.com/Jonak-Adipta-Kalita/Jonak-Adipta-Kalita",
-                                    },
-                                ]}
-                            />
-                        </div>
+            <div className="mx-auto mb-5 mt-10 space-y-4 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
+                <div className="pt-5">
+                    <div className="grid grid-cols-1 px-20 sm:px-0 md:grid-cols-2 xl:grid-cols-3">
+                        <Card
+                            title="Website"
+                            description="Jonak Adipta Kalita's Website"
+                            buttons={[
+                                {
+                                    title: "Check Out",
+                                    link: "https://jonakadiptakalita.vercel.app",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Website",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Discord-Bot"
+                            description="JAK's Discord Bot"
+                            buttons={[
+                                {
+                                    title: "Dashboard",
+                                    link: "https://jak-discord-bot.vercel.app",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Discord-Bot",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="API"
+                            description="Jonak Adipta Kalita's API"
+                            buttons={[
+                                {
+                                    title: "RapidAPI",
+                                    link: "https://rapidapi.com/Jonak-Adipta-Kalita/api/jak_api",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-API",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Python-Package"
+                            description="JAK's Python Package"
+                            buttons={[
+                                {
+                                    title: "PyPi",
+                                    link: "https://pypi.org/project/beast-night-tv/",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Python-Package",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="JavaScript-Package"
+                            description="JAK's JavaScript Package"
+                            buttons={[
+                                {
+                                    title: "NPM",
+                                    link: "https://www.npmjs.com/package/@xxjonakadiptaxx/jak_javascript_package",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-JavaScript-Package",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Programming-Language"
+                            description="JAK's Programming Language"
+                            buttons={[
+                                {
+                                    title: "Download",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Programming-Language/releases/latest",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Programming-Language",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Mobile-App"
+                            description="JAK's Mobile App"
+                            buttons={[
+                                {
+                                    title: "Download",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Mobile-App#readme",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Mobile-App",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Command-Line-Tool"
+                            description="JAK's Command Line Tool"
+                            buttons={[
+                                {
+                                    title: "Download",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Command-Line-Tool/releases/latest",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Command-Line-Tool",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Telegram-Bot"
+                            description="JAK's Telegram Bot"
+                            buttons={[
+                                {
+                                    title: "Use It",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Telegram-Bot#use-it",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Telegram-Bot",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="VSCode-Extension"
+                            description="JAK's VSCode Extension"
+                            buttons={[
+                                {
+                                    title: "Install",
+                                    link: "https://marketplace.visualstudio.com/items?itemName=JAKVSCodeExtension.jak-vscode-extension",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-VSCode-Extension",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Desktop-App"
+                            description="JAK's Desktop App"
+                            buttons={[
+                                {
+                                    title: "Download",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Desktop-App/releases/latest",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Desktop-App",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Chrome-Extension"
+                            description="JAK's Chrome Extension"
+                            buttons={[
+                                {
+                                    title: "Install",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension/releases/latest",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Chrome-Extension",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Minecraft-Datapack"
+                            description="JAK's Minecraft Datapack"
+                            buttons={[
+                                {
+                                    title: "Install",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Minecraft-Datapack/releases/latest",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/JAK-Minecraft-Datapack",
+                                },
+                            ]}
+                        />
+                        <Card
+                            title="Github-Readme-Profile"
+                            description="JAK's Github Readme Profile"
+                            buttons={[
+                                {
+                                    title: "Check Out",
+                                    link: "https://github.com/Jonak-Adipta-Kalita",
+                                },
+                                {
+                                    title: "Source Code",
+                                    link: "https://github.com/Jonak-Adipta-Kalita/Jonak-Adipta-Kalita",
+                                },
+                            ]}
+                        />
                     </div>
                 </div>
-            </main>
-            <LoginModal />
-            <SignUpModal />
-            <Footer />
-        </div>
+            </div>
+        </main>
     );
 };
 
