@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Card from "../../components/Card";
 import { GetServerSideProps } from "next";
-import { Game } from "../../typings";
 import { api } from "@xxjonakadiptaxx/jak_javascript_package";
+import type { JAK } from "@xxjonakadiptaxx/jak_javascript_package";
 
 interface Props {
-    games: Game[];
+    games: JAK["games"];
 }
 
 const GamesOwn = ({ games }: Props) => {

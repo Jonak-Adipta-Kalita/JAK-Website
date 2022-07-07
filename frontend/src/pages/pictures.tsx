@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import { GetServerSideProps } from "next";
-import { Picture } from "../typings";
 import { api } from "@xxjonakadiptaxx/jak_javascript_package";
+import type { JAK } from "@xxjonakadiptaxx/jak_javascript_package";
 
 interface Props {
-    pictures: Picture[];
+    pictures: JAK["pictures"];
 }
 
 const Pictures = ({ pictures }: Props) => {
