@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import *
+from .models import User, Contact, Notification
 
 
 class ContactModelAdmin(admin.ModelAdmin):
@@ -15,6 +15,6 @@ class NotificationModelAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
+admin.site.register(User, UserAdmin)
 admin.site.register(Contact, ContactModelAdmin)
 admin.site.register(Notification, NotificationModelAdmin)
-admin.site.register(User, UserAdmin)
