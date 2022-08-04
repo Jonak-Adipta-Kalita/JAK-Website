@@ -2,14 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import Card from "../components/Card";
 import { useRouter } from "next/router";
-import { Game, Picture } from "../typings";
 import { GetServerSideProps } from "next";
-import { api } from "@xxjonakadiptaxx/jak_javascript_package";
+import { api, JAK } from "@xxjonakadiptaxx/jak_javascript_package";
 
 interface Props {
-    gameOwnResultsFound: Game[];
-    gameFavResultsFound: Game[];
-    picturesResultsFound: Picture[];
+    gameOwnResultsFound: JAK["games"];
+    gameFavResultsFound: JAK["games"];
+    picturesResultsFound: JAK["pictures"];
 }
 
 const Search = ({
@@ -120,9 +119,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const query: string = context.query.query
         ? String(context.query.query)
         : "";
-    let picturesResultsFound: Picture[] = [];
-    let gameOwnResultsFound: Game[] = [];
-    let gameFavResultsFound: Game[] = [];
+    let picturesResultsFound: JAK["pictures"] = [];
+    let gameOwnResultsFound: JAK["games"] = [];
+    let gameFavResultsFound: JAK["games"] = [];
 
     const pictures = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
         .pictures;
@@ -144,20 +143,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         else if (query === "fav_games") gameFavResultsFound = favGames;
     } else {
         pictures
-            .filter((picture: Picture) =>
+            .filter((picture) =>
                 picture.name.toLowerCase().includes(query.toLowerCase()!)
             )
-            .map((picture: Picture) => picturesResultsFound.push(picture));
+            .map((picture) => picturesResultsFound.push(picture));
         ownGames
-            .filter((game: Game) =>
+            .filter((game) =>
                 game.value.toLowerCase().includes(query.toLowerCase()!)
             )
-            .map((game: Game) => gameOwnResultsFound.push(game));
+            .map((game) => gameOwnResultsFound.push(game));
         favGames
-            .filter((game: Game) =>
+            .filter((game) =>
                 game.value.toLowerCase().includes(query.toLowerCase()!)
             )
-            .map((game: Game) => gameFavResultsFound.push(game));
+            .map((game) => gameFavResultsFound.push(game));
     }
 
     return {
