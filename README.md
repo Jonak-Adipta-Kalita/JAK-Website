@@ -73,7 +73,7 @@ Create a new file `.env` in the `backend` folder and new file `.env.local` in th
 `.env` file, paste the following:
 
 ```env
-PRODUCTION=True
+PRODUCTION=False
 SECRET_KEY=<YOUR_DJANGO_SECRET_KEY>
 JWT_SECRET=<YOUR_JWT_SECRET>
 
