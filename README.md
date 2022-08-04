@@ -63,7 +63,9 @@ Use the [passwordgenerator](https://passwordsgenerator.net/) website to generate
 
 ### Gettigng hCaptcha Keys
 
-### Getting PostgresSQL Credentials
+### Getting PostgreSQL Credentials
+
+Create a Postgres Database using a online provider or you can create a local one, then you will get your Postgres credentials.
 
 ### Passing the Required Credentials
 
@@ -74,6 +76,13 @@ Create a new file `.env` in the `backend` folder and new file `.env.local` in th
 PRODUCTION=True
 SECRET_KEY=<YOUR_DJANGO_SECRET_KEY>
 JWT_SECRET=<YOUR_JWT_SECRET>
+
+# Postgres
+POSTGRESS_HOST=<YOUR_POSTGRESS_HOST>
+POSTGRESS_DATABASE=<YOUR_POSTGRESS_DATABASE>
+POSTGRESS_USER=<YOUR_POSTGRESS_USER>
+POSTGRESS_PORT=<YOUR_POSTGRESS_PORT>
+POSTGRESS_PASSWORD=<YOUR_POSTGRESS_PASSWORD>
 ```
 
 and in the `.env.local` file, paste the following:
