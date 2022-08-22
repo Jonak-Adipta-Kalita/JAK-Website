@@ -24,7 +24,7 @@ mypy-extensions==0.4.3
 oauthlib==3.1.1
 Panda3D==1.10.10
 pathspec==0.9.0
-phonenumbers==8.12.42
+phonenumbers==8.12.54
 Pillow==9.0.1
 platformdirs==2.4.0
 psycopg2==2.9.3
