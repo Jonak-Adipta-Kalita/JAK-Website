@@ -2,8 +2,15 @@ import Head from "next/head";
 import SkillBar from "react-skillbars";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import { useState } from "react";
+import { api, JAK } from "@xxjonakadiptaxx/jak_javascript_package/dist/types";
+import { GetServerSideProps } from "next";
 
-const Skills = () => {
+interface Props {
+    languages: JAK["hobby"]["1"]["languages"];
+    frameworks: JAK["hobby"]["1"]["frameworks"];
+}
+
+const Skills = ({ languages, frameworks }: Props) => {
     const [openLanguages, setOpenLanguages] = useState(false);
     const [openFrameworks, setOpenFrameworks] = useState(false);
 
@@ -29,40 +36,12 @@ const Skills = () => {
                             </p>
                         </summary>
                         <SkillBar
-                            skills={[
-                                {
-                                    type: "Python",
-                                    level: 98,
-                                },
-                                {
-                                    type: "HTML",
-                                    level: 96,
-                                },
-                                {
-                                    type: "CSS",
-                                    level: 92,
-                                },
-                                {
-                                    type: "JavaScript",
-                                    level: 97,
-                                },
-                                {
-                                    type: "TypeScript",
-                                    level: 68,
-                                },
-                                {
-                                    type: "Go",
-                                    level: 26,
-                                },
-                                {
-                                    type: "C",
-                                    level: 14,
-                                },
-                                {
-                                    type: "C++",
-                                    level: 1,
-                                },
-                            ]}
+                            skills={languages.map((language) => {
+                                return {
+                                    type: language.value,
+                                    level: language.level,
+                                };
+                            })}
                             colors={{
                                 bar: "#3498db",
                                 title: {
@@ -87,64 +66,12 @@ const Skills = () => {
                             </p>
                         </summary>
                         <SkillBar
-                            skills={[
-                                {
-                                    type: "ReactJS",
-                                    level: 100,
-                                },
-                                {
-                                    type: "NextJS",
-                                    level: 99,
-                                },
-                                {
-                                    type: "Django",
-                                    level: 50,
-                                },
-                                {
-                                    type: "Bootstrap",
-                                    level: 26,
-                                },
-                                {
-                                    type: "Tailwind",
-                                    level: 72,
-                                },
-                                {
-                                    type: "Svelte",
-                                    level: 1,
-                                },
-                                {
-                                    type: "OpenCV",
-                                    level: 56,
-                                },
-                                {
-                                    type: "Pygame",
-                                    level: 32,
-                                },
-                                {
-                                    type: "Raylib",
-                                    level: 14,
-                                },
-                                {
-                                    type: "SDL",
-                                    level: 9,
-                                },
-                                {
-                                    type: "Arcade",
-                                    level: 23,
-                                },
-                                {
-                                    type: "Ursina",
-                                    level: 64,
-                                },
-                                {
-                                    type: "Panda3D",
-                                    level: 42,
-                                },
-                                {
-                                    type: "Electron",
-                                    level: 84,
-                                },
-                            ]}
+                            skills={frameworks.map((framework) => {
+                                return {
+                                    type: framework.value,
+                                    level: framework.level,
+                                };
+                            })}
                         />
                     </details>
                 </div>
@@ -154,3 +81,17 @@ const Skills = () => {
 };
 
 export default Skills;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const languages = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
+        .hobby[1].languages;
+    const frameworks = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
+        .hobby[1].frameworks;
+
+    return {
+        props: {
+            frameworks,
+            languages,
+        },
+    };
+};
