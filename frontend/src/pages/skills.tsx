@@ -2,7 +2,7 @@ import Head from "next/head";
 import SkillBar from "react-skillbars";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import { useState } from "react";
-import { api, JAK } from "@xxjonakadiptaxx/jak_javascript_package/dist/types";
+import { api, JAK } from "@xxjonakadiptaxx/jak_javascript_package";
 import { GetServerSideProps } from "next";
 
 interface Props {
