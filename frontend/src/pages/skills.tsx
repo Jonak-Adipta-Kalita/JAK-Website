@@ -14,6 +14,8 @@ const Skills = ({ languages, frameworks }: Props) => {
     const [openLanguages, setOpenLanguages] = useState(false);
     const [openFrameworks, setOpenFrameworks] = useState(false);
 
+    const frameworkSkillsNotToShow: string[] = ["React Native"];
+
     return (
         <main className="flex-1 overflow-y-auto scrollbar-hide">
             <Head>
@@ -66,12 +68,19 @@ const Skills = ({ languages, frameworks }: Props) => {
                             </p>
                         </summary>
                         <SkillBar
-                            skills={frameworks.map((framework) => {
-                                return {
-                                    type: framework.value,
-                                    level: framework.level,
-                                };
-                            })}
+                            skills={frameworks
+                                .filter(
+                                    (framework) =>
+                                        !frameworkSkillsNotToShow.includes(
+                                            framework.value
+                                        )
+                                )
+                                .map((framework) => {
+                                    return {
+                                        type: framework.value,
+                                        level: framework.level,
+                                    };
+                                })}
                         />
                     </details>
                 </div>
