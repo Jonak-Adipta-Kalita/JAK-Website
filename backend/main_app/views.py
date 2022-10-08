@@ -94,6 +94,7 @@ class LoadUserView(restframework_views.APIView):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
+
 class IsEmailVerifiedView(restframework_views.APIView):
     permission_classes = [permissions.AllowAny]
 
@@ -103,11 +104,13 @@ class IsEmailVerifiedView(restframework_views.APIView):
             user = User.objects.filter(email=email).get()
 
             is_email_verified: bool = user.is_email_verified
-            return response.Response({"is_email_verified": is_email_verified}, status=status.HTTP_200_OK)
+            return response.Response(
+                {"is_email_verified": is_email_verified}, status=status.HTTP_200_OK
+            )
         except Exception as e:
             return response.Response(
-                {"error": f"Something went wrong when trying to check if email is verified: {str(e)}"},
+                {
+                    "error": f"Something went wrong when trying to check if email is verified: {str(e)}"
+                },
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
-
-

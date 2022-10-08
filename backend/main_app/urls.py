@@ -33,5 +33,9 @@ urlpatterns = [
     ),
     path("api/auth/register", views.RegisterView.as_view(), name="register"),
     path("api/auth/user", views.LoadUserView.as_view(), name="user"),
-    path("api/auth/is_email_verified", views.IsEmailVerifiedView.as_view(), name="is_email_verified")
+    path(
+        "api/auth/is_email_verified",
+        views.IsEmailVerifiedView.as_view(),
+        name="is_email_verified",
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
