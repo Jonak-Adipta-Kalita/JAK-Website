@@ -111,7 +111,7 @@ const SignUpModal = () => {
                 as="div"
                 onClose={setOpen}
             >
-                <div className="sm:-pb-40 flex min-h-[800px] items-end justify-center px-4 pb-60 pt-0 pb-20 text-center sm:block sm:min-h-screen sm:p-0 sm:pt-4">
+                <div className="sm:-pb-40 flex min-h-[800px] items-end justify-center px-4 pb-60 pt-0 text-center sm:block sm:min-h-screen sm:p-0 sm:pt-4">
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
