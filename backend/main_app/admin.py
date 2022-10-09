@@ -29,6 +29,7 @@ class UserAdmin(DefaultUserAdmin):
     )
 
     list_display = DefaultUserAdmin.list_display + ("is_email_verified",)
+    search_fields = DefaultUserAdmin.search_fields + ("is_email_verified",)
     list_per_page = 10
 
 
