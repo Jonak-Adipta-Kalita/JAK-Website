@@ -63,6 +63,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     }),
                 ]);
 
+                // send verification link!!
+
                 return res.status(201).json({
                     success:
                         "Created account Successfully!! You may now check your email to verify your account!!",

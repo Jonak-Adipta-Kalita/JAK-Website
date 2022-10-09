@@ -37,12 +37,12 @@ WSGI_APPLICATION = "main_website.wsgi.application"
 
 AUTH_USER_MODEL = "main_app.User"
 
-EMAIL_FROM_USER = credentials.EMAIL_FROM_USER
 EMAIL_HOST = credentials.EMAIL_HOST
 EMAIL_HOST_USER = credentials.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = credentials.EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = credentials.EMAIL_USE_TLS
 EMAIL_PORT = credentials.EMAIL_PORT
+DEFAULT_FROM_EMAIL = credentials.EMAIL_HOST_USER 
 
 INSTALLED_APPS = [
     "django.contrib.admin",

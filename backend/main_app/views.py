@@ -3,12 +3,9 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import EmailMessage
-from django.conf import settings
 from django.utils.encoding import (
     force_bytes,
-    force_str,
     force_text,
-    DjangoUnicodeDecodeError,
 )
 from .utils import generate_token
 from rest_framework import (
@@ -129,8 +126,8 @@ class SendVerificationEmail(restframework_views.APIView):
                 email = EmailMessage(
                     subject=email_subject,
                     body=email_body,
-                    from_email=settings.EMAIL_FROM_USER,
-                    to={user.email},
+                    from_email=credentials.EMAIL_HOST,
+                    to=[user.email],
                 )
                 email.send()
 
