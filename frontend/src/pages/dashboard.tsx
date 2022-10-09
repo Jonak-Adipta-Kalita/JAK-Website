@@ -11,7 +11,7 @@ const Dashbaord = () => {
                 <title>JAK Website | Dashboard</title>
             </Head>
             {session.isAuthenticated ? (
-                <div className="mx-auto mb-5 mt-3 px-5 md:mt-10 md:max-w-3xl lg:mt-[50px] lg:max-w-5xl">
+                <div className="mx-auto mb-5 mt-3 px-5 md:mt-10 md:max-w-3xl lg:mt-[10px] lg:max-w-5xl">
                     <div className="flex justify-center">
                         <p className="mb-[50px] mt-5 text-4xl font-bold">
                             Your Dashboard
@@ -28,6 +28,12 @@ const Dashbaord = () => {
                             <p className="dashboardText">Username:</p>
                             <p className="dashboardText">
                                 {session.user?.username}
+                            </p>
+                        </div>
+                        <div className="ml-[50px] flex items-center space-x-4">
+                            <p className="dashboardText">Email:</p>
+                            <p className="dashboardText">
+                                {session.user?.email}
                             </p>
                         </div>
                     </div>
