@@ -156,7 +156,6 @@ class VerifyEmail(restframework_views.APIView):
             uid = force_text(urlsafe_base64_decode(request.GET["uidb64"]))
 
             user = User.objects.get(pk=uid)
-        
 
             if user and generate_token.check_token(user, request.GET["token"]):
                 user.is_email_verified = True
@@ -171,9 +170,7 @@ class VerifyEmail(restframework_views.APIView):
         except Exception as e:
             print(e)
             return response.Response(
-                {
-                    "error": f"Something went wrong when trying to verify email"
-                },
+                {"error": f"Something went wrong when trying to verify email"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
