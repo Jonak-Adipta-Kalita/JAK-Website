@@ -69,17 +69,17 @@ const LoginModal = () => {
                 if (loginRes.status === 200) {
                     alert(loginRes.data.success);
 
-                    const load_user_res = await axios.get(`/api/auth/user`, {
+                    const load_userRes = await axios.get(`/api/auth/user`, {
                         headers: {
                             Accept: "application/json",
                             "Content-Type": "application/json",
                         },
                     });
 
-                    if (load_user_res.status === 200) {
+                    if (load_userRes.status === 200) {
                         setSession({
                             ...session,
-                            user: load_user_res.data.user,
+                            user: load_userRes.data.user,
                             isAuthenticated: true,
                         });
                     }

@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         );
 
         if (apiRes.status === 201) {
-            const token_res = await axios.post(
+            const tokenRes = await axios.post(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/token`,
                 JSON.stringify({
                     username,
@@ -45,16 +45,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 }
             );
 
-            if (token_res.status === 200) {
+            if (tokenRes.status === 200) {
                 res.setHeader("Set-Cookie", [
-                    cookie.serialize("access", token_res.data.access, {
+                    cookie.serialize("access", tokenRes.data.access, {
                         httpOnly: true,
                         secure: process.env.NODE_ENV !== "development",
                         maxAge: 60 * 30,
                         sameSite: "strict",
                         path: "/api/",
                     }),
-                    cookie.serialize("refresh", token_res.data.refresh, {
+                    cookie.serialize("refresh", tokenRes.data.refresh, {
                         httpOnly: true,
                         secure: process.env.NODE_ENV !== "development",
                         maxAge: 60 * 60 * 24,
@@ -63,14 +63,23 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                     }),
                 ]);
 
-                // send verification link!!
+                axios.post(
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/send_verification_email`,
+                    JSON.stringify({ email }),
+                    {
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
 
                 return res.status(201).json({
                     success:
                         "Created account Successfully!! You may now check your email to verify your account!!",
                 });
             } else {
-                return res.status(token_res.status).json({
+                return res.status(tokenRes.status).json({
                     error: "Authentication failed!!",
                 });
             }

@@ -73,22 +73,31 @@ const Header = () => {
     useEffect(() => {
         const logic = async () => {
             try {
-                const refresh_res = await axios.get("/api/auth/refresh", {
+                const refreshRes = await axios.get("/api/auth/refresh", {
                     headers: {
                         Accept: "application/json",
                     },
                 });
 
-                if (refresh_res.status === 200) {
-                    const verify_res = await axios.get("/api/auth/verify", {
+                if (refreshRes.status === 200) {
+                    const verifyRes = await axios.get("/api/auth/verify", {
                         headers: {
                             Accept: "application/json",
                         },
                     });
 
-                    if (verify_res.status === 200) {
-                        const load_user_res = await axios.get(
-                            `/api/auth/user`,
+                    if (verifyRes.status === 200) {
+                        const load_userRes = await axios.get(`/api/auth/user`, {
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json",
+                            },
+                        });
+                        const isEmailVerifiedRes = await axios.post(
+                            "/api/auth/is_email_verified",
+                            JSON.stringify({
+                                email: load_userRes.data.user.email,
+                            }),
                             {
                                 headers: {
                                     Accept: "application/json",
@@ -97,12 +106,14 @@ const Header = () => {
                             }
                         );
 
-                        if (load_user_res.status === 200) {
-                            setSession({
-                                ...session,
-                                user: load_user_res.data.user,
-                                isAuthenticated: true,
-                            });
+                        if (isEmailVerifiedRes.data.is_email_verified) {
+                            if (load_userRes.status === 200) {
+                                setSession({
+                                    ...session,
+                                    user: load_userRes.data.user,
+                                    isAuthenticated: true,
+                                });
+                            }
                         }
                     } else {
                         alert("Something went wrong!!");
