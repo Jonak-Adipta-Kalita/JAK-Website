@@ -2,6 +2,8 @@ from django.http import HttpRequest, HttpResponse
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.core.mail import EmailMessage
+from django.conf import settings
 from django.utils.encoding import (
     force_bytes,
     force_str,
@@ -115,7 +117,7 @@ class SendVerificationEmail(restframework_views.APIView):
                 current_site = get_current_site(request)
                 email_subject = "Activate your Account!!"
                 email_body = render_to_string(
-                    "authentication/send_verification_email.html",
+                    "auth/send_verification_email.html",
                     {
                         "user": user,
                         "domain": current_site,
@@ -124,7 +126,13 @@ class SendVerificationEmail(restframework_views.APIView):
                     },
                 )
 
-                # send verification email
+                email = EmailMessage(
+                    subject=email_subject,
+                    body=email_body,
+                    from_email=settings.EMAIL_FROM_USER,
+                    to={user.email},
+                )
+                email.send()
 
                 return response.Response(
                     {"success": "Verification EMail link sent"},
@@ -153,12 +161,17 @@ class VerifyEmail(restframework_views.APIView):
             user = User.objects.get(pk=uid)
         except Exception:
             user = None
-        
+
         if user and generate_token.check_token(user, request.GET["token"]):
             user.is_email_verified = True
             user.save()
 
-            return response.Response({"success": f"The EMail: {user.email} is Verified!! You may Login now!!"}, status.HTTP_200_OK)
+            return response.Response(
+                {
+                    "success": f"The EMail: {user.email} is Verified!! You may Login now!!"
+                },
+                status.HTTP_200_OK,
+            )
 
         return response.Response(
             {
@@ -166,6 +179,7 @@ class VerifyEmail(restframework_views.APIView):
             },
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
+
 
 class IsEmailVerifiedView(restframework_views.APIView):
     permission_classes = [permissions.AllowAny]
