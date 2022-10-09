@@ -64,7 +64,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 ]);
 
                 return res.status(201).json({
-                    success: "Created account Successfully!!",
+                    success:
+                        "Created account Successfully!! You may now check your email to verify your account!!",
                 });
             } else {
                 return res.status(token_res.status).json({

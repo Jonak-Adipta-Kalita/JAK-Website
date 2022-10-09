@@ -16,6 +16,7 @@ const LoginModal = () => {
     const [showPassword, setShowPassword] = useRecoilState(showPasswordState);
     const [session, setSession] = useRecoilState(sessionState);
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
@@ -37,11 +38,10 @@ const LoginModal = () => {
         }
 
         try {
-            const res = await axios.post(
-                `/api/auth/login`,
+            const isEmailVerifiedRes = await axios.post(
+                "/api/auth/is_email_verified",
                 JSON.stringify({
-                    username,
-                    password,
+                    email,
                 }),
                 {
                     headers: {
@@ -51,27 +51,44 @@ const LoginModal = () => {
                 }
             );
 
-            if (res.status === 200) {
-                alert(res.data.success);
+            if (isEmailVerifiedRes.data.is_email_verified) {
+                const loginRes = await axios.post(
+                    `/api/auth/login`,
+                    JSON.stringify({
+                        username,
+                        password,
+                    }),
+                    {
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
 
-                const load_user_res = await axios.get(`/api/auth/user`, {
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                    },
-                });
+                if (loginRes.status === 200) {
+                    alert(loginRes.data.success);
 
-                if (load_user_res.status === 200) {
-                    setSession({
-                        ...session,
-                        user: load_user_res.data.user,
-                        isAuthenticated: true,
+                    const load_user_res = await axios.get(`/api/auth/user`, {
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
                     });
+
+                    if (load_user_res.status === 200) {
+                        setSession({
+                            ...session,
+                            user: load_user_res.data.user,
+                            isAuthenticated: true,
+                        });
+                    }
+                } else {
+                    alert(loginRes.data.error);
                 }
             } else {
-                alert(res.data.error);
+                alert("Verify your Email!!");
             }
-
             setUsername("");
             setPassword("");
         } catch (error) {
@@ -145,6 +162,14 @@ const LoginModal = () => {
                                     }
                                     className="authInput"
                                     placeholder="Your Username"
+                                />
+                                <input
+                                    type="email"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="authInput"
+                                    placeholder="Your Email"
                                 />
                                 <div className="relative">
                                     <input
