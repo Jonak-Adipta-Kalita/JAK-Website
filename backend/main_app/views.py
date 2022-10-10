@@ -176,8 +176,6 @@ class VerifyEmail(restframework_views.APIView):
 
 
 class IsEmailVerifiedView(restframework_views.APIView):
-    permission_classes = [permissions.AllowAny]
-
     def post(self, request):
         try:
             email = request.data["email"]
