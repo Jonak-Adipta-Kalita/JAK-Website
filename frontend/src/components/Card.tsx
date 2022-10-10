@@ -31,7 +31,7 @@ const Card = ({
                 centerMain && "justify-center"
             } border-[0.1px]`}
         >
-            <div className="block max-w-sm rounded-lg  p-6 p-4 shadow-lg">
+            <div className="block max-w-sm rounded-lg  p-6 shadow-lg">
                 {image && (
                     <Image
                         src={image}

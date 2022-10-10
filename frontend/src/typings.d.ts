@@ -9,6 +9,8 @@ export interface User {
     last_name: string;
     username: string;
     email: string;
+    is_email_verified: boolean;
+    is_staff: boolean;
 }
 
 export interface GithubRepo {

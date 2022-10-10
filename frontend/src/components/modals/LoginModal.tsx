@@ -16,6 +16,7 @@ const LoginModal = () => {
     const [showPassword, setShowPassword] = useRecoilState(showPasswordState);
     const [session, setSession] = useRecoilState(sessionState);
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
@@ -28,20 +29,18 @@ const LoginModal = () => {
             isLoading: true,
         });
 
-        if (!hCaptchaToken) {
-            setSession({
-                ...session,
-                isLoading: false,
-            });
-            return;
+        if (process.env.NODE_ENV !== "development") {
+            if (!hCaptchaToken) {
+                alert("Captcha not Found!!");
+                return;
+            }
         }
 
         try {
-            const res = await axios.post(
-                `/api/auth/login`,
+            const isEmailVerifiedRes = await axios.post(
+                "/api/auth/is_email_verified",
                 JSON.stringify({
-                    username,
-                    password,
+                    email,
                 }),
                 {
                     headers: {
@@ -51,27 +50,44 @@ const LoginModal = () => {
                 }
             );
 
-            if (res.status === 200) {
-                alert(res.data.success);
+            if (isEmailVerifiedRes.data.is_email_verified) {
+                const loginRes = await axios.post(
+                    `/api/auth/login`,
+                    JSON.stringify({
+                        username,
+                        password,
+                    }),
+                    {
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
 
-                const load_user_res = await axios.get(`/api/auth/user`, {
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                    },
-                });
+                if (loginRes.status === 200) {
+                    alert(loginRes.data.success);
 
-                if (load_user_res.status === 200) {
-                    setSession({
-                        ...session,
-                        user: load_user_res.data.user,
-                        isAuthenticated: true,
+                    const load_userRes = await axios.get(`/api/auth/user`, {
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
                     });
+
+                    if (load_userRes.status === 200) {
+                        setSession({
+                            ...session,
+                            user: load_userRes.data.user,
+                            isAuthenticated: true,
+                        });
+                    }
+                } else {
+                    alert(loginRes.data.error);
                 }
             } else {
-                alert(res.data.error);
+                alert("Verify your Email!!");
             }
-
             setUsername("");
             setPassword("");
         } catch (error) {
@@ -91,7 +107,7 @@ const LoginModal = () => {
                 as="div"
                 onClose={setOpen}
             >
-                <div className="sm:-pb-40 flex min-h-[800px] items-end justify-center px-4 pb-60 pt-0 pb-20 text-center sm:block sm:min-h-screen sm:p-0 sm:pt-4">
+                <div className="sm:-pb-40 flex min-h-[800px] items-end justify-center px-4 pb-60 pt-0 text-center sm:block sm:min-h-screen sm:p-0 sm:pt-4">
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -146,6 +162,14 @@ const LoginModal = () => {
                                     className="authInput"
                                     placeholder="Your Username"
                                 />
+                                <input
+                                    type="email"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="authInput"
+                                    placeholder="Your Email"
+                                />
                                 <div className="relative">
                                     <input
                                         type={
@@ -176,18 +200,20 @@ const LoginModal = () => {
                                         />
                                     )}
                                 </div>
-                                <HCaptcha
-                                    sitekey={
-                                        process.env
-                                            .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
-                                    }
-                                    onVerify={setHCaptchaToken}
-                                    onLoad={() => {
-                                        captchaRef.current.execute();
-                                    }}
-                                    ref={captchaRef}
-                                    theme="dark"
-                                />
+                                {process.env.NODE_ENV !== "development" && (
+                                    <HCaptcha
+                                        sitekey={
+                                            process.env
+                                                .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
+                                        }
+                                        onVerify={setHCaptchaToken}
+                                        onLoad={() => {
+                                            captchaRef.current.execute();
+                                        }}
+                                        ref={captchaRef}
+                                        theme="dark"
+                                    />
+                                )}
                                 <div className="flex justify-center py-[25px]">
                                     {!session.isLoading ? (
                                         <button

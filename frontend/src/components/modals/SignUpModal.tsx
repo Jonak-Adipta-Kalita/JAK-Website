@@ -41,12 +41,11 @@ const SignUpModal = () => {
             return;
         }
 
-        if (!hCaptchaToken) {
-            setSession({
-                ...session,
-                isLoading: true,
-            });
-            return;
+        if (process.env.NODE_ENV !== "development") {
+            if (!hCaptchaToken) {
+                alert("Captcha not Found!!");
+                return;
+            }
         }
 
         try {
@@ -69,21 +68,6 @@ const SignUpModal = () => {
 
             if (res.status === 201) {
                 alert(res.data.success);
-
-                const load_user_res = await axios.get(`/api/auth/user`, {
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                    },
-                });
-
-                if (load_user_res.status === 200) {
-                    setSession({
-                        ...session,
-                        user: load_user_res.data.user,
-                        isAuthenticated: true,
-                    });
-                }
             } else {
                 alert(res.data.error);
             }
@@ -111,7 +95,7 @@ const SignUpModal = () => {
                 as="div"
                 onClose={setOpen}
             >
-                <div className="sm:-pb-40 flex min-h-[800px] items-end justify-center px-4 pb-60 pt-0 pb-20 text-center sm:block sm:min-h-screen sm:p-0 sm:pt-4">
+                <div className="sm:-pb-40 flex min-h-[800px] items-end justify-center px-4 pb-60 pt-0 text-center sm:block sm:min-h-screen sm:p-0 sm:pt-4">
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -254,18 +238,20 @@ const SignUpModal = () => {
                                         />
                                     )}
                                 </div>
-                                <HCaptcha
-                                    sitekey={
-                                        process.env
-                                            .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
-                                    }
-                                    onVerify={setHCaptchaToken}
-                                    onLoad={() => {
-                                        captchaRef.current.execute();
-                                    }}
-                                    ref={captchaRef}
-                                    theme="dark"
-                                />
+                                {process.env.NODE_ENV !== "development" && (
+                                    <HCaptcha
+                                        sitekey={
+                                            process.env
+                                                .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
+                                        }
+                                        onVerify={setHCaptchaToken}
+                                        onLoad={() => {
+                                            captchaRef.current.execute();
+                                        }}
+                                        ref={captchaRef}
+                                        theme="dark"
+                                    />
+                                )}
                                 <div className="flex justify-center py-[25px]">
                                     {!session.isLoading ? (
                                         <button

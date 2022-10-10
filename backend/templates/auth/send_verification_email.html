@@ -1,0 +1,7 @@
+{% autoescape off %}
+	Hi, {{ user.username }}
+
+	Please use the link below to verify your account!!
+
+	https://{{ domain }}/api/auth/verify_email?uidb64={{ uid }}&token={{ token }}
+{% endautoescape %}
