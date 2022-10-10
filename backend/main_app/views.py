@@ -204,9 +204,14 @@ class ChangePassword(restframework_views.APIView):
             current_password = request.data["currentPassword"]
             new_password = request.data["newPassword"]
 
-            user = User.objects.filter(username=username, email=email, password=current_password).get()
-            user.set_password(new_password)
-            user.save()
+            user = User.objects.filter(email=email).get()
+            if user.username == username and user.password == current_password:
+                user.set_password(new_password)
+                user.save()
+
+            return response.Response(
+                {"success": "Changed Password!!"}, status=status.HTTP_200_OK
+            )
         except Exception as e:
             return response.Response(
                 {

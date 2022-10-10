@@ -41,12 +41,11 @@ const SignUpModal = () => {
             return;
         }
 
-        if (!hCaptchaToken) {
-            setSession({
-                ...session,
-                isLoading: true,
-            });
-            return;
+        if (process.env.NODE_ENV !== "development") {
+            if (!hCaptchaToken) {
+                alert("Captcha not Found!!");
+                return;
+            }
         }
 
         try {
@@ -239,18 +238,20 @@ const SignUpModal = () => {
                                         />
                                     )}
                                 </div>
-                                <HCaptcha
-                                    sitekey={
-                                        process.env
-                                            .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
-                                    }
-                                    onVerify={setHCaptchaToken}
-                                    onLoad={() => {
-                                        captchaRef.current.execute();
-                                    }}
-                                    ref={captchaRef}
-                                    theme="dark"
-                                />
+                                {process.env.NODE_ENV !== "development" && (
+                                    <HCaptcha
+                                        sitekey={
+                                            process.env
+                                                .NEXT_PUBLIC_HCAPTCHA_SITE_KEY!
+                                        }
+                                        onVerify={setHCaptchaToken}
+                                        onLoad={() => {
+                                            captchaRef.current.execute();
+                                        }}
+                                        ref={captchaRef}
+                                        theme="dark"
+                                    />
+                                )}
                                 <div className="flex justify-center py-[25px]">
                                     {!session.isLoading ? (
                                         <button
