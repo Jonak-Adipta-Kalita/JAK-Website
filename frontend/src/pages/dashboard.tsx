@@ -22,13 +22,13 @@ const Dashbaord = () => {
             isLoading: true,
         });
 
-        // if (!hCaptchaToken) {
-        //     setSession({
-        //         ...session,
-        //         isLoading: false,
-        //     });
-        //     return;
-        // }
+        if (!hCaptchaToken) {
+            setSession({
+                ...session,
+                isLoading: false,
+            });
+            return;
+        }
 
         try {
             const apiRes = await axios.post(
