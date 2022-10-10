@@ -2,7 +2,10 @@ import cookie from "cookie";
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (
+    req: NextApiRequest,
+    res: NextApiResponse<{ success: string } | { error: string }>
+) => {
     if (!(req.method === "GET")) {
         res.setHeader("Allow", ["GET"]);
         return res

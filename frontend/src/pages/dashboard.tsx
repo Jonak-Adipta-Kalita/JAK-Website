@@ -1,17 +1,20 @@
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import axios from "axios";
 import Head from "next/head";
 import { MouseEvent, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { sessionState } from "../atoms/authAtom";
+import { sessionState, showPasswordState } from "../atoms/authAtom";
+import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 
 const Dashbaord = () => {
     const [session, setSession] = useRecoilState(sessionState);
+    const [showPassword, setShowPassword] = useRecoilState(showPasswordState);
     const [currentPassword, setCurrentPassword] = useState<string>("");
     const [newPassword, setNewPassword] = useState<string>("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
 
-    const changePassword = (e: MouseEvent) => {
+    const changePassword = async (e: MouseEvent) => {
         e.preventDefault();
 
         setSession({
@@ -19,15 +22,37 @@ const Dashbaord = () => {
             isLoading: true,
         });
 
-        if (!hCaptchaToken) {
-            setSession({
-                ...session,
-                isLoading: false,
-            });
-            return;
-        }
+        // if (!hCaptchaToken) {
+        //     setSession({
+        //         ...session,
+        //         isLoading: false,
+        //     });
+        //     return;
+        // }
+
         try {
-            // Change the password
+            const apiRes = await axios.post(
+                "/api/auth/change_password",
+                JSON.stringify({
+                    username: session.user?.username,
+                    email: session.user?.email,
+                    currentPassword,
+                    newPassword,
+                }),
+                {
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (apiRes.status === 200) {
+                alert(apiRes.data.success);
+            } else {
+                alert(apiRes.data.error);
+            }
+
             setCurrentPassword("");
             setNewPassword("");
         } catch (error) {
@@ -77,26 +102,80 @@ const Dashbaord = () => {
                             </p>
                             <div className="flex flex-col space-x-4 md:flex-row">
                                 <div className="mt-[20px] flex flex-col space-y-2">
-                                    <input
-                                        type="password"
-                                        required
-                                        value={currentPassword}
-                                        onChange={(e) =>
-                                            setCurrentPassword(e.target.value)
-                                        }
-                                        className="authInput"
-                                        placeholder="Current Password"
-                                    />
-                                    <input
-                                        type="new-password"
-                                        required
-                                        value={newPassword}
-                                        onChange={(e) =>
-                                            setNewPassword(e.target.value)
-                                        }
-                                        className="authInput"
-                                        placeholder="New Password"
-                                    />
+                                    <div className="relative">
+                                        <input
+                                            type={
+                                                showPassword
+                                                    ? "text"
+                                                    : "password"
+                                            }
+                                            required
+                                            className="authInput"
+                                            placeholder="Choose a Password"
+                                            value={currentPassword}
+                                            minLength={8}
+                                            onChange={(e) =>
+                                                setCurrentPassword(
+                                                    e.target.value
+                                                )
+                                            }
+                                        />
+                                        {showPassword ? (
+                                            <EyeOffIcon
+                                                className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                                onClick={() =>
+                                                    setShowPassword(
+                                                        !showPassword
+                                                    )
+                                                }
+                                            />
+                                        ) : (
+                                            <EyeIcon
+                                                className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                                onClick={() =>
+                                                    setShowPassword(
+                                                        !showPassword
+                                                    )
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="relative">
+                                        <input
+                                            type={
+                                                showPassword
+                                                    ? "text"
+                                                    : "password"
+                                            }
+                                            required
+                                            className="authInput"
+                                            placeholder="Enter your Password again"
+                                            value={newPassword}
+                                            minLength={8}
+                                            onChange={(e) =>
+                                                setNewPassword(e.target.value)
+                                            }
+                                        />
+                                        {showPassword ? (
+                                            <EyeOffIcon
+                                                className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                                onClick={() =>
+                                                    setShowPassword(
+                                                        !showPassword
+                                                    )
+                                                }
+                                            />
+                                        ) : (
+                                            <EyeIcon
+                                                className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                                onClick={() =>
+                                                    setShowPassword(
+                                                        !showPassword
+                                                    )
+                                                }
+                                            />
+                                        )}
+                                    </div>
                                     <HCaptcha
                                         sitekey={
                                             process.env

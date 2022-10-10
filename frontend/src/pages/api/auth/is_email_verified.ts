@@ -1,7 +1,10 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (
+    req: NextApiRequest,
+    res: NextApiResponse<{ success: string } | { error: string }>
+) => {
     if (!(req.method === "POST")) {
         res.setHeader("Allow", ["POST"]);
         return res

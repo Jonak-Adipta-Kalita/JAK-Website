@@ -1,8 +1,12 @@
 import axios from "axios";
 import cookie from "cookie";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { User } from "../../../typings";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (
+    req: NextApiRequest,
+    res: NextApiResponse<{ user: User } | { error: string }>
+) => {
     if (!(req.method === "GET")) {
         res.setHeader("Allow", ["GET"]);
         return res.status(405).json({

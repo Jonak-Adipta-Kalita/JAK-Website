@@ -194,3 +194,24 @@ class IsEmailVerifiedView(restframework_views.APIView):
                 },
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+
+
+class ChangePassword(restframework_views.APIView):
+    def post(self, request):
+        try:
+            username = request.data["username"]
+            email = request.data["email"]
+            current_password = request.data["currentPassword"]
+            new_password = request.data["newPassword"]
+
+            user = User.objects.filter(username=username, email=email, password=current_password).get()
+            user.set_password(new_password)
+            user.save()
+        except Exception as e:
+            return response.Response(
+                {
+                    "error": f"Something went wrong when trying to change password: {str(e)}"
+                },
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
