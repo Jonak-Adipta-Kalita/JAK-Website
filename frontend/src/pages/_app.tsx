@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import LoginModal from "../components/modals/LoginModal";
 import SignUpModal from "../components/modals/SignUpModal";
 import Footer from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const progress = new Progressbar({
     size: 4,
@@ -24,6 +25,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <RecoilRoot>
             <div className="flex h-screen flex-col text-gray-300">
                 <Header />
+                <Toaster position="top-center" reverseOrder={false} />
                 <Component {...pageProps} />
                 <LoginModal />
                 <SignUpModal />

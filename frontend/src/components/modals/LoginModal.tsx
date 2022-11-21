@@ -10,6 +10,8 @@ import {
 } from "../../atoms/authAtom";
 import { BallTriangle } from "react-loader-spinner";
 import axios from "axios";
+import toast from "react-hot-toast";
+import toastDefaultOptions from "../../utils/toastDefaultOptions";
 
 const LoginModal = () => {
     const [open, setOpen] = useRecoilState(loginModalState);
@@ -24,6 +26,10 @@ const LoginModal = () => {
     const login = async (e: FormEvent) => {
         e.preventDefault();
 
+        const toastNotification = toast.loading("Logging in!!", {
+            ...toastDefaultOptions,
+        });
+
         setSession({
             ...session,
             isLoading: true,
@@ -31,7 +37,10 @@ const LoginModal = () => {
 
         if (process.env.NODE_ENV !== "development") {
             if (!hCaptchaToken) {
-                alert("Captcha not Found!!");
+                toast.error("Captcha not Found!!", {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
                 return;
             }
         }
@@ -66,7 +75,10 @@ const LoginModal = () => {
                 );
 
                 if (loginRes.status === 200) {
-                    alert(loginRes.data.success);
+                    toast.success(loginRes.data.success, {
+                        ...toastDefaultOptions,
+                        id: toastNotification,
+                    });
 
                     const load_userRes = await axios.get(`/api/auth/user`, {
                         headers: {
@@ -83,15 +95,26 @@ const LoginModal = () => {
                         });
                     }
                 } else {
-                    alert(loginRes.data.error);
+                    toast.error(loginRes.data.error, {
+                        ...toastDefaultOptions,
+                        id: toastNotification,
+                    });
                 }
             } else {
-                alert("Verify your Email!!");
+                toast("Verify your Email!!", {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
             }
             setUsername("");
             setPassword("");
+            setEmail("");
+            setOpen(false);
         } catch (error) {
-            alert("Something went Wrong, when Loging in!!");
+            toast.error("Something went Wrong, when Loging in!!", {
+                ...toastDefaultOptions,
+                id: toastNotification,
+            });
         }
 
         setSession({

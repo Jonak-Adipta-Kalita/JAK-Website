@@ -11,6 +11,8 @@ import {
 import { useSetRecoilState, useRecoilState } from "recoil";
 import axios from "axios";
 import { InfinitySpin } from "react-loader-spinner";
+import toast from "react-hot-toast";
+import toastDefaultOptions from "../utils/toastDefaultOptions";
 
 const Header = () => {
     const router = useRouter();
@@ -34,6 +36,10 @@ const Header = () => {
     const logout = async (e: any) => {
         e.preventDefault();
 
+        const toastNotification = toast.loading("Logging out...", {
+            ...toastDefaultOptions,
+        });
+
         setSession({
             ...session,
             isLoading: true,
@@ -51,14 +57,23 @@ const Header = () => {
             );
 
             if (res.status === 200) {
-                alert(res.data.success);
+                toast.success(res.data.success, {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
                 setLoggedOut(true);
             } else {
-                alert(res.data.error);
+                toast.error(res.data.error, {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
                 setLoggedOut(false);
             }
         } catch (error) {
-            alert("Something went worng when Logging out!!");
+            toast.error("Something went worng when Logging out!!", {
+                ...toastDefaultOptions,
+                id: toastNotification,
+            });
             setLoggedOut(false);
         }
 
