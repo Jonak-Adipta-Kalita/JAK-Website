@@ -10,6 +10,8 @@ import {
 } from "../../atoms/authAtom";
 import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
+import toast from "react-hot-toast";
+import toastDefaultOptions from "../../utils/toastDefaultOptions";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);
@@ -27,6 +29,10 @@ const SignUpModal = () => {
     const signUp = async (e: FormEvent) => {
         e.preventDefault();
 
+        const toastNotification = toast.loading("Registering!!", {
+            ...toastDefaultOptions,
+        });
+
         setSession({
             ...session,
             isLoading: true,
@@ -37,13 +43,19 @@ const SignUpModal = () => {
                 ...session,
                 isLoading: true,
             });
-            alert("Password and Confirm Password are not same!!");
+            toast.error("Password and Confirm Password are not same!!", {
+                ...toastDefaultOptions,
+                id: toastNotification,
+            });
             return;
         }
 
         if (process.env.NODE_ENV !== "development") {
             if (!hCaptchaToken) {
-                alert("Captcha not Found!!");
+                toast.error("Captcha not Found!!", {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
                 return;
             }
         }
@@ -67,9 +79,15 @@ const SignUpModal = () => {
             );
 
             if (res.status === 201) {
-                alert(res.data.success);
+                toast.success(res.data.success, {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
             } else {
-                alert(res.data.error);
+                toast.error(res.data.error, {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
             }
 
             setFirstName("");
@@ -78,8 +96,12 @@ const SignUpModal = () => {
             setEmail("");
             setPassword("");
             setConfirmPassword("");
+            setOpen(false);
         } catch (error) {
-            alert("Something went Wrong, when registering an account!!");
+            toast.error("Something went Wrong, when registering an account!!", {
+                ...toastDefaultOptions,
+                id: toastNotification,
+            });
         }
 
         setSession({

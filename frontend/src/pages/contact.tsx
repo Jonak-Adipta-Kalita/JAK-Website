@@ -4,6 +4,8 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from "axios";
 import { useRecoilValue } from "recoil";
 import { sessionState } from "../atoms/authAtom";
+import toast from "react-hot-toast";
+import toastDefaultOptions from "../utils/toastDefaultOptions";
 
 const Contact = () => {
     const session = useRecoilValue(sessionState);
@@ -17,19 +19,32 @@ const Contact = () => {
     const sendContact = (e: FormEvent) => {
         e.preventDefault();
 
+        const toastNotification = toast.loading("Sending contact request...", {
+            ...toastDefaultOptions,
+        });
+
         if (!session.isAuthenticated) {
-            alert("First Login or Sign Up to send Contact!!");
+            toast.error("First Login or Sign Up to send Contact!!", {
+                ...toastDefaultOptions,
+                id: toastNotification,
+            });
             return;
         }
 
         if (phone.length <= 10 || !phone.startsWith("+")) {
-            alert("Phone Number must be correct!!");
+            toast.error("Phone Number must be correct!!", {
+                ...toastDefaultOptions,
+                id: toastNotification,
+            });
             return;
         }
 
         if (process.env.NODE_ENV !== "development") {
             if (!hCaptchaToken) {
-                alert("Captcha not Found!!");
+                toast.error("Captcha not Found!!", {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
                 return;
             }
         }
@@ -54,6 +69,10 @@ const Contact = () => {
                 setEmail("");
                 setMessage("");
                 setPhone("");
+                toast.success("Contact Request sent!!", {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
             });
     };
 

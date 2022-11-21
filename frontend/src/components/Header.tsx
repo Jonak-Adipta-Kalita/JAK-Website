@@ -131,10 +131,10 @@ const Header = () => {
                             }
                         }
                     } else {
-                        alert("Something went wrong!!");
+                        toast("Something went wrong!!");
                     }
                 } else {
-                    alert("Something went wrong!!");
+                    toast("Something went wrong!!");
                 }
             } catch (err) {
                 // Do Nothing

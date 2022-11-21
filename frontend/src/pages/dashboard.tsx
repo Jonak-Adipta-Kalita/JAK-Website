@@ -5,6 +5,8 @@ import { MouseEvent, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { sessionState, showPasswordState } from "../atoms/authAtom";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
+import toast from "react-hot-toast";
+import toastDefaultOptions from "../utils/toastDefaultOptions";
 
 const Dashbaord = () => {
     const [session, setSession] = useRecoilState(sessionState);
@@ -17,6 +19,10 @@ const Dashbaord = () => {
     const changePassword = async (e: MouseEvent) => {
         e.preventDefault();
 
+        const toastNotification = toast.loading("Changing Password", {
+            ...toastDefaultOptions,
+        });
+
         setSession({
             ...session,
             isLoading: true,
@@ -24,7 +30,10 @@ const Dashbaord = () => {
 
         if (process.env.NODE_ENV !== "development") {
             if (!hCaptchaToken) {
-                alert("Captcha not Found!!");
+                toast.error("Captcha not Found!!", {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
                 return;
             }
         }
@@ -47,15 +56,24 @@ const Dashbaord = () => {
             );
 
             if (apiRes.status === 200) {
-                alert(apiRes.data.success);
+                toast.success(apiRes.data.success, {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
             } else {
-                alert(apiRes.data.error);
+                toast.error(apiRes.data.error, {
+                    ...toastDefaultOptions,
+                    id: toastNotification,
+                });
             }
 
             setCurrentPassword("");
             setNewPassword("");
         } catch (error) {
-            alert("Something went Wrong, when Changing Password!!");
+            toast.error("Something went Wrong, when Changing Password!!", {
+                ...toastDefaultOptions,
+                id: toastNotification,
+            });
         }
 
         setSession({
