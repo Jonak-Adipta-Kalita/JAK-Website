@@ -150,7 +150,7 @@ and press Enter.
 
 -   Language: [Python](https://www.python.org/), [TypeScript](https://www.typescriptlang.org/)
 -   Language Framework: [Django](https://www.djangoproject.com/), [NextJS](https://nextjs.org/)
--   Hosted: [Heroku](https://heroku.com/), [Vercel](https://vercel.com/)
+-   Hosted: [Vercel](https://vercel.com/)
 
 ## Contributors
 

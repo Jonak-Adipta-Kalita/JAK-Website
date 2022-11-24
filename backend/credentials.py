@@ -18,7 +18,7 @@ EMAIL_PORT = config("EMAIL_PORT")
 
 if PRODUCTION:
     PORTS = [
-        "jonakadiptakalita.herokuapp.com",
+        "jonakadiptakalita-backend.vercel.app",
     ]
     FRONTEND_PORTS = [
         "https://jonakadiptakalita.vercel.app",
