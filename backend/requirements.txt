@@ -17,7 +17,7 @@ djangorestframework==3.13.1
 djangorestframework-simplejwt==5.0.0
 gunicorn==20.1.0
 idna==3.3
-importlib-metadata==4.8.1
+importlib-metadata==5.1.0
 Markdown==3.3.6
 marshmallow==3.14.0
 mypy-extensions==0.4.3
