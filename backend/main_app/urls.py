@@ -44,5 +44,9 @@ urlpatterns = [
         views.IsEmailVerifiedView.as_view(),
         name="is_email_verified",
     ),
-    path("api/auth/change_password", views.ChangePassword.as_view(), name="change_password")
+    path(
+        "api/auth/change_password",
+        views.ChangePassword.as_view(),
+        name="change_password",
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

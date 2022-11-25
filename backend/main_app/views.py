@@ -217,4 +217,3 @@ class ChangePassword(restframework_views.APIView):
                 },
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
-
