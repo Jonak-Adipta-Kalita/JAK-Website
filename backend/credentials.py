@@ -18,11 +18,10 @@ EMAIL_PORT = config("EMAIL_PORT")
 
 if PRODUCTION:
     PORTS = [
-        "jonakadiptakalita-backend.vercel.app",
+        "backend.jonakadiptakalita.tk,
     ]
     FRONTEND_PORTS = [
-        "https://jonakadiptakalita.vercel.app",
-        "https://jonakadiptakalita.com",
+        "https://jonakadiptakalita.tk",
     ]
 else:
     PORTS = [
