@@ -18,7 +18,7 @@ EMAIL_PORT = config("EMAIL_PORT")
 
 if PRODUCTION:
     PORTS = [
-        "backend.jonakadiptakalita.tk,
+        "backend.jonakadiptakalita.tk",
     ]
     FRONTEND_PORTS = [
         "https://jonakadiptakalita.tk",
