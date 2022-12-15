@@ -14,6 +14,7 @@ else:
     SESSION_COOKIE_SECURE = False
 
 ALLOWED_HOSTS = credentials.PORTS
+CSRF_TRUSTED_ORIGINS = credentials.PORTS
 CORS_ALLOWED_ORIGINS = credentials.FRONTEND_PORTS
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
