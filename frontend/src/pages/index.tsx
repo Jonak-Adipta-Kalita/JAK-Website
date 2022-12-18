@@ -35,10 +35,10 @@ const Home = () => {
                         />
                     </p>
                 </div>
-                <div className="mx-[40px] border-b-[5px]" />
+                <div className="mx-[40px] border-b-[5px] border-gray-600 dark:border-white" />
                 {session.user?.is_staff && (
                     <div className="px-2">
-                        <div className="mt-[50px] border-[2px] p-5">
+                        <div className="mt-[50px] border-[2px] border-gray-600 p-5 dark:border-white">
                             <p className="text-center text-xl font-bold">
                                 Admin Controls
                             </p>

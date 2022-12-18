@@ -10,7 +10,7 @@
 }
 
 body {
-    @apply cursor-default bg-bg-color font-otomanopee-one;
+    @apply cursor-default bg-bg-color-light font-otomanopee-one dark:bg-bg-color-dark;
 }
 
 p,
@@ -25,15 +25,15 @@ button {
 
 @layer components {
     .contactInput {
-        @apply w-[400px] rounded-lg border-[5px] border-gray-300 bg-bg-color p-4 outline-none sm:w-[500px];
+        @apply w-[400px] rounded-lg border-[5px] border-gray-600 bg-bg-color-light p-4 outline-none dark:border-gray-300 dark:bg-bg-color-dark sm:w-[500px];
     }
 
     .authInput {
-        @apply w-[310px] rounded-lg border-[5px] border-gray-300 bg-bg-color p-4 outline-none;
+        @apply w-[310px] rounded-lg border-[5px] border-gray-600 bg-bg-color-light p-4 text-text-color-light outline-none dark:border-gray-300 dark:bg-bg-color-dark dark:text-text-color-dark;
     }
 
     .menuItem {
-        @apply block cursor-pointer px-4 py-2 text-sm text-gray-300 hover:text-white;
+        @apply block cursor-pointer px-4 py-2 text-sm text-text-color-light hover:text-gray-900 dark:text-text-color-dark dark:hover:text-white;
     }
 
     .dashboardText {

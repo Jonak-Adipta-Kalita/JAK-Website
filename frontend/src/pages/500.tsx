@@ -8,7 +8,9 @@ const _500 = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="mt-10 flex justify-center lg:mt-[50px]">
-                <p className="text-2xl font-bold text-white">500 Error!!</p>
+                <p className="text-2xl font-bold text-text-color-light dark:text-white">
+                    500 Error!!
+                </p>
             </div>
         </main>
     );

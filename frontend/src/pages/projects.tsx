@@ -19,12 +19,14 @@ const Card = ({
     buttons: [{ title: string; link: string }, { title: string; link: string }];
 }) => {
     return (
-        <div className="m-2 mb-[20px] flex border-[0.1px]">
-            <div className="block max-w-sm rounded-lg p-6 shadow-lg">
-                <p className="mb-2 text-xl font-medium leading-tight text-gray-200">
+        <div className="m-2 mb-[20px] flex border-[0.1px] border-gray-600 dark:border-white">
+            <div className="block w-full max-w-sm rounded-lg p-6 shadow-lg">
+                <p className="mb-2 text-xl font-medium leading-tight text-gray-700 dark:text-gray-200">
                     {title}
                 </p>
-                <p className="mb-4 text-base text-gray-400">{description}</p>
+                <p className="mb-4 text-base text-gray-500 dark:text-gray-400">
+                    {description}
+                </p>
                 <div className="space-y-2 md:space-x-2 md:space-y-0">
                     {buttons.map((button, index) => (
                         <a

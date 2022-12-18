@@ -29,9 +29,9 @@ const Card = ({
         <div
             className={`m-2 mb-[20px] flex ${
                 centerMain && "justify-center"
-            } border-[0.1px]`}
+            } border-[0.1px] border-gray-600 dark:border-white`}
         >
-            <div className="block max-w-sm rounded-lg  p-6 shadow-lg">
+            <div className="block w-full max-w-sm  rounded-lg p-6 shadow-lg">
                 {image && (
                     <Image
                         src={image}
@@ -41,13 +41,15 @@ const Card = ({
                     />
                 )}
                 <p
-                    className={`mb-2 text-xl font-medium leading-tight text-gray-200 ${
+                    className={`mb-2 text-xl font-medium leading-tight text-gray-700 dark:text-gray-200 ${
                         image && "mt-[20px]"
                     }`}
                 >
                     {title}
                 </p>
-                <p className="mb-4 text-base text-gray-400">{description}</p>
+                <p className="mb-4 text-base text-gray-500 dark:text-gray-400">
+                    {description}
+                </p>
                 {button && (
                     <button
                         type="button"

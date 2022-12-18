@@ -157,19 +157,21 @@ const LoginModal = () => {
                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     >
-                        <div className="inline-block transform overflow-hidden rounded-lg bg-gray-700 px-4 pt-5 pb-4 text-left align-bottom text-gray-300 shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 sm:align-middle">
+                        <div className="inline-block transform overflow-hidden rounded-lg bg-bg-color-light px-4 pt-5 pb-4 text-left align-bottom text-gray-300 shadow-xl transition-all dark:bg-bg-color-dark sm:my-8 sm:w-full sm:max-w-sm sm:p-6 sm:align-middle">
                             <div className="flex justify-between">
                                 <div className="">
-                                    <p className="">Login Form</p>
+                                    <p className="text-text-color-light dark:text-text-color-dark">
+                                        Login Form
+                                    </p>
                                 </div>
                                 <div className="">
                                     <XCircleIcon
-                                        className="h-6 w-6 cursor-pointer hover:text-white"
+                                        className="h-6 w-6 cursor-pointer text-text-color-light hover:text-gray-900 dark:text-text-color-dark dark:hover:text-white"
                                         onClick={() => setOpen(false)}
                                     />
                                 </div>
                             </div>
-                            <div className="my-[15px] border-b-[5px]" />
+                            <div className="my-[15px] border-b-[5px] border-gray-600 dark:border-white" />
                             <form
                                 onSubmit={login}
                                 method="post"
@@ -209,14 +211,14 @@ const LoginModal = () => {
                                     />
                                     {showPassword ? (
                                         <EyeOffIcon
-                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer text-text-color-light dark:text-text-color-dark"
                                             onClick={() =>
                                                 setShowPassword(!showPassword)
                                             }
                                         />
                                     ) : (
                                         <EyeIcon
-                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer"
+                                            className="absolute top-5 right-7 h-6 w-6 cursor-pointer text-text-color-light dark:text-text-color-dark"
                                             onClick={() =>
                                                 setShowPassword(!showPassword)
                                             }
@@ -237,11 +239,11 @@ const LoginModal = () => {
                                         theme="dark"
                                     />
                                 )}
-                                <div className="flex justify-center py-[25px]">
+                                <div className="flex justify-center py-[25px] text-text-color-light dark:text-text-color-dark">
                                     {!session.isLoading ? (
                                         <button
                                             type="submit"
-                                            className="transform rounded-lg border-[0.1px] border-gray-300 p-4 px-7 transition duration-100 ease-out hover:scale-125"
+                                            className="transform rounded-lg border-[0.1px] border-gray-600 p-4 px-7 transition duration-100 ease-out hover:scale-125 dark:border-gray-300"
                                             aria-label="login"
                                         >
                                             Login

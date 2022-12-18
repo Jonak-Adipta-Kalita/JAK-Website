@@ -8,7 +8,7 @@ const _404 = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="mt-10 flex justify-center lg:mt-[50px]">
-                <p className="text-2xl font-bold text-white">
+                <p className="text-2xl font-bold text-text-color-light dark:text-white">
                     Page Not Found!!
                 </p>
             </div>

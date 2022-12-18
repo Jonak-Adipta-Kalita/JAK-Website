@@ -145,7 +145,7 @@ const Header = () => {
     }, [router, session]);
 
     return (
-        <header className="flex items-center justify-between p-4 py-5 text-gray-400 shadow-xl md:px-10 lg:px-20">
+        <header className="flex items-center justify-between p-4 py-5 text-text-color-light shadow-xl dark:text-text-color-dark md:px-10 lg:px-20">
             <div
                 onClick={() => router.push("/")}
                 className="flex cursor-pointer items-center space-x-4"
@@ -156,7 +156,7 @@ const Header = () => {
                     height={60}
                     width={60}
                 />
-                <p className="cursor-pointer font-bold text-white">
+                <p className="cursor-pointer font-bold text-text-color-light dark:text-white">
                     JAK Website
                 </p>
             </div>
@@ -180,7 +180,7 @@ const Header = () => {
             </form>
             <div className="flex items-center space-x-5">
                 <BellIcon
-                    className="h-10 w-10 cursor-pointer hover:text-gray-300"
+                    className="h-10 w-10 cursor-pointer hover:text-gray-500 dark:hover:text-gray-300"
                     onClick={() => router.push("/notifications")}
                 />
                 {session.isLoading ? (
@@ -216,7 +216,7 @@ const Header = () => {
                                     className="relative inline-block text-left"
                                 >
                                     <div className="">
-                                        <Menu.Button className="flex items-center text-gray-400 hover:text-white">
+                                        <Menu.Button className="flex items-center hover:text-gray-500 dark:hover:text-gray-300">
                                             {session.user?.username}
                                             <ChevronDownIcon
                                                 className="-mr-1 ml-2 h-5 w-5"
@@ -234,7 +234,7 @@ const Header = () => {
                                         leaveFrom="transform opacity-100 scale-100"
                                         leaveTo="transform opacity-0 scale-95"
                                     >
-                                        <Menu.Items className="absolute right-0 mt-6 w-56 origin-top-right divide-y divide-gray-100 rounded-md border-[0.1px] bg-[#272934] text-white shadow-lg">
+                                        <Menu.Items className="absolute right-0 mt-6 w-56 origin-top-right divide-y divide-gray-100 rounded-md border-[0.1px] bg-bg-color-light text-white shadow-lg dark:bg-bg-color-dark">
                                             <div className="py-1">
                                                 <Menu.Item>
                                                     {() => (

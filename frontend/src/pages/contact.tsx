@@ -130,7 +130,7 @@ const Contact = () => {
                 <div className="py-[30px]">
                     <button
                         type="submit"
-                        className="transform rounded-lg border-[0.1px] border-gray-300 p-4 transition duration-100 ease-out hover:scale-125"
+                        className="transform rounded-lg border-[0.1px] border-gray-600 p-4 transition duration-100 ease-out hover:scale-125 dark:border-gray-300"
                         aria-label="send-contact"
                     >
                         Send
