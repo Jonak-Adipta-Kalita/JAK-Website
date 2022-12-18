@@ -7,6 +7,7 @@ import { sessionState, showPasswordState } from "../atoms/authAtom";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import toast from "react-hot-toast";
 import toastDefaultOptions from "../utils/toastDefaultOptions";
+import { isDark } from "../utils/isDark";
 
 const Dashbaord = () => {
     const [session, setSession] = useRecoilState(sessionState);
@@ -204,7 +205,7 @@ const Dashbaord = () => {
                                                 captchaRef.current.execute();
                                             }}
                                             ref={captchaRef}
-                                            theme="dark"
+                                            theme={isDark ? "dark" : "light"}
                                         />
                                     )}
                                 </div>

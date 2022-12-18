@@ -12,6 +12,7 @@ import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 import toast from "react-hot-toast";
 import toastDefaultOptions from "../../utils/toastDefaultOptions";
+import { isDark } from "../../utils/isDark";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);
@@ -273,7 +274,7 @@ const SignUpModal = () => {
                                             captchaRef.current.execute();
                                         }}
                                         ref={captchaRef}
-                                        theme="dark"
+                                        theme={isDark ? "dark" : "light"}
                                     />
                                 )}
                                 <div className="flex justify-center py-[25px] text-text-color-light dark:text-text-color-dark">

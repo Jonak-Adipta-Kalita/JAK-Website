@@ -1,9 +1,10 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { isDark } from "../utils/isDark";
 
 class MyDocument extends Document {
     render() {
         return (
-            <Html lang="en" className="">
+            <Html lang="en" className={`${isDark && "dark"}`}>
                 <Head>
                     <link rel="manifest" href="/manifest.json" />
                     <meta

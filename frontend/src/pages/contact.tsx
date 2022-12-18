@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { sessionState } from "../atoms/authAtom";
 import toast from "react-hot-toast";
 import toastDefaultOptions from "../utils/toastDefaultOptions";
+import { isDark } from "../utils/isDark";
 
 const Contact = () => {
     const session = useRecoilValue(sessionState);
@@ -124,7 +125,7 @@ const Contact = () => {
                             captchaRef.current.execute();
                         }}
                         ref={captchaRef}
-                        theme="dark"
+                        theme={isDark ? "dark" : "light"}
                     />
                 )}
                 <div className="py-[30px]">
