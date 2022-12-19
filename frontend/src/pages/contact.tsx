@@ -6,7 +6,7 @@ import { useRecoilValue } from "recoil";
 import { sessionState } from "../atoms/authAtom";
 import toast from "react-hot-toast";
 import toastDefaultOptions from "../utils/toastDefaultOptions";
-import { isDark } from "../utils/isDark";
+import { useTheme } from "next-themes";
 
 const Contact = () => {
     const session = useRecoilValue(sessionState);
@@ -16,6 +16,7 @@ const Contact = () => {
     const [phone, setPhone] = useState("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
+    const { theme } = useTheme();
 
     const sendContact = (e: FormEvent) => {
         e.preventDefault();
@@ -125,7 +126,7 @@ const Contact = () => {
                             captchaRef.current.execute();
                         }}
                         ref={captchaRef}
-                        theme={isDark ? "dark" : "light"}
+                        theme={theme === "dark" ? "dark" : "light"}
                     />
                 )}
                 <div className="py-[30px]">

@@ -12,7 +12,7 @@ import axios from "axios";
 import { BallTriangle } from "react-loader-spinner";
 import toast from "react-hot-toast";
 import toastDefaultOptions from "../../utils/toastDefaultOptions";
-import { isDark } from "../../utils/isDark";
+import { useTheme } from "next-themes";
 
 const SignUpModal = () => {
     const [open, setOpen] = useRecoilState(signUpModalState);
@@ -26,6 +26,7 @@ const SignUpModal = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const captchaRef = useRef<any>(null);
+    const { theme } = useTheme();
 
     const signUp = async (e: FormEvent) => {
         e.preventDefault();
@@ -274,7 +275,9 @@ const SignUpModal = () => {
                                             captchaRef.current.execute();
                                         }}
                                         ref={captchaRef}
-                                        theme={isDark ? "dark" : "light"}
+                                        theme={
+                                            theme === "dark" ? "dark" : "light"
+                                        }
                                     />
                                 )}
                                 <div className="flex justify-center py-[25px] text-text-color-light dark:text-text-color-dark">

@@ -9,6 +9,7 @@ import SignUpModal from "../components/modals/SignUpModal";
 import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
 import ToggleThemeButton from "../components/ToggleThemeButton";
+import { ThemeProvider } from "next-themes";
 
 const progress = new Progressbar({
     size: 4,
@@ -24,15 +25,17 @@ Router.events.on("routeChangeError", progress.finish);
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
         <RecoilRoot>
-            <div className="flex h-screen flex-col text-text-color-light dark:text-text-color-dark">
-                <Header />
-                <Toaster position="top-center" reverseOrder={false} />
-                <ToggleThemeButton />
-                <Component {...pageProps} />
-                <LoginModal />
-                <SignUpModal />
-                <Footer />
-            </div>
+            <ThemeProvider enableSystem={true} attribute="class">
+                <div className="flex h-screen flex-col text-text-color-light dark:text-text-color-dark">
+                    <Header />
+                    <Toaster position="top-center" reverseOrder={false} />
+                    <ToggleThemeButton />
+                    <Component {...pageProps} />
+                    <LoginModal />
+                    <SignUpModal />
+                    <Footer />
+                </div>
+            </ThemeProvider>
         </RecoilRoot>
     );
 };

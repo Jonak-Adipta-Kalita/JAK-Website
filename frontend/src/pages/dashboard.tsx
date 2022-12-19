@@ -7,7 +7,7 @@ import { sessionState, showPasswordState } from "../atoms/authAtom";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/outline";
 import toast from "react-hot-toast";
 import toastDefaultOptions from "../utils/toastDefaultOptions";
-import { isDark } from "../utils/isDark";
+import { useTheme } from "next-themes";
 
 const Dashbaord = () => {
     const [session, setSession] = useRecoilState(sessionState);
@@ -16,6 +16,7 @@ const Dashbaord = () => {
     const [newPassword, setNewPassword] = useState<string>("");
     const [hCaptchaToken, setHCaptchaToken] = useState("");
     const captchaRef = useRef<any>(null);
+    const { theme } = useTheme();
 
     const changePassword = async (e: MouseEvent) => {
         e.preventDefault();
@@ -205,7 +206,11 @@ const Dashbaord = () => {
                                                 captchaRef.current.execute();
                                             }}
                                             ref={captchaRef}
-                                            theme={isDark ? "dark" : "light"}
+                                            theme={
+                                                theme === "dark"
+                                                    ? "dark"
+                                                    : "light"
+                                            }
                                         />
                                     )}
                                 </div>
