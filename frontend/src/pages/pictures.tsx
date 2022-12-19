@@ -19,7 +19,7 @@ const Pictures = ({ pictures }: Props) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         {pictures.map((picture) => (
                             <div
-                                className="m-4 flex transform cursor-pointer flex-col items-center justify-center rounded border-[0.1px] p-4 pb-2 transition duration-100 ease-out hover:scale-105"
+                                className="m-4 flex transform cursor-pointer flex-col items-center justify-center rounded border-[0.1px] border-gray-600 p-4 pb-2 transition duration-100 ease-out hover:scale-105 dark:border-white"
                                 key={picture.id}
                             >
                                 <Image

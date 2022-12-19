@@ -291,7 +291,11 @@ const SignUpModal = () => {
                                         </button>
                                     ) : (
                                         <BallTriangle
-                                            color="#D1D5DB"
+                                            color={
+                                                theme === "dark"
+                                                    ? "#D1D5DB"
+                                                    : "#4B5963"
+                                            }
                                             height={80}
                                             width={80}
                                         />
