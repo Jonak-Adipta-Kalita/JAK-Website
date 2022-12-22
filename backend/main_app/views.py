@@ -1,5 +1,4 @@
 from django.http import HttpRequest, HttpResponse
-from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import EmailMessage
@@ -111,7 +110,7 @@ class SendVerificationEmail(restframework_views.APIView):
             user = User.objects.filter(email=email).get()
 
             if not user.is_email_verified:
-                current_site = get_current_site(request)
+                current_site = credentials.PORTS[0]
                 email_subject = "Activate your Account!!"
                 email_body = render_to_string(
                     "auth/send_verification_email.html",

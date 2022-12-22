@@ -21,7 +21,7 @@ if PRODUCTION:
         "backend.jonakadiptakalita.tk",
         "jonakadiptakalita.c0d3.info",
         "pluto.seidensal.info",
-        "127.0.0.1"
+        "127.0.0.1",
     ]
     FRONTEND_PORTS = [
         "https://jonakadiptakalita.tk",
