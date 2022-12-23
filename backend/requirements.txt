@@ -10,7 +10,7 @@ cryptography==35.0.0
 defusedxml==0.7.1
 Django==3.2.15
 django-appconf==1.0.5
-django-cors-headers==3.11.0
+django-cors-headers==3.13.0
 django-filter==21.1
 django-phonenumber-field==6.0.0
 djangorestframework==3.13.1
