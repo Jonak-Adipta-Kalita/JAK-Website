@@ -49,4 +49,5 @@ urlpatterns = [
         views.ChangePassword.as_view(),
         name="change_password",
     ),
+    path("api/ai/chatbot", views.ChatBot.as_view(), name="chatbot"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
