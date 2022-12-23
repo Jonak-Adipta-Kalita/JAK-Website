@@ -5,12 +5,12 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
 
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open("intents.json").read())
+intents = json.loads(open("main_app/ai/intents.json").read())
 
-words = pickle.load(open("./model/words.pkl", "rb"))
-classes = pickle.load(open("./model/classes.pkl", "rb"))
+words = pickle.load(open("main_app/ai/model/words.pkl", "rb"))
+classes = pickle.load(open("main_app/ai/model/classes.pkl", "rb"))
 
-model = load_model("./model/alexis.h5")
+model = load_model("main_app/ai/model/alexis.h5")
 
 
 def clean_up_sentence(sentence):

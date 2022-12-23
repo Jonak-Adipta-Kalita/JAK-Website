@@ -9,7 +9,7 @@ from tensorflow.keras.optimizers import SGD
 
 def train():
     lemmatizer = WordNetLemmatizer()
-    with open("intents.json", "r") as file:
+    with open("main_app/ai/intents.json", "r") as file:
         intents = json.load(file)
 
     words = []
@@ -31,8 +31,8 @@ def train():
 
     classes = sorted(set(classes))
 
-    pickle.dump(words, open("./model/words.pkl", "wb"))
-    pickle.dump(classes, open("./model/classes.pkl", "wb"))
+    pickle.dump(words, open("main_app/ai/model/words.pkl", "wb"))
+    pickle.dump(classes, open("main_app/ai/model/classes.pkl", "wb"))
 
     training = []
     output_empty = [0] * len(classes)
@@ -69,7 +69,7 @@ def train():
     hist = model.fit(
         np.array(train_x), np.array(train_y), epochs=5000, batch_size=5, verbose=1
     )
-    model.save("./model/alexis.h5", hist)
+    model.save("main_app/ai/model/alexis.h5", hist)
 
     print()
     print("Done!!")
