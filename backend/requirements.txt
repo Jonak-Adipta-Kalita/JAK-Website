@@ -10,7 +10,7 @@ charset-normalizer==2.0.7
 clang==5.0
 click==8.0.3
 colorama==0.4.4
-cryptography==35.0.0
+cryptography==38.0.4
 defusedxml==0.7.1
 Django==3.2.15
 django-appconf==1.0.5
