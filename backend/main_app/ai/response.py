@@ -65,9 +65,3 @@ def talk(message):
     res = get_response(ints, intents)
 
     return res
-
-
-if __name__ == "__main__":
-    while True:
-        message = str(input(">> "))
-        print(talk(message))
