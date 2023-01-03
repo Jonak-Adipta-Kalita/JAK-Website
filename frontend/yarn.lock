@@ -4190,10 +4190,10 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier-plugin-tailwindcss@^0.1.1:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.1.4.tgz#b09e826a57a0f69b0662eededd659b3d5a5551e7"
-  integrity sha512-kt3YFWqxcG9+bilBI0hPF7RjQZNtgBRvjJZGw6B2MNAjPqlfcYIiZnNaIEnq4XimKLTzZYxz6jQnUXmSQ/5njg==
+prettier-plugin-tailwindcss@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.2.1.tgz#989b35afd86c550cb671da69891aba4f4a051159"
+  integrity sha512-aIO8IguumORyRsmT+E7JfJ3A9FEoyhqZR7Au7TBOege3VZkgMvHJMkufeYp4zjnDK2iq4ktkvGMNOQR9T8lisQ==
 
 prettier@^2.5.1:
   version "2.5.1"
