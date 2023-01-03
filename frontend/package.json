@@ -16,7 +16,7 @@
         "@badrap/bar-of-progress": "^0.1.2",
         "@hcaptcha/react-hcaptcha": "^1.1.0",
         "@headlessui/react": "^1.4.3",
-        "@heroicons/react": "^1.0.5",
+        "@heroicons/react": "^2.0.13",
         "@types/cookie": "^0.4.1",
         "@types/lodash": "^4.14.178",
         "axios": "^0.25.0",
