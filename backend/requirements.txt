@@ -42,7 +42,7 @@ oauthlib==3.2.1
 opt-einsum==3.3.0
 panda3d==1.10.10
 pathspec==0.9.0
-phonenumbers==8.12.42
+phonenumbers==8.13.3
 Pillow==9.0.1
 platformdirs==2.4.0
 protobuf==3.20.2
