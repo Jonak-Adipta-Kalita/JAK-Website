@@ -49,7 +49,7 @@ protobuf==3.20.2
 psycopg2-binary==2.9.5
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-pycparser==2.20
+pycparser==2.21
 PyJWT==2.4.0
 python-decouple==3.5
 python3-openid==3.2.0
