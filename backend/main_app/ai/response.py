@@ -1,4 +1,4 @@
-import random, json, pickle, nltk, sys
+import random, json, pickle, nltk, re
 import numpy as np
 
 from nltk.stem import WordNetLemmatizer
@@ -62,6 +62,11 @@ def get_response(intents_list, intents_json):
 
 def talk(message):
     ints = predict_class(message)
+    math_expressions = re.fullmatch(r"(\d+\s*(\+|\-|\*|\\)\s*\d+)", message)
+    if math_expressions:
+        result = eval(str(math_expressions[0]))
+        return f"Here is your math's answer: {result}"
+
     res = get_response(ints, intents)
 
     return res
