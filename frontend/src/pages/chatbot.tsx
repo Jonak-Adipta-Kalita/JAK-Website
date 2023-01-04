@@ -13,7 +13,7 @@ const Chatbot = () => {
 
     const sendAlexisMessage = async () => {
         const JAKAPI = new api(process.env.RAPIDAPI_KEY!);
-        const alexisReply = await JAKAPI.getAlexisResponse();
+        const alexisReply = await JAKAPI.getAlexisResponse(message);
 
         setMessages((prev) => [
             ...prev,
