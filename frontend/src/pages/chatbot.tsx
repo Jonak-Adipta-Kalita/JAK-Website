@@ -1,5 +1,6 @@
 import { PaperAirplaneIcon } from "@heroicons/react/outline";
 import { api } from "@xxjonakadiptaxx/jak_javascript_package";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -7,12 +8,16 @@ import { useRecoilState } from "recoil";
 import { chatbotMessagesAtom } from "../atoms/chatbotMessagesAtom";
 import toastDefaultOptions from "../utils/toastDefaultOptions";
 
-const Chatbot = () => {
+interface Props {
+    RAPIDAPI_KEY: string;
+}
+
+const Chatbot = ({ RAPIDAPI_KEY }: Props) => {
     const [message, setMessage] = useState<string>("");
     const [messages, setMessages] = useRecoilState(chatbotMessagesAtom);
 
     const sendAlexisMessage = async () => {
-        const JAKAPI = new api(process.env.RAPIDAPI_KEY!);
+        const JAKAPI = new api(RAPIDAPI_KEY);
         const alexisReply = await JAKAPI.getAlexisResponse(message);
 
         setMessages((prev) => [
@@ -106,3 +111,11 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    return {
+        props: {
+            RAPIDAPI_KEY: process.env.RAPIDAPI_KEY,
+        },
+    };
+};
