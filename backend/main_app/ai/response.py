@@ -62,10 +62,12 @@ def get_response(intents_list, intents_json):
 
 def talk(message):
     ints = predict_class(message)
-    math_expressions = re.findall(r"(\d+\s*(\+|\-|\*|\\)\s*\d+)", message)
+    math_expressions = re.findall(r"((\d+)\s*(\+|\-|\*|\\)\s*(\d+))", message)
     if math_expressions:
+        operator = math_expressions[0][2]
+        nums = [math_expressions[0][1], math_expressions[0][3]]
         result = eval(str(math_expressions[0][0]))
-        return f"Here is your math's answer: {result}"
+        return f"{nums[0]} {operator} {nums[1]} = {result}"
 
     res = get_response(ints, intents)
 
