@@ -67,6 +67,8 @@ def talk(message):
     if math_expressions:
         operator = math_expressions[0][2]
         nums = [math_expressions[0][1], math_expressions[0][3]]
+        if operator == "/" and nums[1] == 0:
+            return "Cannot divide by Zero"
         result = eval(str(math_expressions[0][0]))
         return f"{nums[0]} {operator} {nums[1]} = {result}"
 
