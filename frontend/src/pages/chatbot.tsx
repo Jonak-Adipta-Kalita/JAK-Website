@@ -1,4 +1,5 @@
 import { PaperAirplaneIcon } from "@heroicons/react/outline";
+import axios from "axios";
 import Head from "next/head";
 import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -9,6 +10,23 @@ import toastDefaultOptions from "../utils/toastDefaultOptions";
 const Chatbot = () => {
     const [message, setMessage] = useState<string>("");
     const [messages, setMessages] = useRecoilState(chatbotMessagesAtom);
+
+    const sendAlexisMessage = async () => {
+        const alexisReply = (
+            await axios.post<string>(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/ai/chatbot`,
+                JSON.stringify({ message })
+            )
+        ).data;
+
+        setMessages((prev) => [
+            ...prev,
+            {
+                message: alexisReply,
+                type: "bot",
+            },
+        ]);
+    };
 
     const sendMessage = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -39,6 +57,8 @@ const Chatbot = () => {
         });
 
         setMessage("");
+
+        sendAlexisMessage();
     };
 
     return (
