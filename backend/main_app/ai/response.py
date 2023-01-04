@@ -63,6 +63,7 @@ def get_response(intents_list, intents_json):
 def talk(message):
     ints = predict_class(message)
     math_expressions = re.findall(r"((\d+)\s*(\+|\-|\*|\\)\s*(\d+))", message)
+
     if math_expressions:
         operator = math_expressions[0][2]
         nums = [math_expressions[0][1], math_expressions[0][3]]
