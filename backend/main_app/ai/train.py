@@ -73,3 +73,7 @@ def train():
 
     print()
     print("Done!!")
+
+
+if __name__ == "__main__":
+    train()

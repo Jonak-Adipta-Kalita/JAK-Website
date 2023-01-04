@@ -347,31 +347,6 @@
                 "Anytime, happy to assist and contribute!",
                 "Glad to have been able to contribute!"
             ]
-        },
-        {
-            "tag": "math",
-            "patterns": [
-                "what is 2+2?",
-                "what is the result of 2+2?",
-                "what is 4-2?",
-                "what is the result of 4-2?",
-                "what is 2*2?",
-                "what is the result of 2*2?",
-                "what is 4/2?",
-                "what is the result of 4/2?",
-                "what is 2^2?",
-                "what is the result of 2^2?",
-                "what is the square root of 4?",
-                "what is the result of the square root of 4?",
-                "what is the square of 2?",
-                "what is the result of the square of 2?"
-            ],
-            "responses": [
-                "I'm sorry, I don't know how to solve math problems.",
-                "I'm sorry, I don't have the ability to solve math problems.",
-                "I'm sorry, I don't have the knowledge or capability to solve math problems.",
-                "I'm sorry, math is not one of my strong points."
-            ]
         }
     ]
 }
