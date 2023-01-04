@@ -6,4 +6,4 @@ class Command(BaseCommand):
     help = "Trains Alexis"
 
     def handle(self, *args, **kwargs):
-        train()
+        train(5000)

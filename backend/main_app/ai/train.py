@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import SGD
 
 
-def train():
+def train(epochs: int):
     lemmatizer = WordNetLemmatizer()
     with open("main_app/ai/intents.json", "r") as file:
         intents = json.load(file)
@@ -67,7 +67,7 @@ def train():
     model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy"])
 
     hist = model.fit(
-        np.array(train_x), np.array(train_y), epochs=5000, batch_size=5, verbose=1
+        np.array(train_x), np.array(train_y), epochs=epochs, batch_size=5, verbose=1
     )
     model.save("main_app/ai/model/alexis.h5", hist)
 
@@ -76,4 +76,4 @@ def train():
 
 
 if __name__ == "__main__":
-    train()
+    train(int(input("Number of Epochs >> ")))
