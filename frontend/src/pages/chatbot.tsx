@@ -1,7 +1,7 @@
 import { PaperAirplaneIcon } from "@heroicons/react/outline";
 import axios from "axios";
 import Head from "next/head";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRecoilState } from "recoil";
 import { chatbotMessagesAtom } from "../atoms/chatbotMessagesAtom";
@@ -10,6 +10,7 @@ import toastDefaultOptions from "../utils/toastDefaultOptions";
 const Chatbot = () => {
     const [message, setMessage] = useState<string>("");
     const [messages, setMessages] = useRecoilState(chatbotMessagesAtom);
+    const chatRef = useRef<HTMLDivElement | null>(null);
 
     const sendAlexisMessage = async () => {
         const alexisReply = (
@@ -33,6 +34,8 @@ const Chatbot = () => {
                 type: "bot",
             },
         ]);
+
+        chatRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
     const sendMessage = (e: FormEvent<HTMLFormElement>) => {
@@ -92,6 +95,7 @@ const Chatbot = () => {
                                 </div>
                             </div>
                         ))}
+                        <div ref={chatRef} />
                     </div>
                     <form onSubmit={sendMessage} className="flex">
                         <input
