@@ -14,7 +14,7 @@ const Chatbot = () => {
     const sendAlexisMessage = async () => {
         const alexisReply = (
             await axios.post<{ response: string }>(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/ai/chatbot`,
+                `/api/ai/chatbot`,
                 JSON.stringify({
                     message,
                 }),
