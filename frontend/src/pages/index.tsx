@@ -131,6 +131,14 @@ const Home = () => {
                                 onClick: () => router.push("/skills"),
                             }}
                         />
+                        <Card
+                            title="Alexis (Chatbot)"
+                            description="Try out Alexis"
+                            button={{
+                                title: "Link",
+                                onClick: () => router.push("/chatbot"),
+                            }}
+                        />
                     </div>
                 </div>
             </div>
