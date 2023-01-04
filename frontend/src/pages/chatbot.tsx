@@ -1,5 +1,5 @@
 import { PaperAirplaneIcon } from "@heroicons/react/outline";
-import axios from "axios";
+import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 import Head from "next/head";
 import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -12,14 +12,8 @@ const Chatbot = () => {
     const [messages, setMessages] = useRecoilState(chatbotMessagesAtom);
 
     const sendAlexisMessage = async () => {
-        const alexisReply = (
-            await axios.post<string>(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/ai/chatbot`,
-                {
-                    message,
-                }
-            )
-        ).data;
+        const JAKAPI = new api(process.env.RAPIDAPI_KEY!);
+        const alexisReply = await JAKAPI.getAlexisResponse();
 
         setMessages((prev) => [
             ...prev,
