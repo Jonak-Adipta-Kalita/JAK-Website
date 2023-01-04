@@ -15,7 +15,9 @@ const Chatbot = () => {
         const alexisReply = (
             await axios.post<string>(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/ai/chatbot`,
-                JSON.stringify({ message })
+                {
+                    message,
+                }
             )
         ).data;
 
