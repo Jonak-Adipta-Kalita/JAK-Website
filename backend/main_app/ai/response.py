@@ -62,14 +62,12 @@ def get_response(intents_list, intents_json):
 
 def talk(message):
     message = message.replace("÷", r"/")
-    math_expressions = re.findall(r"((\d+)\s*(\+|\-|\*|\/)\s*(\d+))", message)
+    math_expressions = re.findall(r"(\d+\s*(?:(?:\+|\-|\*|\/)\s*\d+\s*)*)", message)
 
     if math_expressions:
-        operator = math_expressions[0][2]
-        nums = [math_expressions[0][1], math_expressions[0][3]]
         try:
-            result = eval(str(math_expressions[0][0]))
-            return f"{nums[0]} {operator} {nums[1]} = {result}"
+            result = eval(str(math_expressions[0]))
+            return f"Your maths' answer is {result}"
         except ZeroDivisionError:
             return "Cannot divide by Zero"
 
