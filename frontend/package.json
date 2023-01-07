@@ -29,7 +29,7 @@
         "react-loader-spinner": "^5.3.4",
         "react-skillbars": "^2.0.1",
         "react-typed": "^1.2.0",
-        "recoil": "^0.6.1",
+        "recoil": "^0.7.6",
         "tailwind-scrollbar-hide": "^1.1.7"
     },
     "devDependencies": {
