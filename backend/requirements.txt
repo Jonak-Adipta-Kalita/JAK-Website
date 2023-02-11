@@ -37,7 +37,7 @@ MarkupSafe==2.1.1
 marshmallow==3.14.0
 mypy-extensions==0.4.3
 nltk==3.8
-numpy==1.22.0
+numpy==1.24.2
 oauthlib==3.2.1
 opt-einsum==3.3.0
 panda3d==1.10.10
