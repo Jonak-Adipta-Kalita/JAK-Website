@@ -63,7 +63,7 @@ sqlparse==0.4.2
 tensorboard==2.11.0
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
-tensorflow==2.9.3
+tensorflow==2.11.1
 tensorflow-estimator==2.11.0
 termcolor==1.1.0
 tomli==1.2.2
