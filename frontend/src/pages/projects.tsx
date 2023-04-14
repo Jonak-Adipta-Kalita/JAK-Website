@@ -85,7 +85,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const response: GithubRepo[] = await data.data;
     const repositories = response.filter(
         (repository) =>
-            repository.private === false && repository.name !== ACCOUNT_NAME
+            repository.private === false && repository.name !== ACCOUNT_NAME && !repository.fork
     );
 
     return {
