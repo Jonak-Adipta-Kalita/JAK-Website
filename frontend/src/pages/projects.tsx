@@ -24,7 +24,7 @@ const Card = ({
                 <p className="mb-2 text-xl font-medium leading-tight text-gray-700 dark:text-gray-200">
                     {title}
                 </p>
-                <p className="mb-4 text-base text-gray-500 dark:text-gray-400">
+                <p className="mb-4 text-base text-gray-500 dark:text-gray-400 truncate">
                     {description}
                 </p>
                 <div className="space-y-2 md:space-x-2 md:space-y-0">
