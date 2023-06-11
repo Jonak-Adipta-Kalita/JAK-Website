@@ -25,8 +25,6 @@ With meticulous attention to detail, My Website offers visitors a comprehensive 
 
 </div>
 
-Go to the [Website](https://jonakadiptakalita.tk/)
-
 ## Community support
 
 For additional help, you can use one of these channels to ask a question:
