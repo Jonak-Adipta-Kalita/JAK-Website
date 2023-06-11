@@ -20,7 +20,6 @@ from .serializers import (
     ContactSerializer,
     UserSerializer,
 )
-from .ai import response as chatbot
 import credentials
 
 
@@ -215,22 +214,5 @@ class ChangePassword(restframework_views.APIView):
                 {
                     "error": f"Something went wrong when trying to change password: {str(e)}"
                 },
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            )
-
-
-class ChatBot(restframework_views.APIView):
-    permission_classes = [permissions.AllowAny]
-
-    def post(self, request):
-        try:
-            message = request.data["message"]
-
-            return response.Response(
-                {"response": chatbot.talk(message)}, status=status.HTTP_200_OK
-            )
-        except Exception as e:
-            return response.Response(
-                {"error": f"Something went wrong!!"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
