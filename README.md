@@ -1,7 +1,7 @@
 <br />
 <div align=center>
 
-[![Title](https://github.com/Jonak-Adipta-Kalita/JAK-Mobile-App/blob/main/assets/images/title.png?raw=true, "Check out the Website")](https://jonakadiptakalita.tk/)
+[![Title](https://raw.githubusercontent.com/Jonak-Adipta-Kalita/JAK-Website/main/assets/title.png)](https://jonakadiptakalita.tk)
 
 </div>
 
