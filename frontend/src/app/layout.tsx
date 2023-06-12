@@ -4,6 +4,10 @@ import "../styles/globals.css";
 export const metadata: Metadata = {
     title: "JAK Website",
     description: "Jonak Adipta Kalita's Website",
+    manifest: "/manifest.json",
+    appleWebApp: true,
+    authors: [{ name: "Jonak Adipta Kalita", url: "/" }],
+    themeColor: "#272934",
 };
 
 export default function RootLayout({
