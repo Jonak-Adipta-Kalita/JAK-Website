@@ -1,11 +1,8 @@
 module.exports = {
-    content: ["./src/pages/**/*.tsx", "./src/components/**/*.tsx"],
+    content: ["./src/**/*.tsx"],
     darkMode: "class",
     theme: {
         extend: {
-            fontFamily: {
-                "otomanopee-one": ["OtomanopeeOne", "sans-serif"],
-            },
             colors: {
                 "bg-color": {
                     light: "#ddd",
