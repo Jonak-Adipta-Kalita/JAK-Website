@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Header = ({ socials }: { socials: JAK["social_medias"] }) => {
     return (
-        <header className="sticky top-0 z-20 mx-auto flex max-w-7xl items-center justify-between p-5">
+        <header className="sticky top-0 z-20 mx-auto flex max-w-7xl items-center justify-between overflow-x-hidden p-5">
             <motion.div
                 className="flex items-center"
                 initial={{ x: -500, opacity: 0, scale: 0.5 }}
@@ -15,7 +15,6 @@ const Header = ({ socials }: { socials: JAK["social_medias"] }) => {
             >
                 {socials.map((social) => (
                     <SocialIcon
-                        className="h-[35px] w-[35px]"
                         url={social.link}
                         key={social.id}
                         fgColor="gray"
