@@ -251,7 +251,7 @@ Thumbs.db #thumbnail cache on Windows
 
 
 ### vscode ###
-.vscode/*
+# .vscode/*
 
 # dependencies
 frontend/node_modules
