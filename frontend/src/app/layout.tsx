@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-    title: "JAK Website",
+    title: "JAK Website | Home",
     description: "Jonak Adipta Kalita's Website",
     manifest: "/manifest.json",
     appleWebApp: true,
