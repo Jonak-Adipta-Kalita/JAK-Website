@@ -8,12 +8,12 @@ const Home = async () => {
     ).social_medias.filter((social) => social.value !== "Discord");
 
     return (
-        <main>
+        <div className="h-screen bg-[rgb(36,36,36)] text-white">
             <Header socials={socials} />
             <section id="hero">
                 <Hero />
             </section>
-        </main>
+        </div>
     );
 };
 
