@@ -1,4 +1,5 @@
-import Header from "@/components/Header";
+import Header from "@components/Header";
+import Hero from "@components/Hero";
 import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 
 const Home = async () => {
@@ -9,6 +10,9 @@ const Home = async () => {
     return (
         <main>
             <Header socials={socials} />
+            <section id="hero">
+                <Hero />
+            </section>
         </main>
     );
 };
