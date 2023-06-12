@@ -45,6 +45,8 @@ Kindly read our [Contributing Guide](CONTRIBUTING.md) to learn and understand ab
 
 -   Language: [Python](https://www.python.org/), [TypeScript](https://www.typescriptlang.org/)
 -   Language Framework: [Django](https://www.djangoproject.com/), [NextJS](https://nextjs.org/)
+-   Database: [PostgreSQL](https://www.postgresql.org/)
+-   Database Manager: [ElephantSQL](https://www.elephantsql.com/)
 -   Hosted: [Vercel](https://vercel.com/)
 
 ## Contributors
