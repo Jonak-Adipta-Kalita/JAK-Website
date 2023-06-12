@@ -2,15 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: "OtomanopeeOne";
-    font-weight: 600;
-    src: url(/fonts/OtomanopeeOne-Regular.ttf) format("truetype");
-    font-display: swap;
-}
-
 body {
-    @apply cursor-default bg-bg-color-light font-otomanopee-one dark:bg-bg-color-dark;
+    @apply cursor-default bg-bg-color-light dark:bg-bg-color-dark;
 }
 
 p,
