@@ -15,6 +15,7 @@ const Header = ({ socials }: { socials: JAK["social_medias"] }) => {
             >
                 {socials.map((social) => (
                     <SocialIcon
+                        className="h-[35px] w-[35px]"
                         url={social.link}
                         key={social.id}
                         fgColor="gray"

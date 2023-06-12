@@ -16,10 +16,17 @@ const Hero = () => {
 
     return (
         <div>
-            {/* <p>
+            <div>
+                <div />
+                <div />
+                <div />
+                <div />
+                <div />
+            </div>
+            <p>
                 <span>{text}</span>
                 <Cursor cursorColor="#F7ADBA" />
-            </p> */}
+            </p>
         </div>
     );
 };
