@@ -15,25 +15,3 @@ a,
 button {
     @apply cursor-pointer;
 }
-
-@layer components {
-    .contactInput {
-        @apply w-[400px] rounded-lg border-[5px] border-gray-600 bg-bg-color-light p-4 outline-none dark:border-gray-300 dark:bg-bg-color-dark sm:w-[500px];
-    }
-
-    .authInput {
-        @apply w-[310px] rounded-lg border-[5px] border-gray-600 bg-bg-color-light p-4 text-text-color-light outline-none dark:border-gray-300 dark:bg-bg-color-dark dark:text-text-color-dark;
-    }
-
-    .menuItem {
-        @apply block cursor-pointer px-4 py-2 text-sm text-text-color-light hover:text-gray-900 dark:text-text-color-dark dark:hover:text-white;
-    }
-
-    .dashboardText {
-        @apply text-xl font-semibold;
-    }
-
-    .adminButton {
-        @apply inline-block flex-1 rounded bg-blue-600 px-6 py-2.5 text-center text-base font-medium leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg;
-    }
-}
