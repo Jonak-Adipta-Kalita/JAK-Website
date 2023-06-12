@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     appleWebApp: true,
     authors: [{ name: "Jonak Adipta Kalita", url: "/" }],
     themeColor: "#272934",
+    icons: "/images/favicon.png",
 };
 
 export default function RootLayout({
