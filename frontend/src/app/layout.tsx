@@ -18,9 +18,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="h-screen bg-bg-color-dark text-text-color-dark">
-                {children}
-            </body>
+            <body>{children}</body>
         </html>
     );
 }
