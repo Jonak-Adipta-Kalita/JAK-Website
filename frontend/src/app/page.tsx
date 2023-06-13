@@ -1,7 +1,7 @@
 const Home = async () => {
     return (
         <div className="m-auto flex max-w-6xl flex-col items-center justify-between rounded-xl p-8 shadow-2xl md:flex-row">
-            <div className="space-y-4 self-start text-left">
+            <div className="space-y-3 self-start text-left">
                 <p className="text-2xl font-bold text-slate-200 sm:text-[35px] md:text-[37px]">
                     Jonak Adipta Kalita
                 </p>
