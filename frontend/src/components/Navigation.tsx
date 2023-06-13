@@ -6,6 +6,10 @@ const navigations = [
         label: "About",
     },
     {
+        id: "skills",
+        label: "Skills",
+    },
+    {
         id: "projects",
         label: "Projects",
     },
