@@ -1,11 +1,16 @@
 // import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 
+import Navigation from "@components/Navigation";
+
 const Home = async () => {
     // const socials = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
     //     .social_medias;
 
     return (
         <div className="m-auto max-w-6xl space-y-10 rounded-xl p-8 shadow-2xl">
+            <div className="flex items-center justify-center lg:hidden">
+                <Navigation />
+            </div>
             <div className="flex flex-col items-center justify-between gap-y-5 lg:flex-row">
                 <div className="space-y-3">
                     <p className="text-2xl font-bold text-slate-200 sm:text-[35px] md:text-[37px]">
@@ -17,6 +22,9 @@ const Home = async () => {
                     <p className="text-xs text-slate-300/50 sm:text-base">
                         I am a 15 y/o Teenager, who loves to make Cool Projects
                     </p>
+                </div>
+                <div className="hidden lg:inline">
+                    <Navigation />
                 </div>
             </div>
             {/* <div className="flex items-center justify-center space-x-5">
