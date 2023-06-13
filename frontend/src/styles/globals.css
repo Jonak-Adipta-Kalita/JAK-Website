@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply h-screen cursor-default bg-bg-color-dark text-text-color-dark;
-}
-
 p,
 input {
     @apply cursor-text;
