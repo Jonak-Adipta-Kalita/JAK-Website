@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import "@styles/globals.css";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 
 export const metadata: Metadata = {
     title: "JAK Website | Home",
@@ -19,7 +21,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="h-screen bg-bg-color-dark text-text-color-dark">
+                <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );
