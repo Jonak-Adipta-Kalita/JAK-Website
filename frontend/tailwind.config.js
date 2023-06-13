@@ -6,7 +6,7 @@ module.exports = {
             colors: {
                 "bg-color": {
                     light: "#ddd",
-                    dark: "#272934",
+                    dark: "#282C33",
                 },
                 "text-color": {
                     light: "#4B5963",
