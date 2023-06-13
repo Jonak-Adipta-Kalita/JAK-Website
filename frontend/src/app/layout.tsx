@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="h-screen cursor-default bg-bg-color-dark text-text-color-dark scrollbar-hide md:py-16">
+            <body className="h-screen cursor-default bg-bg-color-dark px-5 text-text-color-dark scrollbar-hide md:px-16 md:py-16">
                 {children}
             </body>
         </html>

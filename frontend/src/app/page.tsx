@@ -2,7 +2,7 @@ import Header from "@components/Header";
 
 const Home = async () => {
     return (
-        <div className="mx-auto max-w-7xl p-2 md:p-8 md:shadow-2xl lg:rounded-lg">
+        <div className="m-auto max-w-6xl rounded-xl p-8 shadow-2xl">
             <div>
                 <Header />
             </div>
