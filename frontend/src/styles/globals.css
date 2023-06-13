@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply cursor-default bg-bg-color-light dark:bg-bg-color-dark;
+    @apply h-screen cursor-default bg-bg-color-dark text-text-color-dark;
 }
 
 p,
