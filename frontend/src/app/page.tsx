@@ -7,7 +7,7 @@ const Home = async () => {
     //     .social_medias;
 
     return (
-        <div className="m-auto max-w-6xl space-y-10 rounded-xl p-8 shadow-2xl">
+        <div className="m-auto max-w-7xl space-y-10 rounded-xl p-8 shadow-2xl">
             <div className="flex items-center justify-center lg:hidden">
                 <Navigation />
             </div>

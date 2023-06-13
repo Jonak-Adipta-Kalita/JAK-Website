@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="h-screen cursor-default bg-bg-color-dark p-5 text-text-color-dark scrollbar-hide md:p-16">
+            <body className="h-screen cursor-default bg-bg-color-dark p-5 text-text-color-dark scrollbar-hide md:p-16 overflow-x-hidden overflow-y-scroll">
                 {children}
             </body>
         </html>
