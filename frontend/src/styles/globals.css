@@ -11,3 +11,9 @@ a,
 button {
     @apply cursor-pointer;
 }
+
+@layer components {
+    .custom-underline {
+        @apply underline decoration-orange-400 decoration-2 underline-offset-4;
+    }
+}

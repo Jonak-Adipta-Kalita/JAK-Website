@@ -14,13 +14,24 @@ const Home = async () => {
             <div className="flex flex-col items-center justify-between gap-y-5 lg:flex-row">
                 <div className="space-y-3">
                     <p className="text-2xl font-bold text-slate-200 sm:text-[35px] md:text-[37px]">
-                        Jonak Adipta Kalita
+                        Jon
+                        <span className="custom-underline decoration-[3px]">
+                            ak Adipta Ka
+                        </span>
+                        lita
                     </p>
                     <p className="text-xs font-semibold text-slate-200 sm:text-base md:text-lg">
                         A Full Stack Web Developer
                     </p>
                     <p className="text-xs text-slate-300/50 sm:text-base">
-                        I am a 15 y/o Teenager, who loves to make Cool Projects
+                        I am a{" "}
+                        <span className="custom-underline decoration-[0.2px] underline-offset-[4px]">
+                            15 y/o Teenager
+                        </span>
+                        , who loves to make{" "}
+                        <span className="custom-underline decoration-[0.2px] underline-offset-[4px]">
+                            Cool Projects
+                        </span>
                     </p>
                 </div>
                 <div className="hidden lg:inline">
