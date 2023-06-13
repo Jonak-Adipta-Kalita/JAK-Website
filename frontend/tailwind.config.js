@@ -18,5 +18,5 @@ module.exports = {
             text: "url(/images/cursors/text.cur), text",
         },
     },
-    plugins: [],
+    plugins: [require("tailwind-scrollbar-hide")],
 };
