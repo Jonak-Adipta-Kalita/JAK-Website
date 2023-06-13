@@ -5,11 +5,9 @@ module.exports = {
         extend: {
             colors: {
                 "bg-color": {
-                    light: "#ddd",
-                    dark: "#282C33",
+                    dark: "#0d1017",
                 },
                 "text-color": {
-                    light: "#4B5963",
                     dark: "#D1D5DB",
                 },
             },
