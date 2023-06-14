@@ -11,29 +11,24 @@ const About = () => {
             transition={{ duration: 1.5 }}
         >
             <p>
-                I am a 10th standard student at Kendriya Vidyalaya Mangaldoi,
-                with a deep passion for programming and gaming. Python and
-                TypeScript (JavaScript) are my favorite programming languages,
-                and I enjoy exploring their possibilities.
+                I am a student at Kendriya Vidyalaya Mangaldoi, currently
+                pursuing my 10th standard. Besides my studies, I have a passion
+                for programming and gaming. Python and TypeScript (JavaScript)
+                are my favorite programming languages.
             </p>
             <p>
-                Gaming is another interest of mine, and I find great joy in
-                playing Need For Speed, Assassin&apos;s Creed, and more. These
-                games provide an exciting escape and also help me develop
-                problem-solving and strategic thinking skills. Additionally, I
-                am an avid anime fan, with favorites like Pokemon, Beyblade, and
-                Dragon Ball Z. The captivating storylines, unique art styles,
-                and memorable characters of anime series fascinate me.
+                Gaming is another interest of mine, and I enjoy playing Need For
+                Speed, Assassin&apos;s Creed, and more. I am also a big fan of
+                anime, with favorites including Pokemon, Beyblade, and Dragon
+                Ball Z.
             </p>
             <p>
                 Balancing my academic studies with my programming, gaming, and
                 anime interests is important to me. These activities fuel my
                 creativity, broaden my horizons, and provide a much-needed break
-                from routine. I am constantly seeking new avenues within these
-                realms to expand my knowledge, skills, and experiences. Whether
-                it&apos;s coding, gaming, or immersing myself in the world of
-                anime, I find joy and inspiration in every aspect of my diverse
-                interests.
+                from routine. I constantly seek new avenues within these realms
+                to expand my knowledge, skills, and experiences, finding joy and
+                inspiration in every aspect of my diverse interests.
             </p>
         </motion.div>
     );
