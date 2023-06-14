@@ -1,6 +1,5 @@
 // import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 
-import About from "@components/About";
 import Navigation from "@components/Navigation";
 import MainHeader from "@components/MainHeader";
 import Skills from "@components/Skills";
@@ -15,7 +14,6 @@ const Home = async () => {
                 <Navigation animateLink />
             </div>
             <MainHeader />
-            <About />
             <section id="skills">
                 <Skills />
             </section>
