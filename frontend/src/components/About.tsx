@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const About = () => {
     return (
         <motion.div
-            className="space-y-5 text-justify text-slate-400"
+            className="space-y-5 text-justify text-xs text-slate-400 md:text-sm lg:text-base"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.5 }}

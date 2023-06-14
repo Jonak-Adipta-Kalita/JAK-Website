@@ -27,14 +27,7 @@ const MainHeader = () => {
                     A Full Stack Web Developer
                 </p>
                 <p className="text-xs text-slate-300/50 sm:text-base">
-                    I am a{" "}
-                    <span className="custom-underline decoration-[0.2px] underline-offset-[4px]">
-                        15 y/o Teenager
-                    </span>
-                    , who loves to make{" "}
-                    <span className="custom-underline decoration-[0.2px] underline-offset-[4px]">
-                        Cool Projects
-                    </span>
+                    I am a 15 y/o Teenager, who loves to make Cool Projects
                 </p>
             </motion.div>
             <motion.div
