@@ -20,7 +20,7 @@ const navigations = [
 
 const Header = () => {
     return (
-        <div className="m-auto flex max-w-7xl items-center justify-between gap-y-5 rounded-xl p-8 lg:py-4 lg:shadow-2xl">
+        <header className="m-auto flex max-w-7xl items-center justify-between gap-y-5 rounded-xl p-8 lg:py-4 lg:shadow-2xl">
             {/* <motion.div
                 className="space-y-3 text-center lg:text-start"
                 initial={{
@@ -83,7 +83,7 @@ const Header = () => {
                     </Link>
                 ))}
             </motion.div>
-        </div>
+        </header>
     );
 };
 
