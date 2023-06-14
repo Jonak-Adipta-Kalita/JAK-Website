@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const About = () => {
     return (
         <motion.div
-            className="space-y-5 text-justify text-xs text-slate-400 md:text-sm lg:text-base"
+            className="space-y-5 text-justify text-xs text-gray-300/75 md:text-sm lg:text-base"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
@@ -13,8 +13,8 @@ const About = () => {
             <p>
                 I am a student at Kendriya Vidyalaya Mangaldoi, currently
                 pursuing my 10th standard. Besides my studies, I have a passion
-                for programming and gaming. Python and TypeScript (JavaScript)
-                are my favorite programming languages.
+                for programming. Python and TypeScript (JavaScript) are my
+                favorite programming languages.
             </p>
             <p>
                 Gaming is another interest of mine, and I enjoy playing Need For
