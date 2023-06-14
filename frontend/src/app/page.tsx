@@ -17,6 +17,9 @@ const Home = async () => {
             <section id="about">
                 <About />
             </section>
+            <section id="skills"></section>
+            <section id="projects"></section>
+            <section id="contact"></section>
             {/* <div className="flex items-center justify-center space-x-5">
                 {socials.map((social) => (
                     <a

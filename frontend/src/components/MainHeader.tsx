@@ -14,7 +14,7 @@ const MainHeader = () => {
                     scale: 0.5,
                 }}
                 animate={{ x: 0, opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 1 }}
             >
                 <p className="text-2xl font-bold text-slate-200 sm:text-[35px] md:text-[37px]">
                     Jon
