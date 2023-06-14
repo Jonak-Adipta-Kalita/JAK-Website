@@ -16,17 +16,17 @@ const MainHeader = () => {
                 animate={{ x: 0, opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
             >
-                <p className="text-2xl font-bold text-slate-200 sm:text-[35px] md:text-[37px]">
+                <p className="text-[35px] font-bold text-slate-200 md:text-[37px]">
                     Jon
                     <span className="custom-underline decoration-[3px]">
                         ak Adipta Ka
                     </span>
                     lita
                 </p>
-                <p className="text-xs font-semibold text-slate-200 sm:text-base md:text-lg">
+                <p className="text-base font-semibold text-slate-200 md:text-lg">
                     A Full Stack Web Developer
                 </p>
-                <p className="text-xs text-slate-300/50 sm:text-base">
+                <p className="truncate text-sm text-slate-300/50 md:mx-0">
                     I am a 15 y/o Teenager, who loves to make Cool Projects
                 </p>
             </motion.div>
