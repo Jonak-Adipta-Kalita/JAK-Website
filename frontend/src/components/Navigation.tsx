@@ -26,7 +26,7 @@ const Navigation = () => {
                 <Link
                     key={navigation.id}
                     href={"#" + navigation.id}
-                    className="group px-2 py-1 text-sm font-semibold text-slate-200 hover:text-slate-300/50 sm:text-base lg:text-xl"
+                    className="group px-2 py-1 font-semibold text-slate-200 hover:text-slate-300/50 sm:text-lg lg:text-xl"
                 >
                     {"#"}
                     <span className="group-hover:custom-underline">
