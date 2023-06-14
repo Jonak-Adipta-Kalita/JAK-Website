@@ -1,5 +1,6 @@
-import { Metadata } from "next";
 import "@styles/globals.css";
+import { Metadata } from "next";
+import Header from "@components/Header";
 
 export const metadata: Metadata = {
     title: "JAK Website | Home",
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="h-screen cursor-default overflow-x-hidden overflow-y-scroll bg-bg-color-dark text-text-color-dark scrollbar-hide selection:bg-orange-500 selection:text-white md:px-16 md:py-5">
+            <body className="h-screen cursor-default overflow-x-hidden overflow-y-scroll bg-bg-color-dark text-text-color-dark scrollbar-hide selection:bg-orange-500 selection:text-white">
+                <div className="lg:px-16 lg:py-5">
+                    <Header />
+                </div>
                 {children}
             </body>
         </html>

@@ -1,24 +1,11 @@
 // import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 
-import Navigation from "@components/Navigation";
-import MainHeader from "@components/MainHeader";
-import Skills from "@components/Skills";
-
 const Home = async () => {
     // const socials = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
     //     .social_medias;
 
     return (
-        <div className="m-auto max-w-7xl space-y-10 rounded-xl p-8 lg:py-4 lg:shadow-2xl">
-            <div className="flex items-center justify-center lg:hidden">
-                <Navigation animateLink />
-            </div>
-            <MainHeader />
-            <section id="skills">
-                <Skills />
-            </section>
-            <section id="projects"></section>
-            <section id="contact"></section>
+        <div>
             {/* <div className="flex items-center justify-center space-x-5">
                 {socials.map((social) => (
                     <a
