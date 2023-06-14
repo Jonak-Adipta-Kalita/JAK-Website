@@ -9,14 +9,12 @@ const Home = async () => {
     //     .social_medias;
 
     return (
-        <div className="m-auto max-w-7xl space-y-10 rounded-xl p-8 lg:shadow-2xl">
+        <div className="m-auto max-w-7xl space-y-10 rounded-xl p-8 lg:py-4 lg:shadow-2xl">
             <div className="flex items-center justify-center lg:hidden">
                 <Navigation animateLink />
             </div>
             <MainHeader />
-            <section id="about">
-                <About />
-            </section>
+            <About />
             <section id="skills"></section>
             <section id="projects"></section>
             <section id="contact"></section>

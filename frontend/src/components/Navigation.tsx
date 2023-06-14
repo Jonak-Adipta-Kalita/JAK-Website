@@ -5,10 +5,6 @@ import { motion } from "framer-motion";
 
 const navigations = [
     {
-        id: "about",
-        label: "About",
-    },
-    {
         id: "skills",
         label: "Skills",
     },
