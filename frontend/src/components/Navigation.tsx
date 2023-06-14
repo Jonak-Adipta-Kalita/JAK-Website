@@ -40,7 +40,7 @@ const Navigation = ({ animateLink }: { animateLink?: boolean }) => {
                 >
                     <Link
                         href={"#" + navigation.id}
-                        className="px-2 py-1 font-semibold text-slate-200 hover:text-slate-300/50 sm:text-lg lg:text-xl"
+                        className="select-none px-2 py-1 font-semibold text-slate-200 hover:text-slate-300/50 sm:text-lg lg:text-xl"
                     >
                         {"#"}
                         <span className="group-hover:custom-underline">
