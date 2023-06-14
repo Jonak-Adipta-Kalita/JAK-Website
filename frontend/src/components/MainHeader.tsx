@@ -7,7 +7,7 @@ const MainHeader = () => {
     return (
         <div className="flex flex-col items-center justify-between gap-y-5 lg:flex-row">
             <motion.div
-                className="space-y-3"
+                className="space-y-3 text-center lg:text-start"
                 initial={{
                     x: -500,
                     opacity: 0,
