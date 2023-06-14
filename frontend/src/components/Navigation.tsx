@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const navigations = [
     {
@@ -19,20 +22,32 @@ const navigations = [
     },
 ];
 
-const Navigation = () => {
+const Navigation = ({ animateLink }: { animateLink?: boolean }) => {
     return (
         <div className="flex items-center">
-            {navigations?.map((navigation) => (
-                <Link
+            {navigations?.map((navigation, i) => (
+                <motion.div
                     key={navigation.id}
-                    href={"#" + navigation.id}
-                    className="group px-2 py-1 font-semibold text-slate-200 hover:text-slate-300/50 sm:text-lg lg:text-xl"
+                    initial={
+                        animateLink && {
+                            y: -100,
+                            opacity: 0,
+                        }
+                    }
+                    animate={animateLink && { y: 0, opacity: 1 }}
+                    transition={{ duration: i + 0.5 }}
+                    className="group"
                 >
-                    {"#"}
-                    <span className="group-hover:custom-underline">
-                        {navigation.label}
-                    </span>
-                </Link>
+                    <Link
+                        href={"#" + navigation.id}
+                        className="px-2 py-1 font-semibold text-slate-200 hover:text-slate-300/50 sm:text-lg lg:text-xl"
+                    >
+                        {"#"}
+                        <span className="group-hover:custom-underline">
+                            {navigation.label}
+                        </span>
+                    </Link>
+                </motion.div>
             ))}
         </div>
     );
