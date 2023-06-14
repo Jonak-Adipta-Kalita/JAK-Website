@@ -3,6 +3,7 @@
 import About from "@components/About";
 import Navigation from "@components/Navigation";
 import MainHeader from "@components/MainHeader";
+import Skills from "@components/Skills";
 
 const Home = async () => {
     // const socials = (await new api(process.env.RAPIDAPI_KEY!).getJAK())
@@ -15,7 +16,9 @@ const Home = async () => {
             </div>
             <MainHeader />
             <About />
-            <section id="skills"></section>
+            <section id="skills">
+                <Skills />
+            </section>
             <section id="projects"></section>
             <section id="contact"></section>
             {/* <div className="flex items-center justify-center space-x-5">
