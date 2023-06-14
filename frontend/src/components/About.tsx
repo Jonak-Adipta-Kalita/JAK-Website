@@ -11,24 +11,16 @@ const About = () => {
             transition={{ duration: 1.5 }}
         >
             <p>
-                I am a student at Kendriya Vidyalaya Mangaldoi, currently
-                pursuing my 10th standard. Besides my studies, I have a passion
-                for programming. Python and TypeScript (JavaScript) are my
-                favorite programming languages.
-            </p>
-            <p>
-                Gaming is another interest of mine, and I enjoy playing Need For
-                Speed, Assassin&apos;s Creed, and more. I am also a big fan of
-                anime, with favorites including Pokemon, Beyblade, and Dragon
-                Ball Z.
-            </p>
-            <p>
-                Balancing my academic studies with my programming, gaming, and
-                anime interests is important to me. These activities fuel my
-                creativity, broaden my horizons, and provide a much-needed break
-                from routine. I constantly seek new avenues within these realms
-                to expand my knowledge, skills, and experiences, finding joy and
-                inspiration in every aspect of my diverse interests.
+                I&apos;m a 10th-grade student at Kendriya Vidyalaya Mangaldoi. I&apos;m
+                passionate about programming, particularly Python and TypeScript
+                (JavaScript). Gaming is another interest of mine, and I enjoy
+                playing Need For Speed and Assassin&apos;s Creed. Anime is also a big
+                part of my life, with Pokemon, Beyblade, and Dragon Ball Z being
+                my favorites. Balancing my academic studies with my hobbies is
+                crucial to me as they fuel my creativity and provide a
+                much-needed break from routine. I&apos;m constantly exploring new
+                avenues within these interests to expand my knowledge and skills
+                while finding joy and inspiration in each aspect.
             </p>
         </motion.div>
     );
