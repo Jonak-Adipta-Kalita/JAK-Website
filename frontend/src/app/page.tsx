@@ -1,5 +1,6 @@
 // import { api } from "@xxjonakadiptaxx/jak_javascript_package";
 
+import About from "@components/About";
 import Navigation from "@components/Navigation";
 
 const Home = async () => {
@@ -38,6 +39,9 @@ const Home = async () => {
                     <Navigation />
                 </div>
             </div>
+            <section id="about">
+                <About />
+            </section>
             {/* <div className="flex items-center justify-center space-x-5">
                 {socials.map((social) => (
                     <a
