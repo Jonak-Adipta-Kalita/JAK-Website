@@ -13,6 +13,8 @@ With meticulous attention to detail, My Website offers visitors a comprehensive 
 
 </div>
 
+<br />
+
 <div align=center>
 
 ![Website](https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Fjonakadiptakalita.vercel.app)
