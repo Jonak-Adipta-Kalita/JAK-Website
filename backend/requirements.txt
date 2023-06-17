@@ -70,7 +70,7 @@ tomli==1.2.2
 tqdm==4.64.1
 typed-ast==1.4.3
 typing-extensions==3.7.4.3
-tzdata==2021.5
+tzdata==2023.3
 urllib3==1.26.7
 Werkzeug==2.2.2
 whitenoise==5.3.0
