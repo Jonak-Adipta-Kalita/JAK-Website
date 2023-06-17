@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Backend: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/manage.py",
+            "args": ["runserver"],
+            "django": true
+        },
+        {
+            "name": "Frontend: Next.js",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run dev",
+            "serverReadyAction": {
+                "pattern": "started server on .+, url: (https?://.+)",
+                "uriFormat": "%s",
+                "action": "debugWithChrome"
+            },
+            "cwd": "${workspaceFolder}/frontend"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Backend + Frontend",
+            "configurations": ["Backend: Django", "Frontend: Next.js"]
+        }
+    ]
+}
