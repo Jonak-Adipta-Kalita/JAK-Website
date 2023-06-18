@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Notification, Contact, User
+from .models import Notification, Contact
 
 
 class NotificationSerializer(serializers.ModelSerializer):
@@ -13,15 +13,3 @@ class ContactSerializer(serializers.ModelSerializer):
         model = Contact
         fields = "__all__"
 
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = (
-            "first_name",
-            "last_name",
-            "username",
-            "email",
-            "is_email_verified",
-            "is_staff",
-        )
