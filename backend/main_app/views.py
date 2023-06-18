@@ -1,7 +1,5 @@
 from django.http import HttpRequest, HttpResponse
-from rest_framework import (
-    generics
-)
+from rest_framework import generics
 from .models import Notification, Contact
 from .serializers import (
     NotificationSerializer,
