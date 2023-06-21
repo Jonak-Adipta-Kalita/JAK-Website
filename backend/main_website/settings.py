@@ -1,4 +1,4 @@
-import pathlib, os, credentials, datetime
+import pathlib, os, credentials
 
 BASE_DIR = pathlib.Path(__file__).resolve(strict=True).parent.parent
 
@@ -95,21 +95,6 @@ DATABASES = {
         "HOST": credentials.POSTGRESS_HOST,
         "PORT": credentials.POSTGRESS_PORT,
     }
-}
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ]
-}
-
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": datetime.timedelta(minutes=30),
-    "REFRESH_TOKEN_LIFETIME": datetime.timedelta(days=1),
-    "ROTATE_REFRESH_TOKENS": False,
-    "AUTH_HEADER_TYPES": ["Bearer"],
-    "AUTH_TOKEN_CLASSES": ["rest_framework_simplejwt.tokens.AccessToken"],
-    "SIGNING_KEY": credentials.JWT_SECRET,
 }
 
 AUTH_PASSWORD_VALIDATORS = [

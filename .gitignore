@@ -251,7 +251,7 @@ Thumbs.db #thumbnail cache on Windows
 
 
 ### vscode ###
-.vscode/*
+# .vscode/*
 
 # dependencies
 frontend/node_modules
@@ -292,4 +292,3 @@ frontend/*.tsbuildinfo
 # pwa
 frontend/public/sw.*
 frontend/public/workbox-*
-
