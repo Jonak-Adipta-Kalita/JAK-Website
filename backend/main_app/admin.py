@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
 from django.contrib.auth.forms import UserChangeForm as DefaultUserChangeForm
-from .models import User, Contact, Notification
+from .models import User, Contact, Notification, Project
 
 
 class ContactModelAdmin(admin.ModelAdmin):
@@ -15,6 +15,11 @@ class NotificationModelAdmin(admin.ModelAdmin):
     search_fields = ["name", "text"]
     list_per_page = 10
 
+
+class ProjectModelAdmin(admin.ModelAdmin):
+    list_display = ["name", "description", "image", "link", "source_code"]
+    search_fields = ["name", "description", "image", "link", "source_code"]
+    list_per_page = 10
 
 class UserChangeForm(DefaultUserChangeForm):
     class Meta(DefaultUserChangeForm.Meta):
@@ -36,3 +41,4 @@ class UserAdmin(DefaultUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(Contact, ContactModelAdmin)
 admin.site.register(Notification, NotificationModelAdmin)
+admin.site.register(Project, ProjectModelAdmin)

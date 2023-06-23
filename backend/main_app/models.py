@@ -26,3 +26,14 @@ class Notification(models.Model):
 
     def __str__(self):
         return self.name
+
+class Project(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50, default="")
+    description = models.TextField(default="")
+    image = models.ImageField(upload_to='images/projects/', default="")
+    link = models.CharField(max_length=100, default="")
+    source_code = models.CharField(max_length=100, default="", blank=True)
+
+    def __str__(self):
+        return self.name
