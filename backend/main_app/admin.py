@@ -21,6 +21,7 @@ class ProjectModelAdmin(admin.ModelAdmin):
     search_fields = ["name", "description", "image", "link", "source_code"]
     list_per_page = 10
 
+
 class UserChangeForm(DefaultUserChangeForm):
     class Meta(DefaultUserChangeForm.Meta):
         model = User
