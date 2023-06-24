@@ -15,4 +15,5 @@ urlpatterns = [
         views.ContactAPIView.as_view(),
         name="contact",
     ),
+    path("api/projects", views.ProjectListAPIView.as_view(), name="projects"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

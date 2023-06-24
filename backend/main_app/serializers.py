@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Notification, Contact
+from .models import Notification, Contact, Project
 
 
 class NotificationSerializer(serializers.ModelSerializer):
@@ -11,4 +11,10 @@ class NotificationSerializer(serializers.ModelSerializer):
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
+        fields = "__all__"
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
         fields = "__all__"
