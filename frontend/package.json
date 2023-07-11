@@ -18,7 +18,7 @@
         "@heroicons/react": "^2.0.18",
         "@xxjonakadiptaxx/jak_javascript_package": "^3.3.3",
         "axios": "^1.4.0",
-        "framer-motion": "^10.12.16",
+        "framer-motion": "^10.12.18",
         "next": "13.4.5",
         "next-themes": "^0.2.1",
         "react": "18.2.0",
