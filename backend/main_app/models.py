@@ -19,15 +19,6 @@ class Contact(models.Model):
         return self.name
 
 
-class Notification(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50, default="")
-    text = models.TextField(default="")
-
-    def __str__(self):
-        return self.name
-
-
 class Project(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, default="")
