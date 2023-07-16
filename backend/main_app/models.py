@@ -2,6 +2,7 @@ from email.policy import default
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.contrib.auth.models import AbstractUser
+from django.contrib.postgres.fields import ArrayField
 
 
 class User(AbstractUser):
@@ -26,6 +27,10 @@ class Project(models.Model):
     image = models.ImageField(upload_to="images/projects/", default="")
     link = models.CharField(max_length=100, default="")
     source_code = models.CharField(max_length=100, default="", blank=True)
+    tech_stack = ArrayField(
+        models.CharField(max_length=100, default=""),
+        default=list
+    )
 
     def __str__(self):
         return self.name

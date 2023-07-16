@@ -11,8 +11,10 @@ class ContactModelAdmin(admin.ModelAdmin):
 
 
 class ProjectModelAdmin(admin.ModelAdmin):
-    list_display = ["name", "description", "image", "link", "source_code"]
-    search_fields = ["name", "description", "image", "link", "source_code"]
+    list_display = ["name", "description", "image",
+                    "link", "source_code", "tech_stack"]
+    search_fields = ["name", "description", "image",
+                     "link", "source_code", "tech_stack"]
     list_per_page = 10
 
 
