@@ -3,14 +3,7 @@ module.exports = {
     darkMode: "class",
     theme: {
         extend: {
-            colors: {
-                "bg-color": {
-                    dark: "#171c28",
-                },
-                "text-color": {
-                    dark: "#D1D5DB",
-                },
-            },
+            
         },
         cursor: {
             default: "url(/images/cursors/default.cur), default",

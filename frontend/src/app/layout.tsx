@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "@styles/globals.css";
 import { Metadata } from "next";
 
@@ -18,7 +19,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="h-screen cursor-default overflow-x-hidden overflow-y-scroll bg-bg-color-dark text-text-color-dark scrollbar-hide">
+            <body className="h-screen cursor-default">
+                <Navbar />
                 {children}
             </body>
         </html>
