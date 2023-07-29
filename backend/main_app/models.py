@@ -1,11 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth.models import AbstractUser
 from django.contrib.postgres.fields import ArrayField
-
-
-class User(AbstractUser):
-    is_email_verified = models.BooleanField(default=False)
 
 
 class Contact(models.Model):

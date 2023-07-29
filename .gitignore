@@ -292,3 +292,5 @@ frontend/*.tsbuildinfo
 # pwa
 frontend/public/sw.*
 frontend/public/workbox-*
+
+db_stuff/*

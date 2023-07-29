@@ -1,4 +1,6 @@
-import pathlib, os, credentials
+import pathlib
+import os
+import credentials
 
 BASE_DIR = pathlib.Path(__file__).resolve(strict=True).parent.parent
 
@@ -35,15 +37,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 ROOT_URLCONF = "main_website.urls"
 
 WSGI_APPLICATION = "main_website.wsgi.application"
-
-AUTH_USER_MODEL = "main_app.User"
-
-EMAIL_HOST = credentials.EMAIL_HOST
-EMAIL_HOST_USER = credentials.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = credentials.EMAIL_HOST_PASSWORD
-EMAIL_USE_TLS = credentials.EMAIL_USE_TLS
-EMAIL_PORT = credentials.EMAIL_PORT
-DEFAULT_FROM_EMAIL = credentials.EMAIL_HOST_USER
 
 INSTALLED_APPS = [
     "django.contrib.admin",
