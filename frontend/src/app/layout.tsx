@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     manifest: "/manifest.json",
     appleWebApp: true,
     authors: [{ name: "Jonak Adipta Kalita", url: "/" }],
-    themeColor: "#272934",
+    // themeColor: "#272934",
     icons: "/images/favicon.png",
 };
 
