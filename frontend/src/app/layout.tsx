@@ -21,7 +21,7 @@ export default function RootLayout({
         <html lang="en">
             <body className="flex h-screen cursor-default">
                 <Navbar />
-                <div className="bg-[#060913]">{children}</div>
+                <div className="flex-[0.776] bg-[#060913]">{children}</div>
             </body>
         </html>
     );
