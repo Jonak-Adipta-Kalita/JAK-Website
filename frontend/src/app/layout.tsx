@@ -18,10 +18,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className="dark">
             <body className="flex h-screen cursor-default">
                 <Navbar />
-                <div className="flex-[0.776] bg-[#E9EBED] dark:bg-[#060913]">{children}</div>
+                <div className="flex-[0.776] bg-[#E9EBED] dark:bg-[#060913]">
+                    {children}
+                </div>
             </body>
         </html>
     );
