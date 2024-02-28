@@ -1,7 +1,5 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
-from django.contrib.auth.forms import UserChangeForm as DefaultUserChangeForm
-from .models import User, Contact, Notification
+from .models import Contact, Project
 
 
 class ContactModelAdmin(admin.ModelAdmin):
@@ -10,29 +8,13 @@ class ContactModelAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
-class NotificationModelAdmin(admin.ModelAdmin):
-    list_display = ["name", "text"]
-    search_fields = ["name", "text"]
+class ProjectModelAdmin(admin.ModelAdmin):
+    list_display = ["name", "description", "image",
+                    "link", "source_code", "tech_stack"]
+    search_fields = ["name", "description", "image",
+                     "link", "source_code", "tech_stack"]
     list_per_page = 10
 
 
-class UserChangeForm(DefaultUserChangeForm):
-    class Meta(DefaultUserChangeForm.Meta):
-        model = User
-
-
-class UserAdmin(DefaultUserAdmin):
-    form = UserChangeForm
-
-    fieldsets = DefaultUserAdmin.fieldsets + (
-        (None, {"fields": ("is_email_verified",)}),
-    )
-
-    list_display = DefaultUserAdmin.list_display + ("is_email_verified",)
-    search_fields = DefaultUserAdmin.search_fields + ("is_email_verified",)
-    list_per_page = 10
-
-
-admin.site.register(User, UserAdmin)
 admin.site.register(Contact, ContactModelAdmin)
-admin.site.register(Notification, NotificationModelAdmin)
+admin.site.register(Project, ProjectModelAdmin)

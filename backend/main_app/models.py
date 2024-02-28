@@ -1,11 +1,6 @@
-from email.policy import default
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth.models import AbstractUser
-
-
-class User(AbstractUser):
-    is_email_verified = models.BooleanField(default=False)
+from django.contrib.postgres.fields import ArrayField
 
 
 class Contact(models.Model):
@@ -19,10 +14,17 @@ class Contact(models.Model):
         return self.name
 
 
-class Notification(models.Model):
+class Project(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, default="")
-    text = models.TextField(default="")
+    description = models.TextField(default="")
+    image = models.ImageField(upload_to="images/projects/", default="")
+    link = models.CharField(max_length=100, default="")
+    source_code = models.CharField(max_length=100, default="", blank=True)
+    tech_stack = ArrayField(
+        models.CharField(max_length=100, default=""),
+        default=list
+    )
 
     def __str__(self):
         return self.name

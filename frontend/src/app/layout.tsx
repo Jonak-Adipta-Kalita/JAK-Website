@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "@styles/globals.css";
 import { Metadata } from "next";
 
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
     manifest: "/manifest.json",
     appleWebApp: true,
     authors: [{ name: "Jonak Adipta Kalita", url: "/" }],
-    themeColor: "#272934",
+    // themeColor: "#272934",
     icons: "/images/favicon.png",
 };
 
@@ -17,9 +18,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-            <body className="h-screen cursor-default overflow-x-hidden overflow-y-scroll bg-bg-color-dark text-text-color-dark scrollbar-hide">
-                {children}
+        <html lang="en" className="dark">
+            <body className="flex h-screen cursor-default">
+                <Navbar />
+                <div className="flex-1 lg:flex-[0.776] bg-[#E9EBED] dark:bg-[#060913]">
+                    {children}
+                </div>
             </body>
         </html>
     );

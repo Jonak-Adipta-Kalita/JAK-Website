@@ -1,10 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from rest_framework import generics
-from .models import Notification, Contact
-from .serializers import (
-    NotificationSerializer,
-    ContactSerializer,
-)
+from .models import Contact, Project
+from .serializers import ContactSerializer, ProjectSerializer
 import credentials
 
 
@@ -14,15 +11,15 @@ def index(request: HttpRequest):
     )
 
 
-class NotificationListAPIView(generics.ListAPIView):
-    serializer_class = NotificationSerializer
-
-    def get_queryset(self):
-        return Notification.objects.all()
-
-
 class ContactAPIView(generics.CreateAPIView):
     serializer_class = ContactSerializer
 
     def get_queryset(self):
         return Contact.objects.all()
+
+
+class ProjectListAPIView(generics.ListAPIView):
+    serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+        return Project.objects.all()

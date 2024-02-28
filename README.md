@@ -28,6 +28,8 @@ With meticulous attention to detail, My Website offers visitors a comprehensive 
 
 </div>
 
+-   [UI Design - Figma](https://www.figma.com/file/dWBap5xX9LiD8rB7uukptm/JAK-Website?type=design&node-id=100%3A2&mode=design&t=pjD43mpfHIj1ky4U-1)
+
 ## Community support
 
 For additional help, you can use one of these channels to ask a question:
