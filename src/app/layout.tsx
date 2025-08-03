@@ -12,6 +12,7 @@ const salsa = Salsa({
 const ubuntuSans = Ubuntu_Sans({
     variable: "--font-ubuntu-sans",
     subsets: ["latin"],
+    weight: "variable",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ export default function RootLayout({
                 className={`${salsa.variable} ${ubuntuSans.variable} antialiased`}
             >
                 <Header />
-                <div className="mx-auto mt-10">{children}</div>
+                <div className="mx-auto mt-16">{children}</div>
             </body>
         </html>
     );
