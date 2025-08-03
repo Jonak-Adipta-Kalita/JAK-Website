@@ -28,7 +28,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${salsa.variable} ${ubuntuSans.variable} antialiased`}
+                className={`${salsa.variable} ${ubuntuSans.variable} antialiased min-h-screen scrollbar-hide`}
             >
                 <Header />
                 <div className="mx-auto mt-16">{children}</div>

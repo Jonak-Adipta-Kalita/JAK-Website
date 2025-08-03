@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "tailwind-scrollbar-hide/v4";
 
 @theme inline {
     --color-fg-extralight: #c9d6ef;
@@ -8,14 +9,22 @@
     --color-fg-base: #aabde5;
     --color-fg-dark: #a0b5e2;
     --color-fg-extradark: #96adde;
+
     --color-bg-base: #1b222f;
     --color-bg-highlight: #131821;
+
     --font-salsa: var(--font-salsa);
     --font-ubuntu: var(--font-ubuntu-sans);
+
+    --cursor-default: url(/cursors/default.cur), default;
+    --cursor-pointer: url(/cursors/pointer.cur), pointer;
+    --cursor-text: url(/cursors/text.cur), text;
 }
+
+/* Custom Cursors, h-screen issue & Responsiveness */
 
 @layer base {
     body {
-        @apply bg-bg-base text-fg-main;
+        @apply bg-bg-base text-fg-main cursor-default;
     }
 }
