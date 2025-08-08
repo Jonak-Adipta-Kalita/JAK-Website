@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "tailwind-scrollbar";
+
 @theme inline {
     --color-fg-extralight: #c9d6ef;
     --color-fg-main: #c5d7ff;
@@ -24,7 +26,8 @@
 
 @layer base {
     body {
-        @apply bg-bg-base text-fg-main cursor-default h-screen scrollbar-hidden overflow-x-hidden overflow-y-scroll;
+        /* TODO: Add Custom Scrollbar */
+        @apply bg-bg-base text-fg-main cursor-default overflow-x-hidden;
     }
 }
 

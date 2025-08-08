@@ -31,7 +31,9 @@ export default function RootLayout({
                 className={`${salsa.variable} ${ubuntuSans.variable} antialiased`}
             >
                 <Header />
-                <main className="mx-auto max-w-7xl 2xl:mt-14">{children}</main>
+                <main className="mx-auto max-w-7xl 2xl:mt-14 mt-7">
+                    {children}
+                </main>
             </body>
         </html>
     );

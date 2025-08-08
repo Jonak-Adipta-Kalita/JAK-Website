@@ -27,6 +27,7 @@
         "eslint": "^9",
         "eslint-config-next": "15.4.5",
         "eslint-config-prettier": "^10.1.8",
+        "tailwind-scrollbar": "^4.0.2",
         "tailwindcss": "^4",
         "tw-animate-css": "^1.3.6",
         "typescript": "^5"

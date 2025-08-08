@@ -13,7 +13,7 @@ const Header = () => {
                     <motion.div
                         key={name}
                         onClick={() => setActiveHeader(name)}
-                        className="cursor-pointer p-7 py-3 z-50 rounded-full"
+                        className="cursor-pointer 2xl:p-7 2xl:py-3 md:p-5 md:py-2 p-4 py-2 z-50 rounded-full"
                         animate={{
                             backgroundColor:
                                 activeHeader === name
@@ -27,7 +27,7 @@ const Header = () => {
                             },
                         }}
                     >
-                        <p className="2xl:text-xl font-ubuntu font-bold tracking-wide text-center">
+                        <p className="2xl:text-xl xl:text-lg sm:text-base text-sm font-ubuntu font-bold tracking-wide text-center cursor-pointer">
                             {name}
                         </p>
                     </motion.div>
