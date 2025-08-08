@@ -28,10 +28,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${salsa.variable} ${ubuntuSans.variable} antialiased min-h-screen scrollbar-hide`}
+                className={`${salsa.variable} ${ubuntuSans.variable} antialiased`}
             >
                 <Header />
-                <div className="mx-auto mt-16">{children}</div>
+                <main className="mx-auto max-w-7xl 2xl:mt-14">{children}</main>
             </body>
         </html>
     );
