@@ -7,13 +7,13 @@ const Header = () => {
     const [activeHeader, setActiveHeader] = useState("About");
 
     return (
-        <header className="mt-7 bg-bg-base flex items-center justify-center space-x-1 text-fg-main">
+        <header className="max-w-fit p-4 rounded-full mt-4 lg:mt-7 bg-bg-base flex items-center justify-center space-x-1 text-fg-main">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name) => (
                     <motion.div
                         key={name}
                         onClick={() => setActiveHeader(name)}
-                        className="cursor-pointer 2xl:p-7 2xl:py-3 md:p-5 md:py-2 p-4 py-2 z-50 rounded-full"
+                        className="cursor-pointer 2xl:p-7 2xl:py-3 md:p-5 md:py-2 p-3 py-2 z-50 rounded-full"
                         animate={{
                             backgroundColor:
                                 activeHeader === name
@@ -27,7 +27,7 @@ const Header = () => {
                             },
                         }}
                     >
-                        <p className="2xl:text-xl xl:text-lg sm:text-base text-sm font-ubuntu font-bold tracking-wide text-center cursor-pointer">
+                        <p className="2xl:text-xl xl:text-lg sm:text-base text-xs font-ubuntu font-bold tracking-wide text-center cursor-pointer">
                             {name}
                         </p>
                     </motion.div>

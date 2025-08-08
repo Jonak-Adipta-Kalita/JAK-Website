@@ -28,10 +28,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${salsa.variable} ${ubuntuSans.variable} antialiased`}
+                className={`${salsa.variable} ${ubuntuSans.variable} antialiased flex flex-col items-center`}
             >
                 <Header />
-                <main className="mx-auto max-w-7xl 2xl:mt-14 mt-7">
+                <main className="mx-auto max-w-7xl 2xl:mt-14 mt-2 md:mt-8">
                     {children}
                 </main>
             </body>
