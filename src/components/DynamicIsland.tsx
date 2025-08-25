@@ -7,7 +7,7 @@ const Header = () => {
     const [activeHeader, setActiveHeader] = useState("About");
 
     return (
-        <header className="max-w-fit p-4 rounded-full mt-4 lg:mt-7 bg-bg-base flex items-center justify-center space-x-1 text-fg-main">
+        <header className="max-w-fit rounded-full mt-4 lg:mt-7 bg-bg-base flex items-center justify-center space-x-1 text-fg-main">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name) => (
                     <motion.div
