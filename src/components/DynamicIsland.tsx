@@ -29,7 +29,7 @@ const Header = () => {
                             },
                         }}
                     >
-                        <p className="text-[clamp(0.75rem,1vw+0.5rem,1.25rem)] font-ubuntu font-bold tracking-wide text-center cursor-pointer">
+                        <p className="text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-ubuntu lg:font-semibold font-bold tracking-wide text-center cursor-pointer">
                             {name}
                         </p>
                     </motion.div>

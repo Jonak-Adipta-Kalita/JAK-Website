@@ -31,7 +31,7 @@ export default function RootLayout({
                 className={`${salsa.variable} ${ubuntuSans.variable} antialiased flex flex-col items-center`}
             >
                 <Header />
-                <main className="hidden mx-auto max-w-7xl mt-[clamp(0.5rem,2vw+0.5rem,3.5rem)]">
+                <main className="mx-auto max-w-7xl mt-[clamp(0.875rem,2vw+0.875rem,3.875rem)]">
                     {children}
                 </main>
             </body>
