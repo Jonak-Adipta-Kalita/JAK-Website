@@ -3,10 +3,10 @@ export default function Home() {
         <div>
             <div>
                 <div className="font-salsa text-center">
-                    <p className="2xl:text-[4.4rem] md:text-[3rem] text-[1.5rem] leading-[1] text-fg-extradark 2xl:tracking-[-5.3px] tracking-[-1px]">
+                    <p className="md:text-[clamp(3rem,2.92vw+1.6rem,4.4rem)] text-[1.5rem] leading-[1] text-fg-extradark tracking-[clamp(-5.3px,-0.28vw-1px,-1px)]">
                         Gamer && Programmer && Musician
                     </p>
-                    <p className="hidden 2xl:text-3xl md:text-xl text-sm text-fg-light tracking-wide 2xl:mt-8 mt-1 text-center">
+                    <p className="text-[clamp(1.25rem,1.302vw+0.625rem,1.875rem)] text-sm text-fg-light tracking-wide xl:mt-8 mt-1 text-center">
                         A High-School (wannabe) Polymath who likes to Code
                     </p>
                 </div>
