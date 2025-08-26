@@ -19,12 +19,12 @@ const Header = () => {
                         animate={{
                             backgroundColor:
                                 activeHeader === name
-                                    ? "#272F3F"
+                                    ? "rgba(39,47,63,0.7)"
                                     : "rgba(0,0,0,0)",
                         }}
                         transition={{
                             backgroundColor: {
-                                duration: 0.2,
+                                duration: 0.15,
                                 ease: "easeInOut",
                             },
                         }}
