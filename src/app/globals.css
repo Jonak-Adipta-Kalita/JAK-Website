@@ -14,6 +14,8 @@
     --color-bg-base: #1b222f;
     --color-bg-highlight: #131821;
 
+    --color-selection: #2a3242;
+
     --font-salsa: var(--font-salsa);
     --font-ubuntu: var(--font-ubuntu-sans);
 
@@ -28,6 +30,14 @@
     body {
         /* TODO: Add Custom Scrollbar */
         @apply bg-bg-base text-fg-main cursor-default overflow-x-hidden;
+    }
+
+    ::selection {
+        @apply bg-selection text-fg-main;
+    }
+
+    p {
+        cursor: text;
     }
 }
 
