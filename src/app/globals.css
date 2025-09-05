@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "tailwind-scrollbar";
+
+@theme inline {
+    --color-fg-extralight: #c9d6ef;
+    --color-fg-main: #c5d7ff;
+    --color-fg-light: #b5c5e9;
+    --color-fg-base: #aabde5;
+    --color-fg-dark: #a0b5e2;
+    --color-fg-extradark: #96adde;
+
+    --color-bg-base: #1b222f;
+    --color-bg-highlight: #131821;
+
+    --color-selection: #2a3242;
+
+    --font-salsa: var(--font-salsa);
+    --font-ubuntu: var(--font-ubuntu-sans);
+
+    --cursor-default: url(/cursors/default.cur), default;
+    --cursor-pointer: url(/cursors/pointer.cur), pointer;
+    --cursor-text: url(/cursors/text.cur), text;
+}
+
+/* Custom Cursors, h-screen issue & Responsiveness */
+
+@layer base {
+    body {
+        /* TODO: Add Custom Scrollbar */
+        @apply bg-bg-base text-fg-main cursor-default overflow-x-hidden;
+    }
+
+    ::selection {
+        @apply bg-selection text-fg-main;
+    }
+
+    p {
+        cursor: text;
+    }
+}
+
+@utility scrollbar-hidden {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
