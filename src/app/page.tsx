@@ -1,7 +1,7 @@
 export default function Home() {
     return (
         <div>
-            <div>
+            <div className="space-y-5">
                 <div className="font-salsa text-center">
                     <p className="text-[clamp(1.459rem,0.606vw+1.459rem,1.75rem)] sm:text-[2.3rem] md:text-[clamp(3rem,2.92vw+1.6rem,4.4rem)] leading-[1] mx-5 text-fg-extradark tracking-[clamp(-5.3px,-0.28vw-1px,-1px)]">
                         Gamer && Programmer && Musician
@@ -10,6 +10,7 @@ export default function Home() {
                         A High-School (wannabe) Polymath who likes to Code
                     </p>
                 </div>
+                <div></div>
             </div>
             <div></div>
         </div>
