@@ -1,12 +1,10 @@
 const HomePage = () => {
     return (
-        <main>
-            <div className="flex h-screen flex-col items-center justify-center space-y-5">
-                <h1 className="text-4xl font-extrabold">Under Maintenance</h1>
-                <p className="text-xl font-semibold">
-                    This website is currently under maintenance. Please check
-                    back later.
-                </p>
+        <main className="grid grid-cols-10">
+            <div className="col-span-4 bg-[#121212]"></div>
+            <div className="col-span-2 bg-white"></div>
+            <div className="col-span-4 bg-black">
+                <p>hello</p>
             </div>
         </main>
     );
