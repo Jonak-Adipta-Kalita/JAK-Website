@@ -40,6 +40,22 @@
     }
 }
 
+@layer components {
+    .gradient-text {
+        background: linear-gradient(
+            to right,
+            #93c5fd,
+            #c4b5fd,
+            #5eead4,
+            #93c5fd
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
 @utility scrollbar-hidden {
     &::-webkit-scrollbar {
         display: none;

@@ -2,15 +2,15 @@ import { Button } from "@/components/ui/button";
 import { SparklesIcon } from "lucide-react";
 
 const quotes = [
-    "Fueled by code, books, and guitar riffs—life's better with friends who get it",
+    "Fueled by code, books, and guitar riffs — life's better with friends who get it",
     "Coding by day, jamming by night, always up for a new adventure with the crew",
     "In between the lines of code and the pages of books, you'll find the best stories",
     "Strumming strings, turning pages, and hacking together the next big thing",
     "Why choose between books, beats, and bytes when you can have them all?",
-    "Geek out, rock out, and hang out—because life's better when you mix it up",
-    "Code, chords, and camaraderie—my kind of trifecta",
+    "Geek out, rock out, and hang out — because life's better when you mix it up",
+    "Code, chords, and camaraderie — my kind of trifecta",
     "Lost in code, found in stories, and always ready to jam with the squad",
-    "Books, beats, and binaries—balancing the nerd life with style",
+    "Books, beats, and binaries — balancing the nerd life with style",
     "Writing code, making music, and sharing the best moments with the best people",
     "From algorithms to anthems, life's a mix of tech and tunes with friends in the loop",
 ];
@@ -31,7 +31,7 @@ const HomePage = () => {
                     </p>
                     <p className="text-fg-extralight mx-5 mt-2 text-center text-[clamp(1rem,0.6vw+0.7rem,1.1rem)] leading-snug tracking-tight sm:text-[clamp(1.2rem,0.8vw+0.3rem,1.3rem)] sm:tracking-normal md:text-[clamp(1.2rem,0.8vw+1rem,1.6rem)] xl:mt-5">
                         A High-School (wannabe){" "}
-                        <span className="text-fg-extradark">Polymath</span> who
+                        <span className="gradient-text">Polymath</span> who
                         likes to Code
                     </p>
                 </div>
@@ -44,11 +44,11 @@ const HomePage = () => {
                     >
                         <span className="mr-2">
                             Explore my{" "}
-                            <span className="text-blue-300">
+                            <span className="gradient-text">
                                 Interests
                             </span>{" "}
                         </span>{" "}
-                        <SparklesIcon className="animate-pulse" />
+                        <SparklesIcon className="text-fg-dark animate-pulse" />
                     </Button>
                     <>
                         <Button className="absolute top-0 left-0">Hello</Button>
@@ -64,8 +64,10 @@ const HomePage = () => {
                     </>
                 </div>
 
-                <p className="text-fg-dark mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
-                    "{quote}"
+                <p className="mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
+                    <span className="text-fg-dark">"</span>
+                    <span className="gradient-text">{quote}</span>
+                    <span className="text-fg-extradark">"</span>
                 </p>
             </main>
         </div>
