@@ -23,7 +23,7 @@ const HomePage = () => {
                         <Button
                             variant={"lobby"}
                             size={"lobby"}
-                            className="bg-bg-lobby/90 font-salsa text-fg-extralight shadow-bg-lobby/90 cursor-default rounded-full p-10 text-2xl font-semibold shadow-xl ring ring-gray-500 ring-offset-[0.5]"
+                            className="font-salsa text-fg-extralight shadow-bg-lobby/90 cursor-default rounded-full bg-zinc-700/50 p-10 text-2xl font-semibold shadow-xl ring ring-zinc-900 ring-offset-[0.5]"
                         >
                             <span className="mr-2">
                                 Explore my{" "}
@@ -33,7 +33,7 @@ const HomePage = () => {
                             </span>{" "}
                             <SparklesIcon className="animate-pulse" />
                         </Button>
-                        <p className="absolute top-[0] left-[-40] -rotate-45 text-xs font-bold text-blue-400">
+                        <p className="absolute top-[-5] left-[-42] -rotate-45 text-xs font-bold text-blue-400">
                             Polymathy Rocks!
                         </p>
                     </div>
