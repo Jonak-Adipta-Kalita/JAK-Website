@@ -1,3 +1,4 @@
+import FloatingDiv from "@/components/FloatingDiv";
 import { Button } from "@/components/ui/button";
 import { SparklesIcon } from "lucide-react";
 
@@ -50,18 +51,20 @@ const HomePage = () => {
                         </span>{" "}
                         <SparklesIcon className="text-fg-dark animate-pulse" />
                     </Button>
-                    <>
-                        <Button className="absolute top-0 left-0">Hello</Button>
-                        <Button className="absolute top-0 right-0">
+                    <div className="mt-10 flex space-x-10">
+                        <FloatingDiv className="absolute top-0 left-0">
                             Hello
-                        </Button>
-                        <Button className="absolute bottom-0 left-0">
+                        </FloatingDiv>
+                        <FloatingDiv className="absolute top-0 right-0">
                             Hello
-                        </Button>
-                        <Button className="absolute right-0 bottom-0">
+                        </FloatingDiv>
+                        <FloatingDiv className="absolute bottom-0 left-0">
                             Hello
-                        </Button>
-                    </>
+                        </FloatingDiv>
+                        <FloatingDiv className="absolute right-0 bottom-0">
+                            Hello
+                        </FloatingDiv>
+                    </div>
                 </div>
 
                 <p className="mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
