@@ -53,21 +53,25 @@ const HomePage = () => {
                             <SparklesIcon className="text-fg-dark animate-pulse" />
                         </Button>
                         <p className="text-fg-extralight/30 font-salsa absolute bottom-[-20] w-full text-center text-sm md:hidden">
-                            Desktop would&quot;ve been better...
+                            Desktop wouldve been better...
                         </p>
                     </div>
                     <>
                         <FloatingDiv className="absolute top-10 left-10">
-                            Hello World
+                            <span>Hello World - WIP</span>
+                            <span>Dragable</span>
                         </FloatingDiv>
                         <FloatingDiv className="absolute top-10 right-10">
-                            Hello World
+                            <span>Hello World - WIP</span>
+                            <span>Dragable</span>
                         </FloatingDiv>
                         <FloatingDiv className="absolute bottom-10 left-10">
-                            Hello World
+                            <span>Hello World - WIP</span>
+                            <span>Dragable</span>
                         </FloatingDiv>
                         <FloatingDiv className="absolute right-10 bottom-10">
-                            Hello World
+                            <span>Hello World - WIP</span>
+                            <span>Dragable</span>
                         </FloatingDiv>
                     </>
                 </div>

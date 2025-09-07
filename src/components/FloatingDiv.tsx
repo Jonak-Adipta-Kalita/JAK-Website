@@ -25,7 +25,11 @@ const FloatingDiv = ({
             dragMomentum={true}
             style={{ x: dragX, y: dragY }}
             onDragEnd={handleDragEnd}
-            className={cn("cursor-pointer select-none", className)}
+            className={cn(
+                "cursor-pointer select-none",
+                className,
+                "flex flex-col items-center justify-center rounded-2xl bg-indigo-500 p-5 text-xs font-extrabold"
+            )}
         >
             {children}
         </motion.div>
