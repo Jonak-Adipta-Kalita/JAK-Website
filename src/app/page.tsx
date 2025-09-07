@@ -29,7 +29,8 @@ const HomePage = () => {
                         Gamer && Programmer && Musician
                     </p>
                     <p className="text-fg-extralight mx-5 mt-2 text-center text-[clamp(1rem,0.6vw+0.7rem,1.1rem)] leading-snug tracking-tight sm:text-[clamp(1.2rem,0.8vw+0.3rem,1.3rem)] sm:tracking-normal md:text-[clamp(1.2rem,0.8vw+1rem,1.6rem)] xl:mt-5">
-                        A High-School (wannabe){" "}
+                        A High-School{" "}
+                        <span className="opacity-60">(wannabe)</span>{" "}
                         <span className="text-gradient">Polymath</span> who
                         likes to Code
                     </p>
