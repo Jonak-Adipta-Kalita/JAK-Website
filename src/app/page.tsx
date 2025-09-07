@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { GuitarIcon, SparklesIcon } from "lucide-react";
 
 const HomePage = () => {
     return (
@@ -17,14 +18,37 @@ const HomePage = () => {
                     </p>
                 </div>
 
-                <div className="relative mx-auto flex w-full max-w-6xl grow flex-col items-center justify-center">
-                    <Button
-                        variant={"lobby"}
-                        size={"lobby"}
-                        className="p-10 text-2xl"
-                    >
-                        Explore my Interests
-                    </Button>
+                <div className="relative mx-auto mb-5 flex w-full max-w-6xl grow flex-col items-center justify-center">
+                    <div className="relative">
+                        <Button
+                            variant={"lobby"}
+                            size={"lobby"}
+                            className="bg-bg-lobby/90 font-salsa text-fg-extralight shadow-bg-lobby/90 cursor-default rounded-full p-10 text-2xl font-semibold shadow-xl ring ring-gray-500 ring-offset-[0.5]"
+                        >
+                            <span className="mr-2">
+                                Explore my{" "}
+                                <span className="text-blue-300">
+                                    Interests
+                                </span>{" "}
+                            </span>{" "}
+                            <SparklesIcon className="animate-pulse" />
+                        </Button>
+                        <p className="absolute top-[0] left-[-40] -rotate-45 text-xs font-bold text-blue-400">
+                            Polymathy Rocks!
+                        </p>
+                    </div>
+                    <>
+                        <Button className="absolute top-0 left-0">Hello</Button>
+                        <Button className="absolute top-0 right-0">
+                            Hello
+                        </Button>
+                        <Button className="absolute bottom-0 left-0">
+                            Hello
+                        </Button>
+                        <Button className="absolute right-0 bottom-0">
+                            Hello
+                        </Button>
+                    </>
                 </div>
             </main>
         </div>

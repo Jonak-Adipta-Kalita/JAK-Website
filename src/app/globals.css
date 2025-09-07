@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @plugin "tailwind-scrollbar";
 
 @theme inline {
@@ -28,10 +26,6 @@
 }
 
 @layer base {
-    * {
-        @apply border-border outline-ring/50;
-    }
-
     body {
         /* TODO: Add Custom Scrollbar */
         @apply bg-bg-base text-fg-main cursor-default overflow-x-hidden;
