@@ -1,0 +1,63 @@
+"use client";
+
+import React, { useRef } from "react";
+import { Button } from "./ui/button";
+import { SparklesIcon } from "lucide-react";
+import FloatingDiv from "./FloatingDiv";
+
+const LobbyPortals = () => {
+    const anchorRef = useRef<HTMLButtonElement>(null);
+    return (
+        <div className="relative mx-auto mb-5 flex w-full max-w-4xl grow flex-col items-center justify-center">
+            <div className="relative">
+                <Button
+                    variant={"lobby"}
+                    ref={anchorRef}
+                    size={"lobby"}
+                    className="font-salsa text-fg-extralight relative z-50 cursor-default rounded-full bg-zinc-700/50 p-8 text-xl font-semibold shadow-2xl ring shadow-zinc-900 ring-zinc-900 ring-offset-[0.5] sm:p-10 sm:text-2xl"
+                >
+                    <span className="mr-2">
+                        Explore my{" "}
+                        <span className="text-gradient">Interests</span>{" "}
+                    </span>{" "}
+                    <SparklesIcon className="text-fg-dark animate-pulse" />
+                </Button>
+                <p className="text-fg-extralight/30 font-salsa absolute bottom-[-20] w-full text-center text-sm md:hidden">
+                    Desktop wouldve been better...
+                </p>
+            </div>
+            <>
+                <FloatingDiv
+                    className="absolute top-10 left-10"
+                    anchorRef={anchorRef!}
+                >
+                    <span>Hello World - WIP</span>
+                    <span>Dragable</span>
+                </FloatingDiv>
+                <FloatingDiv
+                    className="absolute top-10 right-10"
+                    anchorRef={anchorRef!}
+                >
+                    <span>Hello World - WIP</span>
+                    <span>Dragable</span>
+                </FloatingDiv>
+                <FloatingDiv
+                    className="absolute bottom-10 left-10"
+                    anchorRef={anchorRef!}
+                >
+                    <span>Hello World - WIP</span>
+                    <span>Dragable</span>
+                </FloatingDiv>
+                <FloatingDiv
+                    className="absolute right-10 bottom-10"
+                    anchorRef={anchorRef!}
+                >
+                    <span>Hello World - WIP</span>
+                    <span>Dragable</span>
+                </FloatingDiv>
+            </>
+        </div>
+    );
+};
+
+export default LobbyPortals;

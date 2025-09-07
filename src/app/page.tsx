@@ -1,6 +1,4 @@
-import FloatingDiv from "@/components/FloatingDiv";
-import { Button } from "@/components/ui/button";
-import { SparklesIcon } from "lucide-react";
+import LobbyPortals from "@/components/LobbyPortals";
 
 const quotes = [
     "Fueled by code, books, and guitar riffs — life's better with friends who get it",
@@ -37,44 +35,7 @@ const HomePage = () => {
                     </p>
                 </div>
 
-                <div className="relative mx-auto mb-5 flex w-full max-w-4xl grow flex-col items-center justify-center">
-                    <div className="relative">
-                        <Button
-                            variant={"lobby"}
-                            size={"lobby"}
-                            className="font-salsa text-fg-extralight cursor-default rounded-full bg-zinc-700/50 p-8 text-xl font-semibold shadow-2xl ring shadow-zinc-900 ring-zinc-900 ring-offset-[0.5] sm:p-10 sm:text-2xl"
-                        >
-                            <span className="mr-2">
-                                Explore my{" "}
-                                <span className="text-gradient">
-                                    Interests
-                                </span>{" "}
-                            </span>{" "}
-                            <SparklesIcon className="text-fg-dark animate-pulse" />
-                        </Button>
-                        <p className="text-fg-extralight/30 font-salsa absolute bottom-[-20] w-full text-center text-sm md:hidden">
-                            Desktop wouldve been better...
-                        </p>
-                    </div>
-                    <>
-                        <FloatingDiv className="absolute top-10 left-10">
-                            <span>Hello World - WIP</span>
-                            <span>Dragable</span>
-                        </FloatingDiv>
-                        <FloatingDiv className="absolute top-10 right-10">
-                            <span>Hello World - WIP</span>
-                            <span>Dragable</span>
-                        </FloatingDiv>
-                        <FloatingDiv className="absolute bottom-10 left-10">
-                            <span>Hello World - WIP</span>
-                            <span>Dragable</span>
-                        </FloatingDiv>
-                        <FloatingDiv className="absolute right-10 bottom-10">
-                            <span>Hello World - WIP</span>
-                            <span>Dragable</span>
-                        </FloatingDiv>
-                    </>
-                </div>
+                <LobbyPortals />
 
                 <p className="mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
                     <span className="text-fg-dark">&quot;</span>
