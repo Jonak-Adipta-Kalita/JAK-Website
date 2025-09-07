@@ -7,6 +7,7 @@ import FloatingDiv from "../components/FloatingDiv";
 
 const LobbyPortals = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
+
     return (
         <div className="relative mx-auto mb-5 flex w-full max-w-4xl grow flex-col items-center justify-center">
             <div className="relative">
@@ -32,29 +33,37 @@ const LobbyPortals = () => {
                     className="absolute top-10 left-10"
                     anchorRef={anchorRef!}
                 >
-                    <span>Hello World - WIP</span>
-                    <span>Dragable</span>
+                    <div className="flex flex-col items-center justify-center rounded-2xl bg-indigo-500 p-5 text-xs font-extrabold">
+                        <span>Hello World - WIP</span>
+                        <span>Dragable</span>
+                    </div>
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute top-10 right-10"
                     anchorRef={anchorRef!}
                 >
-                    <span>Hello World - WIP</span>
-                    <span>Dragable</span>
+                    <div className="flex flex-col items-center justify-center rounded-2xl bg-indigo-500 p-5 text-xs font-extrabold">
+                        <span>Hello World - WIP</span>
+                        <span>Dragable</span>
+                    </div>
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute bottom-10 left-10"
                     anchorRef={anchorRef!}
                 >
-                    <span>Hello World - WIP</span>
-                    <span>Dragable</span>
+                    <div className="flex flex-col items-center justify-center rounded-2xl bg-indigo-500 p-5 text-xs font-extrabold">
+                        <span>Hello World - WIP</span>
+                        <span>Dragable</span>
+                    </div>
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute right-10 bottom-10"
                     anchorRef={anchorRef!}
                 >
-                    <span>Hello World - WIP</span>
-                    <span>Dragable</span>
+                    <div className="flex flex-col items-center justify-center rounded-2xl bg-indigo-500 p-5 text-xs font-extrabold">
+                        <span>Hello World - WIP</span>
+                        <span>Dragable</span>
+                    </div>
                 </FloatingDiv>
             </>
         </div>

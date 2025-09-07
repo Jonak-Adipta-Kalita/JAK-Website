@@ -77,8 +77,7 @@ const FloatingDiv = ({
                 onDragEnd={handleDragEnd}
                 className={cn(
                     "relative z-10 cursor-pointer select-none",
-                    className,
-                    "flex flex-col items-center justify-center rounded-2xl bg-indigo-500 p-5 text-xs font-extrabold"
+                    className
                 )}
             >
                 {children}
