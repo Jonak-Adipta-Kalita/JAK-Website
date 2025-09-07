@@ -1,7 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { GuitarIcon, SparklesIcon } from "lucide-react";
+import { SparklesIcon } from "lucide-react";
+
+const quotes = [
+    "Fueled by code, books, and guitar riffs—life's better with friends who get it",
+    "Coding by day, jamming by night, always up for a new adventure with the crew",
+    "In between the lines of code and the pages of books, you'll find the best stories",
+    "Strumming strings, turning pages, and hacking together the next big thing",
+    "Why choose between books, beats, and bytes when you can have them all?",
+    "Geek out, rock out, and hang out—because life's better when you mix it up",
+    "Code, chords, and camaraderie—my kind of trifecta",
+    "Lost in code, found in stories, and always ready to jam with the squad",
+    "Books, beats, and binaries—balancing the nerd life with style",
+    "Writing code, making music, and sharing the best moments with the best people",
+    "From algorithms to anthems, life's a mix of tech and tunes with friends in the loop",
+];
 
 const HomePage = () => {
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
     return (
         // TODO: Setup Tailwind Dark & Light Mode for the 2 types of Portals :D
 
@@ -20,7 +36,7 @@ const HomePage = () => {
                     </p>
                 </div>
 
-                <div className="relative mx-auto mb-5 flex w-full max-w-3xl grow flex-col items-center justify-center md:max-w-6xl">
+                <div className="relative mx-auto mb-5 flex w-full max-w-4xl grow flex-col items-center justify-center">
                     <Button
                         variant={"lobby"}
                         size={"lobby"}
@@ -47,6 +63,10 @@ const HomePage = () => {
                         </Button>
                     </>
                 </div>
+
+                <p className="text-fg-dark mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
+                    "{quote}"
+                </p>
             </main>
         </div>
     );
