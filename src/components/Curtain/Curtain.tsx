@@ -1,7 +1,8 @@
-export const LeftCurtain = () => {
-    return <div className="bg-white h-screen max-h-screen">Curtain</div>;
+import { AnimatePresence } from "motion/react";
+
+const Curtain = () => {
+    // TODO: Use Zustand for Managing Curtain State; Custom React Hook for Opening or Closing?
+    return <AnimatePresence></AnimatePresence>;
 };
 
-export const RightCurtain = () => {
-    return <div className="bg-white h-screen max-h-screen">Curtain</div>;
-};
+export default Curtain;
