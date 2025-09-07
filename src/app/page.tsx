@@ -31,7 +31,7 @@ const HomePage = () => {
                     </p>
                     <p className="text-fg-extralight mx-5 mt-2 text-center text-[clamp(1rem,0.6vw+0.7rem,1.1rem)] leading-snug tracking-tight sm:text-[clamp(1.2rem,0.8vw+0.3rem,1.3rem)] sm:tracking-normal md:text-[clamp(1.2rem,0.8vw+1rem,1.6rem)] xl:mt-5">
                         A High-School (wannabe){" "}
-                        <span className="gradient-text">Polymath</span> who
+                        <span className="text-gradient">Polymath</span> who
                         likes to Code
                     </p>
                 </div>
@@ -44,7 +44,7 @@ const HomePage = () => {
                     >
                         <span className="mr-2">
                             Explore my{" "}
-                            <span className="gradient-text">
+                            <span className="text-gradient">
                                 Interests
                             </span>{" "}
                         </span>{" "}
@@ -66,7 +66,7 @@ const HomePage = () => {
 
                 <p className="mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
                     <span className="text-fg-dark">"</span>
-                    <span className="gradient-text">{quote}</span>
+                    <span className="text-gradient">{quote}</span>
                     <span className="text-fg-extradark">"</span>
                 </p>
             </main>

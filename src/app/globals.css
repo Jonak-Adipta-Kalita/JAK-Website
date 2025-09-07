@@ -41,7 +41,7 @@
 }
 
 @layer components {
-    .gradient-text {
+    .text-gradient {
         background: linear-gradient(
             to right,
             #93c5fd,

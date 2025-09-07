@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LeftCurtain, RightCurtain } from "./Curtains";
+import LeftCurtain from "./LeftCurtain";
+import RightCurtain from "./RightCurtain";
 
 const CurtainProvider = ({
     children,
