@@ -1,4 +1,4 @@
-import LobbyPortals from "@/components/LobbyPortals";
+import LobbyPortals from "@/app/LobbyPortals";
 
 const quotes = [
     "Fueled by code, books, and guitar riffs — life's better with friends who get it",

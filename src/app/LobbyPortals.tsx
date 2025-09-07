@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Button } from "./ui/button";
-import { SparklesIcon } from "lucide-react";
-import FloatingDiv from "./FloatingDiv";
+import { Button } from "../components/ui/button";
+import { SparklesIcon, SquareSlashIcon } from "lucide-react";
+import FloatingDiv from "../components/FloatingDiv";
 
 const LobbyPortals = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
@@ -20,10 +20,11 @@ const LobbyPortals = () => {
                         Explore my{" "}
                         <span className="text-gradient">Interests</span>{" "}
                     </span>{" "}
-                    <SparklesIcon className="text-fg-dark animate-pulse" />
+                    <SquareSlashIcon className="text-fg-dark hidden animate-pulse md:inline" />
+                    <SparklesIcon className="text-fg-dark animate-pulse md:hidden" />
                 </Button>
-                <p className="text-fg-extralight/30 font-salsa absolute bottom-[-20] w-full text-center text-sm md:hidden">
-                    Desktop wouldve been better...
+                <p className="text-fg-extralight/30 font-ubuntu absolute bottom-[-20] w-full text-center text-sm font-semibold md:hidden">
+                    Desktop would&quot;ve been Better
                 </p>
             </div>
             <>
