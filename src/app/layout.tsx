@@ -30,7 +30,7 @@ const RootLayout = ({
             <body
                 className={`${salsa.variable} ${ubuntuSans.variable} antialiased`}
             >
-                <CurtainProvider>{children}</CurtainProvider>
+                {children}
             </body>
         </html>
     );
