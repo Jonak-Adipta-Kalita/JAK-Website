@@ -54,6 +54,11 @@
         background-clip: text;
         color: transparent;
     }
+
+    .text-gradient::selection {
+        background: var(--color-selection);
+        color: var(--color-fg-main);
+    }
 }
 
 @utility scrollbar-hidden {
