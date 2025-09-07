@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const HomePage = () => {
     return (
         // TODO: Setup Tailwind Dark & Light Mode for the 2 types of Portals :D
@@ -17,6 +19,7 @@ const HomePage = () => {
 
                 <div className="flex grow items-center justify-center flex-col">
                     {/* The Portals - "Explore my Interests" */}
+                    <Link href={"/programming"}>Hello World</Link>
                 </div>
             </main>
         </div>
