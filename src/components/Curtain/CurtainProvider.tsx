@@ -26,7 +26,7 @@ const CurtainProvider = ({
                             animate={{ x: "0%" }}
                             exit={{ x: "-100%" }}
                             transition={{ duration: 1, ease: "easeInOut" }}
-                            className="fixed top-0 left-0 h-full w-1/2 z-50"
+                            className="fixed top-0 left-0 z-50 h-full w-1/2"
                         >
                             <LeftCurtain />
                         </motion.div>
@@ -36,7 +36,7 @@ const CurtainProvider = ({
                             animate={{ x: "0%" }}
                             exit={{ x: "100%" }}
                             transition={{ duration: 1, ease: "easeInOut" }}
-                            className="fixed top-0 left-1/2 h-full w-1/2 z-50"
+                            className="fixed top-0 left-1/2 z-50 h-full w-1/2"
                         >
                             <RightCurtain />
                         </motion.div>

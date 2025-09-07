@@ -1,7 +1,7 @@
 export const LeftCurtain = () => {
-    return <div className="bg-white h-screen max-h-screen">Curtain</div>;
+    return <div className="h-screen max-h-screen bg-white">Curtain</div>;
 };
 
 export const RightCurtain = () => {
-    return <div className="bg-white h-screen max-h-screen">Curtain</div>;
+    return <div className="h-screen max-h-screen bg-white">Curtain</div>;
 };
