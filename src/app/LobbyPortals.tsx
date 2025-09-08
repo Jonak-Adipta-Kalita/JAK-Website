@@ -1,6 +1,11 @@
 "use client";
 
-import { ForwardRefExoticComponent, RefAttributes, useRef } from "react";
+import {
+    ForwardRefExoticComponent,
+    RefAttributes,
+    useRef,
+    useState,
+} from "react";
 import { Button } from "../components/ui/button";
 import {
     BookIcon,
@@ -13,6 +18,8 @@ import {
 } from "lucide-react";
 import FloatingDiv from "../components/FloatingDiv";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const ringColorPortal: { [key: string]: string } = {
     Programming: "ring-blue-400",
@@ -24,22 +31,27 @@ const ringColorPortal: { [key: string]: string } = {
 const Portal = ({
     name,
     Icon,
+    href,
 }: {
     name: string;
     Icon: ForwardRefExoticComponent<
         Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
     >;
+    href: string;
 }) => {
+    const router = useRouter();
+
     return (
         <Button
             variant={"lobby"}
             size={"lobby"}
             // TODO: Use Clamp for decreasing the size of the Portals
             className={cn(
-                "z-40 bg-zinc-800 text-sm shadow-xl shadow-zinc-900 sm:text-xl",
+                "z-40 bg-zinc-800 shadow-xl shadow-zinc-900",
                 `ring-2 ${ringColorPortal[name]}`,
-                "hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl"
+                "text-sm hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 sm:text-xl hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl"
             )}
+            onClick={() => router.push(href)}
         >
             <div className="flex items-center justify-center space-x-3">
                 <p className="text-gradient cursor-pointer" draggable={false}>
@@ -55,7 +67,7 @@ const LobbyPortals = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
 
     return (
-        <div className="relative mx-auto mb-5 flex w-full max-w-4xl grow flex-col items-center justify-center">
+        <div className="relative mx-auto mb-5 flex max-h-[90vh] w-full max-w-4xl grow flex-col items-center justify-center">
             <div className="relative">
                 <Button
                     variant={"lobby"}
@@ -80,25 +92,41 @@ const LobbyPortals = () => {
                     className="absolute top-10 left-10"
                     anchorRef={anchorRef!}
                 >
-                    <Portal name="Programming" Icon={Code2Icon} />
+                    <Portal
+                        name="Programming"
+                        Icon={Code2Icon}
+                        href={"/programming"}
+                    />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute top-35 right-10 sm:top-10"
                     anchorRef={anchorRef!}
                 >
-                    <Portal name="Music (Guitar)" Icon={GuitarIcon} />
+                    <Portal
+                        name="Music (Guitar)"
+                        Icon={GuitarIcon}
+                        href={"/music"}
+                    />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute bottom-35 left-10 sm:bottom-10"
                     anchorRef={anchorRef!}
                 >
-                    <Portal name="Polyglotism" Icon={LanguagesIcon} />
+                    <Portal
+                        name="Polyglotism"
+                        Icon={LanguagesIcon}
+                        href={"/polyglot"}
+                    />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute right-10 bottom-10"
                     anchorRef={anchorRef!}
                 >
-                    <Portal name="Productivity" Icon={BookIcon} />
+                    <Portal
+                        name="Productivity"
+                        Icon={BookIcon}
+                        href={"/productivity"}
+                    />
                 </FloatingDiv>
             </>
         </div>

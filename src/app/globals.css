@@ -23,6 +23,8 @@
     --cursor-default: url(/cursors/default.cur), default;
     --cursor-pointer: url(/cursors/pointer.cur), pointer;
     --cursor-text: url(/cursors/text.cur), text;
+
+    --breakpoint-xs: 412px; /* or any value you prefer */
 }
 
 @layer base {
