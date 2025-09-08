@@ -5,6 +5,7 @@ import { Button } from "../components/ui/button";
 import { SparklesIcon, SquareSlashIcon } from "lucide-react";
 import FloatingDiv from "../components/FloatingDiv";
 import ElectricRing from "./ElectricRing";
+import Image from "next/image";
 
 const LobbyPortals = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
@@ -31,28 +32,28 @@ const LobbyPortals = () => {
             </div>
             <>
                 <FloatingDiv
-                    className="absolute top-10 left-10"
+                    className="absolute top-5 left-10"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing />
+                    <ElectricRing portal={"Guitar"} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute top-10 right-10"
+                    className="absolute top-5 right-10"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing />
+                    <ElectricRing portal={"Polyglotism"} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute bottom-10 left-10"
+                    className="absolute bottom-5 left-10"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing />
+                    <ElectricRing portal={"Guitar"} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute right-10 bottom-10"
+                    className="absolute right-10 bottom-5"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing />
+                    <ElectricRing portal={"Polyglotism"} />
                 </FloatingDiv>
             </>
         </div>
