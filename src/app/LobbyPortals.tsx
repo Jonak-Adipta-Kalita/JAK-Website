@@ -80,13 +80,13 @@ const LobbyPortals = () => {
                     <Portal name="Programming" Icon={Code2Icon} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute top-10 right-10"
+                    className="absolute top-35 right-10 sm:top-10"
                     anchorRef={anchorRef!}
                 >
                     <Portal name="Music (Guitar)" Icon={GuitarIcon} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute bottom-10 left-10"
+                    className="absolute bottom-35 left-10 sm:bottom-10"
                     anchorRef={anchorRef!}
                 >
                     <Portal name="Polyglotism" Icon={LanguagesIcon} />
