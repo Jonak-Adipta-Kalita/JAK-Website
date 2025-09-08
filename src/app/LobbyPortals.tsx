@@ -37,7 +37,8 @@ const Portal = ({
             // TODO: Use Clamp for decreasing the size of the Portals
             className={cn(
                 "z-40 bg-zinc-800 text-sm shadow-xl shadow-zinc-900 sm:text-xl",
-                `ring-2 ${ringColorPortal[name]} hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl`
+                `ring-2 ${ringColorPortal[name]}`,
+                "hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl"
             )}
         >
             <div className="flex items-center justify-center space-x-3">
