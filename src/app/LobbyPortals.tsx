@@ -69,7 +69,7 @@ const LobbyPortals = () => {
                     <SparklesIcon className="text-fg-dark animate-pulse md:hidden" />
                 </Button>
                 <p className="text-fg-extralight/30 font-ubuntu absolute bottom-[-20] w-full text-center text-sm font-semibold md:hidden">
-                    Desktop would&quot;ve been Better
+                    Desktop would&apos;ve been Better
                 </p>
             </div>
             <>
