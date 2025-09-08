@@ -34,6 +34,7 @@ const Portal = ({
         <Button
             variant={"lobby"}
             size={"lobby"}
+            // TODO: Use Clamp for decreasing the size of the Portals
             className={cn(
                 "z-40 bg-zinc-800 text-sm shadow-xl shadow-zinc-900 sm:text-xl",
                 `ring-2 ${ringColorPortal[name]} hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl`
@@ -73,6 +74,7 @@ const LobbyPortals = () => {
                 </p>
             </div>
             <>
+                {/* TODO: Position the Floating Divs with Relative instead of Absolute | Plus, make it relative from center, and not from outside ;-; shit looks horrible bro */}
                 <FloatingDiv
                     className="absolute top-10 left-10"
                     anchorRef={anchorRef!}
