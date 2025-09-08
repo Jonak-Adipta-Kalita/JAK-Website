@@ -9,10 +9,10 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                lobby: "shadow-xs",
+                lobby: "font-salsa text-fg-extralight relative z-50 rounded-full bg-zinc-700/50 font-semibold shadow-2xl ring shadow-zinc-900 ring-zinc-900 ring-offset-[0.5]",
             },
             size: {
-                lobby: "h-9 px-4 py-2",
+                lobby: "h-9 p-8 sm:p-10 sm:text-2xl text-xl",
             },
         },
         defaultVariants: {

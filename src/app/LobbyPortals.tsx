@@ -1,11 +1,53 @@
 "use client";
 
-import React, { useRef } from "react";
+import { ForwardRefExoticComponent, RefAttributes, useRef } from "react";
 import { Button } from "../components/ui/button";
-import { SparklesIcon, SquareSlashIcon } from "lucide-react";
+import {
+    BookIcon,
+    Code2Icon,
+    GuitarIcon,
+    LanguagesIcon,
+    LucideProps,
+    SparklesIcon,
+    SquareSlashIcon,
+} from "lucide-react";
 import FloatingDiv from "../components/FloatingDiv";
-import ElectricRing from "./ElectricRing";
-import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+const ringColorPortal: { [key: string]: string } = {
+    Programming: "ring-blue-400",
+    "Music (Guitar)": "ring-rose-400",
+    Polyglotism: "ring-teal-400",
+    Productivity: "ring-orange-400",
+};
+
+const Portal = ({
+    name,
+    Icon,
+}: {
+    name: string;
+    Icon: ForwardRefExoticComponent<
+        Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+    >;
+}) => {
+    return (
+        <Button
+            variant={"lobby"}
+            size={"lobby"}
+            className={cn(
+                "z-40 bg-zinc-800 text-sm shadow-xl shadow-zinc-900 sm:text-xl",
+                `ring-2 ${ringColorPortal[name]}`
+            )}
+        >
+            <div className="flex items-center justify-center space-x-3">
+                <p className="text-gradient cursor-pointer" draggable={false}>
+                    {name}
+                </p>
+                <Icon />
+            </div>
+        </Button>
+    );
+};
 
 const LobbyPortals = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
@@ -17,7 +59,7 @@ const LobbyPortals = () => {
                     variant={"lobby"}
                     ref={anchorRef}
                     size={"lobby"}
-                    className="font-salsa text-fg-extralight relative z-50 cursor-default rounded-full bg-zinc-700/50 p-8 text-xl font-semibold shadow-2xl ring shadow-zinc-900 ring-zinc-900 ring-offset-[0.5] sm:p-10 sm:text-2xl"
+                    className="cursor-default"
                 >
                     <span className="mr-2">
                         Explore my{" "}
@@ -32,28 +74,28 @@ const LobbyPortals = () => {
             </div>
             <>
                 <FloatingDiv
-                    className="absolute top-5 left-10"
+                    className="absolute top-10 left-10"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing portal={"Guitar"} />
+                    <Portal name="Programming" Icon={Code2Icon} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute top-5 right-10"
+                    className="absolute top-10 right-10"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing portal={"Polyglotism"} />
+                    <Portal name="Music (Guitar)" Icon={GuitarIcon} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute bottom-5 left-10"
+                    className="absolute bottom-10 left-10"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing portal={"Guitar"} />
+                    <Portal name="Polyglotism" Icon={LanguagesIcon} />
                 </FloatingDiv>
                 <FloatingDiv
-                    className="absolute right-10 bottom-5"
+                    className="absolute right-10 bottom-10"
                     anchorRef={anchorRef!}
                 >
-                    <ElectricRing portal={"Polyglotism"} />
+                    <Portal name="Productivity" Icon={BookIcon} />
                 </FloatingDiv>
             </>
         </div>
