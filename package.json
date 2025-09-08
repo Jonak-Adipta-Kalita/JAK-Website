@@ -9,14 +9,16 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@radix-ui/react-slot": "^1.2.3",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
-        "lucide-react": "^0.536.0",
+        "lucide-react": "^0.542.0",
         "motion": "^12.23.12",
         "next": "15.4.5",
         "react": "19.1.0",
         "react-dom": "19.1.0",
-        "tailwind-merge": "^3.3.1"
+        "tailwind-merge": "^3.3.1",
+        "zustand": "^5.0.8"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
@@ -27,9 +29,11 @@
         "eslint": "^9",
         "eslint-config-next": "15.4.5",
         "eslint-config-prettier": "^10.1.8",
+        "prettier": "^3.6.2",
+        "prettier-plugin-tailwindcss": "^0.6.14",
         "tailwind-scrollbar": "^4.0.2",
         "tailwindcss": "^4",
-        "tw-animate-css": "^1.3.6",
+        "tw-animate-css": "^1.3.8",
         "typescript": "^5"
     },
     "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"

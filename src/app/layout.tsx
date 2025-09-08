@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Salsa, Ubuntu_Sans } from "next/font/google";
 import "./globals.css";
+import Curtain from "@/components/Curtain/Curtain";
 
 const salsa = Salsa({
     weight: "400",
@@ -29,6 +30,7 @@ const RootLayout = ({
             <body
                 className={`${salsa.variable} ${ubuntuSans.variable} antialiased`}
             >
+                <Curtain />
                 {children}
             </body>
         </html>

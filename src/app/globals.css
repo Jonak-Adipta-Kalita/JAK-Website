@@ -11,6 +11,7 @@
     --color-fg-dark: #a0b5e2;
     --color-fg-extradark: #96adde;
 
+    --color-bg-lobby: #121212;
     --color-bg-base: #1b222f;
     --color-bg-highlight: #131821;
 
@@ -24,8 +25,6 @@
     --cursor-text: url(/cursors/text.cur), text;
 }
 
-/* Custom Cursors, h-screen issue & Responsiveness */
-
 @layer base {
     body {
         /* TODO: Add Custom Scrollbar */
@@ -38,6 +37,27 @@
 
     p {
         cursor: text;
+    }
+}
+
+@layer components {
+    .text-gradient {
+        background: linear-gradient(
+            to right,
+            #93c5fd,
+            #c4b5fd,
+            #5eead4,
+            #93c5fd
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .text-gradient::selection {
+        background: var(--color-selection);
+        color: var(--color-fg-main);
     }
 }
 

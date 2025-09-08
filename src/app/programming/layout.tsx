@@ -1,4 +1,4 @@
-import Header from "@/components/DynamicIsland";
+import Header from "@/app/programming/DynamicIsland";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ const ProgrammingLayout = ({
     return (
         <div className="flex flex-col items-center">
             <Header />
-            <main className="mx-auto max-w-7xl mt-[clamp(1.5rem,2vw+1.5rem,4.5rem)]">
+            <main className="mx-auto mt-[clamp(1.5rem,2vw+1.5rem,4.5rem)] max-w-7xl">
                 {children}
             </main>
         </div>
