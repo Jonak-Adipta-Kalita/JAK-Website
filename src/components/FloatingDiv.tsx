@@ -2,16 +2,18 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useMotionValue, animate } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
 const FloatingDiv = ({
     children,
     className,
     anchorRef,
+    setDrag,
 }: {
     children: React.ReactNode;
     className: string;
     anchorRef: React.RefObject<HTMLButtonElement | null>;
+    setDrag: Dispatch<SetStateAction<boolean>>;
 }) => {
     const dragX = useMotionValue(0);
     const dragY = useMotionValue(0);
@@ -25,6 +27,8 @@ const FloatingDiv = ({
     });
 
     function handleDragEnd() {
+        setDrag(false);
+
         animate(dragX, 0, { type: "spring", stiffness: 200, damping: 20 });
         animate(dragY, 0, { type: "spring", stiffness: 200, damping: 20 });
     }
@@ -74,6 +78,9 @@ const FloatingDiv = ({
                 dragElastic={0.2}
                 dragMomentum={true}
                 style={{ x: dragX, y: dragY }}
+                onDragStart={() => {
+                    setDrag(true);
+                }}
                 onDragEnd={handleDragEnd}
                 className={cn(
                     "relative z-10 cursor-pointer select-none",

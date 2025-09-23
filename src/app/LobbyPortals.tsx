@@ -32,12 +32,14 @@ const Portal = ({
     name,
     Icon,
     href,
+    dragging,
 }: {
     name: string;
     Icon: ForwardRefExoticComponent<
         Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
     >;
     href: string;
+    dragging: boolean;
 }) => {
     const router = useRouter();
 
@@ -51,7 +53,7 @@ const Portal = ({
                 `ring-2 ${ringColorPortal[name]}`,
                 "text-sm hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 sm:text-xl hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl"
             )}
-            onClick={() => router.push(href)}
+            onClick={() => !dragging && router.push(href)}
         >
             <div className="flex items-center justify-center space-x-3">
                 <p className="text-gradient cursor-pointer" draggable={false}>
@@ -65,6 +67,11 @@ const Portal = ({
 
 const LobbyPortals = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
+
+    const [programmingDrag, setProgrammingDrag] = useState<boolean>(false);
+    const [musicDrag, setMusicDrag] = useState<boolean>(false);
+    const [polyglotDrag, setPolyglotDrag] = useState<boolean>(false);
+    const [productivityDrag, setProductivityDrag] = useState<boolean>(false);
 
     return (
         <div className="relative mx-auto mb-5 flex max-h-[90vh] w-full max-w-4xl grow flex-col items-center justify-center">
@@ -91,41 +98,49 @@ const LobbyPortals = () => {
                 <FloatingDiv
                     className="absolute top-10 left-10"
                     anchorRef={anchorRef!}
+                    setDrag={setProgrammingDrag}
                 >
                     <Portal
                         name="Programming"
                         Icon={Code2Icon}
                         href={"/programming"}
+                        dragging={programmingDrag}
                     />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute top-35 right-10 sm:top-10"
                     anchorRef={anchorRef!}
+                    setDrag={setMusicDrag}
                 >
                     <Portal
                         name="Music (Guitar)"
                         Icon={GuitarIcon}
                         href={"/music"}
+                        dragging={musicDrag}
                     />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute bottom-35 left-10 sm:bottom-10"
                     anchorRef={anchorRef!}
+                    setDrag={setPolyglotDrag}
                 >
                     <Portal
                         name="Polyglotism"
                         Icon={LanguagesIcon}
                         href={"/polyglot"}
+                        dragging={polyglotDrag}
                     />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute right-10 bottom-10"
                     anchorRef={anchorRef!}
+                    setDrag={setProductivityDrag}
                 >
                     <Portal
                         name="Productivity"
                         Icon={BookIcon}
                         href={"/productivity"}
+                        dragging={productivityDrag}
                     />
                 </FloatingDiv>
             </>
