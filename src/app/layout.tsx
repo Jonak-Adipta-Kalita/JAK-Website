@@ -25,6 +25,8 @@ const RootLayout = ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
+    // TODO: Setup Tailwind Dark & Light Mode for the 2 types of Sites :D
+
     return (
         <html lang="en">
             <body

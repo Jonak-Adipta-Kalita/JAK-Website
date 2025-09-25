@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const Header = () => {
+const DynamicIsland = () => {
     const [activeHeader, setActiveHeader] = useState("About");
 
     return (
-        <header className="max-w-fit rounded-full mt-7 bg-bg-base flex items-center justify-center space-x-3 sm:space-x-1 text-fg-main">
+        <header className="bg-bg-base text-fg-main mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name) => (
                     <motion.div
@@ -15,7 +15,7 @@ const Header = () => {
                         onClick={() => setActiveHeader(name)}
                         className={`${
                             name === "Contact" ? "hidden sm:inline" : ""
-                        } cursor-pointer p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)] z-50 rounded-full`}
+                        } z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
                         animate={{
                             backgroundColor:
                                 activeHeader === name
@@ -29,7 +29,7 @@ const Header = () => {
                             },
                         }}
                     >
-                        <p className="text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-ubuntu lg:font-semibold font-bold tracking-wide text-center cursor-pointer">
+                        <p className="font-ubuntu cursor-pointer text-center text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold tracking-wide lg:font-semibold">
                             {name}
                         </p>
                     </motion.div>
@@ -39,4 +39,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default DynamicIsland;

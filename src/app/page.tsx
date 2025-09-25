@@ -18,8 +18,6 @@ const HomePage = () => {
     const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
     return (
-        // TODO: Setup Tailwind Dark & Light Mode for the 2 types of Portals :D
-
         <div className="relative h-screen w-screen overflow-hidden">
             <div className="absolute top-0 left-0 z-[-1] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,var(--color-bg-lobby)_1px)] bg-[size:20px_20px]"></div>
 
