@@ -14,12 +14,14 @@ const LobbyPortals = () => {
             <div className="relative hidden max-h-[90vh] w-full grow flex-col items-center justify-center md:flex">
                 <GraphView />
             </div>
-            <div className="flex w-full flex-col items-center justify-center space-y-10 md:hidden">
-                {/* TODO: Have a better Design */}
-                <ProgrammingPortal dragging={false} />
-                <MusicPortal dragging={false} />
-                <PolyglotPortal dragging={false} />
-                <ProductivityPortal dragging={false} />
+            <div className="relative flex w-full flex-col items-center justify-center space-y-10 md:hidden">
+                <p className="text-fg-extralight/30 font-ubuntu absolute bottom-[-20] w-full text-center text-sm font-semibold md:hidden">
+                    &#40;Desktop would&apos;ve been Better&#41;
+                </p>
+                <ProgrammingPortal dragging={false} mobile />
+                <MusicPortal dragging={false} mobile />
+                <PolyglotPortal dragging={false} mobile />
+                <ProductivityPortal dragging={false} mobile />
             </div>
         </div>
     );

@@ -10,7 +10,7 @@ import {
     ProductivityPortal,
     ProgrammingPortal,
 } from "./Portal";
-import { SparklesIcon, SquareSlashIcon } from "lucide-react";
+import { SquareSlashIcon } from "lucide-react";
 
 const GraphView = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
@@ -22,24 +22,18 @@ const GraphView = () => {
 
     return (
         <>
-            <div className="relative">
-                <Button
-                    variant={"lobby"}
-                    ref={anchorRef}
-                    size={"lobby"}
-                    className="cursor-default"
-                >
-                    <span className="mr-2">
-                        Explore my{" "}
-                        <span className="text-gradient">Interests</span>{" "}
-                    </span>{" "}
-                    <SquareSlashIcon className="text-fg-dark hidden animate-pulse md:inline" />
-                    <SparklesIcon className="text-fg-dark animate-pulse md:hidden" />
-                </Button>
-                <p className="text-fg-extralight/30 font-ubuntu absolute bottom-[-20] w-full text-center text-sm font-semibold md:hidden">
-                    Desktop would&apos;ve been Better
-                </p>
-            </div>
+            <Button
+                variant={"lobby"}
+                ref={anchorRef}
+                size={"lobby"}
+                className="cursor-default"
+            >
+                <span className="mr-2">
+                    Explore my{" "}
+                    <span className="text-gradient">Interests</span>{" "}
+                </span>{" "}
+                <SquareSlashIcon className="text-fg-dark hidden animate-pulse md:inline" />
+            </Button>
             <div>
                 <FloatingDiv
                     className="absolute top-10 left-10"

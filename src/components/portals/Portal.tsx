@@ -7,6 +7,11 @@ import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Button } from "../ui/button";
 import { BookIcon, Code2Icon, GuitarIcon, LanguagesIcon } from "lucide-react";
 
+type PortalProps = {
+    dragging: boolean;
+    mobile?: boolean;
+};
+
 const ringColorPortal: { [key: string]: string } = {
     Programming: "ring-blue-400",
     "Music (Guitar)": "ring-rose-400",
@@ -19,6 +24,7 @@ const Portal = ({
     Icon,
     href,
     dragging,
+    mobile,
 }: {
     name: string;
     Icon: ForwardRefExoticComponent<
@@ -26,6 +32,7 @@ const Portal = ({
     >;
     href: string;
     dragging: boolean;
+    mobile: boolean;
 }) => {
     const router = useRouter();
 
@@ -36,7 +43,8 @@ const Portal = ({
             className={cn(
                 "z-40 bg-zinc-800 shadow-xl shadow-zinc-900",
                 `ring-2 ${ringColorPortal[name]}`,
-                "text-sm hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 sm:text-xl hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl"
+                "text-sm hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 sm:text-xl hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl",
+                mobile ? "w-[75%] active:w-[70%]" : ""
             )}
             onClick={() => !dragging && router.push(href)}
         >
@@ -50,38 +58,42 @@ const Portal = ({
     );
 };
 
-export const ProgrammingPortal = ({ dragging }: { dragging: boolean }) => (
+export const ProgrammingPortal = ({ dragging, mobile }: PortalProps) => (
     <Portal
         name="Programming"
         Icon={Code2Icon}
         href={"/programming"}
         dragging={dragging}
+        mobile={mobile || false}
     />
 );
 
-export const MusicPortal = ({ dragging }: { dragging: boolean }) => (
+export const MusicPortal = ({ dragging, mobile }: PortalProps) => (
     <Portal
         name="Music (Guitar)"
         Icon={GuitarIcon}
         href={"/music"}
         dragging={dragging}
+        mobile={mobile || false}
     />
 );
 
-export const PolyglotPortal = ({ dragging }: { dragging: boolean }) => (
+export const PolyglotPortal = ({ dragging, mobile }: PortalProps) => (
     <Portal
         name="Polyglotism"
         Icon={LanguagesIcon}
         href={"/polyglot"}
         dragging={dragging}
+        mobile={mobile || false}
     />
 );
 
-export const ProductivityPortal = ({ dragging }: { dragging: boolean }) => (
+export const ProductivityPortal = ({ dragging, mobile }: PortalProps) => (
     <Portal
         name="Productivity"
         Icon={BookIcon}
         href={"/productivity"}
         dragging={dragging}
+        mobile={mobile || false}
     />
 );
