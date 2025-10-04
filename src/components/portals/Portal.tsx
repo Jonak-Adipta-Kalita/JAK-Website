@@ -2,10 +2,10 @@
 
 import { cn } from "@/lib/utils";
 import { LucideProps } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Button } from "../ui/button";
 import { BookIcon, Code2Icon, GuitarIcon, LanguagesIcon } from "lucide-react";
+import usePageTransition from "@/lib/hooks/usePageTransition";
 
 type PortalProps = {
     dragging: boolean;
@@ -34,7 +34,7 @@ const Portal = ({
     dragging: boolean;
     mobile: boolean;
 }) => {
-    const router = useRouter();
+    const transition = usePageTransition();
 
     return (
         <Button
@@ -46,7 +46,7 @@ const Portal = ({
                 "text-sm hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 sm:text-xl hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl",
                 mobile ? "w-[75%] active:w-[70%]" : ""
             )}
-            onClick={() => !dragging && router.push(href)}
+            onClick={() => !dragging && transition(href)}
         >
             <div className="flex items-center justify-center space-x-3">
                 <p className="text-gradient cursor-pointer" draggable={false}>
