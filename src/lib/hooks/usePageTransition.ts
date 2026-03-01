@@ -1,42 +1,48 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useCallback, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export type CurtainState = "open" | "closing" | "closed" | "opening";
 
-interface UseCurtainTransitionReturn {
-    curtainState: CurtainState;
-    navigateTo: (href: string) => void;
-    onCurtainAnimationComplete: () => void;
-}
-
-export const useCurtainTransition = (): UseCurtainTransitionReturn => {
-    const [curtainState, setCurtainState] = useState<CurtainState>("opening");
+export function useCurtainTransition() {
+    const [curtainState, setCurtainState] = useState<CurtainState>("open");
+    const stateRef = useRef<CurtainState>("open");
     const pendingHref = useRef<string | null>(null);
     const router = useRouter();
-    const pathname = usePathname();
+
+    const setStateSync = useCallback((s: CurtainState) => {
+        stateRef.current = s;
+        setCurtainState(s);
+    }, []);
 
     const navigateTo = useCallback(
         (href: string) => {
-            if (href === pathname) return;
             pendingHref.current = href;
-            setCurtainState("closing");
+            setStateSync("closing");
         },
-        [pathname]
+        [setStateSync]
     );
 
-    const onCurtainAnimationComplete = useCallback(() => {
-        if (curtainState === "closing") {
-            if (pendingHref.current) {
-                router.push(pendingHref.current);
-                pendingHref.current = null;
-            }
-            setCurtainState("opening");
-        } else if (curtainState === "opening") {
-            setCurtainState("open");
-        }
-    }, [curtainState, router]);
+    const openOnMount = useCallback(() => {
+        setStateSync("opening");
+    }, [setStateSync]);
 
-    return { curtainState, navigateTo, onCurtainAnimationComplete };
+    // Fired by framer-motion when curtains finish animating IN (screen covered)
+    const onClosed = useCallback(() => {
+        if (stateRef.current !== "closing") return;
+        if (pendingHref.current) {
+            router.push(pendingHref.current);
+            pendingHref.current = null;
+        }
+        setStateSync("closed");
+    }, [router, setStateSync]);
+
+    // Fired by framer-motion when curtains finish animating OUT (screen revealed)
+    const onOpened = useCallback(() => {
+        if (stateRef.current !== "opening") return;
+        setStateSync("open");
+    }, [setStateSync]);
+
+    return { curtainState, navigateTo, openOnMount, onClosed, onOpened };
 }

@@ -1,4 +1,5 @@
 import DynamicIsland from "@/app/programming/DynamicIsland";
+import PageReveal from "@/components/Curtain/PageReveal";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,12 +13,14 @@ const ProgrammingLayout = ({
     children: React.ReactNode;
 }>) => {
     return (
-        <div className="flex flex-col items-center bg-bg-programming text-fg-main h-screen">
-            <DynamicIsland />
-            <main className="mx-auto mt-[clamp(1.5rem,2vw+1.5rem,4.5rem)] max-w-7xl">
-                {children}
-            </main>
-        </div>
+        <PageReveal>
+            <div className="flex flex-col items-center bg-bg-programming text-fg-main h-screen">
+                <DynamicIsland />
+                <main className="mx-auto mt-[clamp(1.5rem,2vw+1.5rem,4.5rem)] max-w-7xl">
+                    {children}
+                </main>
+            </div>
+        </PageReveal>
     );
 };
 
