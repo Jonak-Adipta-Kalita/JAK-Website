@@ -12,7 +12,7 @@ const ProgrammingLayout = ({
     children: React.ReactNode;
 }>) => {
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center bg-bg-programming text-fg-main h-screen">
             <DynamicIsland />
             <main className="mx-auto mt-[clamp(1.5rem,2vw+1.5rem,4.5rem)] max-w-7xl">
                 {children}

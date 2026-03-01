@@ -12,10 +12,11 @@
     --color-fg-extradark: #96adde;
 
     --color-bg-lobby: #121212;
-    --color-bg-base: #1b222f;
+    --color-bg-programming: #1b222f;
     --color-bg-highlight: #131821;
 
     --color-selection: #2a3242;
+    --color-selection-fg: #b5c5e9;
 
     --font-salsa: var(--font-salsa);
     --font-ubuntu: var(--font-ubuntu-sans);
@@ -30,11 +31,11 @@
 @layer base {
     body {
         /* TODO: Add Custom Scrollbar */
-        @apply bg-bg-base text-fg-main cursor-default overflow-x-hidden;
+        @apply cursor-default overflow-x-hidden;
     }
 
     ::selection {
-        @apply bg-selection text-fg-main;
+        @apply bg-selection text-selection-fg;
     }
 
     p {
@@ -59,7 +60,7 @@
 
     .text-gradient::selection {
         background: var(--color-selection);
-        color: var(--color-fg-main);
+        color: var(--color-selection-fg);
     }
 }
 

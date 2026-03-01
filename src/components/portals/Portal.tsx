@@ -5,7 +5,7 @@ import { LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Button } from "../ui/button";
 import { BookIcon, Code2Icon, GuitarIcon, LanguagesIcon } from "lucide-react";
-import usePageTransition from "@/lib/hooks/usePageTransition";
+import { useCurtain } from "@/lib/CurtainContext";
 
 type PortalProps = {
     dragging: boolean;
@@ -34,7 +34,7 @@ const Portal = ({
     dragging: boolean;
     mobile: boolean;
 }) => {
-    const transition = usePageTransition();
+    const { navigateTo: transition } = useCurtain();
 
     return (
         <Button

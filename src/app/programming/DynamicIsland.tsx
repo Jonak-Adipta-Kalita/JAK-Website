@@ -7,15 +7,14 @@ const DynamicIsland = () => {
     const [activeHeader, setActiveHeader] = useState("About");
 
     return (
-        <header className="bg-bg-base text-fg-main mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
+        <header className="bg-bg-programming text-fg-main mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name) => (
                     <motion.div
                         key={name}
                         onClick={() => setActiveHeader(name)}
-                        className={`${
-                            name === "Contact" ? "hidden sm:inline" : ""
-                        } z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
+                        className={`${name === "Contact" ? "hidden sm:inline" : ""
+                            } z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
                         animate={{
                             backgroundColor:
                                 activeHeader === name
