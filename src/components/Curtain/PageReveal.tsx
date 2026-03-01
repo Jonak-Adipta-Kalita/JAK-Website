@@ -8,7 +8,7 @@ const PageReveal = ({ children }: { children: React.ReactNode }) => {
 
     useEffect(() => {
         openOnMount();
-    }, []);
+    }, [openOnMount]);
 
     return <>{children}</>;
 }
