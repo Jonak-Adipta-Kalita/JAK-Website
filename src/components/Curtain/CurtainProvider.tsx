@@ -17,14 +17,12 @@ export const CurtainProvider = ({ children }: { children: React.ReactNode }) => 
     useEffect(() => {
         const run = async () => {
             if (curtainState === "closing") {
-                // Animate curtains IN (cover the screen)
                 await Promise.all([
                     leftControls.start({ x: "0%", transition }),
-                    rightControls.start({ x: "0%", transition }),
+                    rightControls.start({ x: "0%", transition: { ...transition, delay: 0.5 } }),
                 ]);
                 onClosed();
             } else if (curtainState === "opening") {
-                // Animate curtains OUT (reveal the screen)
                 await Promise.all([
                     leftControls.start({ x: "-100%", transition }),
                     rightControls.start({ x: "100%", transition }),
@@ -39,9 +37,8 @@ export const CurtainProvider = ({ children }: { children: React.ReactNode }) => 
     return (
         <CurtainContext.Provider value={{ navigateTo, openOnMount }}>
             <div className="relative min-h-screen w-full overflow-hidden">
-                {/* Always mounted — position controls visibility */}
                 <motion.div
-                    initial={{ x: "-100%" }} // starts off-screen left
+                    initial={{ x: "-100%" }}
                     animate={leftControls}
                     className="fixed top-0 left-0 z-50 h-full w-1/2 pointer-events-none"
                 >
@@ -49,7 +46,7 @@ export const CurtainProvider = ({ children }: { children: React.ReactNode }) => 
                 </motion.div>
 
                 <motion.div
-                    initial={{ x: "100%" }} // starts off-screen right
+                    initial={{ x: "100%" }}
                     animate={rightControls}
                     className="fixed top-0 left-1/2 z-50 h-full w-1/2 pointer-events-none"
                 >
