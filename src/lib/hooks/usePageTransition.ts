@@ -28,7 +28,6 @@ export function useCurtainTransition() {
         setStateSync("opening");
     }, [setStateSync]);
 
-    // Fired by framer-motion when curtains finish animating IN (screen covered)
     const onClosed = useCallback(() => {
         if (stateRef.current !== "closing") return;
         if (pendingHref.current) {
@@ -38,7 +37,6 @@ export function useCurtainTransition() {
         setStateSync("closed");
     }, [router, setStateSync]);
 
-    // Fired by framer-motion when curtains finish animating OUT (screen revealed)
     const onOpened = useCallback(() => {
         if (stateRef.current !== "opening") return;
         setStateSync("open");
