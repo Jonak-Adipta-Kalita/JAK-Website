@@ -4,8 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useCurtainTransition } from "@/lib/hooks/usePageTransition";
 import { CurtainContext } from "@/lib/CurtainContext";
-import LeftCurtain from "./LeftCurtain";
-import RightCurtain from "./RightCurtain";
+import { LeftCurtain, RightCurtain } from "./CurtainUI";
 
 const transition = { duration: 0.8, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] };
 
