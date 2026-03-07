@@ -1,3 +1,5 @@
+// TODO: After all the Pages!
+
 const LeftCurtain = () => {
     return <div className="h-screen max-h-screen bg-bg-curtain"></div>;
 };
