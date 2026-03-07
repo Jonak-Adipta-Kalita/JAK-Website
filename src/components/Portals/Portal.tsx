@@ -52,7 +52,7 @@ const Portal = ({
                 <p className="text-gradient cursor-pointer" draggable={false}>
                     {name}
                 </p>
-                <Icon className="text-fg-base" />
+                <Icon className="text-fg-lobby-base" />
             </div>
         </Button>
     );

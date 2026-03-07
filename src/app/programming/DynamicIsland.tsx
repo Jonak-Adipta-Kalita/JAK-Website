@@ -2,33 +2,50 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const DynamicIsland = () => {
     const [activeHeader, setActiveHeader] = useState("About");
+    const router = useRouter();
 
     return (
-        <header className="bg-bg-programming text-fg-main mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
+        <header className="bg-bg-programming text-fg-programming-main mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name) => (
                     <motion.div
                         key={name}
-                        onClick={() => setActiveHeader(name)}
-                        className={`${name === "Contact" ? "hidden sm:inline" : ""
-                            } z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
+                        onClick={(e) => {
+                            e.preventDefault();
+
+                            setActiveHeader(name);
+
+                            if (name === "Work" || name === "Journal") {
+                                router.push(`/programming/${name.toLowerCase()}`);
+                            } else {
+                                let scrollHash = "";
+
+                                if (name === "About") scrollHash = ""
+                                else if (name === "Testimonials" || name === "Contact")
+                                    scrollHash = `#${name.toLowerCase()}`
+
+                                router.push(`/programming${scrollHash}`);
+                            }
+                        }}
+                        className={`${name === "Contact" ? "hidden sm:inline" : ""} z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
                         animate={{
                             backgroundColor:
                                 activeHeader === name
-                                    ? "rgba(39,47,63,0.7)"
+                                    ? "#1B1B1C"
                                     : "rgba(0,0,0,0)",
                         }}
                         transition={{
                             backgroundColor: {
-                                duration: 0.15,
+                                duration: 0.2,
                                 ease: "easeInOut",
                             },
                         }}
                     >
-                        <p className="font-ubuntu cursor-pointer text-center text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold tracking-wide lg:font-semibold">
+                        <p className="font-ubuntu cursor-pointer text-center text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-extrabold tracking-wide lg:font-semibold">
                             {name}
                         </p>
                     </motion.div>

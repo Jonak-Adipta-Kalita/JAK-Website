@@ -23,10 +23,10 @@ const HomePage = () => {
 
             <main className="flex h-full max-h-screen flex-col">
                 <div className="font-salsa my-[clamp(1.5rem,2vw+1.5rem,4.5rem)] space-y-5 text-center">
-                    <p className="text-fg-extradark mx-5 text-[clamp(1.617rem,0.606vw+1.459rem,1.75rem)] leading-[1] tracking-[clamp(-5px,-0.28vw-1px,-1px)] sm:text-[2.5rem] md:text-[clamp(3rem,2.92vw+1.6rem,4.4rem)]">
+                    <p className="text-fg-lobby-extradark mx-5 text-[clamp(1.617rem,0.606vw+1.459rem,1.75rem)] leading-[1] tracking-[clamp(-5px,-0.28vw-1px,-1px)] sm:text-[2.5rem] md:text-[clamp(3rem,2.92vw+1.6rem,4.4rem)]">
                         Gamer && Programmer && Musician
                     </p>
-                    <p className="text-fg-extralight mx-5 mt-2 text-center text-[clamp(1rem,0.6vw+0.7rem,1.1rem)] leading-snug tracking-tight sm:text-[clamp(1.2rem,0.8vw+0.3rem,1.3rem)] sm:tracking-normal md:text-[clamp(1.2rem,0.8vw+1rem,1.6rem)] xl:mt-5">
+                    <p className="text-fg-lobby-extralight mx-5 mt-2 text-center text-[clamp(1rem,0.6vw+0.7rem,1.1rem)] leading-snug tracking-tight sm:text-[clamp(1.2rem,0.8vw+0.3rem,1.3rem)] sm:tracking-normal md:text-[clamp(1.2rem,0.8vw+1rem,1.6rem)] xl:mt-5">
                         A High-School{" "}
                         <span className="opacity-60 selection:opacity-100">
                             (wannabe)
@@ -39,9 +39,9 @@ const HomePage = () => {
                 <LobbyPortals />
 
                 <p className="mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
-                    <span className="text-fg-dark">&quot;</span>
+                    <span className="text-fg-lobby-dark">&quot;</span>
                     <span className="text-gradient">{quote}</span>
-                    <span className="text-fg-extradark">&quot;</span>
+                    <span className="text-lobby-fg-extradark">&quot;</span>
                 </p>
             </main>
         </div>

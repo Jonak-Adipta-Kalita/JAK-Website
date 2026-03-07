@@ -32,7 +32,7 @@ const GraphView = () => {
                     Explore my{" "}
                     <span className="text-gradient">Interests</span>{" "}
                 </span>{" "}
-                <SquareSlashIcon className="text-fg-dark hidden animate-pulse md:inline" />
+                <SquareSlashIcon className="text-fg-lobby-dark hidden animate-pulse md:inline" />
             </Button>
             <div>
                 <FloatingDiv

@@ -15,7 +15,7 @@ const LobbyPortals = () => {
                 <GraphView />
             </div>
             <div className="relative flex w-full flex-col items-center justify-center space-y-10 md:hidden">
-                <p className="text-fg-extralight/30 font-ubuntu absolute bottom-[-20] w-full text-center text-sm font-semibold md:hidden">
+                <p className="text-fg-lobby-extralight/30 font-ubuntu absolute bottom-[-20] w-full text-center text-sm font-semibold md:hidden">
                     &#40;Desktop would&apos;ve been Better&#41;
                 </p>
                 <ProgrammingPortal dragging={false} mobile />

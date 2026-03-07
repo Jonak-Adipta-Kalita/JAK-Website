@@ -4,17 +4,19 @@
 @plugin "tailwind-scrollbar";
 
 @theme inline {
-    --color-fg-extralight: #c9d6ef;
-    --color-fg-main: #c5d7ff;
-    --color-fg-light: #b5c5e9;
-    --color-fg-base: #aabde5;
-    --color-fg-dark: #a0b5e2;
-    --color-fg-extradark: #96adde;
+    --color-fg-lobby-extralight: #c9d6ef;
+    --color-fg-lobby-main: #c5d7ff;
+    --color-fg-lobby-light: #b5c5e9;
+    --color-fg-lobby-base: #aabde5;
+    --color-fg-lobby-dark: #a0b5e2;
+    --color-fg-lobby-extradark: #96adde;
+
+    --color-fg-programming-main: #c5d3ed;
 
     --color-bg-lobby: #121212;
-    --color-bg-programming: #1b222f;
+    --color-bg-programming: #0E0E0E;
     --color-bg-highlight: #131821;
-    --color-bg-curtain: #8FDCC2;
+    --color-bg-curtain: #6082B6;
 
     --color-selection: #2a3242;
     --color-selection-fg: #b5c5e9;
