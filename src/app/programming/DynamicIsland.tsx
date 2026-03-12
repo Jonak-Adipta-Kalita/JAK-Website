@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -8,8 +8,13 @@ const DynamicIsland = () => {
     const [activeHeader, setActiveHeader] = useState("About");
     const router = useRouter();
 
+    useEffect(() => {
+        router.prefetch("/programming/journal");
+        router.prefetch("/programming/work");
+    }, [])
+
     return (
-        <header className="bg-bg-programming text-fg-programming-main mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
+        <header className="bg-transparent text-fg-programming-main mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name) => (
                     <motion.div
@@ -35,7 +40,7 @@ const DynamicIsland = () => {
                         animate={{
                             backgroundColor:
                                 activeHeader === name
-                                    ? "#1B1B1C"
+                                    ? "rgba(255,255,255,0.08)"
                                     : "rgba(0,0,0,0)",
                         }}
                         transition={{

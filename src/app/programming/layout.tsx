@@ -14,7 +14,7 @@ const ProgrammingLayout = ({
 }>) => {
     return (
         <PageReveal>
-            <div className="flex flex-col items-center bg-bg-programming text-fg-main h-screen">
+            <div className="flex flex-col items-center bg-gradient-to-br from-[#05050f] via-[#1a0a2e] to-[#0e2040] text-fg-main h-screen">
                 <DynamicIsland />
                 <main className="mx-auto mt-[clamp(1.5rem,2vw+1.5rem,4.5rem)] max-w-7xl">
                     {children}
