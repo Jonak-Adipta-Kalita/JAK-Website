@@ -34,7 +34,6 @@
 
 @layer base {
     body {
-        /* TODO: Add Custom Scrollbar */
         @apply cursor-default overflow-x-hidden overflow-y-auto;
     }
 
@@ -48,8 +47,20 @@
 
     .aboutText {
         @apply text-fg-programming-text font-bold cursor-text text-xl;
-        font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1.25rem);
+        font-size: clamp(0.75rem, 0.6rem + 0.4vw, 1rem);
     }
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
 }
 
 @layer components {
