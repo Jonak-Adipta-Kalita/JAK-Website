@@ -1,11 +1,11 @@
+import Image from "next/image";
+
 const AboutMe = () => {
     return (
-        <section className="flex items-center justify-center h-screen w-full">
-            <div className="hidden lg:inline">
+        <section className="flex lg:items-center mt-28 lg:mt-0 justify-center h-screen w-full relative">
+            <div></div>
 
-            </div>
-
-            <div className="space-y-7 p-10 bg-slate-800/75 rounded-lg shadow-slate-900 shadow-lg">
+            <div className="space-y-7 h-fit p-4 lg:p-10 bg-slate-800/30 rounded-lg shadow-slate-900 shadow-lg mx-4">
                 <p className="text-fg-programming-secondary text-[clamp(1.25rem,1rem+1vw,1.875rem)] font-salsa tracking-wider text-center lg:text-left">
                     Hey, I am {" "}
                     <span className="text-fg-programming-primary">
@@ -33,6 +33,10 @@ const AboutMe = () => {
                         I am literate in <span className="text-fg-programming-primary">অসমীয়া</span> (native), <span className="text-fg-programming-primary">English</span> as well as <span className="text-fg-programming-primary">हिंदी</span> and in the process of learning <span className="text-fg-programming-primary">日本語</span> - Polymathy includes Polyglotism
                     </li>
                 </ul>
+            </div>
+
+            <div>
+                {/* Scroll for more Button */}
             </div>
         </section>
     )
