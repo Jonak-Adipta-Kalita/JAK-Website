@@ -1,13 +1,13 @@
 "use client";
 
-import MyPic from "./MyPic";
+// import MyPic from "./MyPic";
 import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
 import { useState } from "react";
 
 const listItems = [
     <>
-        I'm passionate about{" "}
+        I&rsquo;m passionate about{" "}
         <span className="text-fg-programming-primary">Coding</span>, exploring
         various areas such as Web Development, Game Development, Machine
         Learning, Computer Vision, IoT, ...
@@ -20,12 +20,14 @@ const listItems = [
     </>,
     <>
         <span className="text-fg-programming-primary">Astronomy</span>{" "}
-        fascinates me, and I'm always eager to learn more about the universe.
+        fascinates me, and I&rsquo;m always eager to learn more about the
+        universe.
     </>,
     <>
-        I'm also a <span className="text-fg-programming-primary">book</span>{" "}
-        nerd who loves getting lost in captivating fiction and exploring new
-        worlds through stories.
+        I&rsquo;m also a{" "}
+        <span className="text-fg-programming-primary">book</span> nerd who loves
+        getting lost in captivating fiction and exploring new worlds through
+        stories.
     </>,
     <>
         I have a huge love for{" "}
