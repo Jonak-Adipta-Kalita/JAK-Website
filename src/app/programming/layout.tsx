@@ -14,11 +14,11 @@ const ProgrammingLayout = ({
 }>) => {
     return (
         <PageReveal>
-            <div className="flex flex-col items-center bg-gradient-to-br from-[#05050f] via-[#1a0a2e] to-[#0e2040] text-fg-main h-screen">
-                <DynamicIsland />
-                <main className="mx-auto mt-[clamp(1.5rem,2vw+1.5rem,4.5rem)] max-w-7xl">
-                    {children}
-                </main>
+            <div className="flex flex-col items-center bg-gradient-to-br from-[#030b1a] via-[#071428] to-[#12103a] text-fg-programming-text h-screen relative">
+                <div className="absolute left-1/2 -translate-x-1/2">
+                    <DynamicIsland />
+                </div>
+                {children}
             </div>
         </PageReveal>
     );
