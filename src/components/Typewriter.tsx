@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
-import type { Dispatch, SetStateAction } from "react"
+import type { Dispatch, SetStateAction } from "react";
 
 interface TypewriterProps {
     textParts: {
@@ -12,12 +12,17 @@ interface TypewriterProps {
     }[];
 
     typingDone: boolean;
-    setTypingDone: Dispatch<SetStateAction<boolean>>
+    setTypingDone: Dispatch<SetStateAction<boolean>>;
 
-    highlightTailwind: string
+    highlightTailwind: string;
 }
 
-const Typewriter = ({ typingDone, setTypingDone, textParts, highlightTailwind }: TypewriterProps) => {
+const Typewriter = ({
+    typingDone,
+    setTypingDone,
+    textParts,
+    highlightTailwind,
+}: TypewriterProps) => {
     const [displayedCount, setDisplayedCount] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -54,7 +59,9 @@ const Typewriter = ({ typingDone, setTypingDone, textParts, highlightTailwind }:
             if (!slice) return null;
 
             return part.highlight ? (
-                <span key={i} className={`text-${highlightTailwind}`}>{slice}</span>
+                <span key={i} className={`text-${highlightTailwind}`}>
+                    {slice}
+                </span>
             ) : (
                 <span key={i}>{slice}</span>
             );
@@ -65,9 +72,15 @@ const Typewriter = ({ typingDone, setTypingDone, textParts, highlightTailwind }:
         <>
             {renderTypewriter()}
             {!typingDone && (
-                <span className={cn("inline-block w-[2px] h-[1em] align-middle ml-0.5 animate-pulse", `bg-${highlightTailwind}`)} />
-            )}</>
-    )
-}
+                <span
+                    className={cn(
+                        "ml-0.5 inline-block h-[1em] w-[2px] animate-pulse align-middle",
+                        `bg-${highlightTailwind}`
+                    )}
+                />
+            )}
+        </>
+    );
+};
 
 export default Typewriter;

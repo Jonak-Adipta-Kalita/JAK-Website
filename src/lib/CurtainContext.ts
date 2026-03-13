@@ -8,10 +8,10 @@ interface CurtainContextValue {
 }
 
 export const CurtainContext = createContext<CurtainContextValue>({
-    navigateTo: () => { },
-    openOnMount: () => { },
+    navigateTo: () => {},
+    openOnMount: () => {},
 });
 
 export const useCurtain = () => {
     return useContext(CurtainContext);
-}
+};

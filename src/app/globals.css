@@ -12,12 +12,12 @@
     --color-fg-lobby-extradark: #96adde;
 
     --color-fg-programming-text: #c5d3ed;
-    --color-fg-programming-primary: #3FAFF5;
+    --color-fg-programming-primary: #3faff5;
     --color-fg-programming-secondary: #9dabdc;
 
     --color-bg-lobby: #121212;
     --color-bg-highlight: #131821;
-    --color-bg-curtain: #6082B6;
+    --color-bg-curtain: #6082b6;
 
     --color-selection: #2a3242;
     --color-selection-fg: #b5c5e9;
@@ -46,21 +46,21 @@
     }
 
     .aboutText {
-        @apply text-fg-programming-text font-bold cursor-text text-xl;
+        @apply text-fg-programming-text cursor-text text-xl font-bold;
         font-size: clamp(0.75rem, 0.6rem + 0.4vw, 1rem);
     }
 }
 
 @media (min-width: 768px) {
-  html {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100%;
-  }
+    html {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        height: 100%;
+    }
 
-  body {
-    height: 100%;
-  }
+    body {
+        height: 100%;
+    }
 }
 
 @layer components {

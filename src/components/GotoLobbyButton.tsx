@@ -9,11 +9,7 @@ const GotoLobbyButton = () => {
 
     if (pathname === "/") return <></>;
 
-    return (
-        <>
-            {/* TODO */}
-        </>
-    )
-}
+    return <>{/* TODO */}</>;
+};
 
 export default GotoLobbyButton;

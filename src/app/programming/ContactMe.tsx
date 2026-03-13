@@ -1,7 +1,5 @@
 const ContactMe = () => {
-    return (
-        <section></section>
-    )
-}
+    return <section></section>;
+};
 
 export default ContactMe;

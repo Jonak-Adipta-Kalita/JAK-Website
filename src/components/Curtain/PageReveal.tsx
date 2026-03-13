@@ -11,6 +11,6 @@ const PageReveal = ({ children }: { children: React.ReactNode }) => {
     }, [openOnMount]);
 
     return <>{children}</>;
-}
+};
 
 export default PageReveal;

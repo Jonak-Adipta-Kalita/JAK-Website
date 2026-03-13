@@ -1,5 +1,5 @@
 const MusicPage = () => {
-    return <main></main>
-}
+    return <main></main>;
+};
 
 export default MusicPage;

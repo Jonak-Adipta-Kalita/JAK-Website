@@ -14,7 +14,7 @@ const ProgrammingLayout = ({
 }>) => {
     return (
         <PageReveal>
-            <div className="flex flex-col items-center bg-gradient-to-br from-[#030b1a] via-[#071428] to-[#12103a] text-fg-programming-text h-screen relative">
+            <div className="text-fg-programming-text relative flex h-screen flex-col items-center bg-gradient-to-br from-[#030b1a] via-[#071428] to-[#12103a]">
                 <div className="absolute left-1/2 -translate-x-1/2">
                     <DynamicIsland />
                 </div>

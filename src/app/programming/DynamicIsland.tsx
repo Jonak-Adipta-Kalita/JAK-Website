@@ -11,10 +11,10 @@ const DynamicIsland = () => {
     useEffect(() => {
         router.prefetch("/programming/journal");
         router.prefetch("/programming/work");
-    }, [])
+    }, []);
 
     return (
-        <header className="bg-transparent text-fg-programming-text mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full sm:space-x-1">
+        <header className="text-fg-programming-text mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full bg-transparent sm:space-x-1">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name, index) => (
                     <motion.div
@@ -25,13 +25,18 @@ const DynamicIsland = () => {
                             setActiveHeader(name);
 
                             if (name === "Work" || name === "Journal") {
-                                router.push(`/programming/${name.toLowerCase()}`);
+                                router.push(
+                                    `/programming/${name.toLowerCase()}`
+                                );
                             } else {
                                 let scrollHash = "";
 
-                                if (name === "About") scrollHash = ""
-                                else if (name === "Testimonials" || name === "Contact")
-                                    scrollHash = `#${name.toLowerCase()}`
+                                if (name === "About") scrollHash = "";
+                                else if (
+                                    name === "Testimonials" ||
+                                    name === "Contact"
+                                )
+                                    scrollHash = `#${name.toLowerCase()}`;
 
                                 router.push(`/programming${scrollHash}`);
                             }
@@ -47,8 +52,16 @@ const DynamicIsland = () => {
                                     : "rgba(0,0,0,0)",
                         }}
                         transition={{
-                            opacity: { duration: 0.4, delay: index * 0.08, ease: "easeOut" },
-                            y: { duration: 0.4, delay: index * 0.08, ease: "easeOut" },
+                            opacity: {
+                                duration: 0.4,
+                                delay: index * 0.08,
+                                ease: "easeOut",
+                            },
+                            y: {
+                                duration: 0.4,
+                                delay: index * 0.08,
+                                ease: "easeOut",
+                            },
                             backgroundColor: {
                                 duration: 0.2,
                                 ease: "easeInOut",

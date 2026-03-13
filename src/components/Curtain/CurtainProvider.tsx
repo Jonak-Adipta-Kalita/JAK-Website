@@ -6,10 +6,18 @@ import { useCurtainTransition } from "@/lib/hooks/usePageTransition";
 import { CurtainContext } from "@/lib/CurtainContext";
 import { LeftCurtain, RightCurtain } from "./CurtainUI";
 
-const transition = { duration: 0.8, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] };
+const transition = {
+    duration: 0.8,
+    ease: [0.76, 0, 0.24, 1] as [number, number, number, number],
+};
 
-export const CurtainProvider = ({ children }: { children: React.ReactNode }) => {
-    const { curtainState, navigateTo, openOnMount, onClosed, onOpened } = useCurtainTransition();
+export const CurtainProvider = ({
+    children,
+}: {
+    children: React.ReactNode;
+}) => {
+    const { curtainState, navigateTo, openOnMount, onClosed, onOpened } =
+        useCurtainTransition();
 
     const leftControls = useAnimation();
     const rightControls = useAnimation();
@@ -19,7 +27,10 @@ export const CurtainProvider = ({ children }: { children: React.ReactNode }) => 
             if (curtainState === "closing") {
                 await Promise.all([
                     leftControls.start({ x: "0%", transition }),
-                    rightControls.start({ x: "0%", transition: { ...transition, delay: 0.5 } }),
+                    rightControls.start({
+                        x: "0%",
+                        transition: { ...transition, delay: 0.5 },
+                    }),
                 ]);
                 onClosed();
             } else if (curtainState === "opening") {
@@ -40,7 +51,7 @@ export const CurtainProvider = ({ children }: { children: React.ReactNode }) => 
                 <motion.div
                     initial={{ x: "-100%" }}
                     animate={leftControls}
-                    className="fixed top-0 left-0 z-50 h-full w-1/2 pointer-events-none"
+                    className="pointer-events-none fixed top-0 left-0 z-50 h-full w-1/2"
                 >
                     <LeftCurtain />
                 </motion.div>
@@ -48,7 +59,7 @@ export const CurtainProvider = ({ children }: { children: React.ReactNode }) => 
                 <motion.div
                     initial={{ x: "100%" }}
                     animate={rightControls}
-                    className="fixed top-0 left-1/2 z-50 h-full w-1/2 pointer-events-none"
+                    className="pointer-events-none fixed top-0 left-1/2 z-50 h-full w-1/2"
                 >
                     <RightCurtain />
                 </motion.div>
