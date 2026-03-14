@@ -52,26 +52,26 @@ const AboutMe = () => {
 
     return (
         <section className="flex w-full items-center justify-center lg:h-screen lg:snap-center lg:snap-always">
-            <div className="mt-28 flex w-full max-w-7xl justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20 mx-5">
+            <div className="mx-5 mt-28 flex w-full max-w-7xl justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20">
                 <motion.div
                     className="hidden lg:inline"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1 }}
                 >
-                    <div className="relative w-88 z-40">
+                    <div className="relative z-40 w-88">
                         <Image
                             src={img}
                             alt="My Pic"
                             className="rounded-2xl drop-shadow-lg"
                         />
-                        <div className="absolute inset-0 grid place-items-center pointer-events-none">
+                        <div className="pointer-events-none absolute inset-0 grid place-items-center">
                             <div
                                 className="absolute rounded-full"
                                 style={{
-                                    inlineSize: '500px',
-                                    aspectRatio: '1',
-                                    border: '6px solid transparent',
+                                    inlineSize: "500px",
+                                    aspectRatio: "1",
+                                    border: "6px solid transparent",
                                     background: `conic-gradient(
                                           from -130deg,
                                           hsl(210 13% 30%) 0%,
@@ -79,7 +79,7 @@ const AboutMe = () => {
                                           hsl(210 13% 30%) 75%
                                         ) border-box`,
                                     mask: `linear-gradient(#0000) padding-box intersect, linear-gradient(#000) border-box`,
-                                    rotate: '3 0.5 2 90deg',
+                                    rotate: "3 0.5 2 90deg",
                                 }}
                             />
                         </div>
