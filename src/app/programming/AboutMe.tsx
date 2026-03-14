@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
 
 import img from "@/../public/My Pic.png";
-import { useRouter } from "next/navigation";
 
 const listItems = [
     <>
@@ -53,19 +52,41 @@ const AboutMe = () => {
 
     return (
         <section className="flex w-full items-center justify-center lg:h-screen lg:snap-center lg:snap-always">
-            <div className="mt-28 flex w-full max-w-7xl justify-center lg:mt-0 lg:h-screen lg:items-center">
-                <div className="mr-15 hidden lg:inline">
-                    <div className="relative w-88">
+            <div className="mt-28 flex w-full max-w-7xl justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20 mx-5">
+                <motion.div
+                    className="hidden lg:inline"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    <div className="relative w-88 z-40">
                         <Image
                             src={img}
                             alt="My Pic"
-                            className="z-3 rounded-2xl drop-shadow-lg"
+                            className="rounded-2xl drop-shadow-lg"
                         />
-                        <div id="ring-on-mypic" />
+                        <div className="absolute inset-0 grid place-items-center pointer-events-none">
+                            <div
+                                className="absolute rounded-full"
+                                style={{
+                                    inlineSize: '500px',
+                                    aspectRatio: '1',
+                                    border: '6px solid transparent',
+                                    background: `conic-gradient(
+                                          from -130deg,
+                                          hsl(210 13% 30%) 0%,
+                                          #0000 10% 40%,
+                                          hsl(210 13% 30%) 75%
+                                        ) border-box`,
+                                    mask: `linear-gradient(#0000) padding-box intersect, linear-gradient(#000) border-box`,
+                                    rotate: '3 0.5 2 90deg',
+                                }}
+                            />
+                        </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="mx-4 h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
+                <div className="h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
                     <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[clamp(1.25rem,1rem+1vw,1.875rem)] tracking-wider lg:text-left">
                         <Typewriter
                             highlightTailwind="fg-programming-primary"
