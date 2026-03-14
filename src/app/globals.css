@@ -34,7 +34,7 @@
 
 @layer base {
     body {
-        @apply scrollbar scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-transparent hover:scrollbar-thumb-blue-600 cursor-default overflow-x-hidden overflow-y-auto;
+        @apply cursor-default overflow-x-hidden overflow-y-auto;
     }
 
     ::selection {
@@ -48,18 +48,6 @@
     .aboutText {
         @apply text-fg-programming-text cursor-text text-xl font-bold;
         font-size: clamp(0.75rem, 0.6rem + 0.4vw, 1rem);
-    }
-}
-
-@media (min-width: 1024px) {
-    html {
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-        height: 100%;
-    }
-
-    body {
-        height: 100%;
     }
 }
 
