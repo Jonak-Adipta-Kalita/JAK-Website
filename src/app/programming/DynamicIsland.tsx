@@ -14,7 +14,7 @@ const DynamicIsland = () => {
     }, []);
 
     return (
-        <header className="text-fg-programming-text mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full bg-[#061224] p-2 sm:space-x-1">
+        <header className="text-fg-programming-text z-50 mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full bg-[#061224] p-2 sm:space-x-1">
             {["About", "Work", "Journal", "Testimonials", "Contact"].map(
                 (name, index) => (
                     <motion.div
@@ -35,8 +35,9 @@ const DynamicIsland = () => {
                                 else if (
                                     name === "Testimonials" ||
                                     name === "Contact"
-                                )
+                                ) {
                                     scrollHash = `#${name.toLowerCase()}`;
+                                }
 
                                 router.push(`/programming${scrollHash}`);
                             }

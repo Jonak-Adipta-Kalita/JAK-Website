@@ -5,7 +5,7 @@ import Testimonials from "./Testimonials";
 
 export default function ProgrammingPage() {
     return (
-        <main className="lg:snap-y lg:snap-mandatory overflow-y-auto w-full scroll-smooth scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent hover:scrollbar-thumb-slate-600">
+        <main className="scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent scrollbar-hover:scrollbar-thumb-slate-600 w-full overflow-y-auto scroll-smooth lg:snap-y lg:snap-mandatory">
             <AboutMe />
 
             <ProgrammingSkills />

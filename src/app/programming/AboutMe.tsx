@@ -1,9 +1,12 @@
 "use client";
 
-import MyPic from "./MyPic";
+import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
-import { useState } from "react";
+
+import img from "@/../public/My Pic.png";
+import { useRouter } from "next/navigation";
 
 const listItems = [
     <>
@@ -49,9 +52,19 @@ const AboutMe = () => {
     const [typingDone, setTypingDone] = useState(false);
 
     return (
-        <section className="lg:h-screen lg:snap-center lg:snap-always w-full flex items-center justify-center">
-            <div className="mt-28 flex lg:h-screen w-full max-w-7xl justify-center lg:mt-0 lg:items-center">
-                <div className="hidden lg:inline">{/* MyPic */}</div>
+        <section className="flex w-full items-center justify-center lg:h-screen lg:snap-center lg:snap-always">
+            <div className="mt-28 flex w-full max-w-7xl justify-center lg:mt-0 lg:h-screen lg:items-center">
+                <div className="mr-15 hidden lg:inline">
+                    <div className="relative w-88">
+                        <Image
+                            src={img}
+                            alt="My Pic"
+                            className="z-3 rounded-2xl drop-shadow-lg"
+                        />
+                        <div id="ring-on-mypic" />
+                    </div>
+                </div>
+
                 <div className="mx-4 h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
                     <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[clamp(1.25rem,1rem+1vw,1.875rem)] tracking-wider lg:text-left">
                         <Typewriter
