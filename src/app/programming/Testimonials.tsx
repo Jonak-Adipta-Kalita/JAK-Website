@@ -1,6 +1,6 @@
 const Testimonials = () => {
     return (
-        <section className="lg:h-screen lg:snap-center lg:snap-always"></section>
+        <section id="testimonials" className="lg:h-screen lg:snap-center lg:snap-always"></section>
     );
 };
 

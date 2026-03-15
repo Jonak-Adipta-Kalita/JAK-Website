@@ -6,52 +6,55 @@ import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
 
 import img from "@/../public/My Pic.png";
+import { useCurtain } from "@/lib/CurtainContext";
 
-const listItems = [
-    <>
-        I&rsquo;m passionate about{" "}
-        <span className="text-fg-programming-primary">Coding</span>, exploring
-        various areas such as Web Development, Game Development, Machine
-        Learning, Computer Vision, IoT, ...
-    </>,
-    <>
-        <span className="text-fg-programming-primary">Music</span> is a big part
-        of my life; while I love playing different kinds of instruments,{" "}
-        <span className="text-fg-programming-primary">Guitar</span> holds a
-        special place in my heart.
-    </>,
-    <>
-        <span className="text-fg-programming-primary">Astronomy</span>{" "}
-        fascinates me, and I&rsquo;m always eager to learn more about the
-        universe.
-    </>,
-    <>
-        I&rsquo;m also a{" "}
-        <span className="text-fg-programming-primary">book</span> nerd who loves
-        getting lost in captivating fiction and exploring new worlds through
-        stories.
-    </>,
-    <>
-        I have a huge love for{" "}
-        <span className="text-fg-programming-primary">gaming</span>, finding
-        enjoyment in both playing and developing games.
-    </>,
-    <>
-        I am literate in{" "}
-        <span className="text-fg-programming-primary">অসমীয়া</span> (native),{" "}
-        <span className="text-fg-programming-primary">English</span> as well as{" "}
-        <span className="text-fg-programming-primary">हिंदी</span> and in the
-        process of learning{" "}
-        <span className="text-fg-programming-primary">日本語</span> - Polymathy
-        includes Polyglotism right?
-    </>,
-];
 
 const AboutMe = () => {
     const [typingDone, setTypingDone] = useState(false);
+    const { navigateTo } = useCurtain();
+
+    const listItems = [
+        <>
+            I&rsquo;m passionate about{" "}
+            <span className="aboutText-highlight">Coding</span>, exploring
+            various areas such as Web Development, Game Development, Machine
+            Learning, Computer Vision, IoT, ...
+        </>,
+        <>
+            <span onClick={() => navigateTo("/music")} className="aboutText-highlight">Music</span> is a big part
+            of my life; while I love playing different kinds of instruments,{" "}
+            <span onClick={() => navigateTo("/music")} className="aboutText-highlight">Guitar</span> holds a
+            special place in my heart.
+        </>,
+        <>
+            <span className="aboutText-highlightt">Astronomy</span>{" "}
+            fascinates me, and I&rsquo;m always eager to learn more about the
+            universe.
+        </>,
+        <>
+            I&rsquo;m also a{" "}
+            <span onClick={() => navigateTo("/productivity")} className="aboutText-highlight">Book</span> nerd who loves
+            getting lost in captivating fiction and exploring new worlds through
+            stories.
+        </>,
+        <>
+            I have a huge love for{" "}
+            <span onClick={() => alert("some day fam!")} className="aboutText-highlight">Gaming</span>, finding
+            enjoyment in both playing and developing games.
+        </>,
+        <>
+            I am literate in{" "}
+            <span className="aboutText-highlight">অসমীয়া</span> (native),{" "}
+            <span className="aboutText-highlight">English</span> as well as{" "}
+            <span className="aboutText-highlight">हिंदी</span> and in the
+            process of learning{" "}
+            <span className="aboutText-highlight">日本語</span> - Polymathy
+            includes <span onClick={() => navigateTo("/polyglot")} className="aboutText-highlight text-fg-programming-text">Polyglotism</span> right?
+        </>,
+    ];
 
     return (
-        <section className="flex w-full items-center justify-center lg:h-screen lg:snap-center lg:snap-always">
+        <section id="about" className="flex w-full items-center justify-center lg:h-screen lg:snap-center lg:snap-always">
             <div className="mx-5 mt-28 flex w-full max-w-7xl justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20">
                 <motion.div
                     className="hidden lg:inline"
@@ -100,6 +103,7 @@ const AboutMe = () => {
                                     highlight: false,
                                 },
                             ]}
+                            strokeTimeout={20}
                         />
                     </p>
 

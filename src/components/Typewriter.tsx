@@ -15,6 +15,8 @@ interface TypewriterProps {
     setTypingDone: Dispatch<SetStateAction<boolean>>;
 
     highlightTailwind: string;
+
+    strokeTimeout: number;
 }
 
 const Typewriter = ({
@@ -22,6 +24,7 @@ const Typewriter = ({
     setTypingDone,
     textParts,
     highlightTailwind,
+    strokeTimeout,
 }: TypewriterProps) => {
     const [displayedCount, setDisplayedCount] = useState(0);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -37,7 +40,7 @@ const Typewriter = ({
                 }
                 return prev + 1;
             });
-        }, 40);
+        }, strokeTimeout);
 
         return () => clearInterval(intervalRef.current!);
     }, []);

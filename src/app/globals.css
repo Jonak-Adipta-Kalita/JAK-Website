@@ -49,6 +49,10 @@
         @apply text-fg-programming-text cursor-text text-xl font-bold;
         font-size: clamp(0.75rem, 0.6rem + 0.4vw, 1rem);
     }
+
+    .aboutText-highlight {
+        @apply text-fg-programming-primary hover:underline cursor-pointer decoration-dashed underline-offset-4;
+    }
 }
 
 @layer components {
