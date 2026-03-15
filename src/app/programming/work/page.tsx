@@ -1,7 +1,5 @@
 const ProgrammingWorkPage = () => {
-    return (
-        <main></main>
-    )
+    return <main></main>;
 };
 
 export default ProgrammingWorkPage;

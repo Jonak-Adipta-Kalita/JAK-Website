@@ -1,5 +1,5 @@
 const ProductivityPage = () => {
-    return <div></div>
-}
+    return <main></main>;
+};
 
 export default ProductivityPage;

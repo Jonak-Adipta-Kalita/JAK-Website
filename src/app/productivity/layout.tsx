@@ -1,4 +1,4 @@
-import PageReveal from "@/components/Curtain/PageReveal"
+import PageReveal from "@/components/Curtain/PageReveal";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,13 +9,9 @@ export const metadata: Metadata = {
 const ProductivityLayout = ({
     children,
 }: Readonly<{
-    children: React.ReactNode
+    children: React.ReactNode;
 }>) => {
-    return (
-        <PageReveal>
-            {children}
-        </PageReveal>
-    )
-}
+    return <PageReveal>{children}</PageReveal>;
+};
 
 export default ProductivityLayout;

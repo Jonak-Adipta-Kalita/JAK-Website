@@ -33,7 +33,7 @@ const RootLayout = ({
     return (
         <html lang="en">
             <body
-                className={`${salsa.variable} ${ubuntuSans.variable} antialiased relative`}
+                className={`${salsa.variable} ${ubuntuSans.variable} relative antialiased`}
             >
                 <CurtainProvider>
                     {children}

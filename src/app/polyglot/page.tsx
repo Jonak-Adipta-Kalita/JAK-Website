@@ -1,5 +1,5 @@
 const PolyglotPage = () => {
-    return <div></div>
-}
+    return <main></main>;
+};
 
 export default PolyglotPage;
