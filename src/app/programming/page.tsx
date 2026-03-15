@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { HASH_ITEMS, useNavStore } from "@/lib/hooks/useNavStore";
 import AboutMe from "./AboutMe";
@@ -20,12 +20,16 @@ export default function ProgrammingPage() {
         if (HASH_ITEMS.has(activeHeader)) {
             const target = document.getElementById(activeHeader.toLowerCase());
             if (!target) return;
+
             container.scrollTo({ top: target.offsetTop, behavior: "smooth" });
         }
     }, [activeHeader]);
 
     return (
-        <main ref={mainRef} className="scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent scrollbar-hover:scrollbar-thumb-slate-600 w-full overflow-y-auto scroll-smooth lg:snap-y lg:snap-mandatory">
+        <main
+            ref={mainRef}
+            className="scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent scrollbar-hover:scrollbar-thumb-slate-600 w-full overflow-y-auto scroll-smooth lg:snap-y lg:snap-mandatory"
+        >
             <AboutMe />
 
             <ProgrammingSkills />

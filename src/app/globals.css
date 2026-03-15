@@ -51,7 +51,7 @@
     }
 
     .aboutText-highlight {
-        @apply text-fg-programming-primary hover:underline cursor-pointer decoration-dashed underline-offset-4;
+        @apply text-fg-programming-primary cursor-pointer decoration-dashed underline-offset-4 hover:underline;
     }
 }
 
