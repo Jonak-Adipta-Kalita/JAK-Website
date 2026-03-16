@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
 import type { Dispatch, SetStateAction } from "react";
@@ -62,7 +61,9 @@ const Typewriter = ({
             if (!slice) return null;
 
             return part.highlight ? (
-                <span key={i} className={`text-${highlightTailwind}`}>
+                <span key={i}
+                    style={{ color: highlightTailwind }}
+                >
                     {slice}
                 </span>
             ) : (
@@ -76,10 +77,8 @@ const Typewriter = ({
             {renderTypewriter()}
             {!typingDone && (
                 <span
-                    className={cn(
-                        "ml-0.5 inline-block h-[1em] w-[2px] animate-pulse align-middle",
-                        `bg-${highlightTailwind}`
-                    )}
+                    className="ml-0.5 inline-block h-[1em] w-[2px] animate-pulse align-middle"
+                    style={{ backgroundColor: highlightTailwind }}
                 />
             )}
         </>

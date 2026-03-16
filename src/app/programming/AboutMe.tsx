@@ -123,7 +123,7 @@ const AboutMe = () => {
                 <div className="h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
                     <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[clamp(1.25rem,1rem+1vw,1.875rem)] tracking-wider lg:text-left">
                         <Typewriter
-                            highlightTailwind="fg-programming-primary"
+                            highlightTailwind="var(--color-fg-programming-primary)"
                             typingDone={typingDone}
                             setTypingDone={setTypingDone}
                             textParts={[
