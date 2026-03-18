@@ -5,7 +5,6 @@ type Skill = {
     name: string;
     message: string;
     link?: string;
-    connectSkillId?: string; // Plan: Use this to connect
 }
 
 const skills: {
@@ -24,7 +23,7 @@ const ProgrammingSkills = () => {
             className="flex w-full items-center justify-center"
         >
             <div className="">
-
+                {/* Graph View! */}
             </div>
         </ScrollSnapSection>
     );
