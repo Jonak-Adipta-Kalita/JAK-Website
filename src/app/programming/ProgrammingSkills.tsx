@@ -28,7 +28,6 @@ const ProgrammingSkills = () => {
                         })[node.type] ?? "#888"
                     }
                     nodeLabel={(node) => node.name}
-                    linkColor="#e3e3e3"
                 />
             </div>
         </ScrollSnapSection>
