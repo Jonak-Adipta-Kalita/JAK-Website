@@ -12,6 +12,7 @@ export const OtherFields = [
     "Operating System",
     "Text Editor",
 ] as const;
+export const AllFields = [...Fields, ...OtherFields] as const;
 
 export const LanguageNames = [
     "Python",
@@ -40,12 +41,12 @@ type FrameworkSkill = Skill & {
     languages: (typeof LanguageNames)[number][] | null;
 };
 type ToolSkill = Omit<Skill, "fields"> & {
-    fields: ((typeof Fields)[number] | (typeof OtherFields)[number])[] | null;
+    fields: (typeof AllFields)[number][] | null;
 };
 
 // TODO: Get rid of the OtherFields + Probably reduce the Fields, too many is a headache - need a better system
 
-export const skills: {
+const skills: {
     languages: LanguageSkill[];
     frameworks: (
         | { id: string; groupName: string; frameworks: FrameworkSkill[] }
@@ -278,12 +279,6 @@ export const skills: {
             ],
         },
         {
-            id: "obsidian",
-            name: "Obsidian",
-            pic: "/pic/obsidian.webp",
-            fields: ["Productivity"],
-        },
-        {
             id: "git",
             name: "Git",
             pic: "/pic/git.webp",
@@ -363,10 +358,24 @@ export const skills: {
             fields: ["Cloud & DevOps"],
         },
         {
-            id: "xournalpp",
-            name: "Xournal++",
-            pic: "/pic/xournalpp.webp",
-            fields: ["Productivity"],
+            id: "productivity",
+            groupName: "Productivity",
+            tools: [
+                {
+                    id: "xournalpp",
+                    name: "Xournal++",
+                    pic: "/pic/xournalpp.webp",
+                    fields: ["Productivity"],
+                },
+                {
+                    id: "obsidian",
+                    name: "Obsidian",
+                    pic: "/pic/obsidian.webp",
+                    fields: ["Productivity"],
+                },
+            ],
         },
     ],
 } as const;
+
+export default skills;

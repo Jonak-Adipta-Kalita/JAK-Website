@@ -61,9 +61,7 @@ const Typewriter = ({
             if (!slice) return null;
 
             return part.highlight ? (
-                <span key={i}
-                    style={{ color: highlightTailwind }}
-                >
+                <span key={i} style={{ color: highlightTailwind }}>
                     {slice}
                 </span>
             ) : (
