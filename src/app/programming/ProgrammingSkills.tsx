@@ -15,7 +15,7 @@ const ProgrammingSkills = () => {
             className="flex w-full items-center justify-center"
         >
             {/* TODO: Style Better ; A fixed Container */}
-            <div className="bg-slate-200">
+            <div className="">
                 <ForceGraph
                     graphData={graphData}
                     nodeColor={(node) =>
@@ -28,6 +28,7 @@ const ProgrammingSkills = () => {
                         })[node.type] ?? "#888"
                     }
                     nodeLabel={(node) => node.name}
+                    linkColor="#e3e3e3"
                 />
             </div>
         </ScrollSnapSection>
