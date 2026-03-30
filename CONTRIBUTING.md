@@ -1,4 +1,4 @@
--   Note: [Formatting](#format-code) the Code before Pushing is Important!!
+- Note: [Formatting](#format-code) the Code before Pushing is Important!!
 
 ## Steps
 

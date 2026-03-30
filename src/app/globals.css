@@ -11,12 +11,13 @@
     --color-fg-lobby-dark: #a0b5e2;
     --color-fg-lobby-extradark: #96adde;
 
-    --color-fg-programming-main: #c5d3ed;
+    --color-fg-programming-text: #c5d3ed;
+    --color-fg-programming-primary: #3faff5;
+    --color-fg-programming-secondary: #9dabdc;
 
     --color-bg-lobby: #121212;
-    --color-bg-programming: #0E0E0E;
     --color-bg-highlight: #131821;
-    --color-bg-curtain: #6082B6;
+    --color-bg-curtain: #6082b6;
 
     --color-selection: #2a3242;
     --color-selection-fg: #b5c5e9;
@@ -33,8 +34,7 @@
 
 @layer base {
     body {
-        /* TODO: Add Custom Scrollbar */
-        @apply cursor-default overflow-x-hidden;
+        @apply cursor-default overflow-x-hidden overflow-y-auto;
     }
 
     ::selection {
@@ -43,6 +43,15 @@
 
     p {
         cursor: text;
+    }
+
+    .aboutText {
+        @apply text-fg-programming-text cursor-text text-xl font-bold;
+        font-size: clamp(0.75rem, 0.6rem + 0.4vw, 1rem);
+    }
+
+    .aboutText-highlight {
+        @apply text-fg-programming-primary cursor-pointer decoration-dashed underline-offset-4 hover:underline;
     }
 }
 

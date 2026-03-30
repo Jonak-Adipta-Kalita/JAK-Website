@@ -17,8 +17,9 @@
         "next": "15.5.12",
         "react": "19.1.0",
         "react-dom": "19.1.0",
+        "react-force-graph-2d": "^1.29.1",
         "tailwind-merge": "^3.3.1",
-        "zustand": "^5.0.8"
+        "zustand": "^5.0.11"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",

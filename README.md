@@ -28,15 +28,15 @@ With meticulous attention to detail, My Website offers visitors a comprehensive 
 
 </div>
 
--   [UI Design - Figma](https://www.figma.com/file/dWBap5xX9LiD8rB7uukptm/JAK-Website?type=design&node-id=100%3A2&mode=design&t=pjD43mpfHIj1ky4U-1)
+- [UI Design - Figma](https://www.figma.com/file/dWBap5xX9LiD8rB7uukptm/JAK-Website?type=design&node-id=100%3A2&mode=design&t=pjD43mpfHIj1ky4U-1)
 
 ## Community support
 
 For additional help, you can use one of these channels to ask a question:
 
--   [Github Discussions](https://github.com/Jonak-Adipta-Kalita/JAK-Website/discussions) - Discussions with the community and the team.
--   [Github Issues](https://github.com/Jonak-Adipta-Kalita/JAK-Website/issues) - For bug reports and feature requests.
--   [Twitter](https://twitter.com/AdiptaJonak) - Get the product updates easily.
+- [Github Discussions](https://github.com/Jonak-Adipta-Kalita/JAK-Website/discussions) - Discussions with the community and the team.
+- [Github Issues](https://github.com/Jonak-Adipta-Kalita/JAK-Website/issues) - For bug reports and feature requests.
+- [Twitter](https://twitter.com/AdiptaJonak) - Get the product updates easily.
 
 ## Roadmap
 
@@ -48,11 +48,11 @@ Kindly read our [Contributing Guide](CONTRIBUTING.md) to learn and understand ab
 
 ## Technology(s) Used
 
--   Language: [Python](https://www.python.org/), [TypeScript](https://www.typescriptlang.org/)
--   Language Framework: [Django](https://www.djangoproject.com/), [NextJS](https://nextjs.org/)
--   Database: [PostgreSQL](https://www.postgresql.org/)
--   Database Manager: [ElephantSQL](https://www.elephantsql.com/)
--   Hosted: [Vercel](https://vercel.com/)
+- Language: [Python](https://www.python.org/), [TypeScript](https://www.typescriptlang.org/)
+- Language Framework: [Django](https://www.djangoproject.com/), [NextJS](https://nextjs.org/)
+- Database: [PostgreSQL](https://www.postgresql.org/)
+- Database Manager: [ElephantSQL](https://www.elephantsql.com/)
+- Hosted: [Vercel](https://vercel.com/)
 
 ## Contributors
 

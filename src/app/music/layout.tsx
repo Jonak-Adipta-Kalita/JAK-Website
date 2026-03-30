@@ -11,11 +11,7 @@ const MusicLayout = ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
-    return (
-        <PageReveal>
-            {children}
-        </PageReveal >
-    )
-}
+    return <PageReveal>{children}</PageReveal>;
+};
 
 export default MusicLayout;
