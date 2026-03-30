@@ -1,4 +1,5 @@
 import skills, { AllFields } from "./data";
+import { LinkObject, NodeObject } from "react-force-graph-2d"
 
 type Node = {
     id: string;
@@ -8,11 +9,11 @@ type Node = {
 type Link = { source: string; target: string };
 
 const buildGraphData = () => {
-    const nodes: Node[] = [];
-    const links: Link[] = [];
+    const nodes: NodeObject<Node>[] = [];
+    const links: LinkObject<Link>[] = [];
     const nodeIds = new Set<string>();
 
-    const addNode = (node: Node) => {
+    const addNode = (node: NodeObject<Node>) => {
         if (!nodeIds.has(node.id)) {
             nodes.push(node);
             nodeIds.add(node.id);
@@ -27,7 +28,6 @@ const buildGraphData = () => {
         }
     ) => {
         node.fields?.forEach((i) => {
-            console.log(i);
             links.push({ source: i, target: node.id });
         });
 
