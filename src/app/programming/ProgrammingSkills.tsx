@@ -10,7 +10,7 @@ const ForceGraph = dynamic(() => import("react-force-graph-2d"), {
 const graphData = buildGraphData();
 
 // TODO: Mention that all of them are related to Tech/Programming, the Fields are just to specify any particular use case
-//
+
 const nodeColors = ({
     language: "#7F77DD",
     framework: "#1D9E75",
@@ -26,7 +26,7 @@ const ProgrammingSkills = () => {
             id="skills"
             className="flex w-full items-center justify-center"
         >
-            <div className="">
+            <div className="overflow-x-hidden">
                 <ForceGraph
                     graphData={graphData}
                     nodeColor={(node) => nodeColors[node.type] ?? "#888"}

@@ -6,6 +6,7 @@ import ContactMe from "./ContactMe";
 import ProgrammingSkills from "./ProgrammingSkills";
 import Testimonials from "./Testimonials";
 import { useEffect, useRef } from "react";
+import MySetups from "./MySetups";
 
 export default function ProgrammingPage() {
     const activeHeader = useNavStore((s) => s.activeHeader);
@@ -33,6 +34,8 @@ export default function ProgrammingPage() {
             <AboutMe />
 
             <ProgrammingSkills />
+
+            <MySetups />
 
             <Testimonials />
 
