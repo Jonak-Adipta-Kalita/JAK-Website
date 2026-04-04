@@ -3,7 +3,7 @@
 import { HASH_ITEMS, useNavStore } from "@/lib/hooks/useNavStore";
 import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";
-import ProgrammingSkills from "./ProgrammingSkills";
+import ProgrammingSkills from "./skills/ProgrammingSkills";
 import Testimonials from "./Testimonials";
 import { useEffect, useRef } from "react";
 import MySetups from "./MySetups";

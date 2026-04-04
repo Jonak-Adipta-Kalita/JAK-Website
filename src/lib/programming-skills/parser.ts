@@ -1,14 +1,24 @@
 import skills, { AllFields } from "./data";
 import { LinkObject, NodeObject } from "react-force-graph-2d"
 
-type Node = {
+export type Node = {
     id: string;
     name: string;
     type: "language" | "framework" | "tool" | "field" | "group";
 };
-type Link = { source: string; target: string };
 
-const buildGraphData = () => {
+export type Link = { source: string; target: string };
+
+export type GraphData = {
+    nodes: NodeObject<Node>[];
+    links: {
+        [others: string]: any;
+        source?: string | number | NodeObject<Link> | undefined;
+        target?: string | number | NodeObject<Link> | undefined;
+    }[];
+};
+
+const buildGraphData = (): GraphData => {
     const nodes: NodeObject<Node>[] = [];
     const links: LinkObject<Link>[] = [];
     const nodeIds = new Set<string>();

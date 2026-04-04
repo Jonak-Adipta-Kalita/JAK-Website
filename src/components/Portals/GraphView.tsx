@@ -12,7 +12,7 @@ import {
 } from "./Portal";
 import { SquareSlashIcon } from "lucide-react";
 
-const GraphView = () => {
+const LobbyGraphView = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
 
     const [programmingDrag, setProgrammingDrag] = useState<boolean>(false);
@@ -68,4 +68,4 @@ const GraphView = () => {
     );
 };
 
-export default GraphView;
+export default LobbyGraphView;
