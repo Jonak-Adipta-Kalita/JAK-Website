@@ -12,7 +12,9 @@ const ProgrammingSkills = () => {
             id="skills"
             className="flex w-full items-center justify-center"
         >
-            <SkillsGraphView graphData={graphData} />
+            <>
+                <SkillsGraphView graphData={graphData} />
+            </>
         </ScrollSnapSection>
     );
 };

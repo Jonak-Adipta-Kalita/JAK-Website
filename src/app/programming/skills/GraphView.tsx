@@ -1,3 +1,5 @@
+"use client"
+
 import { GraphData } from "@/lib/programming-skills/parser";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
@@ -93,9 +95,10 @@ const SkillsGraphView = ({ graphData }: { graphData: GraphData }) => {
                     const { w, h } = dimensions;
                     const PADDING = 40;
                     graphData.nodes.forEach((node: any) => {
-                        if (node.fx != null) return;
-                        node.x = Math.max(-w / 2 + PADDING, Math.min(w / 2 - PADDING, node.x ?? 0));
-                        node.y = Math.max(-h / 2 + PADDING, Math.min(h / 2 - PADDING, node.y ?? 0));
+                        if (node.fx) {
+                            node.x = Math.max(-w / 2 + PADDING, Math.min(w / 2 - PADDING, node.x ?? 0));
+                            node.y = Math.max(-h / 2 + PADDING, Math.min(h / 2 - PADDING, node.y ?? 0));
+                        }
                     });
                 }}
             />
