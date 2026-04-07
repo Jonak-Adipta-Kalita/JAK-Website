@@ -1,5 +1,5 @@
 import skills, { AllFields } from "./data";
-import { LinkObject, NodeObject } from "react-force-graph-2d"
+import { LinkObject, NodeObject } from "react-force-graph-2d";
 
 export type Node = {
     id: string;
@@ -51,19 +51,41 @@ const buildGraphData = (): GraphData => {
         addNode({ id: i, name: i, type: "field" });
     });
 
-    addNode({ id: "languages", name: "Languages", type: "field", fx: -200, fy: 0 });
+    addNode({
+        id: "languages",
+        name: "Languages",
+        type: "field",
+        fx: -200,
+        fy: 0,
+    });
     for (const lang of skills.languages) {
-        addNode({ id: lang.id, name: lang.name, type: "language", parentId: "languages" });
+        addNode({
+            id: lang.id,
+            name: lang.name,
+            type: "language",
+            parentId: "languages",
+        });
         linkFieldAndExtra(lang as Record<string, unknown> & typeof lang);
         links.push({ source: "languages", target: lang.id });
     }
 
-    addNode({ id: "frameworks", name: "Frameworks", type: "field", fx: 0, fy: 0 });
+    addNode({
+        id: "frameworks",
+        name: "Frameworks",
+        type: "field",
+        fx: 0,
+        fy: 0,
+    });
     const allFrameworks = skills.frameworks.flatMap((f) =>
         "frameworks" in f ? f.frameworks : [f]
     );
     for (const fw of allFrameworks) {
-        addNode({ id: fw.id, name: fw.name, type: "framework", parentId: "frameworks" });
+        addNode({
+            id: fw.id,
+            name: fw.name,
+            type: "framework",
+            parentId: "frameworks",
+        });
 
         for (const langName of fw.languages ?? []) {
             const lang = skills.languages.find((l) => l.name === langName);
@@ -79,7 +101,12 @@ const buildGraphData = (): GraphData => {
         "tools" in t ? t.tools : [t]
     );
     for (const tool of allTools) {
-        addNode({ id: tool.id, name: tool.name, type: "tool", parentId: "tools" });
+        addNode({
+            id: tool.id,
+            name: tool.name,
+            type: "tool",
+            parentId: "tools",
+        });
         linkFieldAndExtra(tool);
         links.push({ source: "tools", target: tool.id });
     }

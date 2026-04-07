@@ -30,7 +30,7 @@ const AboutMe = () => {
             is a big part of my life; while I love playing different kinds of
             instruments,{" "}
             <span
-                onClick={() => navigateTo("/music")}
+                onClick={() => navigateTo("/music#gear")}
                 className="aboutText-highlight"
             >
                 Guitar

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { GraphData } from "@/lib/programming-skills/parser";
 import dynamic from "next/dynamic";
@@ -8,13 +8,13 @@ const ForceGraph = dynamic(() => import("react-force-graph-2d"), {
     ssr: false,
 });
 
-const nodeColors = ({
+const nodeColors = {
     language: "#7F77DD",
     framework: "#1D9E75",
     tool: "#D85A30",
     field: "#888780",
     group: "#fff",
-}) as { [key: string]: string }
+} as { [key: string]: string };
 
 const parentPositions: Record<string, { x: number; y: number }> = {
     languages: { x: -200, y: 0 },
@@ -45,28 +45,32 @@ const SkillsGraphView = ({ graphData }: { graphData: GraphData }) => {
         const fg = fgRef.current;
         if (!fg) return;
 
+        const fx = fg.d3Force("x");
+        const fy = fg.d3Force("y");
+        const charge = fg.d3Force("charge");
+        const link = fg.d3Force("link");
+
+        if (!fx || !fy || !charge || !link) return;
+
         fg.centerAt(0, 0, 0);
 
-        fg.d3Force("x")!.x((node: any) => {
-            const pos = parentPositions[node.parentId];
-            return pos ? pos.x : 0;
-        }).strength(0.3);
+        fx.x((node: any) => parentPositions[node.parentId]?.x ?? 0).strength(
+            0.3
+        );
 
-        fg.d3Force("y")!.y((node: any) => {
-            const pos = parentPositions[node.parentId];
-            return pos ? pos.y : 0;
-        }).strength(0.3);
+        fy.y((node: any) => parentPositions[node.parentId]?.y ?? 0).strength(
+            0.3
+        );
 
-        fg.d3Force("charge")!.strength(-80);
-        fg.d3Force("link")!.distance(60);
+        charge.strength(-80);
+        link.distance(60);
 
         fg.zoom(1, 0);
-
         fg.d3ReheatSimulation();
-    }, []);
+    }, [fgRef.current]);
 
     return (
-        <div ref={containerRef} className="w-full h-full overflow-hidden">
+        <div ref={containerRef} className="h-full w-full overflow-hidden">
             <ForceGraph
                 ref={fgRef}
                 width={dimensions.w}
@@ -75,7 +79,8 @@ const SkillsGraphView = ({ graphData }: { graphData: GraphData }) => {
                 nodeColor={(node) => nodeColors[node.type] ?? "#888"}
                 nodeVal={(node) => {
                     const linkCount = graphData.links.filter(
-                        (link) => link.source === node.id || link.target === node.id
+                        (link) =>
+                            link.source === node.id || link.target === node.id
                     ).length;
                     return linkCount;
                 }}
@@ -85,8 +90,10 @@ const SkillsGraphView = ({ graphData }: { graphData: GraphData }) => {
                 linkColor={() => "rgba(255,255,255,0.15)"}
                 linkWidth={1.5}
                 onNodeDrag={(node: any) => {
-                    if (["languages", "frameworks", "tools"].includes(node.id)) {
-                        const pos = parentPositions[node.id]
+                    if (
+                        ["languages", "frameworks", "tools"].includes(node.id)
+                    ) {
+                        const pos = parentPositions[node.id];
                         node.x = pos.x;
                         node.y = pos.y;
                     }
@@ -96,14 +103,20 @@ const SkillsGraphView = ({ graphData }: { graphData: GraphData }) => {
                     const PADDING = 40;
                     graphData.nodes.forEach((node: any) => {
                         if (node.fx) {
-                            node.x = Math.max(-w / 2 + PADDING, Math.min(w / 2 - PADDING, node.x ?? 0));
-                            node.y = Math.max(-h / 2 + PADDING, Math.min(h / 2 - PADDING, node.y ?? 0));
+                            node.x = Math.max(
+                                -w / 2 + PADDING,
+                                Math.min(w / 2 - PADDING, node.x ?? 0)
+                            );
+                            node.y = Math.max(
+                                -h / 2 + PADDING,
+                                Math.min(h / 2 - PADDING, node.y ?? 0)
+                            );
                         }
                     });
                 }}
             />
         </div>
-    )
-}
+    );
+};
 
-export default SkillsGraphView
+export default SkillsGraphView;

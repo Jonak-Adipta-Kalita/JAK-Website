@@ -15,15 +15,26 @@
     --color-fg-programming-primary: #3faff5;
     --color-fg-programming-secondary: #9dabdc;
 
+    --color-fg-music-text: #e8e0f0;
+    --color-fg-music-muted: #7a6e8a;
+    --color-fg-music-neon-red: #ff1a3c;
+    --color-fg-music-neon-blue: #00aaff;
+    --color-fg-music-glow-red: rgba(255, 26, 60, 0.6);
+    --color-fg-music-glow-blue: rgba(0, 170, 255, 0.6);
+
     --color-bg-lobby: #121212;
     --color-bg-highlight: #131821;
     --color-bg-curtain: #6082b6;
+
+    --color-bg-music: #03020a;
+    --color-bg-music-surface: #0a0615;
 
     --color-selection: #2a3242;
     --color-selection-fg: #b5c5e9;
 
     --font-salsa: var(--font-salsa);
     --font-ubuntu: var(--font-ubuntu-sans);
+    --font-metal-mania: var(--font-metal-mania);
 
     --cursor-default: url(/cursors/default.cur), default;
     --cursor-pointer: url(/cursors/pointer.cur), pointer;
