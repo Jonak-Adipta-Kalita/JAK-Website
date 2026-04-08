@@ -2,10 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const links = ["About", "Gear", "Influences"] as const;
 
 const MusicHeader = () => {
+    const router = useRouter();
+
     return (
         <nav
             className="fixed top-0 z-50 flex w-full items-center justify-center px-15 py-5 md:justify-end"
@@ -25,6 +28,13 @@ const MusicHeader = () => {
                         <Link
                             href={`#${link.toLowerCase()}`}
                             className="text-fg-music-muted hover:text-fg-music-text group relative font-mono text-sm tracking-[3px] uppercase no-underline transition-colors md:text-lg"
+                            onClick={(e) => {
+                                if (e.ctrlKey || e.metaKey) {
+                                    e.preventDefault();
+                                    if (link.toLowerCase() === "about") return;
+                                    router.push(`/music/${link.toLowerCase()}`);
+                                }
+                            }}
                         >
                             {link}
                             <span
