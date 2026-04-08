@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
-let listeners = new Set<(t: number) => void>();
+const listeners = new Set<(t: number) => void>();
+
 let rafId: number;
 let time = 0;
 
