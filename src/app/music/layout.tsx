@@ -22,8 +22,17 @@ const MusicLayout = ({
 }>) => {
     return (
         <PageReveal>
-            <div className={`${metalMania.variable}`}>
+            <div
+                className={`${metalMania.variable} bg-bg-music scrollbar-thin scrollbar-thumb-[#7a1a2e] scrollbar-track-[#03020a] hover:scrollbar-thumb-[#ff1a3c] relative min-h-screen overflow-x-hidden scroll-smooth`}
+            >
                 <MusicHeader />
+                <div
+                    className="pointer-events-none fixed inset-0 z-40"
+                    style={{
+                        background:
+                            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px)",
+                    }}
+                />
                 {children}
             </div>
         </PageReveal>

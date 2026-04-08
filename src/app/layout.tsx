@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Salsa, Ubuntu_Sans } from "next/font/google";
 
 import { CurtainProvider } from "@/components/Curtain/CurtainProvider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 import GotoLobbyButton from "@/components/GotoLobbyButton";
 
 import "./globals.css";
@@ -36,8 +38,10 @@ const RootLayout = ({
                 className={`${salsa.variable} ${ubuntuSans.variable} relative antialiased`}
             >
                 <CurtainProvider>
-                    {children}
-                    <GotoLobbyButton />
+                    <TooltipProvider>
+                        {children}
+                        <GotoLobbyButton />
+                    </TooltipProvider>
                 </CurtainProvider>
             </body>
         </html>
