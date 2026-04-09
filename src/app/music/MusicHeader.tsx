@@ -6,7 +6,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
-import { HomeIcon, MousePointerClickIcon } from "lucide-react";
+import { BirdhouseIcon, MousePointerClickIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { forwardRef } from "react";
@@ -69,7 +69,7 @@ const MusicHeader = () => {
                         {link === "Home" ? (
                             <div className="relative hidden items-center justify-center md:flex">
                                 <Link href="/music">
-                                    <HomeIcon
+                                    <BirdhouseIcon
                                         className="text-fg-music-muted hover:text-fg-music-glow-red top-0 cursor-pointer"
                                         width={25}
                                         height={25}
