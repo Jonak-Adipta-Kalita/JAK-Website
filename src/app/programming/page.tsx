@@ -29,7 +29,7 @@ export default function ProgrammingPage() {
     return (
         <main
             ref={mainRef}
-            className="scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-transparent scrollbar-hover:scrollbar-thumb-slate-600 w-full overflow-y-auto scroll-smooth lg:snap-y lg:snap-mandatory"
+            className="scrollbar-programming w-full overflow-y-auto scroll-smooth lg:snap-y lg:snap-mandatory"
         >
             <AboutMe />
 

@@ -1,6 +1,6 @@
 const ProgrammingWorkPage = () => {
     return (
-        <main>
+        <main className="scrollbar-programming">
             {/* Showcasing each project like done in Brittany Chang's Website */}
         </main>
     );

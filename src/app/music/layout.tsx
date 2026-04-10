@@ -23,7 +23,7 @@ const MusicLayout = ({
     return (
         <PageReveal>
             <div
-                className={`${metalMania.variable} bg-bg-music scrollbar-thin scrollbar-thumb-[#7a1a2e] scrollbar-track-[#03020a] hover:scrollbar-thumb-[#ff1a3c] relative min-h-screen overflow-x-hidden scroll-smooth`}
+                className={`${metalMania.variable} bg-bg-music relative min-h-screen overflow-x-hidden`}
             >
                 <MusicHeader />
                 <div

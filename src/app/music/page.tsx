@@ -6,13 +6,13 @@ import MyInfluences from "./MyMusicInfluences";
 
 const MusicPage = () => {
     return (
-        <main className="">
+        <main className="scrollbar-music h-screen w-full overflow-y-auto scroll-smooth">
             <MusicHero />
-            {/*<Waveform />*/}
+            <Waveform />
             <AboutMe />
-            {/*<Waveform className="rotate-180" />*/}
+            <Waveform className="rotate-180" />
             <MyGear />
-            {/*<Waveform />*/}
+            <Waveform />
             <MyInfluences />
         </main>
     );
