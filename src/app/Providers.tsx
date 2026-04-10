@@ -8,7 +8,9 @@ const Providers = ({ children }: { children: ReactNode }) => {
     return (
         <CurtainProvider>
             <PageReveal>
-                <TooltipProvider>{children}</TooltipProvider>
+                <TooltipProvider>
+                    {children}
+                </TooltipProvider>
             </PageReveal>
         </CurtainProvider>
     );

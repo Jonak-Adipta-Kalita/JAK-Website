@@ -41,7 +41,7 @@ const HomePage = () => {
                 <p className="mx-7 my-[clamp(0.5rem,2vw+1.5rem,2rem)] text-center text-xl text-[clamp(0.8125rem,1vw+0.625rem,1.375rem)] font-bold">
                     <span className="text-fg-lobby-dark">&quot;</span>
                     <span className="text-gradient">{quote}</span>
-                    <span className="text-lobby-fg-extradark">&quot;</span>
+                    <span className="text-fg-lobby-dark">&quot;</span>
                 </p>
             </main>
         </div>
