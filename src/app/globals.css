@@ -106,6 +106,6 @@
         transform: translate(0, 0) scale(1);
     }
     to {
-        transform: translate(40px, 30px) scale(1.12);
+        transform: translate(40px, 30px) scale(1.3);
     }
 }
