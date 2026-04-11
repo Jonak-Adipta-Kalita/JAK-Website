@@ -64,12 +64,34 @@ const AboutMe = () => {
         </>,
         <>
             I am literate in{" "}
-            <span className="aboutText-highlight">অসমীয়া</span> (native),{" "}
-            <span className="aboutText-highlight">English</span> as well as{" "}
-            <span className="aboutText-highlight">हिंदी</span> and in the
-            process of learning{" "}
-            <span className="aboutText-highlight">日本語</span> - Polymathy
-            includes{" "}
+            <span
+                className="aboutText-highlight"
+                onClick={() => navigateTo("/polyglot#assamese")}
+            >
+                অসমীয়া
+            </span>{" "}
+            (native),{" "}
+            <span
+                className="aboutText-highlight"
+                onClick={() => navigateTo("/polyglot#english")}
+            >
+                English
+            </span>{" "}
+            as well as{" "}
+            <span
+                className="aboutText-highlight"
+                onClick={() => navigateTo("/polyglot#hindi")}
+            >
+                हिंदी
+            </span>{" "}
+            and in the process of learning{" "}
+            <span
+                className="aboutText-highlight"
+                onClick={() => navigateTo("/polyglot#japanese")}
+            >
+                日本語
+            </span>{" "}
+            - Polymathy includes{" "}
             <span
                 onClick={() => navigateTo("/polyglot")}
                 className="aboutText-highlight text-fg-programming-text"

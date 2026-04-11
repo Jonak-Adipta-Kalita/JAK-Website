@@ -1,5 +1,5 @@
 const PolyglotPage = () => {
-    return <main></main>;
+    return <main className="">{/* Sidebar-Navbar */}</main>;
 };
 
 export default PolyglotPage;
