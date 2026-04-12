@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { Button } from "../ui/button";
-
 import FloatingDiv from "../FloatingDiv";
 import {
     MusicPortal,
@@ -10,7 +9,8 @@ import {
     ProductivityPortal,
     ProgrammingPortal,
 } from "./Portal";
-import { SquareSlashIcon } from "lucide-react";
+import { SettingsIcon, SquareSlashIcon } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const LobbyGraphView = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
@@ -28,11 +28,33 @@ const LobbyGraphView = () => {
                 size={"lobby"}
                 className="cursor-default"
             >
-                <span className="mr-2">
+                <span>
                     Explore my{" "}
                     <span className="text-gradient">Interests</span>{" "}
-                </span>{" "}
-                <SquareSlashIcon className="text-fg-lobby-dark hidden animate-pulse md:inline" />
+                </span>
+                <div className="border-2 rounded-full border-gray-500/20 flex items-center justify-center p-2 ml-2 space-x-3">
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <SquareSlashIcon
+                                className="text-fg-lobby-dark hover:text-fg-lobby-extradark/75 hidden cursor-pointer md:inline"
+                                onClick={() => {
+                                    /* TODO: Open Command Palette */
+                                }}
+                            />
+                        </TooltipTrigger>
+                        <TooltipContent side="bottom">
+                            <p className="hidden items-center justify-center text-sm font-semibold text-blue-200 md:flex">
+                                Try Ctrl/Cmd + K
+                            </p>
+                        </TooltipContent>
+                    </Tooltip>
+                    <SettingsIcon
+                        className="text-fg-lobby-dark hover:text-fg-lobby-extradark/75 hidden cursor-pointer md:inline"
+                        onClick={() => {
+                            /* TODO: Open Settings Model */
+                        }}
+                    />
+                </div>
             </Button>
             <div>
                 <FloatingDiv

@@ -1,6 +1,6 @@
 "use client";
 
-import { NavItem, useNavStore } from "@/lib/hooks/useNavStore";
+import { NavItem, useProgrammingNavStore as useNavStore } from "@/lib/hooks/useProgrammingNavStore";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
@@ -20,22 +20,21 @@ const ScrollSnapSection = ({
     const sectionRef = useRef(null);
     const router = useRouter();
 
-    // TODO: Change Active Header & Link as per focus on section
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //         ([entry]) => {
-    //             if (entry.isIntersecting && !isScrolling) {
-    //                 // if (nav) setActiveHeader(nav);
-    //                 // router.replace(`/programming#${id}`)
-    //             }
-    //         },
-    //         { threshold: 0.5 }
-    //     );
-    //
-    //     if (sectionRef.current) observer.observe(sectionRef.current);
-    //
-    //     return () => observer.disconnect();
-    // }, []);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !isScrolling) {
+                    if (nav) setActiveHeader(nav);
+                    router.replace(`/programming#${id}`)
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        if (sectionRef.current) observer.observe(sectionRef.current);
+
+        return () => observer.disconnect();
+    }, [isScrolling]);
 
     return (
         <section

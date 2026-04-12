@@ -7,8 +7,8 @@ import {
     NAV_ITEMS,
     HASH_ITEMS,
     type NavItem,
-    useNavStore,
-} from "@/lib/hooks/useNavStore";
+    useProgrammingNavStore as useNavStore,
+} from "@/lib/hooks/useProgrammingNavStore";
 
 function getActiveFromPathname(pathname: string): NavItem | null {
     if (pathname.startsWith("/programming/journal")) return "Journal";
@@ -57,7 +57,7 @@ const DynamicIsland = () => {
                             router.push(`/programming#${name.toLowerCase()}`);
                         }
 
-                        setIsScrolling(false);
+                        setTimeout(() => setIsScrolling(false), 800);
                     }}
                     className={`${name === "Contact" ? "hidden sm:inline" : ""} z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
                     initial={{ opacity: 0, y: -24 }}

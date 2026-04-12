@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { HASH_ITEMS, useNavStore } from "@/lib/hooks/useNavStore";
+import { HASH_ITEMS, useProgrammingNavStore as useNavStore } from "@/lib/hooks/useProgrammingNavStore";
 
 import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";

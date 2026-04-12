@@ -24,7 +24,7 @@ interface NavStore {
     setIsScrolling: (val: boolean) => void;
 }
 
-export const useNavStore = create<NavStore>((set) => ({
+export const useProgrammingNavStore = create<NavStore>((set) => ({
     activeHeader: null,
     setActiveHeader: (item) => set({ activeHeader: item }),
 
