@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { HASH_ITEMS, useProgrammingNavStore as useNavStore } from "@/lib/hooks/useProgrammingNavStore";
+import { useProgrammingNavStore as useNavStore } from "@/lib/hooks/navStore/useProgrammingNavStore";
 
 import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";
 import ProgrammingSkills from "./skills/ProgrammingSkills";
 import Testimonials from "./Testimonials";
+import { HASH_ITEMS } from "./DynamicIsland";
 
 export default function ProgrammingPage() {
     const activeHeader = useNavStore((s) => s.activeHeader);
@@ -18,7 +19,7 @@ export default function ProgrammingPage() {
         const container = mainRef.current;
         if (!container) return;
 
-        if (HASH_ITEMS.has(activeHeader)) {
+        if (HASH_ITEMS.includes(activeHeader)) {
             const target = document.getElementById(activeHeader.toLowerCase());
             if (!target) return;
 

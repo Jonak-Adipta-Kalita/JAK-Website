@@ -5,12 +5,18 @@ import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import {
     NAV_ITEMS,
-    HASH_ITEMS,
-    type NavItem,
+    NavItem,
     useProgrammingNavStore as useNavStore,
-} from "@/lib/hooks/useProgrammingNavStore";
+} from "@/lib/hooks/navStore/useProgrammingNavStore";
 
-function getActiveFromPathname(pathname: string): NavItem | null {
+export const HASH_ITEMS = [
+    "About",
+    "Skills",
+    "Testimonials",
+    "Contact",
+];
+
+const getActiveFromPathname = (pathname: string): NavItem | null => {
     if (pathname.startsWith("/programming/journal")) return "Journal";
     if (pathname.startsWith("/programming/work")) return "Work";
     if (pathname === "/programming" || pathname === "/programming/")
@@ -53,7 +59,7 @@ const DynamicIsland = () => {
 
                         if (name === "Work" || name === "Journal") {
                             router.push(`/programming/${name.toLowerCase()}`);
-                        } else if (HASH_ITEMS.has(name)) {
+                        } else if (HASH_ITEMS.includes(name)) {
                             router.push(`/programming#${name.toLowerCase()}`);
                         }
 
