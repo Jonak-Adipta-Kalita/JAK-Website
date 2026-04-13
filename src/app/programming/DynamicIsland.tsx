@@ -29,7 +29,7 @@ const DynamicIsland = () => {
     const router = useRouter();
     const pathname = usePathname();
 
-    const { activeHeader, setActiveHeader, setIsScrolling } = useNavStore();
+    const { activeHeader, setActiveHeader, setScrollTarget } = useNavStore();
 
     useEffect(() => {
         const derived = getActiveFromPathname(pathname);
@@ -54,16 +54,14 @@ const DynamicIsland = () => {
                     onClick={(e) => {
                         e.preventDefault();
 
-                        setIsScrolling(true);
                         setActiveHeader(name);
 
                         if (name === "Work" || name === "Journal") {
                             router.push(`/programming/${name.toLowerCase()}`);
-                        } else if (HASH_ITEMS.includes(name)) {
-                            router.push(`/programming#${name.toLowerCase()}`);
-                        }
+                        } else {
+                            setScrollTarget(name);
 
-                        setTimeout(() => setIsScrolling(false), 800);
+                        }
                     }}
                     className={`${name === "Contact" ? "hidden sm:inline" : ""} z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
                     initial={{ opacity: 0, y: -24 }}

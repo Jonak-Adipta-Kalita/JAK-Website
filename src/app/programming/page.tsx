@@ -2,30 +2,28 @@
 
 import { useEffect, useRef } from "react";
 import { useProgrammingNavStore as useNavStore } from "@/lib/hooks/navStore/useProgrammingNavStore";
+import { HASH_ITEMS } from "./DynamicIsland";
 
 import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";
 import ProgrammingSkills from "./skills/ProgrammingSkills";
 import Testimonials from "./Testimonials";
-import { HASH_ITEMS } from "./DynamicIsland";
 
 export default function ProgrammingPage() {
-    const activeHeader = useNavStore((s) => s.activeHeader);
     const mainRef = useRef<HTMLElement>(null);
 
+    const scrollTarget = useNavStore((s) => s.scrollTarget);
+    const setScrollTarget = useNavStore((s) => s.setScrollTarget);
+
     useEffect(() => {
-        if (!activeHeader) return;
+        if (!scrollTarget) return;
+        const target = document.getElementById(scrollTarget.toLowerCase());
+        if (!target || !mainRef.current) return;
 
-        const container = mainRef.current;
-        if (!container) return;
+        mainRef.current.scrollTo({ top: target.offsetTop, behavior: "smooth" });
 
-        if (HASH_ITEMS.includes(activeHeader)) {
-            const target = document.getElementById(activeHeader.toLowerCase());
-            if (!target) return;
-
-            container.scrollTo({ top: target.offsetTop, behavior: "smooth" });
-        }
-    }, [activeHeader]);
+        setScrollTarget(null);
+    }, [scrollTarget]);
 
     return (
         <main

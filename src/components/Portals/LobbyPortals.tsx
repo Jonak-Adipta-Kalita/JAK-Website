@@ -1,5 +1,6 @@
 "use client";
 
+import { SettingsIcon } from "lucide-react";
 import GraphView from "./GraphView";
 import {
     MusicPortal,
@@ -15,9 +16,17 @@ const LobbyPortals = () => {
                 <GraphView />
             </div>
             <div className="relative flex w-full flex-col items-center justify-center space-y-10 md:hidden">
-                <p className="text-fg-lobby-extralight/30 font-ubuntu absolute bottom-[-20] w-full text-center text-sm font-semibold md:hidden">
-                    &#40;Desktop would&apos;ve been Better&#41;
-                </p>
+                <div className="absolute bottom-[-20] w-full flex items-center justify-center space-x-5">
+                    <p className="text-fg-lobby-extralight/75 font-ubuntu text-center text-sm font-semibold">
+                        &#40;Desktop would&apos;ve been Better&#41;
+                    </p>
+                    <SettingsIcon
+                        className="text-fg-lobby-extralight text-base"
+                        onClick={() => {
+                            /* TODO: Open Settings Model */
+                        }}
+                    />
+                </div>
                 <ProgrammingPortal dragging={false} mobile />
                 <MusicPortal dragging={false} mobile />
                 <PolyglotPortal dragging={false} mobile />

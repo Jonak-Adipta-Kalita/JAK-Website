@@ -8,8 +8,8 @@ export interface NavStore<T extends string> {
     items: readonly T[];
     activeHeader: T | null;
     setActiveHeader: (item: T | null) => void;
-    isScrolling: boolean;
-    setIsScrolling: (val: boolean) => void;
+    scrollTarget: T | null;
+    setScrollTarget: (item: T | null) => void;
 }
 
 export const createNavStore = <T extends string>(items: readonly T[]) =>
@@ -17,6 +17,6 @@ export const createNavStore = <T extends string>(items: readonly T[]) =>
         items,
         activeHeader: null,
         setActiveHeader: (item) => set({ activeHeader: item }),
-        isScrolling: false,
-        setIsScrolling: (val) => set({ isScrolling: val }),
+        scrollTarget: null,
+        setScrollTarget: (item) => set({ scrollTarget: item }),
     }));

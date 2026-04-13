@@ -2,7 +2,6 @@
 
 import { NavItem, useProgrammingNavStore as useNavStore } from "@/lib/hooks/navStore/useProgrammingNavStore";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 const ScrollSnapSection = ({
@@ -16,25 +15,21 @@ const ScrollSnapSection = ({
     id: string;
     className?: string;
 }) => {
-    const { setActiveHeader, isScrolling } = useNavStore();
+    const { setActiveHeader } = useNavStore();
     const sectionRef = useRef(null);
-    const router = useRouter();
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //         ([entry]) => {
-    //             if (entry.isIntersecting && !isScrolling) {
-    //                 if (nav) setActiveHeader(nav);
-    //                 // router.replace(`/programming#${id}`)
-    //             }
-    //         },
-    //         { threshold: 0.5 }
-    //     );
-    //
-    //     if (sectionRef.current) observer.observe(sectionRef.current);
-    //
-    //     return () => observer.disconnect();
-    // }, [isScrolling]);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && nav) {
+                    setActiveHeader(nav);
+                }
+            },
+            { threshold: 0.7 }
+        );
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <section
