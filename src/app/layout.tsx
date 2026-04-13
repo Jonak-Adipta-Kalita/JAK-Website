@@ -35,7 +35,9 @@ const RootLayout = ({
                 className={`${salsa.variable} ${ubuntuSans.variable} relative antialiased`}
             >
                 <GotoLobbyButton />
-                <Providers><div className="overflow-hidden">{children}</div></Providers>
+                <Providers>
+                    <div className="overflow-hidden">{children}</div>
+                </Providers>
             </body>
         </html>
     );

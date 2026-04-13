@@ -1,4 +1,4 @@
-import ScrollSnapSection from "@/components/ScrollSnapSection";
+import ScrollSnapSection from "./ScrollSnapSection";
 
 interface Testimonial {
     name: string;

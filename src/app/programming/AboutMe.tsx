@@ -7,7 +7,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
 import { useCurtain } from "@/lib/CurtainContext";
-import ScrollSnapSection from "@/components/ScrollSnapSection";
+import ScrollSnapSection from "./ScrollSnapSection";
 
 const AboutMe = () => {
     const [typingDone, setTypingDone] = useState(false);

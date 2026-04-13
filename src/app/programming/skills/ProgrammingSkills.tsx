@@ -1,4 +1,4 @@
-import ScrollSnapSection from "@/components/ScrollSnapSection";
+import ScrollSnapSection from "../ScrollSnapSection";
 import SkillsGraphView from "./GraphView";
 import buildGraphData from "@/lib/programming-skills/parser";
 

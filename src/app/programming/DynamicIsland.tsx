@@ -9,12 +9,7 @@ import {
     useProgrammingNavStore as useNavStore,
 } from "@/lib/hooks/navStore/useProgrammingNavStore";
 
-export const HASH_ITEMS = [
-    "About",
-    "Skills",
-    "Testimonials",
-    "Contact",
-];
+export const HASH_ITEMS = ["About", "Skills", "Testimonials", "Contact"];
 
 const getActiveFromPathname = (pathname: string): NavItem | null => {
     if (pathname.startsWith("/programming/journal")) return "Journal";
@@ -23,7 +18,7 @@ const getActiveFromPathname = (pathname: string): NavItem | null => {
         return "About";
 
     return null;
-}
+};
 
 const DynamicIsland = () => {
     const router = useRouter();
@@ -59,8 +54,20 @@ const DynamicIsland = () => {
                         if (name === "Work" || name === "Journal") {
                             router.push(`/programming/${name.toLowerCase()}`);
                         } else {
-                            setScrollTarget(name);
-
+                            if (
+                                pathname === "/programming" ||
+                                pathname === "/programming/"
+                            ) {
+                                router.replace(
+                                    `/programming#${name.toLowerCase()}`,
+                                    { scroll: false }
+                                );
+                                setScrollTarget(name);
+                            } else {
+                                router.push(
+                                    `/programming#${name.toLowerCase()}`
+                                );
+                            }
                         }
                     }}
                     className={`${name === "Contact" ? "hidden sm:inline" : ""} z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}

@@ -32,7 +32,7 @@ const LobbyGraphView = () => {
                     Explore my{" "}
                     <span className="text-gradient">Interests</span>{" "}
                 </span>
-                <div className="border-2 rounded-full border-gray-500/20 flex items-center justify-center p-2 ml-2 space-x-3">
+                <div className="ml-2 flex items-center justify-center space-x-3 rounded-full border-2 border-gray-500/20 p-2">
                     <Tooltip>
                         <TooltipTrigger asChild>
                             <SquareSlashIcon
