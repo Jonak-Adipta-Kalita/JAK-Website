@@ -1,10 +1,6 @@
 import ScrollSnapSection from "../ScrollSnapSection";
 import SkillsGraphView from "./GraphView";
-import buildGraphData from "@/lib/programming-skills/parser";
-
-const graphData = buildGraphData();
-
-// TODO: Mention that all of them are related to Tech/Programming, the Fields are just to specify any particular use case
+import SkillsGridView from "./GridView";
 
 const ProgrammingSkills = () => {
     return (
@@ -12,9 +8,8 @@ const ProgrammingSkills = () => {
             id="skills"
             className="flex w-full items-center justify-center"
         >
-            <>
-                <SkillsGraphView graphData={graphData} />
-            </>
+            <SkillsGraphView />
+            <SkillsGridView />
         </ScrollSnapSection>
     );
 };

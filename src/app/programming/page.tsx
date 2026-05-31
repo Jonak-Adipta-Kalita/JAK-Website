@@ -7,6 +7,7 @@ import AboutMe from "./AboutMe";
 import ContactMe from "./ContactMe";
 import ProgrammingSkills from "./skills/ProgrammingSkills";
 import Testimonials from "./Testimonials";
+import MobileSeparator from "./MobileSeparator";
 
 export default function ProgrammingPage() {
     const mainRef = useRef<HTMLElement>(null);
@@ -63,9 +64,15 @@ export default function ProgrammingPage() {
         >
             <AboutMe />
 
+            <MobileSeparator />
+
             <ProgrammingSkills />
 
+            <MobileSeparator />
+
             <Testimonials />
+
+            <MobileSeparator />
 
             <ContactMe />
         </main>

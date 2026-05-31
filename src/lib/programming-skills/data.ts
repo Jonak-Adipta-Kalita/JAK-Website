@@ -2,7 +2,7 @@ export const Fields = [
     "Web & App Development",
     "Game Development",
     "Internet of Things",
-    "Systems Programming",
+    // "Systems Programming",
     "AI & Data Science & Computer Vision",
     "Cloud & DevOps",
     "Database",

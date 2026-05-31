@@ -1,8 +1,8 @@
 "use client";
 
-import { GraphData } from "@/lib/programming-skills/parser";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
+import buildGraphData from "@/lib/programming-skills/parser";
 
 const ForceGraph = dynamic(() => import("react-force-graph-2d"), {
     ssr: false,
@@ -22,7 +22,9 @@ const parentPositions: Record<string, { x: number; y: number }> = {
     tools: { x: 200, y: 0 },
 };
 
-const SkillsGraphView = ({ graphData }: { graphData: GraphData }) => {
+const graphData = buildGraphData();
+
+const SkillsGraphView = () => {
     const fgRef = useRef<any>(null);
 
     const containerRef = useRef<HTMLDivElement>(null);
@@ -70,7 +72,10 @@ const SkillsGraphView = ({ graphData }: { graphData: GraphData }) => {
     }, [fgRef.current]);
 
     return (
-        <div ref={containerRef} className="h-full w-full overflow-hidden">
+        <div
+            ref={containerRef}
+            className="hidden h-full w-full overflow-hidden lg:inline"
+        >
             <ForceGraph
                 ref={fgRef}
                 width={dimensions.w}
