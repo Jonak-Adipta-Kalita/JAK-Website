@@ -1,13 +1,12 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCurtainTransition } from "@/lib/hooks/usePageTransition";
 import { CurtainContext } from "@/lib/CurtainContext";
-import { LeftCurtain, RightCurtain } from "./CurtainUI";
 
 const transition = {
-    duration: 0.8,
+    duration: 1.5,
     ease: [0.76, 0, 0.24, 1] as [number, number, number, number],
 };
 
@@ -18,6 +17,7 @@ export const CurtainProvider = ({
 }) => {
     const { curtainState, navigateTo, openOnMount, onClosed, onOpened } =
         useCurtainTransition();
+    const [fact, setFact] = useState('');
 
     const leftControls = useAnimation();
     const rightControls = useAnimation();
@@ -25,6 +25,10 @@ export const CurtainProvider = ({
     useEffect(() => {
         const run = async () => {
             if (curtainState === "closing") {
+                fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
+                    .then(r => r.json())
+                    .then(d => setFact(d.text));
+
                 await Promise.all([
                     leftControls.start({ x: "0%", transition }),
                     rightControls.start({
@@ -43,7 +47,7 @@ export const CurtainProvider = ({
         };
 
         run();
-    }, [curtainState]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [curtainState]); // eslint-disable-line react-hooks/exhaustiv-deps
 
     return (
         <CurtainContext.Provider value={{ navigateTo, openOnMount }}>
@@ -53,7 +57,9 @@ export const CurtainProvider = ({
                     animate={leftControls}
                     className="pointer-events-none fixed top-0 left-0 z-50 h-full w-1/2"
                 >
-                    <LeftCurtain />
+                    <div className="bg-bg-curtain h-screen max-h-screen flex items-center justify-center text-justify p-20">
+                        <p className="text-fg-lobby-extralight text-4xl">{fact}</p>
+                    </div>
                 </motion.div>
 
                 <motion.div
@@ -61,9 +67,11 @@ export const CurtainProvider = ({
                     animate={rightControls}
                     className="pointer-events-none fixed top-0 left-1/2 z-50 h-full w-1/2"
                 >
-                    <RightCurtain />
-                </motion.div>
 
+                    <div className="bg-bg-curtain h-screen max-h-screen flex items-center justify-center">
+                        <p className="text-fg-lobby-extralight text-7xl">Did you know?</p>
+                    </div>
+                </motion.div>
                 <div className="relative z-0">{children}</div>
             </div>
         </CurtainContext.Provider>
