@@ -25,6 +25,7 @@
     --color-bg-lobby: #121212;
     --color-bg-highlight: #131821;
     --color-bg-modal: #3f3f46;
+    --color-bg-curtain: #0b0f1a;
 
     --color-bg-music: #03020a;
     --color-bg-music-surface: #0a0615;
@@ -41,6 +42,10 @@
     --cursor-text: url(/cursors/text.cur), text;
 
     --breakpoint-xs: 412px;
+
+    --animate-twinkle: twinkle 2.1s ease-in-out infinite;
+    --animate-twinkle-slow: twinkle 3.2s ease-in-out infinite 0.7s;
+    --animate-twinkle-fast: twinkle 1.8s ease-in-out infinite 1.1s;
 }
 
 @layer base {
@@ -107,5 +112,15 @@
     }
     to {
         transform: translate(40px, 30px) scale(1.3);
+    }
+}
+
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
     }
 }
