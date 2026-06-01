@@ -23,7 +23,7 @@ const MusicLayout = ({
     return (
         <PageReveal>
             <div
-                className={`${metalMania.variable} bg-bg-music relative min-h-screen overflow-x-hidden`}
+                className={`${metalMania.variable} bg-bg-music text-fg-music-text relative min-h-screen overflow-x-hidden`}
             >
                 <MusicHeader />
                 <div

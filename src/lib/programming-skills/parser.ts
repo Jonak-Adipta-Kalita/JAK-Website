@@ -54,8 +54,8 @@ const buildGraphData = (): GraphData => {
     addNode({
         id: "languages",
         name: "Languages",
-        type: "field",
-        fx: -200,
+        type: "group",
+        fx: -500,
         fy: 0,
     });
     for (const lang of skills.languages) {
@@ -72,7 +72,7 @@ const buildGraphData = (): GraphData => {
     addNode({
         id: "frameworks",
         name: "Frameworks",
-        type: "field",
+        type: "group",
         fx: 0,
         fy: 0,
     });
@@ -96,7 +96,7 @@ const buildGraphData = (): GraphData => {
         links.push({ source: "frameworks", target: fw.id });
     }
 
-    addNode({ id: "tools", name: "Tools", type: "field", fx: 200, fy: 0 });
+    addNode({ id: "tools", name: "Tools", type: "group", fx: 500, fy: 0 });
     const allTools = skills.tools.flatMap((t) =>
         "tools" in t ? t.tools : [t]
     );

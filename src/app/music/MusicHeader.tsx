@@ -24,7 +24,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
         return (
             <Link
                 ref={ref}
-                className="text-fg-music-muted hover:text-fg-music-text group relative text-center font-mono text-sm tracking-[3px] uppercase no-underline transition-colors md:text-lg"
+                className="lg:text-fg-music-muted text-fg-music-text hover:text-fg-music-text group relative text-center font-mono text-sm tracking-[3px] uppercase no-underline transition-colors md:text-lg"
                 onClick={(e) => {
                     onClick?.(e);
                     if (e.ctrlKey || e.metaKey) {
