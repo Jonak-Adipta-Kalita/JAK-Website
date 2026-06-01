@@ -1,6 +1,6 @@
 "use client";
 
-import { NavStore } from "@/lib/store/navStore";
+import { NavStore } from "@/lib/hooks/navStore/navStore";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 import { StoreApi } from "zustand";
