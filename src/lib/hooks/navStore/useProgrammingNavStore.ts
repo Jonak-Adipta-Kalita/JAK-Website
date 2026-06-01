@@ -1,4 +1,4 @@
-import { createNavStore, NavItemOf } from "@/lib/store/navStore";
+import { createNavStore, NavItemOf } from "./navStore";
 
 export const NAV_ITEMS = [
     "About",

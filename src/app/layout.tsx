@@ -1,9 +1,12 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Salsa, Ubuntu_Sans } from "next/font/google";
+
 import GotoLobbyButton from "@/app/GotoLobbyButton";
 import Providers from "./Providers";
-
-import "./globals.css";
+import CommandPalette from "@/components/CommandPalette";
+import SettingsPanel from "@/components/SettingsPanel";
 
 const salsa = Salsa({
     weight: "400",
@@ -27,14 +30,14 @@ const RootLayout = ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
-    // TODO: Setup Tailwind Dark & Light Mode for the 2 types of Sites :D
-
     return (
         <html lang="en">
             <body
                 className={`${salsa.variable} ${ubuntuSans.variable} relative antialiased`}
             >
                 <GotoLobbyButton />
+                <CommandPalette />
+                <SettingsPanel />
                 <Providers>
                     <div className="overflow-hidden">{children}</div>
                 </Providers>

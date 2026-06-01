@@ -8,8 +8,11 @@ import {
     ProductivityPortal,
     ProgrammingPortal,
 } from "./Portal";
+import { useSettingsPanel } from "@/lib/hooks/useSettingsPanel";
 
 const LobbyPortals = () => {
+    const { openPanel } = useSettingsPanel();
+
     return (
         <div className="mx-auto mb-5 flex w-full max-w-4xl grow">
             <div className="relative hidden max-h-[90vh] w-full grow flex-col items-center justify-center md:flex">
@@ -23,7 +26,7 @@ const LobbyPortals = () => {
                     <SettingsIcon
                         className="text-fg-lobby-extralight text-base"
                         onClick={() => {
-                            /* TODO: Open Settings Model */
+                            openPanel();
                         }}
                     />
                 </div>

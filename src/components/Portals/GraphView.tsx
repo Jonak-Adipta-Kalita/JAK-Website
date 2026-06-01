@@ -11,6 +11,8 @@ import {
 } from "./Portal";
 import { SettingsIcon, SquareSlashIcon } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { useCommandPalette } from "@/lib/hooks/useCommandPalette";
+import { useSettingsPanel } from "@/lib/hooks/useSettingsPanel";
 
 const LobbyGraphView = () => {
     const anchorRef = useRef<HTMLButtonElement>(null);
@@ -19,6 +21,9 @@ const LobbyGraphView = () => {
     const [musicDrag, setMusicDrag] = useState<boolean>(false);
     const [polyglotDrag, setPolyglotDrag] = useState<boolean>(false);
     const [productivityDrag, setProductivityDrag] = useState<boolean>(false);
+
+    const { openPalette } = useCommandPalette();
+    const { openPanel } = useSettingsPanel();
 
     return (
         <>
@@ -38,7 +43,7 @@ const LobbyGraphView = () => {
                             <SquareSlashIcon
                                 className="text-fg-lobby-dark hover:text-fg-lobby-extradark/75 hidden cursor-pointer md:inline"
                                 onClick={() => {
-                                    /* TODO: Open Command Palette */
+                                    openPalette();
                                 }}
                             />
                         </TooltipTrigger>
@@ -51,7 +56,7 @@ const LobbyGraphView = () => {
                     <SettingsIcon
                         className="text-fg-lobby-dark hover:text-fg-lobby-extradark/75 hidden cursor-pointer md:inline"
                         onClick={() => {
-                            /* TODO: Open Settings Model */
+                            openPanel();
                         }}
                     />
                 </div>

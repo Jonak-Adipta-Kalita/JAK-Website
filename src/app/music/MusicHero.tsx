@@ -20,7 +20,7 @@ const MusicHero = () => {
             </div>
 
             <div
-                className="strip-left absolute left-[10%] top-1/2 -translate-y-1/2 z-[2]"
+                className="strip-left absolute top-1/2 left-[10%] z-[2] -translate-y-1/2"
                 style={{
                     width: 3,
                     height: "70%",
@@ -31,7 +31,7 @@ const MusicHero = () => {
             />
 
             <div
-                className="strip-right absolute right-[10%] top-1/2 -translate-y-1/2 z-[2]"
+                className="strip-right absolute top-1/2 right-[10%] z-[2] -translate-y-1/2"
                 style={{
                     width: 3,
                     height: "70%",
@@ -42,9 +42,7 @@ const MusicHero = () => {
             />
 
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-                <button
-                    className="bg-fg-music-text/10 text-fg-music-glow-red flex h-12 w-12 animate-bounce items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 cursor-default"
-                >
+                <button className="bg-fg-music-text/10 text-fg-music-glow-red flex h-12 w-12 animate-bounce cursor-default items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300">
                     <MoveDownIcon className="h-5 w-5" />
                 </button>
             </div>
