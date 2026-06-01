@@ -149,7 +149,7 @@ export const CurtainProvider = ({
         };
 
         run();
-    }, [curtainState]); // eslint-disable-line react-hooks/exhaustiv-deps
+    }, [curtainState]);
 
     return (
         <CurtainContext.Provider value={{ navigateTo, openOnMount }}>
