@@ -1,10 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { LucideProps } from "lucide-react";
+import { EllipsisIcon, LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Button } from "../ui/button";
-import { BookIcon, Code2Icon, GuitarIcon, LanguagesIcon } from "lucide-react";
+import { Code2Icon, GuitarIcon, LanguagesIcon } from "lucide-react";
 import { useCurtain } from "@/lib/CurtainContext";
 
 type PortalProps = {
@@ -16,7 +16,7 @@ const ringColorPortal: { [key: string]: string } = {
     Programming: "ring-blue-400",
     "Music (Guitar)": "ring-rose-400",
     Polyglotism: "ring-teal-400",
-    Productivity: "ring-orange-400",
+    "Other Interests": "ring-orange-400",
 };
 
 const Portal = ({
@@ -88,11 +88,11 @@ export const PolyglotPortal = ({ dragging, mobile }: PortalProps) => (
     />
 );
 
-export const ProductivityPortal = ({ dragging, mobile }: PortalProps) => (
+export const OtherPortal = ({ dragging, mobile }: PortalProps) => (
     <Portal
-        name="Productivity"
-        Icon={BookIcon}
-        href={"/productivity"}
+        name="Other Interests"
+        Icon={EllipsisIcon}
+        href={"/other-interests"}
         dragging={dragging}
         mobile={mobile || false}
     />

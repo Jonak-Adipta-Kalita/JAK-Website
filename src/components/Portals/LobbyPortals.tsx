@@ -5,8 +5,8 @@ import GraphView from "./GraphView";
 import {
     MusicPortal,
     PolyglotPortal,
-    ProductivityPortal,
     ProgrammingPortal,
+    OtherPortal
 } from "./Portal";
 import { useSettingsPanel } from "@/lib/hooks/useSettingsPanel";
 
@@ -33,7 +33,7 @@ const LobbyPortals = () => {
                 <ProgrammingPortal dragging={false} mobile />
                 <MusicPortal dragging={false} mobile />
                 <PolyglotPortal dragging={false} mobile />
-                <ProductivityPortal dragging={false} mobile />
+                <OtherPortal dragging={false} mobile />
             </div>
         </div>
     );

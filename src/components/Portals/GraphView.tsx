@@ -6,8 +6,8 @@ import FloatingDiv from "../FloatingDiv";
 import {
     MusicPortal,
     PolyglotPortal,
-    ProductivityPortal,
     ProgrammingPortal,
+    OtherPortal
 } from "./Portal";
 import { SettingsIcon, SquareSlashIcon } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
@@ -20,7 +20,7 @@ const LobbyGraphView = () => {
     const [programmingDrag, setProgrammingDrag] = useState<boolean>(false);
     const [musicDrag, setMusicDrag] = useState<boolean>(false);
     const [polyglotDrag, setPolyglotDrag] = useState<boolean>(false);
-    const [productivityDrag, setProductivityDrag] = useState<boolean>(false);
+    const [otherDrag, setOtherDrag] = useState<boolean>(false);
 
     const { openPalette } = useCommandPalette();
     const { openPanel } = useSettingsPanel();
@@ -86,9 +86,9 @@ const LobbyGraphView = () => {
                 <FloatingDiv
                     className="absolute right-10 bottom-10"
                     anchorRef={anchorRef!}
-                    setDrag={setProductivityDrag}
+                    setDrag={setOtherDrag}
                 >
-                    <ProductivityPortal dragging={productivityDrag} />
+                    <OtherPortal dragging={otherDrag} />
                 </FloatingDiv>
             </div>
         </>
