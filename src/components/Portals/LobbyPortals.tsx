@@ -6,7 +6,7 @@ import {
     MusicPortal,
     PolyglotPortal,
     ProgrammingPortal,
-    OtherPortal
+    OtherPortal,
 } from "./Portal";
 import { useSettingsPanel } from "@/lib/hooks/useSettingsPanel";
 

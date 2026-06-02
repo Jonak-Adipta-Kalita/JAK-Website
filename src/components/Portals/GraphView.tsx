@@ -7,7 +7,7 @@ import {
     MusicPortal,
     PolyglotPortal,
     ProgrammingPortal,
-    OtherPortal
+    OtherPortal,
 } from "./Portal";
 import { SettingsIcon, SquareSlashIcon } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
