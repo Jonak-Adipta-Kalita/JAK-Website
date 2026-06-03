@@ -15,7 +15,10 @@ const MusicSection = ({
     return (
         <section
             id={`#${name}`}
-            className={cn("mx-auto max-w-7xl px-5", className)}
+            className={cn(
+                "max-w-9xl mx-auto px-5 md:px-10 lg:px-14",
+                className
+            )}
         >
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -23,8 +26,9 @@ const MusicSection = ({
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
-                <p className="font-metal-mania text-3xl uppercase md:text-5xl lg:text-7xl mb-5 md:mb-14 lg:mb-24">
-                    <span className="text-fg-music-neon-blue">&#35;</span> {name}
+                <p className="font-metal-mania mb-5 text-3xl uppercase md:mb-14 md:text-5xl lg:mb-24 lg:text-7xl">
+                    <span className="text-fg-music-neon-blue">&#35;</span>{" "}
+                    {name}
                 </p>
             </motion.div>
             <motion.div

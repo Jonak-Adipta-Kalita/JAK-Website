@@ -106,6 +106,10 @@
     }
 }
 
+@utility max-w-9xl {
+    max-width: 96rem; /* 1536px */
+}
+
 @keyframes drift {
     from {
         transform: translate(0, 0) scale(1);

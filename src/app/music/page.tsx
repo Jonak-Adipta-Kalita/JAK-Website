@@ -1,8 +1,11 @@
+"use client";
+
 import Waveform from "./Waveform";
 import MusicHero from "./MusicHero";
-import AboutMe from "./about/AboutMeMusic";
+import AboutMe from "./about/AboutMe";
 import MyGear from "./gear/MyMusicGear";
 import MyInfluences from "./influences/MyMusicInfluences";
+import { useEffect, useRef } from "react";
 
 const Divider = ({
     rotWave,
@@ -31,10 +34,35 @@ const Divider = ({
 };
 
 const MusicPage = () => {
+    const mainRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const scrollToHash = (hash: string) => {
+            if (!hash || !mainRef.current) return;
+            requestAnimationFrame(() => {
+                const target = document.getElementById(hash);
+                if (target && mainRef.current) {
+                    mainRef.current.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: "smooth",
+                    });
+                }
+            });
+        };
+
+        scrollToHash(window.location.hash);
+
+        const onHashChange = () => scrollToHash(window.location.hash);
+        window.addEventListener("hashchange", onHashChange);
+        return () => window.removeEventListener("hashchange", onHashChange);
+    }, []);
+
     return (
-        <main className="scrollbar-music h-screen w-full overflow-y-auto scroll-smooth">
+        <main
+            className="scrollbar-music h-screen w-full overflow-y-auto scroll-smooth"
+            ref={mainRef}
+        >
             <MusicHero />
-            <div className="mt-[0.1px]" />
             <Divider />
             <AboutMe />
             <Divider rotWave />
