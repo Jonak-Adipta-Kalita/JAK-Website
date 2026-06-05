@@ -84,6 +84,12 @@ export const AboutMe = () => {
                     font: "font-metal-mania",
                 }}
             />
+            <p className="text-fg-music-text mt-5 text-center text-lg font-semibold md:mt-10 md:text-xl lg:mt-20 lg:text-3xl">
+                I can listen to any genre but{" "}
+                <span className="text-fg-music-neon-blue">Metal</span> has a
+                special place in my heart{" "}
+                <span className="opacity-50">&#40;and I hate Jazz&#41;</span>
+            </p>
         </MusicSection>
     );
 };
