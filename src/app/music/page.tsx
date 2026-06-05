@@ -6,6 +6,7 @@ import AboutMe from "./AboutMe";
 import MyGear from "./gear/MyMusicGear";
 import MyInfluences from "./influences/MyMusicInfluences";
 import { useEffect, useRef } from "react";
+import { useParams, useSearchParams } from "next/navigation";
 
 const Divider = ({
     rotWave,
@@ -35,6 +36,8 @@ const Divider = ({
 
 const MusicPage = () => {
     const mainRef = useRef<HTMLElement>(null);
+    const params = useParams();
+    const searchParams = useSearchParams();
 
     useEffect(() => {
         const scrollToHash = (hash: string) => {
@@ -51,11 +54,7 @@ const MusicPage = () => {
         };
 
         scrollToHash(window.location.hash);
-
-        const onHashChange = () => scrollToHash(window.location.hash);
-        window.addEventListener("hashchange", onHashChange);
-        return () => window.removeEventListener("hashchange", onHashChange);
-    }, []);
+    }, [params, searchParams]);
 
     return (
         <main

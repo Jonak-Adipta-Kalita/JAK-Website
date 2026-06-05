@@ -68,7 +68,7 @@ const MusicHeader = () => {
                     >
                         {link === "Home" ? (
                             <div className="relative hidden items-center justify-center md:flex">
-                                <Link href="/music">
+                                <Link href="/music#">
                                     <BirdhouseIcon
                                         className="text-fg-music-muted hover:text-fg-music-glow-red top-0 cursor-pointer"
                                         width={25}
