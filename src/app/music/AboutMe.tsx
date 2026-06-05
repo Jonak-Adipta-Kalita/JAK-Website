@@ -1,5 +1,8 @@
+"use client";
+
 import Roadmap, { Stop } from "@/components/Roadmap";
-import MusicSection from "../MusicSection";
+import MusicSection from "./MusicSection";
+import { motion } from "motion/react";
 
 const roadmapData: Stop[] = [
     {
@@ -84,12 +87,17 @@ export const AboutMe = () => {
                     font: "font-metal-mania",
                 }}
             />
-            <p className="text-fg-music-text mt-5 text-center text-lg font-semibold md:mt-10 md:text-xl lg:mt-20 lg:text-3xl">
+            <motion.p
+                initial={{ opacity: 0, y: -16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="text-fg-music-text mt-5 text-center text-lg font-semibold md:mt-10 md:text-xl lg:mt-20 lg:text-3xl"
+            >
                 I can listen to any genre but{" "}
                 <span className="text-fg-music-neon-blue">Metal</span> has a
                 special place in my heart{" "}
                 <span className="opacity-50">&#40;and I hate Jazz&#41;</span>
-            </p>
+            </motion.p>
         </MusicSection>
     );
 };
