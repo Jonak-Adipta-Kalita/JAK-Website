@@ -5,7 +5,7 @@ import MusicHero from "./MusicHero";
 import AboutMe from "./about/AboutMe";
 import MyGear from "./gear/MyMusicGear";
 import MyInfluences from "./influences/MyMusicInfluences";
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 
 const Divider = ({
@@ -34,8 +34,7 @@ const Divider = ({
     );
 };
 
-const MusicPage = () => {
-    const mainRef = useRef<HTMLElement>(null);
+const ScrollToHash = ({ mainRef }: { mainRef: React.RefObject<HTMLElement | null> }) => {
     const params = useParams();
     const searchParams = useSearchParams();
 
@@ -52,9 +51,14 @@ const MusicPage = () => {
                 }
             });
         };
-
         scrollToHash(window.location.hash);
     }, [params, searchParams]);
+
+    return null;
+};
+
+const MusicPage = () => {
+    const mainRef = useRef<HTMLElement>(null);
 
     return (
         <main
@@ -62,6 +66,9 @@ const MusicPage = () => {
             ref={mainRef}
         >
             <MusicHero />
+            <Suspense fallback={null}>
+                <ScrollToHash mainRef={mainRef} />
+            </Suspense>
             <Divider />
             <AboutMe />
             <Divider rotWave />

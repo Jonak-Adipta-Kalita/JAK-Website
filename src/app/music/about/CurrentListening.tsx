@@ -2,7 +2,7 @@
 
 import { ExternalLinkIcon } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
@@ -24,12 +24,24 @@ interface Track {
 
 const CurrentListening = () => {
     const [track, setTrack] = useState<Track | null>(null);
+    const ref = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        fetch("/api/lastfm")
-            .then((r) => r.json())
-            .then((data) => setTrack(data));
-    }, []);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    fetch("/api/lastfm")
+                        .then((r) => r.json())
+                        .then((data) => setTrack(data))
+                    observer.disconnect()
+                }
+            },
+            { threshold: 0.5 }
+        )
+
+        if (ref.current) observer.observe(ref.current)
+        return () => observer.disconnect()
+    }, [])
 
     return (
         <motion.div
@@ -38,6 +50,7 @@ const CurrentListening = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true }}
+            ref={ref}
         >
             <Link
                 className="relative mx-auto flex h-full w-full max-w-4xl cursor-pointer overflow-hidden rounded-2xl"
@@ -95,7 +108,7 @@ const CurrentListening = () => {
                         )}
 
                         {track ? (
-                            <p className="truncate text-2xl font-bold">
+                            <p className="truncate text-2xl font-bold cursor-pointer">
                                 {track.name}
                             </p>
                         ) : (
@@ -103,7 +116,7 @@ const CurrentListening = () => {
                         )}
 
                         {track ? (
-                            <p className="truncate text-base font-medium opacity-70">
+                            <p className="truncate text-base font-medium opacity-70 cursor-pointer">
                                 {track.artist["#text"]}
                             </p>
                         ) : (
@@ -111,7 +124,7 @@ const CurrentListening = () => {
                         )}
 
                         {track ? (
-                            <p className="truncate text-sm opacity-40">
+                            <p className="truncate text-sm opacity-40 cursor-pointer">
                                 {track.album["#text"]}
                             </p>
                         ) : (
