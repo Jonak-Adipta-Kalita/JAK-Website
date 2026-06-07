@@ -2,7 +2,7 @@
 
 import Waveform from "./Waveform";
 import MusicHero from "./MusicHero";
-import AboutMe from "./AboutMe";
+import AboutMe from "./about/AboutMe";
 import MyGear from "./gear/MyMusicGear";
 import MyInfluences from "./influences/MyMusicInfluences";
 import { useEffect, useRef } from "react";

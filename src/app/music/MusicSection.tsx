@@ -7,10 +7,12 @@ const MusicSection = ({
     children,
     name,
     className,
+    containerClassName,
 }: {
     children: React.ReactNode;
     name: string;
     className?: string;
+    containerClassName?: string;
 }) => {
     return (
         <section
@@ -36,6 +38,7 @@ const MusicSection = ({
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-150px" }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
+                className={containerClassName}
             >
                 {children}
             </motion.div>
