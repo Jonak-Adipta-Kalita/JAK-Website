@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
 
 interface Track {
     name: string;
@@ -38,31 +39,93 @@ const CurrentListening = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true }}
         >
-            <div className="mx-auto flex h-full w-full max-w-4xl flex-col items-center justify-center gap-y-10 lg:flex-row lg:items-start lg:justify-around">
-                <div className="h-full w-fit basis-2/5">
-                    <Skeleton className="h-52 w-52 rounded-xl" />
-                </div>
-                <div className="mt-2 flex h-full w-full basis-3/5 flex-col items-start space-y-5 lg:space-y-10">
-                    <Skeleton className="h-4 w-full lg:h-5" />
-                    <div className="flex h-full w-full items-center justify-center lg:justify-start">
-                        <div className="h-full w-[75%] space-y-5 lg:w-[50%] lg:space-y-10">
-                            <Skeleton className="h-4 w-full lg:h-5" />
-                            <Skeleton className="h-4 w-full lg:h-5" />
-                        </div>
-                        {track?.["@attr"]?.nowplaying && (
-                            <p className="text-fg-music-muted font-ubuntu hidden h-full flex-grow animate-pulse bg-transparent text-center text-xl font-bold tracking-wider opacity-50 lg:inline">
-                                Now Playing
+            <Link
+                className="relative mx-auto flex h-full w-full max-w-4xl cursor-pointer overflow-hidden rounded-2xl"
+                href={track?.url || ""}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                {track && (
+                    <div className="absolute inset-0 scale-110">
+                        <Image
+                            fill
+                            src={track.image[3]["#text"]}
+                            alt=""
+                            className="object-cover opacity-40 blur-2xl"
+                        />
+                        <div className="absolute inset-0 bg-black/50" />
+                    </div>
+                )}
+
+                <div className="relative z-10 flex w-full flex-col items-center gap-8 p-8 backdrop-blur-sm lg:flex-row lg:items-center">
+                    <div className="shrink-0">
+                        {track ? (
+                            <div className="relative h-48 w-48 overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+                                <Image
+                                    fill
+                                    className="object-cover"
+                                    src={track.image[3]["#text"]}
+                                    alt={track.name}
+                                />
+                            </div>
+                        ) : (
+                            <Skeleton className="h-48 w-48 rounded-2xl" />
+                        )}
+                    </div>
+
+                    <div className="flex min-w-0 flex-col gap-3 text-white">
+                        {track && (
+                            <div className="flex items-center gap-2">
+                                <span className="relative flex h-2 w-2">
+                                    <span
+                                        className={`absolute inline-flex h-full w-full animate-ping rounded-full ${track?.["@attr"]?.nowplaying ? "bg-fg-music-neon-blue" : "bg-fg-music-neon-red"} opacity-75`}
+                                    />
+                                    <span
+                                        className={`relative inline-flex h-2 w-2 rounded-full ${track?.["@attr"]?.nowplaying ? "bg-fg-music-neon-blue" : "bg-fg-music-neon-red"}`}
+                                    />
+                                </span>
+                                <span
+                                    className={`text-xs font-semibold tracking-widest ${track?.["@attr"]?.nowplaying ? "text-fg-music-neon-blue" : "text-fg-music-neon-red"} uppercase`}
+                                >
+                                    {track?.["@attr"]?.nowplaying
+                                        ? "Now Playing"
+                                        : "Last Played"}
+                                </span>
+                            </div>
+                        )}
+
+                        {track ? (
+                            <p className="truncate text-2xl font-bold">
+                                {track.name}
                             </p>
+                        ) : (
+                            <Skeleton className="h-7 w-64" />
+                        )}
+
+                        {track ? (
+                            <p className="truncate text-base font-medium opacity-70">
+                                {track.artist["#text"]}
+                            </p>
+                        ) : (
+                            <Skeleton className="h-5 w-40" />
+                        )}
+
+                        {track ? (
+                            <p className="truncate text-sm opacity-40">
+                                {track.album["#text"]}
+                            </p>
+                        ) : (
+                            <Skeleton className="h-4 w-48" />
                         )}
                     </div>
                 </div>
-            </div>
+            </Link>
 
             <Link
                 href="https://www.last.fm/user/xxJonakAdiptaxx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-music-muted mt-10 flex opacity-75"
+                className="text-fg-music-muted mt-10 flex cursor-pointer opacity-75"
             >
                 <span className="mr-2 text-base font-semibold tracking-wider lg:text-xl">
                     Checkout my{" "}
