@@ -24,7 +24,7 @@ interface Track {
 
 const CurrentListening = () => {
     const [track, setTrack] = useState<Track | null>(null);
-    const ref = useRef<HTMLDivElement>(null)
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -32,16 +32,16 @@ const CurrentListening = () => {
                 if (entry.isIntersecting) {
                     fetch("/api/lastfm")
                         .then((r) => r.json())
-                        .then((data) => setTrack(data))
-                    observer.disconnect()
+                        .then((data) => setTrack(data));
+                    observer.disconnect();
                 }
             },
             { threshold: 0.5 }
-        )
+        );
 
-        if (ref.current) observer.observe(ref.current)
-        return () => observer.disconnect()
-    }, [])
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <motion.div
@@ -108,7 +108,7 @@ const CurrentListening = () => {
                         )}
 
                         {track ? (
-                            <p className="truncate text-2xl font-bold cursor-pointer">
+                            <p className="cursor-pointer truncate text-2xl font-bold">
                                 {track.name}
                             </p>
                         ) : (
@@ -116,7 +116,7 @@ const CurrentListening = () => {
                         )}
 
                         {track ? (
-                            <p className="truncate text-base font-medium opacity-70 cursor-pointer">
+                            <p className="cursor-pointer truncate text-base font-medium opacity-70">
                                 {track.artist["#text"]}
                             </p>
                         ) : (
@@ -124,7 +124,7 @@ const CurrentListening = () => {
                         )}
 
                         {track ? (
-                            <p className="truncate text-sm opacity-40 cursor-pointer">
+                            <p className="cursor-pointer truncate text-sm opacity-40">
                                 {track.album["#text"]}
                             </p>
                         ) : (

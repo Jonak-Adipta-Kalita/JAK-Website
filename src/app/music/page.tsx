@@ -34,7 +34,11 @@ const Divider = ({
     );
 };
 
-const ScrollToHash = ({ mainRef }: { mainRef: React.RefObject<HTMLElement | null> }) => {
+const ScrollToHash = ({
+    mainRef,
+}: {
+    mainRef: React.RefObject<HTMLElement | null>;
+}) => {
     const params = useParams();
     const searchParams = useSearchParams();
 
