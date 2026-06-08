@@ -1,4 +1,4 @@
-import ScrollSnapSection from "../ScrollSnapSection";
+import ScrollSnapSection from "../ProgrammingSection";
 import SkillsGraphView from "./GraphView";
 import SkillsGridView from "./GridView";
 

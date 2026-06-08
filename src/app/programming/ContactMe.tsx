@@ -1,4 +1,4 @@
-import ScrollSnapSection from "./ScrollSnapSection";
+import ScrollSnapSection from "./ProgrammingSection";
 
 const ContactMe = () => {
     return (

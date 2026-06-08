@@ -77,6 +77,10 @@
     .scrollbar-music {
         @apply scrollbar-thin scrollbar-thumb-neutral-800 scrollbar-track-transparent scrollbar-hover:scrollbar-thumb-neutral-700;
     }
+
+    .scrollbar-polyglot {
+        @apply scrollbar-thin scrollbar-thumb-zinc-500 scrollbar-track-transparent;
+    }
 }
 
 @layer components {

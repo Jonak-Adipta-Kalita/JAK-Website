@@ -1,10 +1,12 @@
-import ScrollSnapSection from "@/components/ScrollSnapSection";
+"use client";
+
+import ScrollSnapSection from "@/components/ScrollSnapSection/Section";
 import {
     NavItem,
     useProgrammingNavStore,
 } from "@/lib/hooks/navStore/useProgrammingNavStore";
 
-const ProgrammingScrollSnapSection = ({
+const ProgrammingSection = ({
     children,
     nav,
     id,
@@ -27,4 +29,4 @@ const ProgrammingScrollSnapSection = ({
     );
 };
 
-export default ProgrammingScrollSnapSection;
+export default ProgrammingSection;
