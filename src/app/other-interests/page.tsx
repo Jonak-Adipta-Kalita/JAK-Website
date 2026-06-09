@@ -19,9 +19,9 @@ const OTHER_INTERESTS: {
         Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
     >;
 }[] = [
-    { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
-    { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
-];
+        { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
+        { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
+    ];
 
 const OtherInterestsPage = () => {
     return (
@@ -33,7 +33,7 @@ const OtherInterestsPage = () => {
             </p>
 
             <div className="max-w-9xl mx-auto grid grid-cols-2 gap-x-5 p-5 md:mt-5 xl:mt-10 xl:grid-cols-3">
-                {OTHER_INTERESTS.map((interest) => (
+                {OTHER_INTERESTS.map((interest, i) => (
                     <Portal
                         Icon={interest.Icon}
                         name={interest.name}
@@ -41,6 +41,7 @@ const OtherInterestsPage = () => {
                         mobile={false}
                         dragging={false}
                         otherInterest
+                        key={i}
                     />
                 ))}
             </div>
