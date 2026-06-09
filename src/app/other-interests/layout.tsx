@@ -13,7 +13,7 @@ const OtherInterestsLayout = ({
 }>) => {
     return (
         <PageReveal>
-            <div className="h-screen bg-lime-100" id="light">
+            <div className="h-screen bg-teal-100" id="light">
                 {children}
             </div>
         </PageReveal>
