@@ -22,7 +22,7 @@ const PolyglotSection = ({
         <ScrollSnapSection
             id={id}
             className={cn(
-                "flex h-screen items-center justify-center p-5 lg:p-10",
+                "flex items-center justify-center p-5 lg:h-screen lg:p-10",
                 className
             )}
             useNavStore={usePolyglotNavStore}

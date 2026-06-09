@@ -36,6 +36,7 @@
     --font-salsa: var(--font-salsa);
     --font-ubuntu: var(--font-ubuntu-sans);
     --font-metal-mania: var(--font-metal-mania);
+    --font-comfortanaa: var(--font-comfortanaa);
 
     --cursor-default: url(/cursors/default.cur), default;
     --cursor-pointer: url(/cursors/pointer.cur), pointer;
