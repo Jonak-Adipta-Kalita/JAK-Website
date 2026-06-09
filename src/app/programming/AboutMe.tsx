@@ -55,7 +55,7 @@ const AboutMe = () => {
         <>
             I have a huge love for{" "}
             <span
-                onClick={() => alert("some day fam!")}
+                onClick={() => navigateTo("/gaming")}
                 className="aboutText-highlight"
             >
                 Gaming

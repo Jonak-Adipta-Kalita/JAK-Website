@@ -23,6 +23,7 @@ const PolyglotLayout = ({
         <PageReveal>
             <div
                 className={`relative flex h-screen flex-col overflow-hidden bg-slate-200 lg:flex-row ${comfortanaa.variable}`}
+                id="light"
             >
                 <div className="hidden lg:inline">
                     <div className="absolute -top-[10%] -left-[5%] h-[600px] w-[600px] animate-[drift_18s_ease-in-out_infinite_alternate] rounded-full bg-indigo-300 opacity-45 blur-[120px]" />

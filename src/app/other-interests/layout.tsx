@@ -11,7 +11,13 @@ const OtherInterestsLayout = ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
-    return <PageReveal>{children}</PageReveal>;
+    return (
+        <PageReveal>
+            <div className="h-screen bg-lime-100" id="light">
+                {children}
+            </div>
+        </PageReveal>
+    );
 };
 
 export default OtherInterestsLayout;

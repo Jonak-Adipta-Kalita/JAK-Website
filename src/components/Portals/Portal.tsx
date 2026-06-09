@@ -19,12 +19,13 @@ const ringColorPortal: { [key: string]: string } = {
     "Other Interests": "ring-orange-400",
 };
 
-const Portal = ({
+export const Portal = ({
     name,
     Icon,
     href,
     dragging,
     mobile,
+    otherInterest,
 }: {
     name: string;
     Icon: ForwardRefExoticComponent<
@@ -33,26 +34,37 @@ const Portal = ({
     href: string;
     dragging: boolean;
     mobile: boolean;
+    otherInterest?: boolean;
 }) => {
     const { navigateTo: transition } = useCurtain();
 
     return (
         <Button
-            variant={"lobby"}
+            variant={"otherInterests"}
             size={"lobby"}
             className={cn(
-                "z-40 bg-zinc-800 shadow-xl shadow-zinc-900",
-                `ring-2 ${ringColorPortal[name]}`,
-                "text-sm hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 sm:text-xl hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl",
+                `z-40 text-sm ring-2 ${!otherInterest ? ringColorPortal[name] : ""}`,
+                !otherInterest
+                    ? "bg-zinc-800 shadow-xl shadow-zinc-900 hover:p-9 hover:text-lg hover:opacity-90 active:p-7 active:text-xs active:opacity-100 sm:text-xl hover:sm:p-11 hover:sm:text-2xl active:sm:p-10 active:sm:text-xl"
+                    : "",
                 mobile ? "w-[75%] active:w-[70%]" : ""
             )}
             onClick={() => !dragging && transition(href)}
         >
             <div className="flex items-center justify-center space-x-3">
-                <p className="text-gradient cursor-pointer" draggable={false}>
+                <p
+                    className={`text-gradient ${otherInterest ? "invert" : ""} cursor-pointer`}
+                    draggable={false}
+                >
                     {name}
                 </p>
-                <Icon className="text-fg-lobby-base" />
+                <Icon
+                    className={
+                        !otherInterest
+                            ? "text-fg-lobby-base"
+                            : "h-7 w-7 text-stone-900"
+                    }
+                />
             </div>
         </Button>
     );

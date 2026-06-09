@@ -34,6 +34,7 @@ const RootLayout = ({
         <html lang="en">
             <body
                 className={`${salsa.variable} ${ubuntuSans.variable} relative antialiased`}
+                id="dark"
             >
                 <GotoLobbyButton />
                 <CommandPalette />

@@ -54,8 +54,12 @@
         @apply cursor-default overflow-x-hidden overflow-y-auto;
     }
 
-    ::selection {
+    #dark::selection {
         @apply bg-selection text-selection-fg;
+    }
+
+    #light::selection {
+        @apply text-selection bg-selection-fg;
     }
 
     p {
