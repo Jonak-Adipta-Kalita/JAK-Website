@@ -19,9 +19,9 @@ const OTHER_INTERESTS: {
         Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
     >;
 }[] = [
-        { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
-        { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
-    ];
+    { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
+    { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
+];
 
 const OtherInterestsPage = () => {
     return (
