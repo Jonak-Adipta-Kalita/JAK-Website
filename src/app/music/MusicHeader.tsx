@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { forwardRef } from "react";
 
-const links = ["Home", "About", "Gear", "Influences"] as const;
+const links = ["Home", "About", "Work", "Gear", "Influences"] as const;
 
 type NavLinkProps = {
     link: string;

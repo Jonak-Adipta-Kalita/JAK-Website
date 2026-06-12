@@ -2,7 +2,7 @@
 
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { DynaPuff } from "next/font/google";
-import { BookTextIcon, Gamepad2Icon, LucideProps } from "lucide-react";
+import { BookTextIcon, Gamepad2Icon, LucideProps, SportShoeIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { Portal } from "@/components/Portals/Portal";
 
@@ -19,9 +19,10 @@ const OTHER_INTERESTS: {
         Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
     >;
 }[] = [
-    { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
-    { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
-];
+        { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
+        { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
+        { name: "Workout & Nutrition", url: "/fitness", Icon: SportShoeIcon }
+    ];
 
 const OtherInterestsPage = () => {
     return (
@@ -32,7 +33,7 @@ const OtherInterestsPage = () => {
                 ...coz I like collecting hobbies
             </p>
 
-            <div className="max-w-9xl mx-auto grid grid-cols-2 gap-x-5 p-5 md:mt-5 xl:mt-10 xl:grid-cols-3">
+            <div className="max-w-9xl mx-auto grid grid-cols-2 gap-5 p-5 md:mt-5 xl:mt-10 xl:grid-cols-3">
                 {OTHER_INTERESTS.map((interest, i) => (
                     <Portal
                         Icon={interest.Icon}

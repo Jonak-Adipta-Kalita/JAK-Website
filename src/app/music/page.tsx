@@ -3,10 +3,11 @@
 import Waveform from "./Waveform";
 import MusicHero from "./MusicHero";
 import AboutMe from "./about/AboutMe";
-import MyGear from "./gear/MyMusicGear";
-import MyInfluences from "./influences/MyMusicInfluences";
+import MyGear from "./gear/MusicGear";
+import MyInfluences from "./influences/MusicInfluences";
 import { Suspense, useEffect, useRef } from "react";
 import { useParams, useSearchParams } from "next/navigation";
+import MyWork from "./work/MusicWork";
 
 const Divider = ({
     rotWave,
@@ -76,8 +77,10 @@ const MusicPage = () => {
             <Divider />
             <AboutMe />
             <Divider rotWave />
-            <MyGear />
+            <MyWork />
             <Divider />
+            <MyGear />
+            <Divider rotWave />
             <MyInfluences />
             <Divider needLine />
         </main>
