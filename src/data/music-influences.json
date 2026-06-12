@@ -1,0 +1,327 @@
+{
+    "primaryInfluences": [
+        {
+            "name": "Polyphia",
+            "url": "https://www.last.fm/music/Polyphia",
+            "fav_songs": [
+                "Ego Death",
+                "Euphoria",
+                "Saucy",
+                "The Worst",
+                "Persevere",
+                "Champagne",
+                "O.D.",
+                "Neurotica",
+                "Goose",
+                "40oz",
+                "Icronic",
+                "... well, pretty much all of them"
+            ],
+            "extra": [
+                "Fell in love with Guitar coz of em'",
+                "Tim & Scottie <3",
+                "Scottie is the reason I am into Xiphos",
+                "Helped me survive 10th grade"
+            ]
+        },
+        {
+            "name": "Periphery",
+            "url": "https://www.last.fm/music/Periphery",
+            "fav_songs": [
+                "It's Only Smiles",
+                "Wax Wings",
+                "Reptile",
+                "Marigold",
+                "Alpha",
+                "Icarus Lives",
+                "Heavy Heart",
+                "Scarlet",
+                "Zagreus",
+                "Astropos"
+            ],
+            "extra": [
+                "Although I love the 3 guys, Mark <3",
+                "Oh, I love Haunted Shore too! \"When in Oslo\" is so good",
+                "Have been a big influence for me"
+            ]
+        },
+        {
+            "name": "BABYMETAL",
+            "url": "https://www.last.fm/music/BABYMETAL",
+            "fav_songs": [
+                "Syncopation",
+                "Monochrome",
+                "Sunset Kiss",
+                "... I am not listing all of them coz I like all of them"
+            ],
+            "extra": [
+                "I love all of the songs (literally...) :D",
+                "Helped me survive 12th grade",
+                "Su <3 & Ohmura <3"
+            ]
+        },
+        {
+            "name": "NEMOPHILA",
+            "url": "https://www.last.fm/music/NEMOPHILA",
+            "fav_songs": [
+                "Ray of Light",
+                "Oiran",
+                "BRAINWASH",
+                "MONSTERS",
+                "now I here",
+                "ZEN",
+                "Enigma",
+                "Burn It",
+                "... and a lot more!"
+            ],
+            "extra": [
+                "Can't put more emphasis on how much I have listened to this band",
+                "Helped me survive 12th grade",
+                "Hazuki <3"
+            ]
+        },
+        {
+            "name": "LilyPichu",
+            "url": "https://www.last.fm/music/LilyPichu",
+            "fav_songs": [
+                "starsmitten",
+                "last cup of coffee",
+                "my own (japanese)",
+                "... and all the rest of them that there is"
+            ],
+            "extra": [
+                "Helped me survive the depressing 10th grade days!",
+                "I have binged too much of her stream VODs",
+                "I was very obsessed with OfflineTV"
+            ]
+        },
+        {
+            "name": "The Local Train",
+            "url": "https://www.last.fm/music/The+Local+Train",
+            "fav_songs": [
+                "Aaoge Tum Kabhi",
+                "Choo Lo",
+                "Manzil",
+                "Bandey",
+                "Khudi",
+                "Aaftab",
+                "Dil Mere"
+            ],
+            "extra": [
+                "Helped develop the initial interests since 9th grade",
+                "\"Aaoge Tum Kabhi\" was the first song I learned on Guitar",
+                "Why did Raman leave ;-;"
+            ]
+        }
+    ],
+
+    "worthyMentions": [
+        {
+            "name": "Bullet For My Valentine",
+            "url": "https://www.last.fm/music/Bullet+For+My+Valentine",
+            "fav_songs": ["The Poison"],
+            "extra": []
+        },
+        {
+            "name": "Spiritbox",
+            "url": "https://www.last.fm/music/Spiritbox",
+            "fav_songs": ["The Void"],
+            "extra": []
+        },
+        {
+            "name": "Novelists",
+            "url": "https://www.last.fm/music/Novelists",
+            "fav_songs": ["Prisoner"],
+            "extra": []
+        },
+        {
+            "name": "Gojira",
+            "url": "https://www.last.fm/music/Gojira",
+            "fav_songs": ["Flying Whales"],
+            "extra": []
+        },
+        {
+            "name": "Megadeth",
+            "url": "https://www.last.fm/music/Megadeth",
+            "fav_songs": ["Tornado of Souls"],
+            "extra": []
+        },
+        {
+            "name": "BXRRELL",
+            "url": "https://www.last.fm/music/BXRRELL",
+            "fav_songs": ["Tattoo"],
+            "extra": []
+        },
+        {
+            "name": "KOIAI",
+            "url": "https://www.last.fm/music/KOIAI",
+            "fav_songs": ["Inside"],
+            "extra": []
+        },
+        {
+            "name": "Lorna Shore",
+            "url": "https://www.last.fm/music/Lorna+Shore",
+            "fav_songs": ["Pain Remains"],
+            "extra": []
+        },
+        {
+            "name": "Slaughter to Prevail",
+            "url": "https://www.last.fm/music/Slaughter+to+Prevail",
+            "fav_songs": ["Bratva"],
+            "extra": []
+        },
+        {
+            "name": "Steve Vai",
+            "url": "https://www.last.fm/music/Steve+Vai",
+            "fav_songs": ["Tender Surrender"],
+            "extra": []
+        },
+        {
+            "name": "Paul Gilbert",
+            "url": "https://www.last.fm/music/Paul+Gilbert",
+            "fav_songs": ["Fuzz Universe"],
+            "extra": []
+        },
+        {
+            "name": "Band-Maid",
+            "url": "https://www.last.fm/music/Band-Maid",
+            "fav_songs": ["Puzzle"],
+            "extra": []
+        },
+        {
+            "name": "One Direction",
+            "url": "https://www.last.fm/music/One+Direction",
+            "fav_songs": ["Drag Me Down"],
+            "extra": []
+        },
+        {
+            "name": "Bhupen Hazarika",
+            "url": "https://www.last.fm/music/Bhupen+Hazarika",
+            "fav_songs": [],
+            "extra": []
+        },
+        {
+            "name": "Atif Aslam",
+            "url": "https://www.last.fm/music/Atif+Aslam",
+            "fav_songs": [],
+            "extra": []
+        }
+    ],
+
+    "heardABit": [
+        {
+            "name": "Metallica",
+            "url": "https://www.last.fm/music/Metallica",
+            "fav_songs": ["Wherever I May Roam"],
+            "extra": []
+        },
+        {
+            "name": "Covet",
+            "url": "https://www.last.fm/music/Covet",
+            "fav_songs": ["Shibuya"],
+            "extra": []
+        },
+        {
+            "name": "Pantera",
+            "url": "https://www.last.fm/music/Pantera",
+            "fav_songs": ["Cemetery Gates"],
+            "extra": []
+        },
+        {
+            "name": "DragonForce",
+            "url": "https://www.last.fm/music/DragonForce",
+            "fav_songs": [],
+            "extra": []
+        },
+        {
+            "name": "Animals as Leaders",
+            "url": "https://www.last.fm/music/Animals+as+Leaders",
+            "fav_songs": [],
+            "extra": []
+        },
+        {
+            "name": "Van Halen",
+            "url": "https://www.last.fm/music/Van+Halen",
+            "fav_songs": ["Ain't Talkin' 'Bout Love"],
+            "extra": []
+        },
+        {
+            "name": "Paramore",
+            "url": "https://www.last.fm/music/Paramore",
+            "fav_songs": ["Miracle"],
+            "extra": []
+        },
+        {
+            "name": "Plini",
+            "url": "https://www.last.fm/music/Plini",
+            "fav_songs": ["Electric Sunrise"],
+            "extra": []
+        },
+        {
+            "name": "Avenged Sevenfold",
+            "url": "https://www.last.fm/music/Avenged+Sevenfold",
+            "fav_songs": ["Unholy Confessions"],
+            "extra": []
+        },
+        {
+            "name": "TOOL",
+            "url": "https://www.last.fm/music/TOOL",
+            "fav_songs": ["Pneuma"],
+            "extra": []
+        },
+        {
+            "name": "Bring Me The Horizon",
+            "url": "https://www.last.fm/music/Bring+Me+The+Horizon",
+            "fav_songs": ["Sleepwalking"],
+            "extra": []
+        },
+        {
+            "name": "Linkin Park",
+            "url": "https://www.last.fm/music/Linkin+Park",
+            "fav_songs": ["Numb"],
+            "extra": []
+        },
+        {
+            "name": "Joe Satriani",
+            "url": "https://www.last.fm/music/Joe+Satriani",
+            "fav_songs": ["Always with Me, Always with You"],
+            "extra": []
+        },
+        {
+            "name": "Maximum the Hormone",
+            "url": "https://www.last.fm/music/Maximum+the+Hormone",
+            "fav_songs": ["Zetsubou Billy"],
+            "extra": []
+        },
+        {
+            "name": "Aimer",
+            "url": "https://www.last.fm/music/Aimer",
+            "fav_songs": ["Zankyousanka"],
+            "extra": []
+        },
+        {
+            "name": "Bloodywood",
+            "url": "https://www.last.fm/music/Bloodywood",
+            "fav_songs": ["Bekhauf"],
+            "extra": []
+        },
+        {
+            "name": "Korn",
+            "url": "https://www.last.fm/music/Korn",
+            "fav_songs": ["Freak on a Leash"],
+            "extra": []
+        },
+        {
+            "name": "HANABIE.",
+            "url": "https://www.last.fm/music/HANABIE.",
+            "fav_songs": ["Tasty Survivor"],
+            "extra": []
+        },
+        {
+            "name": "Citizen Soldier",
+            "url": "https://www.last.fm/music/Citizen+Soldier",
+            "fav_songs": ["Let It Burn"],
+            "extra": []
+        }
+    ]
+}

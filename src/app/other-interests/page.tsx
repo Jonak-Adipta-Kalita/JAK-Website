@@ -2,7 +2,12 @@
 
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { DynaPuff } from "next/font/google";
-import { BookTextIcon, Gamepad2Icon, LucideProps, SportShoeIcon } from "lucide-react";
+import {
+    BookTextIcon,
+    Gamepad2Icon,
+    LucideProps,
+    SportShoeIcon,
+} from "lucide-react";
 import { motion } from "motion/react";
 import { Portal } from "@/components/Portals/Portal";
 
@@ -19,10 +24,10 @@ const OTHER_INTERESTS: {
         Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
     >;
 }[] = [
-        { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
-        { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
-        { name: "Workout & Nutrition", url: "/fitness", Icon: SportShoeIcon }
-    ];
+    { name: "Productivity & Books", url: "/productivity", Icon: BookTextIcon },
+    { name: "Gaming", url: "/gaming", Icon: Gamepad2Icon },
+    { name: "Workout & Nutrition", url: "/fitness", Icon: SportShoeIcon },
+];
 
 const OtherInterestsPage = () => {
     return (

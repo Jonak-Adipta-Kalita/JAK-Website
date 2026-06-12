@@ -4,7 +4,7 @@ import Roadmap, { Stop } from "@/components/Roadmap";
 import MusicSection from "../MusicSection";
 import { motion } from "motion/react";
 import CurrentListening from "./CurrentListening";
-import roadmapData from "@/data/music-journey.json"
+import roadmapData from "@/data/music-journey.json";
 
 export const AboutMe = () => {
     return (
