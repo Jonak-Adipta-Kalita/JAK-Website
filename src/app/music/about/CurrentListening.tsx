@@ -30,7 +30,7 @@ const CurrentListening = () => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    fetch("/api/lastfm")
+                    fetch("/api/current_listening")
                         .then((r) => r.json())
                         .then((data) => setTrack(data));
                     observer.disconnect();

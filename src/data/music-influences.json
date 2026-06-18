@@ -3,6 +3,7 @@
         {
             "name": "Polyphia",
             "url": "https://www.last.fm/music/Polyphia",
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/197e5baecc5efe17fdda96b30b191892.jpg#197e5baecc5efe17fdda96b30b191892",
             "fav_songs": [
                 "Ego Death",
                 "Euphoria",
@@ -27,6 +28,7 @@
         {
             "name": "Periphery",
             "url": "https://www.last.fm/music/Periphery",
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/d90c17d9759f5dfcaa1394a96cfd402c.jpg#d90c17d9759f5dfcaa1394a96cfd402c",
             "fav_songs": [
                 "It's Only Smiles",
                 "Wax Wings",
@@ -48,6 +50,7 @@
         {
             "name": "BABYMETAL",
             "url": "https://www.last.fm/music/BABYMETAL",
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/c824fb4e87369811c73fa20bcd422e90.jpg#c824fb4e87369811c73fa20bcd422e90",
             "fav_songs": [
                 "Syncopation",
                 "Monochrome",
@@ -63,6 +66,7 @@
         {
             "name": "NEMOPHILA",
             "url": "https://www.last.fm/music/NEMOPHILA",
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/c5d54c04e337aafbeccf41802950bec4.jpg#c5d54c04e337aafbeccf41802950bec4",
             "fav_songs": [
                 "Ray of Light",
                 "Oiran",
@@ -83,6 +87,8 @@
         {
             "name": "LilyPichu",
             "url": "https://www.last.fm/music/LilyPichu",
+            "mbid": "e57a58b6-77b7-4db6-ad06-a1096f0bbf24",
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/f441b710e5afdc88622610bc6147b549.jpg#f441b710e5afdc88622610bc6147b549",
             "fav_songs": [
                 "starsmitten",
                 "last cup of coffee",
@@ -98,6 +104,7 @@
         {
             "name": "The Local Train",
             "url": "https://www.last.fm/music/The+Local+Train",
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/e1f716b9e427aeff6659b1dda58de851.jpg#e1f716b9e427aeff6659b1dda58de851",
             "fav_songs": [
                 "Aaoge Tum Kabhi",
                 "Choo Lo",
@@ -323,5 +330,9 @@
             "fav_songs": ["Let It Burn"],
             "extra": []
         }
+    ],
+
+    "youtubeInfluences": [
+        {}
     ]
 }
