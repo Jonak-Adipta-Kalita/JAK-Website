@@ -71,4 +71,31 @@ const Waveform = ({ height = 100, opacity = 1, className }: WaveformProps) => (
     </div>
 );
 
-export default Waveform;
+const Divider = ({
+    rotWave,
+    needLine,
+}: {
+    rotWave?: boolean;
+    needLine?: boolean;
+}) => {
+    return (
+        <div
+            className={`${needLine ? "mt-10 md:mt-20 lg:mt-32" : "my-10 md:my-20 lg:my-32"}`}
+        >
+            <div
+                className={`h-[1px] w-full opacity-75 ${!needLine ? "md:hidden" : ""}`}
+                style={{
+                    background:
+                        "linear-gradient(to right, var(--color-fg-music-neon-red), var(--color-fg-music-neon-blue))",
+                    boxShadow: "0 0 20px var(--color-fg-music-glow-red)",
+                }}
+            />
+            <div className={`hidden ${!needLine ? "md:inline" : ""}`}>
+                <Waveform className={rotWave ? "rotate-180" : ""} />
+            </div>
+        </div>
+    );
+};
+
+export default Divider;
+export { Waveform };
