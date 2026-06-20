@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, Suspense } from "react";
+import { useRef, Suspense, useMemo } from "react";
 import ScrollToHash from "../ScrollToHash";
 import Divider from "../Divider";
 import MusicSection from "../MusicSection";
@@ -37,6 +37,20 @@ const PrimaryInfluences = () => {
 const MusicInfluencesPage = () => {
     const mainRef = useRef<HTMLElement>(null);
 
+    const currentObsession: Influence = useMemo(() => {
+        if (typeof data.currentObsession === "string") {
+            const allBands = [
+                ...data.primaryInfluences,
+                ...data.worthyMentions,
+            ];
+            return allBands.filter(
+                (band) => band.name === data.currentObsession
+            )[0];
+        }
+
+        return data.currentObsession;
+    }, [data.currentObsession]);
+
     return (
         <main
             className="scrollbar-music h-screen w-full overflow-y-auto scroll-smooth"
@@ -48,6 +62,10 @@ const MusicInfluencesPage = () => {
             <div className="mt-24 md:mt-28" />
             <MusicSection name="primary">
                 <PrimaryInfluences />
+            </MusicSection>
+            <Divider rotWave />
+            <MusicSection name="current obsession">
+                <InfluenceCard influence={currentObsession} />
             </MusicSection>
             <Divider />
             <MusicSection name="worthy mentions">
@@ -61,7 +79,7 @@ const MusicInfluencesPage = () => {
                     ))}
                 </div>
             </MusicSection>
-            <Divider rotWave />
+            <Divider />
             <MusicSection name="youtubers">
                 <div className="mb-10 space-y-10 lg:mb-20 lg:space-y-24">
                     {data.youtubeInfluences.map((influence) => (
