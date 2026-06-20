@@ -16,10 +16,7 @@ const InfluenceCard = ({ influence }: { influence: Influence }) => {
     );
 
     return (
-        <div
-            className="relative flex w-full gap-x-15 rounded-xl border-[0.1px] border-zinc-800 bg-zinc-800/30 bg-clip-padding p-5 backdrop-blur-xl"
-            key={influence.name}
-        >
+        <div className="relative flex w-full gap-x-15 rounded-xl border-[0.1px] border-zinc-800 bg-zinc-800/30 bg-clip-padding p-5 backdrop-blur-xl">
             <Image
                 draggable={false}
                 src={influence.image}
@@ -118,7 +115,7 @@ const PrimaryInfluences = () => {
     return (
         <div className="mt-10 space-y-10 lg:-mt-16 lg:space-y-24">
             {data.primaryInfluences.map((influence) => (
-                <InfluenceCard influence={influence} />
+                <InfluenceCard influence={influence} key={influence.name} />
             ))}
         </div>
     );
