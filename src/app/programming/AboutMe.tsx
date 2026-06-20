@@ -162,7 +162,7 @@ const AboutMe = () => {
                     </p>
 
                     <motion.ul
-                        className="text-inter ml-1 list-outside list-disc space-y-4 text-justify lg:ml-0"
+                        className="font-inter ml-1 list-outside list-disc space-y-4 text-justify lg:ml-0"
                         variants={{
                             hidden: {},
                             visible: {

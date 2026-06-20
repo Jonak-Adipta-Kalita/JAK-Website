@@ -9,10 +9,7 @@ export const MyWork = () => {
     const router = useRouter();
 
     return (
-        <MusicSection
-            name="work"
-            containerClassName="flex items-center justify-center flex-col space-y-5"
-        >
+        <MusicSection name="work" containerClassName="space-y-5">
             <></>
 
             <motion.div
@@ -20,11 +17,14 @@ export const MyWork = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 viewport={{ once: true }}
+                className="flex items-center justify-center"
             >
                 <Button
                     variant={"music"}
                     size={"music"}
-                    onClick={() => router.push("/music/work")}
+                    onClick={() =>
+                        router.push("/music/work", { scroll: false })
+                    }
                 >
                     Check out More!
                 </Button>

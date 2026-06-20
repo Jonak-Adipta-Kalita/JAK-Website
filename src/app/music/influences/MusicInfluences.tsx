@@ -12,7 +12,7 @@ export const MyInfluences = () => {
     return (
         <MusicSection
             name="influences"
-            containerClassName="flex items-center justify-center flex-col space-y-5"
+            containerClassName="space-y-10 lg:space-y-24"
         >
             <PrimaryInfluences />
 
@@ -21,12 +21,14 @@ export const MyInfluences = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="mb-10 md:mb-0"
+                className="mb-10 flex items-center justify-center md:mb-0"
             >
                 <Button
                     variant={"music"}
                     size={"music"}
-                    onClick={() => router.push("/music/influences")}
+                    onClick={() =>
+                        router.push("/music/influences", { scroll: false })
+                    }
                 >
                     Check out More!
                 </Button>
