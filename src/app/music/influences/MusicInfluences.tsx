@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import MusicSection from "../MusicSection";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import PrimaryInfluences from "./PrimaryMusicInfluences";
+import { PrimaryInfluences } from "./page";
 
 export const MyInfluences = () => {
     const router = useRouter();

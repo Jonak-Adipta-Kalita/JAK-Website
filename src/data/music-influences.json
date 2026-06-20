@@ -1,4 +1,6 @@
 {
+    "currentObsession": "Lorna Shore",
+
     "primaryInfluences": [
         {
             "name": "Polyphia",
@@ -125,211 +127,305 @@
         {
             "name": "Bullet For My Valentine",
             "url": "https://www.last.fm/music/Bullet+For+My+Valentine",
-            "fav_songs": ["The Poison"],
-            "extra": []
+            "fav_songs": [
+                "The Poison",
+                "Tears Don't Fall",
+                "A Place Where You Belong",
+                "Cries in Vain",
+                "All these things I hate (Revolve around me)"
+            ],
+            "extra": [
+                "Padge and I share the same birthday! He is exactly 3 decades older than me",
+                "Really taught me what Metalcore is ;-; Drop C wahooo!",
+                "Only listened to the Albums \"The Poison\" and some of \"Fever\", send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/d761211c71a129fa4d67fbce8f4313ec.jpg#d761211c71a129fa4d67fbce8f4313ec"
         },
         {
             "name": "Spiritbox",
             "url": "https://www.last.fm/music/Spiritbox",
-            "fav_songs": ["The Void"],
-            "extra": []
+            "fav_songs": [
+                "The Void",
+                "Circle With Me",
+                "Fata Morgana",
+                "Holy Roller",
+                "Secret Garden"
+            ],
+            "extra": [
+                "Mike is so good... those Drop F# riffs",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/434ee64c104769d05651227af9cfefb9.jpg#434ee64c104769d05651227af9cfefb9"
         },
         {
             "name": "Novelists",
             "url": "https://www.last.fm/music/Novelists",
-            "fav_songs": ["Prisoner"],
-            "extra": []
+            "fav_songs": [
+                "Prisoner",
+                "Mourning the Dawn",
+                "Coda",
+                "Say My Name",
+                "All for Nothing",
+                "Terrorist"
+            ],
+            "extra": [
+                "Love both Florestan & Pierre",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/b085f2c1810cf61ec31fba41f9667950.jpg#b085f2c1810cf61ec31fba41f9667950"
         },
         {
             "name": "Gojira",
             "url": "https://www.last.fm/music/Gojira",
-            "fav_songs": ["Flying Whales"],
-            "extra": []
-        },
-        {
-            "name": "Megadeth",
-            "url": "https://www.last.fm/music/Megadeth",
-            "fav_songs": ["Tornado of Souls"],
-            "extra": []
-        },
-        {
-            "name": "BXRRELL",
-            "url": "https://www.last.fm/music/BXRRELL",
-            "fav_songs": ["Tattoo"],
-            "extra": []
-        },
-        {
-            "name": "KOIAI",
-            "url": "https://www.last.fm/music/KOIAI",
-            "fav_songs": ["Inside"],
-            "extra": []
-        },
-        {
-            "name": "Lorna Shore",
-            "url": "https://www.last.fm/music/Lorna+Shore",
-            "fav_songs": ["Pain Remains"],
-            "extra": []
-        },
-        {
-            "name": "Slaughter to Prevail",
-            "url": "https://www.last.fm/music/Slaughter+to+Prevail",
-            "fav_songs": ["Bratva"],
-            "extra": []
-        },
-        {
-            "name": "Steve Vai",
-            "url": "https://www.last.fm/music/Steve+Vai",
-            "fav_songs": ["Tender Surrender"],
-            "extra": []
-        },
-        {
-            "name": "Paul Gilbert",
-            "url": "https://www.last.fm/music/Paul+Gilbert",
-            "fav_songs": ["Fuzz Universe"],
-            "extra": []
-        },
-        {
-            "name": "Band-Maid",
-            "url": "https://www.last.fm/music/Band-Maid",
-            "fav_songs": ["Puzzle"],
-            "extra": []
-        },
-        {
-            "name": "One Direction",
-            "url": "https://www.last.fm/music/One+Direction",
-            "fav_songs": ["Drag Me Down"],
-            "extra": []
-        },
-        {
-            "name": "Bhupen Hazarika",
-            "url": "https://www.last.fm/music/Bhupen+Hazarika",
-            "fav_songs": [],
-            "extra": []
-        },
-        {
-            "name": "Atif Aslam",
-            "url": "https://www.last.fm/music/Atif+Aslam",
-            "fav_songs": [],
-            "extra": []
-        }
-    ],
-
-    "heardABit": [
-        {
-            "name": "Metallica",
-            "url": "https://www.last.fm/music/Metallica",
-            "fav_songs": ["Wherever I May Roam"],
-            "extra": []
-        },
-        {
-            "name": "Covet",
-            "url": "https://www.last.fm/music/Covet",
-            "fav_songs": ["Shibuya"],
-            "extra": []
-        },
-        {
-            "name": "Pantera",
-            "url": "https://www.last.fm/music/Pantera",
-            "fav_songs": ["Cemetery Gates"],
-            "extra": []
-        },
-        {
-            "name": "DragonForce",
-            "url": "https://www.last.fm/music/DragonForce",
-            "fav_songs": [],
-            "extra": []
-        },
-        {
-            "name": "Animals as Leaders",
-            "url": "https://www.last.fm/music/Animals+as+Leaders",
-            "fav_songs": [],
-            "extra": []
-        },
-        {
-            "name": "Van Halen",
-            "url": "https://www.last.fm/music/Van+Halen",
-            "fav_songs": ["Ain't Talkin' 'Bout Love"],
-            "extra": []
+            "fav_songs": [
+                "Flying Whales",
+                "Stranded",
+                "Silvera",
+                "Mea Culpa",
+                "Our Time is New"
+            ],
+            "extra": [
+                "Joe's vocals bro... he is a beast, Mario's legs man... he too is an absolute beast",
+                "Taught me how to Gallop, do Pick-Scrapes and love 6-string D Standard",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/f4d56ad07312e428963dbec6e1e00ec1.jpg#f4d56ad07312e428963dbec6e1e00ec1"
         },
         {
             "name": "Paramore",
             "url": "https://www.last.fm/music/Paramore",
-            "fav_songs": ["Miracle"],
-            "extra": []
+            "fav_songs": ["Miracle", "When it Rains", "Hallelujah"],
+            "extra": [
+                "Hayley <3",
+                "Only listened to a few songs from \"RIOT!\", send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/5ec8ec75d02391d704d151d7c5a39e67.jpg#5ec8ec75d02391d704d151d7c5a39e67"
         },
         {
-            "name": "Plini",
-            "url": "https://www.last.fm/music/Plini",
-            "fav_songs": ["Electric Sunrise"],
-            "extra": []
+            "name": "Megadeth",
+            "url": "https://www.last.fm/music/Megadeth",
+            "fav_songs": [
+                "Tornado of Souls",
+                "Symphony of Destruction",
+                "Peace Sells",
+                "Holy Wars"
+            ],
+            "extra": [
+                "Marty <3 & Kiko <4",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/cd0bd40e02528d82ee91df3c7b9f8415.jpg#cd0bd40e02528d82ee91df3c7b9f8415"
+        },
+        {
+            "name": "BXRRELL",
+            "url": "https://www.last.fm/music/BXRRELL",
+            "fav_songs": [
+                "Tattoo",
+                "Mess with Me",
+                "White Noise",
+                "Dare To",
+                "UFO"
+            ],
+            "extra": ["Sophie <3"],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/62b6cca73d5da8049dc554113225f838.jpg#62b6cca73d5da8049dc554113225f838"
+        },
+        {
+            "name": "KOIAI",
+            "url": "https://www.last.fm/music/KOIAI",
+            "fav_songs": [
+                "Inside",
+                "A New Picture",
+                "Just be my Treasure",
+                "Come see me"
+            ],
+            "extra": ["coz Hazuki :D I like a lot of their song"],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/0c0edead933bebb4173fa8e0e4e92b75.jpg#0c0edead933bebb4173fa8e0e4e92b75"
+        },
+        {
+            "name": "Lorna Shore",
+            "url": "https://www.last.fm/music/Lorna+Shore",
+            "fav_songs": [
+                "Pain Remains",
+                "Cursed to Die",
+                "Death Can Take Me",
+                "Oblivion",
+                "To the Hellfire"
+            ],
+            "extra": [
+                "Will's voice amazes me, the range of the screams boi...",
+                "Austin Archey... those legs... wooosh",
+                "And the best... Adam... those leads bro... those leads...",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/804e7f9bf6d7a013a3e13cc70349e789.jpg#804e7f9bf6d7a013a3e13cc70349e789"
+        },
+        {
+            "name": "Slaughter to Prevail",
+            "url": "https://www.last.fm/music/Slaughter+to+Prevail",
+            "fav_songs": ["Bratva", "Viking", "Demolisher"],
+            "extra": [
+                "Those Growls.... Alex is just a Grizzly",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/399c7a879c17db5e5dd1f209ebc0978a.jpg#399c7a879c17db5e5dd1f209ebc0978a"
+        },
+        {
+            "name": "Steve Vai",
+            "url": "https://www.last.fm/music/Steve+Vai",
+            "fav_songs": [
+                "Tender Surrender",
+                "For the Love of God",
+                "Ego Death"
+            ],
+            "extra": [
+                "I really adore and respect this guy",
+                "I love the Ibanez JEM & Pia",
+                "Only listened to a few songs from the guy ;-;, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/b3099ca567641ce0755fc62153c3bcca.jpg#b3099ca567641ce0755fc62153c3bcca"
+        },
+        {
+            "name": "Paul Gilbert",
+            "url": "https://www.last.fm/music/Paul+Gilbert",
+            "fav_songs": [
+                "Fuzz Universe",
+                "Technical Difficulties",
+                "Scarified",
+                "Viking Kong"
+            ],
+            "extra": [
+                "Again, I really really adore and respect this guy",
+                "Only listened to a few songs from the guy ;-;, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/8c925dbb74db4e0589ddb2f4e004798e.jpg#8c925dbb74db4e0589ddb2f4e004798e"
         },
         {
             "name": "Avenged Sevenfold",
             "url": "https://www.last.fm/music/Avenged+Sevenfold",
-            "fav_songs": ["Unholy Confessions"],
-            "extra": []
+            "fav_songs": [
+                "Unholy Confessions",
+                "Sieze the Day",
+                "So Far Away",
+                "Bat Country"
+            ],
+            "extra": [
+                "Synyster Gates <3",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/849c3f70b914d9707446a39ec07da82d.jpg#849c3f70b914d9707446a39ec07da82d"
         },
         {
-            "name": "TOOL",
-            "url": "https://www.last.fm/music/TOOL",
-            "fav_songs": ["Pneuma"],
-            "extra": []
+            "name": "One Direction",
+            "url": "https://www.last.fm/music/One+Direction",
+            "fav_songs": ["Drag Me Down", "Stockholm Syndrom", "Steal my Girl"],
+            "extra": ["coz my sis listens to em!"],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/f2c61d33c87a06148490cc22ad4a1fe9.jpg#f2c61d33c87a06148490cc22ad4a1fe9"
         },
         {
-            "name": "Bring Me The Horizon",
-            "url": "https://www.last.fm/music/Bring+Me+The+Horizon",
-            "fav_songs": ["Sleepwalking"],
-            "extra": []
+            "name": "Bhupen Hazarika",
+            "url": "https://www.last.fm/music/Bhupen+Hazarika",
+            "fav_songs": ["<need to check old memory datapoint>"],
+            "extra": [
+                "Grew up listening to him",
+                "Dad really loves his songs, and so do I"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/bf41e081654d4a33865e90f6b5a219fd.jpg#bf41e081654d4a33865e90f6b5a219fd"
         },
         {
-            "name": "Linkin Park",
-            "url": "https://www.last.fm/music/Linkin+Park",
-            "fav_songs": ["Numb"],
-            "extra": []
+            "name": "Atif Aslam",
+            "url": "https://www.last.fm/music/Atif+Aslam",
+            "fav_songs": ["<need to check old memory datapoint>"],
+            "extra": [
+                "Mom really likes his songs",
+                "Spammed in lockdown while doing homework"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/4c9c770ef84f91ca8786c54d024c1368.jpg#4c9c770ef84f91ca8786c54d024c1368"
         },
         {
-            "name": "Joe Satriani",
-            "url": "https://www.last.fm/music/Joe+Satriani",
-            "fav_songs": ["Always with Me, Always with You"],
-            "extra": []
+            "name": "Slipknot",
+            "url": "https://www.last.fm/music/Slipknot",
+            "fav_songs": ["Psychosocial", "Nero Forte", "Gematria"],
+            "extra": [
+                "Mick Thompson & Jim Root <3",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/f7ece7da4d40d070a04c01e2b4041cb5.jpg#f7ece7da4d40d070a04c01e2b4041cb5"
         },
         {
-            "name": "Maximum the Hormone",
-            "url": "https://www.last.fm/music/Maximum+the+Hormone",
-            "fav_songs": ["Zetsubou Billy"],
-            "extra": []
-        },
-        {
-            "name": "Aimer",
-            "url": "https://www.last.fm/music/Aimer",
-            "fav_songs": ["Zankyousanka"],
-            "extra": []
-        },
-        {
-            "name": "Bloodywood",
-            "url": "https://www.last.fm/music/Bloodywood",
-            "fav_songs": ["Bekhauf"],
-            "extra": []
-        },
-        {
-            "name": "Korn",
-            "url": "https://www.last.fm/music/Korn",
-            "fav_songs": ["Freak on a Leash"],
-            "extra": []
-        },
-        {
-            "name": "HANABIE.",
-            "url": "https://www.last.fm/music/HANABIE.",
-            "fav_songs": ["Tasty Survivor"],
-            "extra": []
+            "name": "Parkway Drive",
+            "url": "https://www.last.fm/music/Parkway+Drive",
+            "fav_songs": ["Vice Grip", "Carrion", "Sacred", "Prey"],
+            "extra": [
+                "I really love the riffs",
+                "Only listened to a few songs, send me more"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/ab0bebb0f23116abeb7919eac441d5b6.jpg#ab0bebb0f23116abeb7919eac441d5b6"
         },
         {
             "name": "Citizen Soldier",
             "url": "https://www.last.fm/music/Citizen+Soldier",
-            "fav_songs": ["Let It Burn"],
-            "extra": []
+            "fav_songs": [
+                "Let It Burn",
+                "Say Goodbye",
+                "Better than I used to be",
+                "Thank you for hating me"
+            ],
+            "extra": [
+                "My Best Friend made me listen to it, and now I can't not go to these songs when under emotional turmoil ;-;",
+                "I know I will go through their whole catalogue with my best friend"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/66f858cdba535ae8c9e61a96a3906096.jpg#66f858cdba535ae8c9e61a96a3906096"
         }
     ],
 
-    "youtubeInfluences": [{}]
+    "youtubeInfluences": [
+        {
+            "name": "Bernth",
+            "url": "https://www.youtube.com/@Bernthguitar",
+            "fav_songs": ["Horizons", "Waterworks"],
+            "extra": [
+                "Taught me how to \"Shred\" :D I love spamming his workout vids",
+                "Just love this guy so much"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/2c288ef72c0dab79a8effcfe24041241.jpg#2c288ef72c0dab79a8effcfe24041241"
+        },
+        {
+            "name": "Sophie Burrell",
+            "url": "https://www.youtube.com/@SophieBurrell",
+            "extra": [
+                "Helped so much in the early guitar-interest",
+                "Her yt-shorts helped me explore a lot of new music",
+                "Maybe a tiny-teeny bit of crush on her when I was 16 ;-;"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/e9b1e0934ce62bc11d8f5b0866e1ba16.jpg#e9b1e0934ce62bc11d8f5b0866e1ba16"
+        },
+        {
+            "name": "Herman Li",
+            "url": "https://www.youtube.com/@dragonforce",
+            "extra": [
+                "Helped so much in the early guitar-interest",
+                "Guitar collection? This guy is the reason ;-;"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/5d540e31c9f340f289c8214b990bf5e4.jpg#5d540e31c9f340f289c8214b990bf5e4"
+        },
+        {
+            "name": "Rob Scallon",
+            "url": "https://www.youtube.com/@RobScallon",
+            "fav_songs": ["Rain", "... all the ones from his youtube :D"],
+            "extra": [
+                "Helped so much in the early guitar-interest",
+                "\"Sonic Boom\" & \"First of October\" with \"Andrew Huang\""
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/7eb5d2a417fd72b37ab4d1f6f5a6332a.jpg#7eb5d2a417fd72b37ab4d1f6f5a6332a"
+        },
+        {
+            "name": "Davie504",
+            "url": "https://www.youtube.com/@Davie504",
+            "extra": [
+                "The first place I ever saw an Electric Bass / Guitar in :D",
+                "I have binged him too much during the childhood"
+            ],
+            "image": "https://lastfm.freetls.fastly.net/i/u/770x0/d4ef7a2c70d6a96a32d1f22f0049820a.jpg#d4ef7a2c70d6a96a32d1f22f0049820a"
+        }
+    ]
 }

@@ -1,30 +1,39 @@
-import data from "@/data/music-influences.json";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Influence } from "./page";
 
-const InfluenceCard = ({ influence }: { influence: Influence }) => {
-    const [fav_songs, fav_song_note] = influence.fav_songs.reduce<
-        [string[], string | undefined]
-    >(
-        ([songs, note], song) => {
-            if (song.startsWith("...")) return [songs, song];
-            return [[...songs, song], note];
-        },
-        [[], undefined]
-    );
+const InfluenceCard = ({
+    influence,
+    card,
+}: {
+    influence: Influence;
+    card?: boolean;
+}) => {
+    const [fav_songs, fav_song_note] = influence.fav_songs
+        ? influence.fav_songs.reduce<[string[], string | undefined]>(
+              ([songs, note], song) => {
+                  if (song.startsWith("...")) return [songs, song];
+                  return [[...songs, song], note];
+              },
+              [[], undefined]
+          )
+        : [null, null];
 
     return (
-        <div className="relative flex w-full gap-x-15 rounded-xl border-[0.1px] border-zinc-800 bg-zinc-800/30 bg-clip-padding p-5 backdrop-blur-xl">
+        <div
+            className={`relative flex w-full gap-x-15 rounded-xl border-[0.1px] border-zinc-800 bg-zinc-800/30 bg-clip-padding p-5 backdrop-blur-xl ${card ? "min-h-120" : ""}`}
+        >
             <Image
                 draggable={false}
                 src={influence.image}
                 alt={influence.name}
                 fill
-                className="rounded-lg object-cover object-center opacity-60 blur lg:opacity-20"
+                className="rounded-lg object-cover object-center opacity-40 blur lg:opacity-20"
             />
-            <div className="relative inset-0 hidden basis-2/5 lg:flex lg:h-80 lg:w-90 xl:h-100 xl:w-110 xl:basis-4/8 2xl:h-110 2xl:w-150">
+            <div
+                className={`relative inset-0 hidden basis-2/5 ${!card ? "lg:flex" : ""} lg:h-80 lg:w-90 xl:h-100 xl:w-110 xl:basis-4/8 2xl:h-110 2xl:w-150`}
+            >
                 <Image
                     src={influence.image}
                     alt={influence.name}
@@ -32,7 +41,9 @@ const InfluenceCard = ({ influence }: { influence: Influence }) => {
                     className="rounded-lg object-cover object-center"
                 />
             </div>
-            <div className="z-50 flex flex-col space-y-10 lg:basis-3/5 xl:basis-4/8 xl:p-5">
+            <div
+                className={`z-50 flex flex-col space-y-10 ${!card ? "lg:basis-3/5 xl:basis-4/8 xl:p-5" : ""}`}
+            >
                 <Link
                     target="_blank"
                     rel="noopener noreferrer"
@@ -77,48 +88,40 @@ const InfluenceCard = ({ influence }: { influence: Influence }) => {
                                 {item}
                             </motion.li>
                         ))}
-                        <motion.li
-                            className="cursor-text text-base md:text-xl"
-                            variants={{
-                                hidden: { opacity: 0, y: 16 },
-                                visible: {
-                                    opacity: 1,
-                                    y: 0,
-                                    transition: {
-                                        duration: 0.5,
-                                        ease: "easeOut",
+                        {influence.fav_songs && (
+                            <motion.li
+                                className="cursor-text text-base md:text-xl"
+                                variants={{
+                                    hidden: { opacity: 0, y: 16 },
+                                    visible: {
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 0.5,
+                                            ease: "easeOut",
+                                        },
                                     },
-                                },
-                            }}
-                        >
-                            <span className="decoration-fg-music-neon-blue cursor-pointer font-bold underline decoration-wavy decoration-2 underline-offset-4">
-                                Fav Songs
-                            </span>
-                            :{" "}
-                            <span className="font-bold">
-                                {fav_songs.join(", ")}
-                            </span>
-                            {fav_song_note && (
-                                <ul className="ml-4 font-normal">
-                                    {fav_song_note}
-                                </ul>
-                            )}
-                        </motion.li>
+                                }}
+                            >
+                                <span className="decoration-fg-music-neon-blue font-bold underline decoration-wavy decoration-2 underline-offset-4">
+                                    Fav Songs
+                                </span>
+                                :{" "}
+                                <span className="font-bold">
+                                    {fav_songs!.join(", ")}
+                                </span>
+                                {fav_song_note && (
+                                    <ul className="ml-4 font-normal">
+                                        {fav_song_note}
+                                    </ul>
+                                )}
+                            </motion.li>
+                        )}
                     </motion.ul>
-                </div>{" "}
+                </div>
             </div>
         </div>
     );
 };
 
-const PrimaryInfluences = () => {
-    return (
-        <div className="mt-10 space-y-10 lg:-mt-16 lg:space-y-24">
-            {data.primaryInfluences.map((influence) => (
-                <InfluenceCard influence={influence} key={influence.name} />
-            ))}
-        </div>
-    );
-};
-
-export default PrimaryInfluences;
+export default InfluenceCard;
