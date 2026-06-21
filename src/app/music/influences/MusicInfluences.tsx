@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import MusicSection from "../MusicSection";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { PrimaryInfluences } from "./page";
+import jsonData from "@/data/music-influences.json";
+import InfluenceCard from "./MusicInfluenceCard";
 
 export const MyInfluences = () => {
     const router = useRouter();
@@ -14,7 +15,11 @@ export const MyInfluences = () => {
             name="influences"
             containerClassName="space-y-10 lg:space-y-24"
         >
-            <PrimaryInfluences />
+            <div className="mt-10 space-y-10 lg:space-y-24">
+                {jsonData.primaryInfluences.map((influence) => (
+                    <InfluenceCard influence={influence} key={influence.name} />
+                ))}
+            </div>
 
             <motion.div
                 initial={{ opacity: 0, x: 32 }}

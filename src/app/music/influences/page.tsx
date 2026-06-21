@@ -24,16 +24,6 @@ export interface Data {
 
 const data = jsonData as Data;
 
-const PrimaryInfluences = () => {
-    return (
-        <div className="mt-10 space-y-10 lg:space-y-24">
-            {data.primaryInfluences.map((influence) => (
-                <InfluenceCard influence={influence} key={influence.name} />
-            ))}
-        </div>
-    );
-};
-
 const MusicInfluencesPage = () => {
     const mainRef = useRef<HTMLElement>(null);
 
@@ -61,7 +51,14 @@ const MusicInfluencesPage = () => {
             </Suspense>
             <div className="mt-24 md:mt-28" />
             <MusicSection name="primary">
-                <PrimaryInfluences />
+                <div className="mt-10 space-y-10 lg:space-y-24">
+                    {data.primaryInfluences.map((influence) => (
+                        <InfluenceCard
+                            influence={influence}
+                            key={influence.name}
+                        />
+                    ))}
+                </div>
             </MusicSection>
             <Divider rotWave />
             <MusicSection name="current obsession">
@@ -95,4 +92,3 @@ const MusicInfluencesPage = () => {
 };
 
 export default MusicInfluencesPage;
-export { PrimaryInfluences };

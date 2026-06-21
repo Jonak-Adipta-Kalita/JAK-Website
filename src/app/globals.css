@@ -67,8 +67,7 @@
     }
 
     .aboutText {
-        @apply text-fg-programming-text cursor-text text-xl font-bold;
-        font-size: clamp(0.75rem, 0.6rem + 0.4vw, 1rem);
+        @apply text-fg-programming-text cursor-text text-xs font-bold sm:text-base md:text-lg 2xl:text-xl;
     }
 
     .aboutText-highlight {

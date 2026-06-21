@@ -106,9 +106,9 @@ const AboutMe = () => {
         <ScrollSnapSection
             nav="About"
             id="about"
-            className="flex w-full items-center justify-center"
+            className="flex w-full items-center justify-center lg:px-6"
         >
-            <div className="mx-5 mt-28 flex w-full max-w-7xl justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20">
+            <div className="max-w-9xl mx-5 mt-28 flex w-full justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20">
                 <motion.div
                     className="hidden lg:inline"
                     initial={{ opacity: 0 }}
@@ -144,7 +144,7 @@ const AboutMe = () => {
                 </motion.div>
 
                 <div className="h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
-                    <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[clamp(1.25rem,1rem+1vw,1.875rem)] tracking-wider lg:text-left">
+                    <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-xl tracking-wider lg:text-left lg:text-3xl">
                         <Typewriter
                             highlightTailwind="var(--color-fg-programming-primary)"
                             typingDone={typingDone}

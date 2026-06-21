@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
-import buildGraphData from "@/lib/programming-skills/parser";
+import buildGraphData from "@/data/programming-skills/parser";
 
 const ForceGraph = dynamic(() => import("react-force-graph-2d"), {
     ssr: false,
