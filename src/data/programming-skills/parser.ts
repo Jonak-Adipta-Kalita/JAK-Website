@@ -117,7 +117,7 @@ const buildGraphData = (): GraphData => {
 export default buildGraphData;
 
 export const mobileToolData = skills.tools.map((tool) => {
-    if (!('tools' in tool)) return tool
+    if (!("tools" in tool)) return tool;
 
     return {
         id: tool.id,
@@ -125,5 +125,5 @@ export const mobileToolData = skills.tools.map((tool) => {
         pic: [...tool.tools.map((subTool) => subTool.pic)],
         fields: [],
         message: tool.groupName,
-    }
+    };
 }) as ToolSkill[];

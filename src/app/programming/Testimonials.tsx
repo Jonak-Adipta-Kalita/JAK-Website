@@ -10,7 +10,9 @@ const testimonials: Testimonial[] = [];
 
 const Testimonials = () => {
     return (
-        <ScrollSnapSection nav="Testimonials" id="testimonials"
+        <ScrollSnapSection
+            nav="Testimonials"
+            id="testimonials"
             className="flex w-full items-center justify-center"
         >
             <div></div>
