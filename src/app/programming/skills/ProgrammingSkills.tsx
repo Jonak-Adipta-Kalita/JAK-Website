@@ -8,8 +8,11 @@ const ProgrammingSkills = () => {
             id="skills"
             className="flex w-full items-center justify-center"
         >
+            <div className="md:hidden">
+                <p className="text-fg-programming-secondary font-salsa text-2xl">My Skillset :D</p>
+                <SkillsGridView />
+            </div>
             <SkillsGraphView />
-            <SkillsGridView />
         </ScrollSnapSection>
     );
 };

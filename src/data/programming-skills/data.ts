@@ -30,7 +30,7 @@ export const LanguageNames = [
 interface Skill {
     id: string;
     name: string;
-    pic: string | [string];
+    pic: string;
     message?: string;
     fields: (typeof Fields)[number][] | null;
     extraLinks?: string[];
@@ -73,12 +73,6 @@ const skills: {
             fields: ["Web & App Development"],
         },
         {
-            id: "go",
-            name: "Go",
-            pic: "/pic/golang.webp",
-            fields: null,
-        },
-        {
             id: "lua",
             name: "Lua",
             pic: "/pic/lua.webp",
@@ -101,8 +95,22 @@ const skills: {
         {
             id: "sql",
             name: "SQL",
-            pic: "/pic/sql.webp",
+            pic: "/pic/sql.svg",
             fields: null,
+        },
+        {
+            id: "go",
+            name: "Go",
+            pic: "/pic/golang.webp",
+            fields: null,
+            message: "Learning..."
+        },
+        {
+            id: "rust",
+            name: "Rust",
+            pic: "/pic/rust.webp",
+            fields: null,
+            message: "Learning..."
         },
     ],
 

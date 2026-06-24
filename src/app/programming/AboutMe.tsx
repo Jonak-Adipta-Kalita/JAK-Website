@@ -1,6 +1,6 @@
 "use client";
 
-import img from "@/../public/My Pic.png";
+import img from "@/../public/pic/programming-my-pic.png";
 
 import Image from "next/image";
 import { useState } from "react";
