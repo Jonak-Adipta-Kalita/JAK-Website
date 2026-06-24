@@ -32,6 +32,8 @@ export default function ProgrammingPage() {
             <MobileSeparator />
 
             <ContactMe />
+
+            <div className="mb-10" />
         </ScrollSnapPage>
     );
 }

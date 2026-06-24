@@ -67,7 +67,7 @@
     }
 
     .aboutText {
-        @apply text-fg-programming-text cursor-text text-xs font-bold sm:text-base md:text-lg 2xl:text-xl;
+        @apply text-fg-programming-text cursor-text text-lg font-bold leading-6 2xl:text-xl;
     }
 
     .aboutText-highlight {

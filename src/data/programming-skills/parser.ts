@@ -1,4 +1,4 @@
-import skills, { AllFields } from "./data";
+import skills, { AllFields, ToolSkill } from "./data";
 import { LinkObject, NodeObject } from "react-force-graph-2d";
 
 export type Node = {
@@ -115,3 +115,15 @@ const buildGraphData = (): GraphData => {
 };
 
 export default buildGraphData;
+
+export const mobileToolData = skills.tools.map((tool) => {
+    if (!('tools' in tool)) return tool
+
+    return {
+        id: tool.id,
+        name: tool.tools.map((subTool) => subTool.name).join(" / "),
+        pic: [...tool.tools.map((subTool) => subTool.pic)],
+        fields: [],
+        message: tool.groupName,
+    }
+}) as ToolSkill[];

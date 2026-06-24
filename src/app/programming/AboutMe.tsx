@@ -144,7 +144,7 @@ const AboutMe = () => {
                 </motion.div>
 
                 <div className="h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
-                    <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-xl tracking-wider lg:text-left lg:text-3xl">
+                    <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[26px] tracking-wider sm:text-3xl lg:text-left lg:text-[25px] xl:text-3xl">
                         <Typewriter
                             highlightTailwind="var(--color-fg-programming-primary)"
                             typingDone={typingDone}
@@ -152,9 +152,11 @@ const AboutMe = () => {
                             textParts={[
                                 { text: "Hey, I am ", highlight: false },
                                 { text: "Jonak", highlight: true },
+                                { text: "! Happy to ", highlight: false },
                                 {
-                                    text: "! Happy to see you :D",
+                                    text: "see you :D",
                                     highlight: false,
+                                    nextLineOnSmall: true,
                                 },
                             ]}
                             strokeTimeout={20}

@@ -16,7 +16,7 @@ export const AllFields = [...Fields, ...OtherFields] as const;
 
 export const LanguageNames = [
     "Python",
-    "JavaScript / Typescript",
+    "JS / TS",
     "Go",
     "Lua",
     "Java",
@@ -27,20 +27,20 @@ export const LanguageNames = [
     "C++",
 ] as const;
 
-interface Skill {
+export interface Skill {
     id: string;
     name: string;
-    pic: string;
+    pic: string | string[];
     message?: string;
     fields: (typeof Fields)[number][] | null;
     extraLinks?: string[];
 }
 
-type LanguageSkill = Skill & { name: (typeof LanguageNames)[number] };
-type FrameworkSkill = Skill & {
+export type LanguageSkill = Skill & { name: (typeof LanguageNames)[number] };
+export type FrameworkSkill = Skill & {
     languages: (typeof LanguageNames)[number][] | null;
 };
-type ToolSkill = Omit<Skill, "fields"> & {
+export type ToolSkill = Omit<Skill, "fields"> & {
     fields: (typeof AllFields)[number][] | null;
 };
 
@@ -62,55 +62,59 @@ const skills: {
             id: "python",
             name: "Python",
             message: "1st Love",
-            pic: "/pic/python.webp",
+            pic: "/pic/applications/python.svg",
             fields: null,
         },
         {
             id: "js-ts",
-            name: "JavaScript / Typescript",
+            name: "JS / TS",
             message: "Most Utilized",
-            pic: "/pic/typescript.webp",
+            pic: [
+                "/pic/applications/javascript.svg",
+                "/pic/applications/typescript.svg",
+            ],
             fields: ["Web & App Development"],
         },
         {
             id: "lua",
             name: "Lua",
-            pic: "/pic/lua.webp",
+            pic: "/pic/applications/lua.svg",
+            message: "Primarily for Ricing",
             fields: null,
         },
         {
             id: "java",
             name: "Java",
-            message: "Only for Minecraft Mods",
-            pic: "/pic/java.webp",
+            message: "Only for Minecraft",
+            pic: "/pic/applications/java.svg",
             fields: ["Game Development"],
         },
         {
             id: "csharp",
             name: "C#",
             message: "Only for Game Dev",
-            pic: "/pic/csharp.webp",
+            pic: "/pic/applications/csharp.svg",
             fields: ["Game Development"],
         },
         {
             id: "sql",
             name: "SQL",
-            pic: "/pic/sql.svg",
+            pic: "/pic/applications/database.svg",
             fields: null,
         },
         {
             id: "go",
             name: "Go",
-            pic: "/pic/golang.webp",
+            pic: "/pic/applications/go.svg",
             fields: null,
-            message: "Learning..."
+            message: "Learning...",
         },
         {
             id: "rust",
             name: "Rust",
-            pic: "/pic/rust.webp",
+            pic: "/pic/applications/rust.svg",
             fields: null,
-            message: "Learning..."
+            message: "Learning...",
         },
     ],
 
@@ -122,14 +126,14 @@ const skills: {
                 {
                     id: "django",
                     name: "Django",
-                    pic: "/pic/django.webp",
+                    pic: "/pic/applications/django.svg",
                     fields: ["Web & App Development"],
                     languages: ["Python"],
                 },
                 {
                     id: "flask",
                     name: "Flask",
-                    pic: "/pic/flask.webp",
+                    pic: "/pic/applications/flask.svg",
                     fields: ["Web & App Development"],
                     languages: ["Python"],
                 },
@@ -142,23 +146,23 @@ const skills: {
                 {
                     id: "express",
                     name: "ExpressJS",
-                    pic: "/pic/express.webp",
+                    pic: "/pic/applications/express.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["JS / TS"],
                 },
                 {
                     id: "react",
                     name: "React",
-                    pic: "/pic/react.webp",
+                    pic: "/pic/applications/react.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["JS / TS"],
                 },
                 {
                     id: "next",
                     name: "Next",
-                    pic: "/pic/next.webp",
+                    pic: "/pic/applications/next.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["JS / TS"],
                 },
             ],
         },
@@ -169,16 +173,16 @@ const skills: {
                 {
                     id: "react-native",
                     name: "ReactNative",
-                    pic: "/pic/reactnative.webp",
+                    pic: "/pic/applications/reactnative.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["JS / TS"],
                 },
                 {
                     id: "expo",
                     name: "Expo",
-                    pic: "/pic/expo.webp",
+                    pic: "/pic/applications/expo.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["JS / TS"],
                 },
             ],
         },
@@ -189,17 +193,17 @@ const skills: {
                 {
                     id: "bootstrap",
                     name: "Bootstrap",
-                    pic: "/pic/bootstrap.webp",
+                    pic: "/pic/applications/bootstrap.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["JS / TS"],
                     extraLinks: ["django"],
                 },
                 {
                     id: "tailwind",
                     name: "Tailwind",
-                    pic: "/pic/tailwind.webp",
+                    pic: "/pic/applications/tailwind.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["JS / TS"],
                 },
             ],
         },
@@ -210,28 +214,28 @@ const skills: {
                 {
                     id: "pygame",
                     name: "Pygame",
-                    pic: "/pic/pygame.webp",
+                    pic: "/pic/applications/pygame.svg",
                     fields: ["Game Development"],
                     languages: ["Python"],
                 },
                 {
                     id: "arcade",
                     name: "Arcade",
-                    pic: "/pic/arcade.webp",
+                    pic: "/pic/applications/arcade.svg",
                     fields: ["Game Development"],
                     languages: ["Python"],
                 },
                 {
                     id: "ursina",
                     name: "Ursina",
-                    pic: "/pic/ursina.webp",
+                    pic: "/pic/applications/ursina.svg",
                     fields: ["Game Development"],
                     languages: ["Python"],
                 },
                 {
                     id: "panda3d",
                     name: "Panda3D",
-                    pic: "/pic/panda3d.webp",
+                    pic: "/pic/applications/panda3d.svg",
                     fields: ["Game Development"],
                     languages: ["Python"],
                 },
@@ -240,28 +244,28 @@ const skills: {
         {
             id: "godot",
             name: "Godot",
-            pic: "/pic/godot.webp",
+            pic: "/pic/applications/godot.svg",
             fields: ["Game Development"],
             languages: ["C#"],
         },
         {
             id: "love2d",
             name: "Love2D",
-            pic: "/pic/love2d.webp",
+            pic: "/pic/applications/love2d.svg",
             fields: ["Game Development"],
             languages: ["Lua"],
         },
         {
             id: "opencv",
             name: "OpenCV",
-            pic: "/pic/opencv.webp",
+            pic: "/pic/applications/opencv.svg",
             fields: ["AI & Data Science & Computer Vision"],
             languages: ["Python"],
         },
         {
             id: "arduino",
             name: "Arduino",
-            pic: "/pic/arduino.webp",
+            pic: "/pic/applications/arduino.svg",
             fields: ["Internet of Things"],
             languages: ["C++"],
         },
@@ -275,13 +279,13 @@ const skills: {
                 {
                     id: "vscode",
                     name: "VSCode",
-                    pic: "/pic/vscode.webp",
+                    pic: "/pic/applications/vscode.svg",
                     fields: ["Text Editor"],
                 },
                 {
                     id: "nvim",
                     name: "NVim",
-                    pic: "/pic/nvim.webp",
+                    pic: "/pic/applications/nvim.svg",
                     fields: ["Text Editor"],
                 },
             ],
@@ -289,7 +293,7 @@ const skills: {
         {
             id: "git",
             name: "Git",
-            pic: "/pic/git.webp",
+            pic: "/pic/applications/git.svg",
             fields: null,
         },
         {
@@ -299,13 +303,13 @@ const skills: {
                 {
                     id: "vercel",
                     name: "Vercel",
-                    pic: "/pic/vercel.webp",
+                    pic: "/pic/applications/vercel.svg",
                     fields: ["Cloud & DevOps"],
                 },
                 {
                     id: "netlify",
                     name: "Netlify",
-                    pic: "/pic/netlify.webp",
+                    pic: "/pic/applications/netlify.svg",
                     fields: ["Cloud & DevOps"],
                 },
             ],
@@ -313,7 +317,7 @@ const skills: {
         {
             id: "figma",
             name: "Figma",
-            pic: "/pic/figma.webp",
+            pic: "/pic/applications/figma.svg",
             fields: ["Web & App Development"],
         },
         {
@@ -323,14 +327,14 @@ const skills: {
                 {
                     id: "arch",
                     name: "Arch",
-                    message: "EndeavourOS btw",
-                    pic: "/pic/arch.webp",
+                    message: "I use Arch btw :D",
+                    pic: "/pic/applications/arch.svg",
                     fields: ["Operating System"],
                 },
                 {
                     id: "windows11",
                     name: "Windows 11",
-                    pic: "/pic/windows11.webp",
+                    pic: "/pic/applications/windows11.svg",
                     fields: ["Operating System"],
                 },
             ],
@@ -342,13 +346,13 @@ const skills: {
                 {
                     id: "postgresql",
                     name: "PostgreSQL",
-                    pic: "/pic/postgresql.webp",
+                    pic: "/pic/applications/postgresql.svg",
                     fields: ["Database"],
                 },
                 {
                     id: "mariadb",
                     name: "MariaDB",
-                    pic: "/pic/mariadb.webp",
+                    pic: "/pic/applications/mariadb.svg",
                     fields: ["Database"],
                 },
             ],
@@ -356,13 +360,13 @@ const skills: {
         {
             id: "blender",
             name: "Blender",
-            pic: "/pic/blender.webp",
+            pic: "/pic/applications/blender.svg",
             fields: ["Game Development"],
         },
         {
             id: "firebase",
             name: "Firebase",
-            pic: "/pic/firebase.webp",
+            pic: "/pic/applications/firebase.svg",
             fields: ["Cloud & DevOps"],
         },
         {
@@ -372,13 +376,13 @@ const skills: {
                 {
                     id: "xournalpp",
                     name: "Xournal++",
-                    pic: "/pic/xournalpp.webp",
+                    pic: "/pic/applications/xournalpp.svg",
                     fields: ["Productivity"],
                 },
                 {
                     id: "obsidian",
                     name: "Obsidian",
-                    pic: "/pic/obsidian.webp",
+                    pic: "/pic/applications/obsidian.svg",
                     fields: ["Productivity"],
                 },
             ],
