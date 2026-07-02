@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getAllPostSlugs, getPostBySlug } from "@/data/journals/posts";
+import { getAllPostSlugs, getPostBySlug } from "../posts";
 import { renderMarkdown } from "@/lib/mdx";
 
 export function generateStaticParams() {
@@ -9,11 +9,13 @@ export function generateStaticParams() {
 export default async function PostPage({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
+    const { slug } = await params;
+
     let post;
     try {
-        post = getPostBySlug(params.slug);
+        post = getPostBySlug(slug);
     } catch {
         notFound();
     }

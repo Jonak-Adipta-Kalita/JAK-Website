@@ -1,13 +1,11 @@
-import { getAllPosts } from "@/data/journals/posts";
+import { getAllPosts } from "./posts";
 import Link from "next/link";
 
 const ProgrammingJournalPage = () => {
     const journals = getAllPosts();
 
     return (
-        <main className="scrollbar-programming">
-            {/* Layer on top of another ; Using Markdown to write the entries! */}
-            <div className="mt-50" />
+        <main className="scrollbar-programming max-w-9xl mt-44">
             {journals.map((post) => (
                 <div key={post.slug}>
                     <Link href={`/programming/journal/${post.slug}`}>{post.frontmatter.title}</Link>
