@@ -1,7 +1,8 @@
 ---
 created: 2026-07-02 22:15
 tags:
-  - "#Programming"
+  - Literature/Writing/Programming
+  - Programming
 title: My Programming Journey
 ---
 - idk why you would want to know but... sure, go ahead :)
@@ -52,7 +53,7 @@ title: My Programming Journey
 
 - I still kept making projects here and there in those days; Like, I was asked to make an [attendance tracker](https://github.com/Jonak-Adipta-Kalita/JAK-KV-Attendance-App) for our school to use in 11th that... never got used ;-;
 
-- For 12th year, I kinda completely stopped programming, my main coping mechanism and main hobby for that year was to play [guitar](/music) :D
+- For 12th year, I kinda completely stopped programming, my main coping mechanism and main hobby for that year was to play guitar :D
 
 ## Undergraduate in CSE
 - And, my love for programming was reignited. To be continued.

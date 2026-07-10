@@ -1,8 +1,9 @@
 ---
-created: <% tp.file.creation_date() %>
+created: 2026-07-02 22:24
 tags:
+  - Literature/Writing/Programming
   - Programming
-titl: My Web-Dev Journey
+title: My Web-Dev Journey
 ---
 ## Introduction to my life
 - I was introduced to web dev when I noticed that one of the YouTube channels I used to learn Python also posted videos about something called "JavaScript" (along with HTML and CSS) that could be used to build websites.
@@ -14,4 +15,4 @@ titl: My Web-Dev Journey
 - Remember Sonny from CP? Well, he created his own YouTube channel and started posting more clone tutorials.
 - For a long time, I didn't miss any of his builds but... I had to stop after the AI slop started kicking in.
 - It's always fun to add extra features to any of Sonny's builds once I've finished his part!
-- Most of my early web development knowledge comes from following Sonny (like, NextJS, Tailwind, Sanity, and a loooot of other stuff :D).
+- Most of my early web development knowledge comes from following Sonny (like, NextJS, Tailwind, Sanity, and a lot of other stuff :D).
