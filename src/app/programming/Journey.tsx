@@ -4,7 +4,7 @@ const ProgrammingJourney = () => {
     return (
         <ProgrammingSection
             id="journey"
-            className="flex w-full items-center justify-center"
+            className="flex w-full items-center justify-center z-20"
         >
             <></>
         </ProgrammingSection>

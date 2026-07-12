@@ -106,7 +106,7 @@ const AboutMe = () => {
         <ScrollSnapSection
             nav="About"
             id="about"
-            className="flex w-full items-center justify-center lg:px-6"
+            className="flex w-full items-center justify-center lg:px-6 z-20"
         >
             <div className="max-w-9xl mx-5 mt-28 flex w-full justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20">
                 <motion.div
@@ -131,9 +131,9 @@ const AboutMe = () => {
                                     border: "6px solid transparent",
                                     background: `conic-gradient(
                                           from -130deg,
-                                          hsl(210 13% 30%) 0%,
+                                          hsl(210 13% 50%) 0%,
                                           #0000 10% 40%,
-                                          hsl(210 13% 30%) 75%
+                                          hsl(210 13% 50%) 75%
                                         ) border-box`,
                                     mask: `linear-gradient(#0000) padding-box intersect, linear-gradient(#000) border-box`,
                                     rotate: "3 0.5 2 90deg",
@@ -143,7 +143,7 @@ const AboutMe = () => {
                     </div>
                 </motion.div>
 
-                <div className="h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
+                <div className="h-fit space-y-7 rounded-lg bg- p-4 lg:space-y-10 lg:p-10 z-20 bg-bg-programming-2/50">
                     <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[26px] tracking-wider sm:text-3xl lg:text-left lg:text-[25px] xl:text-3xl">
                         <Typewriter
                             highlightTailwind="var(--color-fg-programming-primary)"

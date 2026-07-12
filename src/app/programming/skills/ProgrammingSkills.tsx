@@ -9,7 +9,7 @@ const ProgrammingSkills = () => {
     return (
         <ScrollSnapSection
             id="skills"
-            className="flex w-full items-center justify-center"
+            className="flex w-full items-center justify-center z-20"
         >
             <div className="lg:hidden">
                 <motion.p

@@ -16,7 +16,7 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
             {skills.map((lang, i) => (
                 <motion.div
                     key={lang.id}
-                    className="flex aspect-square flex-col items-center justify-center gap-2 rounded-xl bg-slate-800/40 p-4 transition-colors hover:bg-slate-800/60"
+                    className="flex aspect-square flex-col items-center justify-center gap-2 rounded-xl bg-bg-programming-3/40 p-4 transition-colors hover:bg-slate-800/60"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 + i * 0.1, ease: "easeOut" }}

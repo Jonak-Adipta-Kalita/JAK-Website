@@ -42,7 +42,7 @@ const DynamicIsland = () => {
     }, []);
 
     return (
-        <header className="text-fg-programming-text z-50 mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full bg-[#061224] p-2 sm:space-x-1">
+        <header className="text-fg-programming-text z-50 mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full bg-bg-programming-1 p-2 sm:space-x-1">
             {NAV_ITEMS.map((name, index) => (
                 <motion.div
                     key={name}
@@ -77,7 +77,7 @@ const DynamicIsland = () => {
                         y: 0,
                         backgroundColor:
                             activeHeader === name
-                                ? "rgba(255,255,255,0.08)"
+                                ? "rgba(17,17,27,0.4)"
                                 : "rgba(0,0,0,0)",
                     }}
                     transition={{

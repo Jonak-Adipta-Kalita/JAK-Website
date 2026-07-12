@@ -13,7 +13,7 @@ const Testimonials = () => {
         <ScrollSnapSection
             nav="Testimonials"
             id="testimonials"
-            className="flex w-full items-center justify-center"
+            className="flex w-full items-center justify-center z-20"
         >
             <div></div>
         </ScrollSnapSection>

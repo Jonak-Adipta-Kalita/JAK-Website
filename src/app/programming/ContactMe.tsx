@@ -5,7 +5,7 @@ const ContactMe = () => {
         <ScrollSnapSection
             id="contact"
             nav="Contact"
-            className="flex w-full items-center justify-center"
+            className="flex w-full items-center justify-center z-20"
         >
             <div>{/* Use https://ui.shadcn.com/docs/forms */}</div>
         </ScrollSnapSection>

@@ -11,9 +11,9 @@
     --color-fg-lobby-dark: #a0b5e2;
     --color-fg-lobby-extradark: #96adde;
 
-    --color-fg-programming-text: #c5d3ed;
-    --color-fg-programming-primary: #3faff5;
-    --color-fg-programming-secondary: #9dabdc;
+    --color-fg-programming-text: #cdd6f4;
+    --color-fg-programming-primary: #74c7ec;
+    --color-fg-programming-secondary: #bac2de;
 
     --color-fg-music-text: #e8e0f0;
     --color-fg-music-muted: #a1a1aa;
@@ -27,11 +27,15 @@
     --color-bg-modal: #3f3f46;
     --color-bg-curtain: #0b0f1a;
 
+    --color-bg-programming-1: #1e1e2e;
+    --color-bg-programming-2: #181825;
+    --color-bg-programming-3: #11111b;
+
     --color-bg-music: #03020a;
     --color-bg-music-surface: #0a0615;
 
-    --color-selection: #2a3242;
-    --color-selection-fg: #b5c5e9;
+    --color-selection: #313244;
+    --color-selection-fg: #bac2de;
 
     --font-salsa: var(--font-salsa);
     --font-ubuntu: var(--font-ubuntu-sans);
