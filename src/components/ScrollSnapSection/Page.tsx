@@ -66,7 +66,7 @@ const ScrollSnapPage = ({
         <main
             ref={mainRef}
             className={cn(
-                "w-full overflow-y-auto scroll-smooth lg:snap-y lg:snap-mandatory",
+                "relative z-10 w-full overflow-y-auto scroll-smooth lg:snap-y lg:snap-mandatory",
                 scrollbarClassName
             )}
         >

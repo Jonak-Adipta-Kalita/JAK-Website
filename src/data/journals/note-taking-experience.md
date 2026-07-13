@@ -1,15 +1,17 @@
 ---
 created: 2026-07-09 03:33
 tags:
-  - Literature/Writing/Productivity
-  - Productivity
+    - Literature/Writing/Productivity
+    - Productivity
 title: My Note-Taking Experience
 ---
-- I was... lets say, very *addicted* to note-taking. And, this is me sharing my experience from 11th grade and 12th grade. Do better than me...
+
+- I was... lets say, very _addicted_ to note-taking. And, this is me sharing my experience from 11th grade and 12th grade. Do better than me...
 
 - This is also a way for me to archive my thoughts and look back at them if I somehow get into the trap again.
 
 ## 11th Grade - Handwritten Notes
+
 - Countless days and nights spent on my desk just writing notes, finishing pages and pens. Glorifying how many pages I wrote on a day and how fast I could empty out those ball pens.
 - I had hand cramps all the time, from using the ball pens (needing more pressure, i have switched to gel pens now).
 
@@ -19,6 +21,7 @@ title: My Note-Taking Experience
 - I kid you not, I have filled about 14 384-paged notebooks in that 1 year... yup...
 
 ## 12th Grade - Digital Notes
+
 - I started using Obsidian at the start of the grade after seeing how much less efficient notebooks are in terms of quick recall.
 - But, the same mindset was still on.. Countless hours with OCD on perfecting my Atomic Notes and Zettlekasten system.
 - The "custom wikipedia" thing really got into my brain and then my ocd took over.
@@ -30,6 +33,7 @@ title: My Note-Taking Experience
 - Just if I had put this extra hours into understanding the notes that I had taken and not just play [[guitar-journey|guitar]] (yea... too much free time gave me a different addiction) and listen to babymetal all the time.
 
 ## Current thoughts
+
 - It took me a few months to realize that, I had made note-taking my personality and that I didn't use it as a tool.
 - I started a new obsidian vault and I will try to not fall into the ocd trap again
 

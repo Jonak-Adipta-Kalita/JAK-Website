@@ -5,6 +5,7 @@ import {
     NavItem,
     useProgrammingNavStore,
 } from "@/lib/hooks/navStore/useProgrammingNavStore";
+import { cn } from "@/lib/utils";
 
 const ProgrammingSection = ({
     children,
@@ -21,7 +22,7 @@ const ProgrammingSection = ({
         <ScrollSnapSection
             id={id}
             nav={nav}
-            className={className}
+            className={cn("flex w-full items-center justify-center", className)}
             useNavStore={useProgrammingNavStore}
         >
             {children}

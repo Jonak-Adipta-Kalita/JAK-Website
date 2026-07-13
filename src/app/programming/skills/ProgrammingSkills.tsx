@@ -7,10 +7,7 @@ import { motion } from "motion/react";
 
 const ProgrammingSkills = () => {
     return (
-        <ScrollSnapSection
-            id="skills"
-            className="flex w-full items-center justify-center z-20"
-        >
+        <ScrollSnapSection id="skills">
             <div className="lg:hidden">
                 <motion.p
                     className="text-fg-programming-secondary font-salsa mb-7 text-center text-3xl"

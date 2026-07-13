@@ -8,7 +8,9 @@ const ProgrammingJournalPage = () => {
         <main className="scrollbar-programming max-w-9xl mt-44">
             {journals.map((post) => (
                 <div key={post.slug}>
-                    <Link href={`/programming/journal/${post.slug}`}>{post.frontmatter.title}</Link>
+                    <Link href={`/programming/journal/${post.slug}`}>
+                        {post.frontmatter.title}
+                    </Link>
                     <p>{post.frontmatter.excerpt}</p>
                 </div>
             ))}

@@ -23,7 +23,7 @@ export default async function PostPage({
     const content = await renderMarkdown(post.content);
 
     return (
-        <article className="overflow-y-auto scrollbar-programming">
+        <article className="scrollbar-programming overflow-y-auto">
             <h1>{post.frontmatter.title}</h1>
             <p>{post.frontmatter.date}</p>
             {content}

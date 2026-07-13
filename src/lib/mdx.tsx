@@ -3,15 +3,20 @@ import * as runtime from "react/jsx-runtime";
 import * as devRuntime from "react/jsx-dev-runtime";
 
 const mdxComponents = {
-    h1: (props: any) => <h1 className="text-3xl font-bold mb-4" {...props} />,
-    h2: (props: any) => <h2 className="text-2xl font-semibold mb-3" {...props} />,
-    p: (props: any) => <p className="text-base leading-7 mb-4" {...props} />,
+    h1: (props: any) => <h1 className="mb-4 text-3xl font-bold" {...props} />,
+    h2: (props: any) => (
+        <h2 className="mb-3 text-2xl font-semibold" {...props} />
+    ),
+    p: (props: any) => <p className="mb-4 text-base leading-7" {...props} />,
     a: (props: any) => (
         <a className="text-blue-600 underline hover:text-blue-800" {...props} />
     ),
-    ul: (props: any) => <ul className="list-disc pl-6 mb-4" {...props} />,
+    ul: (props: any) => <ul className="mb-4 list-disc pl-6" {...props} />,
     code: (props: any) => (
-        <code className="bg-gray-100 rounded px-1 py-0.5 font-mono text-sm" {...props} />
+        <code
+            className="rounded bg-gray-100 px-1 py-0.5 font-mono text-sm"
+            {...props}
+        />
     ),
 };
 

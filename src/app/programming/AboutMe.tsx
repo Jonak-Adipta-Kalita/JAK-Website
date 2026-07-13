@@ -103,11 +103,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <ScrollSnapSection
-            nav="About"
-            id="about"
-            className="flex w-full items-center justify-center lg:px-6 z-20"
-        >
+        <ScrollSnapSection nav="About" id="about" className="lg:px-6">
             <div className="max-w-9xl mx-5 mt-28 flex w-full justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20">
                 <motion.div
                     className="hidden lg:inline"
@@ -116,7 +112,7 @@ const AboutMe = () => {
                     transition={{ duration: 1 }}
                     viewport={{ once: true }}
                 >
-                    <div className="relative z-40 w-88">
+                    <div className="relative z-10 w-88">
                         <Image
                             src={img}
                             alt="My Pic"
@@ -143,7 +139,7 @@ const AboutMe = () => {
                     </div>
                 </motion.div>
 
-                <div className="h-fit space-y-7 rounded-lg bg- p-4 lg:space-y-10 lg:p-10 z-20 bg-bg-programming-2/50">
+                <div className="bg- bg-bg-programming-2/50 h-fit space-y-7 rounded-lg p-4 lg:space-y-10 lg:p-10">
                     <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[26px] tracking-wider sm:text-3xl lg:text-left lg:text-[25px] xl:text-3xl">
                         <Typewriter
                             highlightTailwind="var(--color-fg-programming-primary)"

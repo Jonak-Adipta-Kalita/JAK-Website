@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const MobileSeprator = () => {
     return (
         <motion.div
-            className="mx-5 my-10 flex items-center gap-3 lg:hidden z-20"
+            className="mx-5 my-10 flex items-center gap-3 lg:hidden"
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
