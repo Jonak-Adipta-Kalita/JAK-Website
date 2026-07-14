@@ -28,7 +28,7 @@ export const remarkBlankLineBreak: Plugin<[], Root> = () => {
                             {
                                 type: "mdxJsxAttribute",
                                 name: "className",
-                                value: "h-3",
+                                value: "h-2 lg:h-3",
                             },
                         ],
                         children: [],
