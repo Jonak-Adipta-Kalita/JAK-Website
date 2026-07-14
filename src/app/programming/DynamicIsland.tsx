@@ -77,7 +77,7 @@ const DynamicIsland = () => {
                         y: 0,
                         backgroundColor:
                             activeHeader === name
-                                ? "rgba(17,17,27,0.4)"
+                                ? "rgba(17,17,27,0.5)"
                                 : "rgba(0,0,0,0)",
                     }}
                     transition={{

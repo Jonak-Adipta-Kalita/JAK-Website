@@ -5,7 +5,7 @@ const ProgrammingJournalPage = () => {
     const journals = getAllPosts();
 
     return (
-        <main className="scrollbar-programming max-w-9xl mt-44">
+        <main className="scrollbar-programming max-w-9xl relative z-10 mt-44">
             {journals.map((post) => (
                 <div key={post.slug}>
                     <Link href={`/programming/journal/${post.slug}`}>
