@@ -5,9 +5,7 @@ tags:
     - Programming
 title: My Web-Dev Journey
 ---
-
 ## Introduction to my life
-
 - I was introduced to web dev when I noticed that one of the YouTube channels I used to learn Python also posted videos about something called "JavaScript" (along with HTML and CSS) that could be used to build websites.
 - I followed that whole playlist but... never really felt any connection to web dev.
 
