@@ -1,9 +1,11 @@
 ---
 created: 2026-07-09 03:33
 tags:
-    - Literature/Writing/Productivity
-    - Productivity
-title: My Note-Taking Experience
+  - Literature/Writing/Productivity
+  - Productivity
+  - Literature/Writing/Thoughts
+title: Note-Taking Experience
+description: Ups and downs of making note-taking your personality
 ---
 - I was... lets say, very _addicted_ to note-taking. And, this is me sharing my experience from 11th grade and 12th grade. Do better than me...
 
@@ -27,7 +29,7 @@ title: My Note-Taking Experience
 - By the end of it, I had idk like... 2k+ notes? I was really proud of what I was doing, not realizing how much I was hurting myself in the process.
 
 - Though there is one thing that was different, I got **way more** free time even after taking the same amount of notes compared to handwritten notes.
-- Just if I had put this extra hours into understanding the notes that I had taken and not just play [[guitar-journey|guitar]] (yea... too much free time gave me a different addiction) and listen to babymetal all the time.
+- Just if I had put this extra hours into understanding the notes that I had taken and not just play guitar (yea... too much free time gave me a different addiction) and listen to babymetal all the time.
 
 ## Current thoughts
 - It took me a few months to realize that, I had made note-taking my personality and that I didn't use it as a tool.

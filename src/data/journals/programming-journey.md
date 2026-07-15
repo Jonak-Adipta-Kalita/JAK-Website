@@ -1,9 +1,11 @@
 ---
 created: 2026-07-02 22:15
 tags:
-    - Literature/Writing/Programming
-    - Programming
-title: My Programming Journey
+  - Literature/Writing/Technology/Programming
+  - Programming
+  - Literature/Writing/Journey
+title: Programming Journey
+description: Go through the sequential journey of how I learned programming
 ---
 - idk why you would want to know but... sure, go ahead :)
 
