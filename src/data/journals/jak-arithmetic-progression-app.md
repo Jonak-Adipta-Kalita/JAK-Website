@@ -4,5 +4,5 @@ tags:
   - Programming
   - Literature/Writing/Technology/Programming
   - Literature/Writing/Project
-title: Arithmetic Progression App for Priyanka Ma'am
+title: AP App for Priyanka Ma'am
 ---

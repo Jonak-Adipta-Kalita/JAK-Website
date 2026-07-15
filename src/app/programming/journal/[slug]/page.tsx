@@ -34,19 +34,20 @@ export default async function PostPage({
         >
             <article className="mx-auto max-w-7xl">
                 <div className="text-fg-programming-secondary mb-5 flex items-center justify-between text-sm font-semibold">
-                    <p className="truncate">
-                        Tags:{" "}
-                        {post.frontmatter.tags
-                            .filter((tag: string) =>
-                                tag.startsWith("Literature/Writing")
-                            )
-                            .map((tag: string) => (
-                                <span className="ml-2 text-[#f5e0dc]" key={tag}>
-                                    {"#" + tag.split("/")[2]}
-                                </span>
-                            ))}
-                    </p>
-                    <p>
+                    <div className="flex">
+                        <p>Tags:</p>
+                        <div className="ml-2">
+                            {post.frontmatter.tags
+                                .filter((tag: string) =>
+                                    tag.startsWith("Literature/Writing")
+                                )
+                                .map((tag: string) => (
+                                    <p className="text-[#f5e0dc]" key={tag}>
+                                        {"#" + tag.split("/").slice(2).join("/")}
+                                    </p>
+                                ))}</div>
+                    </div>
+                    <p className="self-start">
                         Created:{" "}
                         {moment(post.frontmatter.created)
                             .format("Do MMMM YYYY")

@@ -3,6 +3,7 @@ import * as runtime from "react/jsx-runtime";
 import * as devRuntime from "react/jsx-dev-runtime";
 import { remarkWikiLink } from "./remark-wiki-link";
 import { remarkBlankLineBreak } from "./remark-blank-line-break";
+import Link from "next/link";
 
 const mdxComponents = {
     h1: (props: any) => (
@@ -47,12 +48,21 @@ const mdxComponents = {
             {...props}
         />
     ),
-    a: (props: any) => (
-        <a
-            className="text-[#f38ba8] decoration-stone-500/80 hover:underline"
-            {...props}
-        />
-    ),
+    a: (props: any) => {
+        if (props.href.startsWith("http")) {
+            return (
+                <a
+                    className="text-[#f38ba8] decoration-stone-500/80 hover:underline"
+                    {...props}
+                />
+            )
+        } else if (props.href.startsWith("/")) return (
+            <Link
+                className="text-[#f38ba8] decoration-stone-500/80 hover:underline"
+                {...props}
+            />
+        )
+    },
     ul: (props: any) => (
         <ul className="mr-2 list-disc pl-5 lg:pl-7 xl:pl-10" {...props} />
     ),
