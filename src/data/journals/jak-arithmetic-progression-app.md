@@ -4,5 +4,6 @@ tags:
   - Programming
   - Literature/Writing/Technology/Programming
   - Literature/Writing/Project
-title: AP App for Priyanka Ma'am
+title: Arithmetic Progression App
+description: For my 10th grade math teacher coz why not
 ---

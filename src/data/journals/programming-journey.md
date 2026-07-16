@@ -5,7 +5,7 @@ tags:
   - Programming
   - Literature/Writing/Journey
 title: Programming Journey
-description: Go through the sequential journey of how I learned programming
+description: Sequential journey of how I learned programming
 ---
 - idk why you would want to know but... sure, go ahead :)
 

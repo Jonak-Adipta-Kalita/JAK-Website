@@ -4,6 +4,6 @@ tags:
   - Literature/Writing/Technology/Programming
   - Literature/Writing/Project
   - Programming
-title: Flomodoro
+title: Flomo
 description: A CLI flomodoro timer
 ---

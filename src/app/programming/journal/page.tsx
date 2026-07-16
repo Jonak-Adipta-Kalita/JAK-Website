@@ -9,18 +9,18 @@ const lexendFont = Lexend({
 const Section = ({ posts, title }: { posts: Post[]; title: string }) => {
     return (
         <div className="">
-            <p className="mb-10 text-5xl font-bold">#{title}</p>
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
+            <p className="mb-10 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">#{title}</p>
+            <div className="grid grid-cols-1 gap-5 2xl:gap-10 md:grid-cols-2 xl:grid-cols-3">
                 {posts.map((post) => (
                     <Link
                         href={`/programming/journal/${post.slug}`}
                         className="group bg-fg-programming-secondary/10 rounded-lg p-5"
                         key={post.slug}
                     >
-                        <p className="text-fg-programming-text cursor-pointer text-xl font-semibold group-hover:underline">
+                        <p className="text-fg-programming-text cursor-pointer text-base md:text-lg xl:text-xl font-semibold group-hover:underline">
                             {post.frontmatter.title}
                         </p>
-                        <p className="text-fg-programming-secondary cursor-pointer text-sm">
+                        <p className="text-fg-programming-secondary cursor-pointer text-xs lg:text-sm">
                             {post.frontmatter.description}
                         </p>
                     </Link>
@@ -46,7 +46,7 @@ const ProgrammingJournalPage = () => {
     return (
         <main
             className={
-                "scrollbar-programming max-w-9xl relative z-10 mx-auto mt-44 mb-20 w-full space-y-5 lg:space-y-14 " +
+                "scrollbar-programming overflow-y-auto max-w-9xl relative z-10 mx-auto px-4 pt-28 pb-20 xl:pt-40 w-full space-y-5 lg:space-y-14 " +
                 lexendFont.className
             }
         >
