@@ -46,15 +46,17 @@ const ProgrammingJournalPage = () => {
     return (
         <main
             className={
-                "scrollbar-programming overflow-y-auto max-w-9xl relative z-10 mx-auto px-4 pt-28 pb-20 xl:pt-40 w-full space-y-5 lg:space-y-14 " +
+                "scrollbar-programming overflow-y-auto relative z-10 px-4 pt-28 pb-20 xl:pt-40 w-full " +
                 lexendFont.className
             }
         >
-            <Section posts={thoughts} title="Thoughts" />
-            <Divider />
-            <Section posts={projects} title="Projects" />
-            <Divider />
-            <Section posts={journey} title="Journeys" />
+            <div className="max-w-9xl mx-auto space-y-5 lg:space-y-14">
+                <Section posts={thoughts} title="Thoughts" />
+                <Divider />
+                <Section posts={projects} title="Projects" />
+                <Divider />
+                <Section posts={journey} title="Journeys" />
+            </div>
         </main>
     );
 };
