@@ -43,9 +43,11 @@ export default async function PostPage({
                                 )
                                 .map((tag: string) => (
                                     <p className="text-[#f5e0dc]" key={tag}>
-                                        {"#" + tag.split("/").slice(2).join("/")}
+                                        {"#" +
+                                            tag.split("/").slice(2).join("/")}
                                     </p>
-                                ))}</div>
+                                ))}
+                        </div>
                     </div>
                     <p className="self-start">
                         Created:{" "}

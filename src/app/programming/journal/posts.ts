@@ -9,8 +9,7 @@ export type Post = {
         [key: string]: any;
     };
     content: string;
-}
-
+};
 
 const postsDirectory = path.join(process.cwd(), "src/data/journals");
 
@@ -32,15 +31,19 @@ export function getPostBySlug(slug: string) {
 export function getAllPosts() {
     return getAllPostSlugs()
         .map((slug) => getPostBySlug(slug))
-        .sort((a, b) => (moment(a.frontmatter.created) < moment(b.frontmatter.created) ? 1 : -1));
+        .sort((a, b) =>
+            moment(a.frontmatter.created) < moment(b.frontmatter.created)
+                ? 1
+                : -1
+        );
 }
 
 export function getPostsInGroups() {
     const allPosts = getAllPosts();
 
     const journey: Post[] = [];
-    const thoughts: Post[] = []
-    const projects: Post[] = []
+    const thoughts: Post[] = [];
+    const projects: Post[] = [];
 
     for (const post of allPosts) {
         post.frontmatter.tags.forEach((tag: string) => {
@@ -54,8 +57,8 @@ export function getPostsInGroups() {
                 case "Literature/Writing/Project":
                     projects.push(post);
                     return;
-            };
-        })
+            }
+        });
     }
 
     return [journey, thoughts, projects];

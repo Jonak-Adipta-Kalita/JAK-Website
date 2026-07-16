@@ -55,13 +55,14 @@ const mdxComponents = {
                     className="text-[#f38ba8] decoration-stone-500/80 hover:underline"
                     {...props}
                 />
-            )
-        } else if (props.href.startsWith("/")) return (
-            <Link
-                className="text-[#f38ba8] decoration-stone-500/80 hover:underline"
-                {...props}
-            />
-        )
+            );
+        } else if (props.href.startsWith("/"))
+            return (
+                <Link
+                    className="text-[#f38ba8] decoration-stone-500/80 hover:underline"
+                    {...props}
+                />
+            );
     },
     ul: (props: any) => (
         <ul className="mr-2 list-disc pl-5 lg:pl-7 xl:pl-10" {...props} />
