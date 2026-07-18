@@ -31,6 +31,8 @@ description: Ups and downs of making note-taking your personality
 - Though there is one thing that was different, I got **way more** free time even after taking the same amount of notes compared to handwritten notes.
 - Just if I had put this extra hours into understanding the notes that I had taken and not just play guitar (yea... too much free time gave me a different addiction) and listen to babymetal all the time.
 
+![[obsidian-graph-v1.webp]]
+
 ## Current thoughts
 - It took me a few months to realize that, I had made note-taking my personality and that I didn't use it as a tool.
 - I started a new obsidian vault and I will try to not fall into the ocd trap again

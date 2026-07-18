@@ -4,6 +4,7 @@ import * as devRuntime from "react/jsx-dev-runtime";
 import { remarkWikiLink } from "./remark-wiki-link";
 import { remarkBlankLineBreak } from "./remark-blank-line-break";
 import { MDXComponents } from "mdx/types";
+import { remarkWikiEmbed } from "./remark-wiki-embed";
 
 export async function renderMarkdown(source: string, mdxComponents: MDXComponents) {
     const code = String(
@@ -11,6 +12,7 @@ export async function renderMarkdown(source: string, mdxComponents: MDXComponent
             outputFormat: "function-body",
             development: process.env.NODE_ENV === "development",
             remarkPlugins: [
+                [remarkWikiEmbed, { baseFolder: "/pic/journals/" }],
                 [remarkWikiLink, { baseFolder: "/programming/journal" }],
                 remarkBlankLineBreak,
             ],

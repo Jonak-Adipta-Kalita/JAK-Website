@@ -84,6 +84,20 @@ const mdxComponents: MDXComponents = {
             {...props}
         />
     ),
+    img: ({ src, alt, "data-wiki-embed": isWikiEmbed, ...props }: any) => {
+        if (isWikiEmbed) {
+            return (
+                <img
+                    src={src}
+                    alt={alt}
+                    className="rounded-lg border border-gray-200 max-w-full my-44 shadow-sm"
+                    loading="lazy"
+                    {...props}
+                />
+            );
+        }
+        return <img src={src} alt={alt} className="max-w-full rounded" {...props} />;
+    },
 };
 
 export function generateStaticParams() {
