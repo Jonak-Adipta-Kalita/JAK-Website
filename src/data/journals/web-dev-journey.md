@@ -1,11 +1,11 @@
 ---
 created: 2026-07-02 22:24
 tags:
-  - Literature/Writing/Technology/Programming
-  - Programming
+  - Literature/Writing/Technology/Software
+  - Programming/Web
   - Literature/Writing/Journey
 title: Web-Dev Journey
-description: Journey of how Web Development bloomed in my life
+description: Journey of how Web Dev & JS/TS bloomed in my life
 ---
 ## Introduction to my life
 - I was introduced to web dev when I noticed that one of the YouTube channels I used to learn Python also posted videos about something called "JavaScript" (along with HTML and CSS) that could be used to build websites.

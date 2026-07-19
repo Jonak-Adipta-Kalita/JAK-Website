@@ -1,9 +1,9 @@
 ---
-created: 2026-07-14 13:29
+created: 2026-07-13 13:29
 tags:
-  - Literature/Writing/Technology/Programming
+  - Literature/Writing/Technology/Software
   - Literature/Writing/Project
-  - Programming
+  - Programming/Python
 title: Flomo
 description: A CLI flomodoro timer
 ---

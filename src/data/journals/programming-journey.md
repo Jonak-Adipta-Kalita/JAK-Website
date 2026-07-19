@@ -1,7 +1,7 @@
 ---
 created: 2026-07-02 22:15
 tags:
-  - Literature/Writing/Technology/Programming
+  - Literature/Writing/Technology/Software
   - Programming
   - Literature/Writing/Journey
 title: Programming Journey
@@ -24,6 +24,9 @@ description: Sequential journey of how I learned programming
 
 - Soon after, I rediscovered Python and... followed a shit ton of YouTube tutorial playlists.
 - Over time, I ended up doing about 200-250 projects by copy-pasta from just youtube vids.
+
+### Learning Python
+- \<TODO>
 
 ### Introduction of Web-dev to my life
 - I was introduced to web dev when I noticed that one of the YouTube channels I used to learn Python also posted videos about something called "JavaScript" (along with HTML and CSS) that could be used to build websites.
