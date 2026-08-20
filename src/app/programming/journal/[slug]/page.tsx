@@ -90,13 +90,20 @@ const mdxComponents: MDXComponents = {
                 <img
                     src={src}
                     alt={alt}
-                    className="rounded-lg border border-gray-200 max-w-full my-44 shadow-sm"
+                    className="my-44 max-w-full rounded-lg border border-gray-200 shadow-sm"
                     loading="lazy"
                     {...props}
                 />
             );
         }
-        return <img src={src} alt={alt} className="max-w-full rounded" {...props} />;
+        return (
+            <img
+                src={src}
+                alt={alt}
+                className="max-w-full rounded"
+                {...props}
+            />
+        );
     },
 };
 

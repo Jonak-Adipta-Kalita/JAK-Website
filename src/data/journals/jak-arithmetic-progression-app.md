@@ -3,7 +3,7 @@ created: 2026-07-12 21:20
 tags:
   - Programming/Web
   - Literature/Writing/Technology/Software
-  - Literature/Writing/Project
+  - Literature/Writing/Projects
 title: Arithmetic Progression App
 description: A simple python script that turned into a website for my 10th grade math teacher coz why not
 ---

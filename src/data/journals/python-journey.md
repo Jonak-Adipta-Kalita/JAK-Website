@@ -1,7 +1,7 @@
 ---
 created: 2026-07-20 00:21
 tags:
-  - Literature/Writing/Journey
+  - Literature/Writing/Journeys
   - Programming/Python
   - Literature/Writing/Technology/Software
 title: Python Journey
@@ -44,7 +44,9 @@ description: The journey of learning Python
 - Yea, I made countless friends from this era :D
 
 ## Other Fields
-- There are other fields where I have utilized Python too
-
 - -> [[web-dev-journey|Web Dev]] - Django & Flask
 - -> [[game-dev-journey|Game Dev]] - Pygame, Panda3D, Arcade
+- -> A lot of Terminal UI applications
+- etc. Yea, I love this language.
+
+- There are other fields where I have utilized Python too. I am not writing Journals on like 97% of my projects coz there is no point in writing about those, they are too old for me.

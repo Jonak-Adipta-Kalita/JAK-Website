@@ -48,13 +48,13 @@ export function getPostsInGroups() {
     for (const post of allPosts) {
         post.frontmatter.tags.forEach((tag: string) => {
             switch (tag) {
-                case "Literature/Writing/Journey":
+                case "Literature/Writing/Journeys":
                     journey.push(post);
                     return;
                 case "Literature/Writing/Thoughts":
                     thoughts.push(post);
                     return;
-                case "Literature/Writing/Project":
+                case "Literature/Writing/Projects":
                     projects.push(post);
                     return;
             }

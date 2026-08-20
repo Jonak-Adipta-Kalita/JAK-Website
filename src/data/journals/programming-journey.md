@@ -3,7 +3,7 @@ created: 2026-07-02 22:15
 tags:
   - Literature/Writing/Technology/Software
   - Programming
-  - Literature/Writing/Journey
+  - Literature/Writing/Journeys
 title: Programming Journey
 description: Sequential journey of how I learned programming
 ---
@@ -41,7 +41,7 @@ description: Sequential journey of how I learned programming
 - My interest in web development was reignited by a YouTube channel called Clever Programmer. They had a tutorial series where they built clones of popular websites using technologies like React, BEM CSS, and more, featuring Sonny Sangha.
 - Around the same time, I was also building v1 of my website (this one, v4 currently) by following another YouTube tutorial that used Django and Bootstrap CSS. It was from the same YouTuber who initially got me into web dev.
 
-- Remember Sonny from CP? Well, he created his own YouTube channel and started posting more clone tutorials.
+- Remember Sonny from Clever Programmer? Well, he created his own YouTube channel and started posting more clone tutorials.
 - For a long time, I didn't miss any of his builds but... I had to stop after the AI slop started kicking in.
 - It's always fun to add extra features to any of Sonny's builds once I've finished his part!
 - Most of my early web development knowledge comes from following Sonny (like, NextJS, Tailwind, Sanity, and a loooot of other stuff :D).
@@ -59,6 +59,8 @@ description: Sequential journey of how I learned programming
 - After about two years of being a highly active and engaged staff member, I eventually had to step away from the group due to my mind realizing core problems and ideals of the guy that I cant agree with. It wasn't an easy decision, but it was necessary at the time.
 
 ### Other Side Quests
+- I was simultaneously also doing more stuff in that time
+
 - -> [[game-dev-journey|Game Dev Journey]]
 - -> [[iot-robotics-journey|IOT Journey]]
 
@@ -70,7 +72,7 @@ description: Sequential journey of how I learned programming
 
 - For 12th year, I kinda completely stopped programming, my main coping mechanism and main hobby for that year was to play guitar :D
 
-## Undergraduate in CSE
+## Undergraduate in Comp. Sci. (with Minor in Electronics)
 - And, my love for programming was reignited. To be continued.
 
 # Global MOC
