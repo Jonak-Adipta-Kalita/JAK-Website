@@ -20,13 +20,19 @@ description: Sequential journey of how I learned programming
 ## Covid-19 Lockdown Days
 - It was 2021, the whole world was shutting down, and I found myself lying on the bed, bored.
 
-- For some reason... I got into experimenting with Batch (.bat) files.
+- For some reason... I got into experimenting with Batch (.bat) and VBS files ehe :D
 
+### Learning Python
 - Soon after, I rediscovered Python and... followed a shit ton of YouTube tutorial playlists.
 - Over time, I ended up doing about 200-250 projects by copy-pasta from just youtube vids.
 
-### Learning Python
-- \<TODO>
+- I was really intrigued by how versatile of a language python is, seeing all the things it could do really motivated my ocd-ass to try and learn everything that is possible
+- Yea, I followed soo many tutorials, just spamming youtube vids on how to make every kind of things I could think of.
+
+- I also did another thing, in Math classes, I remember, if I learned some kind of a new formulae, I would go make a program to input the variables and apply the formulae.
+- Looking back, I am really glad that I did this, it made me learn the language very fast coz of the repeatition and understanding of what does what. Although they were small scripts, I still learned so much from those tiny efforts
+
+- -> [[python-journey|Python Journey]]
 
 ### Introduction of Web-dev to my life
 - I was introduced to web dev when I noticed that one of the YouTube channels I used to learn Python also posted videos about something called "JavaScript" (along with HTML and CSS) that could be used to build websites.
@@ -52,6 +58,10 @@ description: Sequential journey of how I learned programming
 
 - After about two years of being a highly active and engaged staff member, I eventually had to step away from the group due to my mind realizing core problems and ideals of the guy that I cant agree with. It wasn't an easy decision, but it was necessary at the time.
 
+### Other Side Quests
+- -> [[game-dev-journey|Game Dev Journey]]
+- -> [[iot-robotics-journey|IOT Journey]]
+
 ## Stalling coz of School
 - After the lockdown days, since 9th grade and with the emerging of 10th grade board (cbse) exam, I kinda stalled programming.
 - I tried to get into it again after 10th but 11th saw my JEE grind and... I just couldn't give any time to programming.
@@ -62,3 +72,9 @@ description: Sequential journey of how I learned programming
 
 ## Undergraduate in CSE
 - And, my love for programming was reignited. To be continued.
+
+# Global MOC
+- -> [[python-journey|Python Journey]]
+- -> [[web-dev-journey|JS/TS & Web Dev Journey]]
+- -> [[game-dev-journey|Game Dev Journey]]
+- -> [[iot-robotics-journey|Robotics & IoT Journey]]
