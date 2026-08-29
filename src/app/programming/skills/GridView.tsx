@@ -6,7 +6,7 @@ import skillsData, {
 } from "@/data/programming-skills/data";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { mobileToolData } from "@/data/programming-skills/parser";
+import skills from "@/data/programming-skills/data";
 
 // TODO: Add Skeleton for Loading Pics
 
@@ -61,6 +61,18 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
         </div>
     );
 };
+
+const mobileToolData = skills.tools.map((tool) => {
+    if (!("tools" in tool)) return tool;
+
+    return {
+        id: tool.id,
+        name: tool.tools.map((subTool) => subTool.name),
+        pic: [...tool.tools.map((subTool) => subTool.pic)],
+        fields: [],
+        message: tool.groupName,
+    };
+}) as ToolSkill[];
 
 const GridView = () => {
     return (
