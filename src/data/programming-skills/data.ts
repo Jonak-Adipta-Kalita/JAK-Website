@@ -29,7 +29,7 @@ export const LanguageNames = [
 
 export interface Skill {
     id: string;
-    name: string;
+    name: string | string[];
     pic: string | string[];
     message?: string;
     fields: (typeof Fields)[number][] | null;
@@ -297,6 +297,12 @@ const skills: {
             fields: null,
         },
         {
+            id: "figma",
+            name: "Figma",
+            pic: "/pic/applications/figma.svg",
+            fields: ["Web & App Development"],
+        },
+        {
             id: "web-hosting",
             groupName: "Platforms for Web Hosting",
             tools: [
@@ -313,12 +319,6 @@ const skills: {
                     fields: ["Cloud & DevOps"],
                 },
             ],
-        },
-        {
-            id: "figma",
-            name: "Figma",
-            pic: "/pic/applications/figma.svg",
-            fields: ["Web & App Development"],
         },
         {
             id: "operating-system",
@@ -340,6 +340,18 @@ const skills: {
             ],
         },
         {
+            id: "blender",
+            name: "Blender",
+            pic: "/pic/applications/blender.svg",
+            fields: ["Game Development"],
+        },
+        {
+            id: "firebase",
+            name: "Firebase",
+            pic: "/pic/applications/firebase.svg",
+            fields: ["Cloud & DevOps"],
+        },
+        {
             id: "database-management-system",
             groupName: "Database Management Systems",
             tools: [
@@ -356,18 +368,6 @@ const skills: {
                     fields: ["Database"],
                 },
             ],
-        },
-        {
-            id: "blender",
-            name: "Blender",
-            pic: "/pic/applications/blender.svg",
-            fields: ["Game Development"],
-        },
-        {
-            id: "firebase",
-            name: "Firebase",
-            pic: "/pic/applications/firebase.svg",
-            fields: ["Cloud & DevOps"],
         },
         {
             id: "productivity",

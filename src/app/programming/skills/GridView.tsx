@@ -16,17 +16,17 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
             {skills.map((lang, i) => (
                 <motion.div
                     key={lang.id}
-                    className="bg-bg-programming-3/40 flex aspect-square flex-col items-center justify-center gap-2 rounded-xl p-4 transition-colors hover:bg-slate-800/60"
+                    className={`bg-bg-programming-3/40 flex flex-col items-center justify-center gap-2 rounded-xl p-4 transition-colors hover:bg-slate-800/60 ${typeof lang.pic !== "string" ? "col-span-2 aspect-[2/1]" : "col-span-1 aspect-square"}`}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 + i * 0.1, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    <div className="flex h-12 items-center justify-center gap-1">
+                    <div className="flex h-12 items-center justify-around w-full">
                         {typeof lang.pic === "string" ? (
                             <Image
                                 src={lang.pic}
-                                alt={lang.name}
+                                alt={lang.name[0]}
                                 height={40}
                                 width={40}
                             />
@@ -35,7 +35,7 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                                 <Image
                                     key={i}
                                     src={pic}
-                                    alt={lang.name}
+                                    alt={lang.name[i]}
                                     height={32}
                                     width={32}
                                 />
@@ -43,8 +43,12 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                         )}
                     </div>
 
-                    <p className="font-ubuntu text-fg-programming-text text-sm leading-none font-bold">
-                        {lang.name}
+                    <p className="font-ubuntu text-center text-fg-programming-text text-sm leading-none font-bold flex items-center justify-evenly w-full">
+                        {typeof lang.name === "string" ? lang.name : (
+                            lang.name.map((name, i) => (
+                                <span key={i} className="text-center mx-2">{name}</span>
+                            ))
+                        )}
                     </p>
 
                     {lang.message && (
