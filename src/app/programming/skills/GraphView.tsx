@@ -1,16 +1,17 @@
 "use client";
 
-import { useRef } from "react";
+import buildGraphData from "@/data/programming-skills/graph-parser"
 
+const graphData = buildGraphData();
+
+console.log(graphData);
 
 const SkillsGraphView = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-
     return (
-        <div
-            ref={containerRef}
-            className="hidden h-full w-full overflow-hidden lg:inline"
-        >
+        <div className="hidden h-full w-full overflow-hidden lg:inline relative">
+            <div>
+
+            </div>
         </div>
     );
 };

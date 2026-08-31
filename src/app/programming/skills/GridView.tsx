@@ -73,11 +73,22 @@ const mobileToolData = skills.tools.map((tool) => {
         message: tool.groupName,
     };
 }) as ToolSkill[];
+const mobileLanguageData = skills.languages.map((lang) => {
+    if (!("languages" in lang)) return lang;
+
+    return {
+        id: lang.id,
+        name: lang.languages.map((subLang) => subLang.name),
+        pic: [...lang.languages.map((subLang) => subLang.pic)],
+        fields: [],
+        message: lang.message,
+    };
+}) as ToolSkill[];
 
 const GridView = () => {
     return (
         <div className="space-y-10">
-            <SkillSet skills={skillsData.languages} />
+            <SkillSet skills={mobileLanguageData} />
             <SkillSet skills={mobileToolData} />
         </div>
     );

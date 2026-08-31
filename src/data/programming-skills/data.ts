@@ -16,7 +16,8 @@ export const AllFields = [...Fields, ...OtherFields] as const;
 
 export const LanguageNames = [
     "Python",
-    "JS / TS",
+    "JavaScript",
+    "TypeScript",
     "Go",
     "Lua",
     "Java",
@@ -33,7 +34,6 @@ export interface Skill {
     pic: string | string[];
     message?: string;
     fields: (typeof Fields)[number][] | null;
-    extraLinks?: string[];
 }
 
 export type LanguageSkill = Skill & { name: (typeof LanguageNames)[number] };
@@ -47,7 +47,10 @@ export type ToolSkill = Omit<Skill, "fields"> & {
 // TODO: Get rid of the OtherFields + Probably reduce the Fields, too many is a headache - need a better system
 
 const skills: {
-    languages: LanguageSkill[];
+    languages: (
+        | { id: string; message?: string; languages: LanguageSkill[] }
+        | LanguageSkill
+    )[];
     frameworks: (
         | { id: string; groupName: string; frameworks: FrameworkSkill[] }
         | FrameworkSkill
@@ -67,13 +70,21 @@ const skills: {
         },
         {
             id: "js-ts",
-            name: "JS / TS",
             message: "Most Utilized",
-            pic: [
-                "/pic/applications/javascript.svg",
-                "/pic/applications/typescript.svg",
-            ],
-            fields: ["Web & App Development"],
+            languages: [
+                {
+                    id: "javascript",
+                    name: "JavaScript",
+                    pic: "/pic/applications/javascript.svg",
+                    fields: ["Web & App Development"],
+                },
+                {
+                    id: "typescript",
+                    name: "TypeScript",
+                    pic: "/pic/applications/typescript.svg",
+                    fields: ["Web & App Development"],
+                }
+            ]
         },
         {
             id: "lua",
@@ -148,21 +159,21 @@ const skills: {
                     name: "ExpressJS",
                     pic: "/pic/applications/express.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JS / TS"],
+                    languages: ["JavaScript", "TypeScript"],
                 },
                 {
                     id: "react",
                     name: "React",
                     pic: "/pic/applications/react.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JS / TS"],
+                    languages: ["JavaScript", "TypeScript"],
                 },
                 {
                     id: "next",
                     name: "Next",
                     pic: "/pic/applications/next.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JS / TS"],
+                    languages: ["JavaScript", "TypeScript"],
                 },
             ],
         },
@@ -175,14 +186,14 @@ const skills: {
                     name: "ReactNative",
                     pic: "/pic/applications/reactnative.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JS / TS"],
+                    languages: ["JavaScript", "TypeScript"],
                 },
                 {
                     id: "expo",
                     name: "Expo",
                     pic: "/pic/applications/expo.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JS / TS"],
+                    languages: ["JavaScript", "TypeScript"],
                 },
             ],
         },
@@ -195,15 +206,14 @@ const skills: {
                     name: "Bootstrap",
                     pic: "/pic/applications/bootstrap.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JS / TS"],
-                    extraLinks: ["django"],
+                    languages: ["JavaScript", "TypeScript"],
                 },
                 {
                     id: "tailwind",
                     name: "Tailwind",
                     pic: "/pic/applications/tailwind.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JS / TS"],
+                    languages: ["JavaScript", "TypeScript"],
                 },
             ],
         },
