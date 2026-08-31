@@ -48,7 +48,10 @@ export const remarkWikiEmbed: Plugin<[Options?], Root> = (options = {}) => {
             }
 
             if (lastIndex < node.value.length) {
-                newNodes.push({ type: "text", value: node.value.slice(lastIndex) });
+                newNodes.push({
+                    type: "text",
+                    value: node.value.slice(lastIndex),
+                });
             }
 
             parent.children.splice(index, 1, ...newNodes);

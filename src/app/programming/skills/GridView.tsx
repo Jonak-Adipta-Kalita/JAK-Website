@@ -1,12 +1,11 @@
 "use client";
 
-import skillsData, {
+import skills, {
     LanguageSkill,
     ToolSkill,
 } from "@/data/programming-skills/data";
 import Image from "next/image";
 import { motion } from "motion/react";
-import skills from "@/data/programming-skills/data";
 
 // TODO: Add Skeleton for Loading Pics
 
@@ -22,11 +21,11 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                     transition={{ duration: 0.5 + i * 0.1, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    <div className="flex h-12 items-center justify-around w-full">
+                    <div className="flex h-12 w-full items-center justify-around">
                         {typeof lang.pic === "string" ? (
                             <Image
                                 src={lang.pic}
-                                alt={lang.name[0]}
+                                alt={lang.name![0]}
                                 height={40}
                                 width={40}
                             />
@@ -35,7 +34,7 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                                 <Image
                                     key={i}
                                     src={pic}
-                                    alt={lang.name[i]}
+                                    alt={lang.name?.[i]!}
                                     height={32}
                                     width={32}
                                 />
@@ -43,12 +42,14 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                         )}
                     </div>
 
-                    <p className="font-ubuntu text-center text-fg-programming-text text-sm leading-none font-bold flex items-center justify-evenly w-full">
-                        {typeof lang.name === "string" ? lang.name : (
-                            lang.name.map((name, i) => (
-                                <span key={i} className="text-center mx-2">{name}</span>
-                            ))
-                        )}
+                    <p className="font-ubuntu text-fg-programming-text flex w-full items-center justify-evenly text-center text-sm leading-none font-bold">
+                        {typeof lang.name === "string"
+                            ? lang.name
+                            : lang.name?.map((name, i) => (
+                                <span key={i} className="mx-2 text-center">
+                                    {name}
+                                </span>
+                            ))}
                     </p>
 
                     {lang.message && (
@@ -62,34 +63,34 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
     );
 };
 
-const mobileToolData = skills.tools.map((tool) => {
-    if (!("tools" in tool)) return tool;
+const getMobileData = (
+    skills: (
+        | {
+            id: string;
+            groupName?: string;
+            message?: string;
+            items: ToolSkill[];
+        }
+        | ToolSkill
+    )[]
+): ToolSkill[] =>
+    skills.map((skill) => {
+        if (!("items" in skill)) return skill;
 
-    return {
-        id: tool.id,
-        name: tool.tools.map((subTool) => subTool.name),
-        pic: [...tool.tools.map((subTool) => subTool.pic)],
-        fields: [],
-        message: tool.groupName,
-    };
-}) as ToolSkill[];
-const mobileLanguageData = skills.languages.map((lang) => {
-    if (!("languages" in lang)) return lang;
-
-    return {
-        id: lang.id,
-        name: lang.languages.map((subLang) => subLang.name),
-        pic: [...lang.languages.map((subLang) => subLang.pic)],
-        fields: [],
-        message: lang.message,
-    };
-}) as ToolSkill[];
+        return {
+            id: skill.id,
+            name: skill.items.map((sub) => sub.name) as string[],
+            pic: skill.items.map((sub) => sub.pic) as string[],
+            fields: [],
+            message: skill.message,
+        };
+    });
 
 const GridView = () => {
     return (
         <div className="space-y-10">
-            <SkillSet skills={mobileLanguageData} />
-            <SkillSet skills={mobileToolData} />
+            <SkillSet skills={getMobileData(skills.languages)} />
+            <SkillSet skills={getMobileData(skills.tools)} />
         </div>
     );
 };

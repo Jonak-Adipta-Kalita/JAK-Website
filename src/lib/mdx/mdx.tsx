@@ -6,7 +6,10 @@ import { remarkBlankLineBreak } from "./remark-blank-line-break";
 import { MDXComponents } from "mdx/types";
 import { remarkWikiEmbed } from "./remark-wiki-embed";
 
-export async function renderMarkdown(source: string, mdxComponents: MDXComponents) {
+export async function renderMarkdown(
+    source: string,
+    mdxComponents: MDXComponents
+) {
     const code = String(
         await compile(source, {
             outputFormat: "function-body",

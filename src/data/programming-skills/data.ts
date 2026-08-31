@@ -30,7 +30,7 @@ export const LanguageNames = [
 
 export interface Skill {
     id: string;
-    name: string | string[];
+    name?: string | string[];
     pic: string | string[];
     message?: string;
     fields: (typeof Fields)[number][] | null;
@@ -48,15 +48,15 @@ export type ToolSkill = Omit<Skill, "fields"> & {
 
 const skills: {
     languages: (
-        | { id: string; message?: string; languages: LanguageSkill[] }
+        | { id: string; message?: string; items: LanguageSkill[] }
         | LanguageSkill
     )[];
     frameworks: (
-        | { id: string; groupName: string; frameworks: FrameworkSkill[] }
+        | { id: string; groupName: string; items: FrameworkSkill[] }
         | FrameworkSkill
     )[];
     tools: (
-        | { id: string; groupName: string; tools: ToolSkill[] }
+        | { id: string; groupName: string; items: ToolSkill[] }
         | ToolSkill
     )[];
 } = {
@@ -71,7 +71,7 @@ const skills: {
         {
             id: "js-ts",
             message: "Most Utilized",
-            languages: [
+            items: [
                 {
                     id: "javascript",
                     name: "JavaScript",
@@ -83,8 +83,8 @@ const skills: {
                     name: "TypeScript",
                     pic: "/pic/applications/typescript.svg",
                     fields: ["Web & App Development"],
-                }
-            ]
+                },
+            ],
         },
         {
             id: "lua",
@@ -133,7 +133,7 @@ const skills: {
         {
             id: "python-web-frameworks",
             groupName: "Web Framemworks for Python",
-            frameworks: [
+            items: [
                 {
                     id: "django",
                     name: "Django",
@@ -153,7 +153,7 @@ const skills: {
         {
             id: "js/ts-web-frameworks",
             groupName: "Web Frameworks for JS/TS",
-            frameworks: [
+            items: [
                 {
                     id: "express",
                     name: "ExpressJS",
@@ -180,7 +180,7 @@ const skills: {
         {
             id: "js/ts-app-frameworks",
             groupName: "App Frameworks for JS/TS",
-            frameworks: [
+            items: [
                 {
                     id: "react-native",
                     name: "ReactNative",
@@ -200,7 +200,7 @@ const skills: {
         {
             id: "js/ts-css-frameworks",
             groupName: "CSS Frameworks for Frontend",
-            frameworks: [
+            items: [
                 {
                     id: "bootstrap",
                     name: "Bootstrap",
@@ -220,7 +220,7 @@ const skills: {
         {
             id: "python-game-dev",
             groupName: "Game Dev in Python",
-            frameworks: [
+            items: [
                 {
                     id: "pygame",
                     name: "Pygame",
@@ -285,7 +285,7 @@ const skills: {
         {
             id: "text-editor",
             groupName: "Text Editors",
-            tools: [
+            items: [
                 {
                     id: "vscode",
                     name: "VSCode",
@@ -315,7 +315,7 @@ const skills: {
         {
             id: "web-hosting",
             groupName: "Platforms for Web Hosting",
-            tools: [
+            items: [
                 {
                     id: "vercel",
                     name: "Vercel",
@@ -333,7 +333,7 @@ const skills: {
         {
             id: "operating-system",
             groupName: "Operating Systems",
-            tools: [
+            items: [
                 {
                     id: "arch",
                     name: "Arch",
@@ -364,7 +364,7 @@ const skills: {
         {
             id: "database-management-system",
             groupName: "Database Management Systems",
-            tools: [
+            items: [
                 {
                     id: "postgresql",
                     name: "PostgreSQL",
@@ -382,7 +382,7 @@ const skills: {
         {
             id: "productivity",
             groupName: "Productivity",
-            tools: [
+            items: [
                 {
                     id: "xournalpp",
                     name: "Xournal++",
