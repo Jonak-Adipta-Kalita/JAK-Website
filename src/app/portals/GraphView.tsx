@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button } from "../ui/button";
-import FloatingDiv from "../FloatingDiv";
+import { Button } from "@/components/ui/button";
+import FloatingDiv from "@/components/FloatingDiv";
 import {
     MusicPortal,
     PolyglotPortal,
@@ -10,7 +10,7 @@ import {
     OtherPortal,
 } from "./Portal";
 import { SettingsIcon, SquareSlashIcon } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useCommandPalette } from "@/lib/hooks/useCommandPalette";
 import { useSettingsPanel } from "@/lib/hooks/useSettingsPanel";
 
@@ -64,28 +64,28 @@ const LobbyGraphView = () => {
             <div>
                 <FloatingDiv
                     className="absolute top-10 left-10"
-                    anchorRef={anchorRef!}
+                    anchorRefs={[anchorRef!]}
                     setDrag={setProgrammingDrag}
                 >
                     <ProgrammingPortal dragging={programmingDrag} />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute top-35 right-10 lg:top-10"
-                    anchorRef={anchorRef!}
+                    anchorRefs={[anchorRef!]}
                     setDrag={setMusicDrag}
                 >
                     <MusicPortal dragging={musicDrag} />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute bottom-35 left-10 lg:bottom-10"
-                    anchorRef={anchorRef!}
+                    anchorRefs={[anchorRef!]}
                     setDrag={setPolyglotDrag}
                 >
                     <PolyglotPortal dragging={polyglotDrag} />
                 </FloatingDiv>
                 <FloatingDiv
                     className="absolute right-10 bottom-10"
-                    anchorRef={anchorRef!}
+                    anchorRefs={[anchorRef!]}
                     setDrag={setOtherDrag}
                 >
                     <OtherPortal dragging={otherDrag} />

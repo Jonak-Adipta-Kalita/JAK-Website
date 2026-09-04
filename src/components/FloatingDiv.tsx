@@ -2,29 +2,23 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useMotionValue, animate } from "framer-motion";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
+import LinkLine from "./LinkLine";
 
 const FloatingDiv = ({
     children,
     className,
-    anchorRef,
+    anchorRefs,
     setDrag,
 }: {
     children: React.ReactNode;
     className: string;
-    anchorRef: React.RefObject<HTMLButtonElement | null>;
+    anchorRefs: React.RefObject<HTMLButtonElement | null>[];
     setDrag: Dispatch<SetStateAction<boolean>>;
 }) => {
     const dragX = useMotionValue(0);
     const dragY = useMotionValue(0);
     const selfRef = useRef<HTMLDivElement>(null);
-
-    const [linePos, setLinePos] = useState({
-        x1: 0,
-        y1: 0,
-        x2: 0,
-        y2: 0,
-    });
 
     function handleDragEnd() {
         setDrag(false);
@@ -33,44 +27,11 @@ const FloatingDiv = ({
         animate(dragY, 0, { type: "spring", stiffness: 200, damping: 20 });
     }
 
-    useEffect(() => {
-        function updateLine() {
-            if (!anchorRef.current || !selfRef.current) return;
-
-            const anchorBox = anchorRef.current.getBoundingClientRect();
-            const selfBox = selfRef.current.getBoundingClientRect();
-
-            setLinePos({
-                x1: anchorBox.left + anchorBox.width / 2,
-                y1: anchorBox.top + anchorBox.height / 2,
-                x2: selfBox.left + selfBox.width / 2,
-                y2: selfBox.top + selfBox.height / 2,
-            });
-        }
-
-        updateLine();
-        window.addEventListener("resize", updateLine);
-        const interval = setInterval(updateLine, 16);
-
-        return () => {
-            window.removeEventListener("resize", updateLine);
-            clearInterval(interval);
-        };
-    }, [anchorRef]);
-
     return (
         <>
-            <svg className="pointer-events-none fixed top-0 left-0 z-0 h-screen w-screen">
-                <line
-                    x1={linePos.x1}
-                    y1={linePos.y1}
-                    x2={linePos.x2}
-                    y2={linePos.y2}
-                    stroke="#96adde"
-                    strokeWidth="1.5"
-                    strokeOpacity="0.4"
-                />
-            </svg>
+            {anchorRefs.map((anchorRef, i) => (
+                <LinkLine key={i} fromRef={anchorRef.current} toRef={selfRef.current} />
+            ))}
 
             <motion.div
                 ref={selfRef}
