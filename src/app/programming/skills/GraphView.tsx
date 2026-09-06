@@ -78,10 +78,9 @@ const SkillGroup = <T extends AnySkill>({
                 className="cursor-default"
                 setDrag={setDrag}
                 anchorRefs={anchorRefs}
-
             >
                 {skill.items.map((item) => (
-                    <div ref={registerRef(item.name as string)} key={item.id}>
+                    <div key={typeof item.pic === "string" ? item.pic : item.pic[0]} ref={registerRef(item.id)}>
                         <SkillButton dragging={dragging} skill={item} />
                     </div>
                 ))}
@@ -125,7 +124,7 @@ const SkillCategoryColumn = <T extends AnySkill>({
                                 anchorRefs={[ref]}
                             />
                             {/* @ts-ignore */}
-                            <Links skill={skill.items[0]} linkLanguages={label === "Frameworks"} getRef={getRef} />
+                            <Links skill={skill.items[0]} linkLanguages={label === "Frameworks"} groupID={skill.id} getRef={getRef} />
                         </div>
                     ) : (
                         <div
@@ -133,10 +132,9 @@ const SkillCategoryColumn = <T extends AnySkill>({
                         >
                             <FloatingDiv
                                 anchorRefs={[ref]}
-                                ref={registerRef(skill.name as string)}
+                                ref={registerRef(skill.id)}
                                 skill={skill}
                             />
-
                             {/* @ts-ignore */}
                             <Links skill={skill} linkLanguages={label === "Frameworks"} getRef={getRef} />
                         </div>
@@ -147,15 +145,14 @@ const SkillCategoryColumn = <T extends AnySkill>({
     );
 };
 
-const Links = ({ skill, linkLanguages, getRef }: ({ skill: LanguageSkill | FrameworkSkill | ToolSkill, linkLanguages: false } | { skill: FrameworkSkill, linkLanguages: true }) & { getRef: GetRef }) => {
+const Links = ({ skill, linkLanguages, getRef, groupID }: ({ skill: LanguageSkill | FrameworkSkill | ToolSkill, linkLanguages: false, groupID: null } | { skill: FrameworkSkill, linkLanguages: true, groupID: string }) & { getRef: GetRef }) => {
     return <>
-        {linkLanguages && skill.languages?.map((lang) => {
+        {linkLanguages && skill.languages?.map((lang, i) => {
             const ref1 = getRef(lang);
-            const ref2 = getRef(skill.name as string)
+            const ref2 = getRef(groupID || skill.id)
 
-            return <LinkLine fromRef={ref2!} toRef={ref1!} key={lang} />
-        }
-        )}
+            return <LinkLine fromRef={ref2!} toRef={ref1!} key={i} />
+        })}
     </>
 }
 

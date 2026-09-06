@@ -14,18 +14,17 @@ export const OtherFields = [
 ] as const;
 export const AllFields = [...Fields, ...OtherFields] as const;
 
-export const LanguageNames = [
-    "Python",
-    "JavaScript",
-    "TypeScript",
-    "Go",
-    "Lua",
-    "Java",
-    "C#",
-    "SQL",
-    "C",
-    "Rust",
-    "C++",
+export const LanguageIDs = [
+    "python",
+    "js-ts",
+    "go",
+    "lua",
+    "java",
+    "c#",
+    "sql",
+    "c",
+    "rust",
+    "c++",
 ] as const;
 
 export interface Skill {
@@ -36,15 +35,13 @@ export interface Skill {
     fields: (typeof Fields)[number][] | null;
 }
 
-export type LanguageSkill = Skill & { name: (typeof LanguageNames)[number] };
+export type LanguageSkill = Skill & { id: (typeof LanguageIDs)[number] };
 export type FrameworkSkill = Skill & {
-    languages: (typeof LanguageNames)[number][] | null;
+    languages: (typeof LanguageIDs)[number][] | null;
 };
 export type ToolSkill = Omit<Skill, "fields"> & {
     fields: (typeof AllFields)[number][] | null;
 };
-
-// TODO: Get rid of the OtherFields + Probably reduce the Fields, too many is a headache - need a better system
 
 const skills: {
     languages: (
@@ -73,13 +70,13 @@ const skills: {
             message: "Most Utilized",
             items: [
                 {
-                    id: "javascript",
+                    id: "js-ts",
                     name: "JavaScript",
                     pic: "/pic/applications/javascript.svg",
                     fields: ["Web & App Development"],
                 },
                 {
-                    id: "typescript",
+                    id: "js-ts",
                     name: "TypeScript",
                     pic: "/pic/applications/typescript.svg",
                     fields: ["Web & App Development"],
@@ -101,7 +98,7 @@ const skills: {
             fields: ["Game Development"],
         },
         {
-            id: "csharp",
+            id: "c#",
             name: "C#",
             message: "Only for Game Dev",
             pic: "/pic/applications/csharp.svg",
@@ -139,14 +136,14 @@ const skills: {
                     name: "Django",
                     pic: "/pic/applications/django.svg",
                     fields: ["Web & App Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
                 {
                     id: "flask",
                     name: "Flask",
                     pic: "/pic/applications/flask.svg",
                     fields: ["Web & App Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
             ],
         },
@@ -159,21 +156,21 @@ const skills: {
                     name: "ExpressJS",
                     pic: "/pic/applications/express.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript", "TypeScript"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "react",
                     name: "React",
                     pic: "/pic/applications/react.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript", "TypeScript"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "next",
                     name: "Next",
                     pic: "/pic/applications/next.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript", "TypeScript"],
+                    languages: ["js-ts"],
                 },
             ],
         },
@@ -186,14 +183,14 @@ const skills: {
                     name: "ReactNative",
                     pic: "/pic/applications/reactnative.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript", "TypeScript"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "expo",
                     name: "Expo",
                     pic: "/pic/applications/expo.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript", "TypeScript"],
+                    languages: ["js-ts"],
                 },
             ],
         },
@@ -206,14 +203,14 @@ const skills: {
                     name: "Bootstrap",
                     pic: "/pic/applications/bootstrap.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript", "TypeScript"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "tailwind",
                     name: "Tailwind",
                     pic: "/pic/applications/tailwind.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript", "TypeScript"],
+                    languages: ["js-ts"],
                 },
             ],
         },
@@ -226,28 +223,28 @@ const skills: {
                     name: "Pygame",
                     pic: "/pic/applications/pygame.svg",
                     fields: ["Game Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
                 {
                     id: "arcade",
                     name: "Arcade",
                     pic: "/pic/applications/arcade.svg",
                     fields: ["Game Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
                 {
                     id: "ursina",
                     name: "Ursina",
                     pic: "/pic/applications/ursina.svg",
                     fields: ["Game Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
                 {
                     id: "panda3d",
                     name: "Panda3D",
                     pic: "/pic/applications/panda3d.svg",
                     fields: ["Game Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
             ],
         },
@@ -256,28 +253,28 @@ const skills: {
             name: "Godot",
             pic: "/pic/applications/godot.svg",
             fields: ["Game Development"],
-            languages: ["C#"],
+            languages: ["c#"],
         },
         {
             id: "love2d",
             name: "Love2D",
             pic: "/pic/applications/love2d.svg",
             fields: ["Game Development"],
-            languages: ["Lua"],
+            languages: ["lua"],
         },
         {
             id: "opencv",
             name: "OpenCV",
             pic: "/pic/applications/opencv.svg",
             fields: ["AI & Data Science & Computer Vision"],
-            languages: ["Python"],
+            languages: ["python"],
         },
         {
             id: "arduino",
             name: "Arduino",
             pic: "/pic/applications/arduino.svg",
             fields: ["Internet of Things"],
-            languages: ["C++"],
+            languages: ["c++"],
         },
     ],
 
