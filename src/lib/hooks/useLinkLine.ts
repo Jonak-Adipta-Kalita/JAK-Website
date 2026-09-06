@@ -10,7 +10,7 @@ export function useLinkLine(
     const [linePos, setLinePos] = useState<LinePos>({ x1: 0, y1: 0, x2: 0, y2: 0 });
 
     useEffect(() => {
-        function updateLine() {
+        const updateLine = () => {
             if (!fromRef || !toRef) return;
             const fromBox = fromRef.getBoundingClientRect();
             const toBox = toRef.getBoundingClientRect();

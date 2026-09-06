@@ -8,7 +8,7 @@ import skillsData, {
     LanguageSkill,
     ToolSkill,
 } from "@/data/programming-skills/data";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 export type RegisterRef = (id: string) => (node: HTMLDivElement | null) => void;
 export type GetRef = (id: string) => HTMLDivElement | undefined;
@@ -116,12 +116,17 @@ const SkillCategoryColumn = <T extends AnySkill>({
             <div className="absolute">
                 {data.map((skill) =>
                     isGroup(skill) ? (
-                        <SkillGroup
-                            registerRef={registerRef}
-                            skill={skill}
-                            anchorRefs={[ref]}
+                        <div
                             key={skill.id}
-                        />
+                        >
+                            <SkillGroup
+                                registerRef={registerRef}
+                                skill={skill}
+                                anchorRefs={[ref]}
+                            />
+                            {/* @ts-ignore */}
+                            <Links skill={skill.items[0]} linkLanguages={label === "Frameworks"} getRef={getRef} />
+                        </div>
                     ) : (
                         <div
                             key={skill.id}
@@ -198,6 +203,11 @@ const SkillsGraphView = () => {
         (id) => refIDs.current.get(id),
         []
     );
+
+    const [, forceRender] = useState(0);
+    useLayoutEffect(() => {
+        forceRender((n) => n + 1);
+    }, []);
 
     return (
         <div className="relative hidden h-full w-full overflow-hidden lg:inline">

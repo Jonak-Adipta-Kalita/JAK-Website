@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useMotionValue, animate } from "framer-motion";
-import { Dispatch, SetStateAction, useRef } from "react";
+import { Dispatch, SetStateAction, useLayoutEffect, useRef, useState } from "react";
 import LinkLine from "./LinkLine";
 
 const FloatingDiv = ({
@@ -20,12 +20,18 @@ const FloatingDiv = ({
     const dragY = useMotionValue(0);
     const selfRef = useRef<HTMLDivElement>(null);
 
-    function handleDragEnd() {
+    const handleDragEnd = () => {
         setDrag(false);
 
         animate(dragX, 0, { type: "spring", stiffness: 200, damping: 20 });
         animate(dragY, 0, { type: "spring", stiffness: 200, damping: 20 });
     }
+
+    const [, forceRender] = useState(0);
+
+    useLayoutEffect(() => {
+        forceRender((n) => n + 1);
+    }, []);
 
     return (
         <>
