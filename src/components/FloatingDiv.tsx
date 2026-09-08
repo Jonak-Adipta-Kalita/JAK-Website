@@ -2,7 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useMotionValue, animate } from "framer-motion";
-import { Dispatch, SetStateAction, useLayoutEffect, useRef, useState } from "react";
+import {
+    Dispatch,
+    SetStateAction,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from "react";
 import LinkLine from "./LinkLine";
 
 const FloatingDiv = ({
@@ -25,7 +31,7 @@ const FloatingDiv = ({
 
         animate(dragX, 0, { type: "spring", stiffness: 200, damping: 20 });
         animate(dragY, 0, { type: "spring", stiffness: 200, damping: 20 });
-    }
+    };
 
     const [, forceRender] = useState(0);
 
@@ -36,7 +42,11 @@ const FloatingDiv = ({
     return (
         <>
             {anchorRefs.map((anchorRef, i) => (
-                <LinkLine key={i} fromRef={anchorRef.current} toRef={selfRef.current} />
+                <LinkLine
+                    key={i}
+                    fromRef={anchorRef.current}
+                    toRef={selfRef.current}
+                />
             ))}
 
             <motion.div

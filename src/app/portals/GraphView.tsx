@@ -10,7 +10,11 @@ import {
     OtherPortal,
 } from "./Portal";
 import { SettingsIcon, SquareSlashIcon } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useCommandPalette } from "@/lib/hooks/useCommandPalette";
 import { useSettingsPanel } from "@/lib/hooks/useSettingsPanel";
 

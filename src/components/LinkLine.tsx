@@ -1,5 +1,6 @@
 "use client";
 import { useLinkLine } from "@/lib/hooks/useLinkLine";
+import { useEffect } from "react";
 
 const LinkLine = ({
     fromRef,

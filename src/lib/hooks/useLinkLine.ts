@@ -7,7 +7,12 @@ export function useLinkLine(
     fromRef: HTMLElement | null,
     toRef: HTMLElement | null
 ) {
-    const [linePos, setLinePos] = useState<LinePos>({ x1: 0, y1: 0, x2: 0, y2: 0 });
+    const [linePos, setLinePos] = useState<LinePos>({
+        x1: 0,
+        y1: 0,
+        x2: 0,
+        y2: 0,
+    });
 
     useEffect(() => {
         const updateLine = () => {
@@ -20,10 +25,10 @@ export function useLinkLine(
                 x2: toBox.left + toBox.width / 2,
                 y2: toBox.top + toBox.height / 2,
             });
-        }
+        };
         updateLine();
         window.addEventListener("resize", updateLine);
-        const interval = setInterval(updateLine, 16);
+        const interval = setInterval(updateLine, 5);
         return () => {
             window.removeEventListener("resize", updateLine);
             clearInterval(interval);

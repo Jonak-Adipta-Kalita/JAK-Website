@@ -26,24 +26,24 @@ const SkillButton = ({
 const FloatingDiv = ({
     anchorRefs,
     skill,
-    ref,
+    registerRef,
 }: {
     anchorRefs: React.RefObject<HTMLButtonElement | null>[];
     skill: ToolSkill;
-    ref: React.Ref<HTMLDivElement>;
+    registerRef: RegisterRef;
 }) => {
     const [dragging, setDrag] = useState(false);
 
     return (
-        <div ref={ref}>
-            <FloatingDivBase
-                className="cursor-default"
-                setDrag={setDrag}
-                anchorRefs={anchorRefs}
-            >
+        <FloatingDivBase
+            className="cursor-default"
+            setDrag={setDrag}
+            anchorRefs={anchorRefs}
+        >
+            <div ref={registerRef(skill.id)}>
                 <SkillButton dragging={dragging} skill={skill} />
-            </FloatingDivBase>
-        </div>
+            </div>
+        </FloatingDivBase>
     );
 };
 
@@ -73,19 +73,26 @@ const SkillGroup = <T extends AnySkill>({
     const [dragging, setDrag] = useState(false);
 
     return (
-        <div ref={registerRef(skill.id)} key={skill.id}>
-            <FloatingDivBase
-                className="cursor-default"
-                setDrag={setDrag}
-                anchorRefs={anchorRefs}
-            >
+        <FloatingDivBase
+            className="cursor-default"
+            setDrag={setDrag}
+            anchorRefs={anchorRefs}
+        >
+            <div ref={registerRef(skill.id)}>
                 {skill.items.map((item) => (
-                    <div key={typeof item.pic === "string" ? item.pic : item.pic[0]} ref={registerRef(item.id)}>
+                    <div
+                        key={
+                            typeof item.pic === "string"
+                                ? item.pic
+                                : item.pic[0]
+                        }
+                        ref={registerRef(item.id)}
+                    >
                         <SkillButton dragging={dragging} skill={item} />
                     </div>
                 ))}
-            </FloatingDivBase>
-        </div>
+            </div>
+        </FloatingDivBase>
     );
 };
 
@@ -96,7 +103,7 @@ const SkillCategoryColumn = <T extends AnySkill>({
     data,
 }: {
     registerRef: RegisterRef;
-    getRef: GetRef,
+    getRef: GetRef;
     label: "Languages" | "Frameworks" | "Tools";
     data: SkillEntry<T>[];
 }) => {
@@ -115,28 +122,33 @@ const SkillCategoryColumn = <T extends AnySkill>({
             <div className="absolute">
                 {data.map((skill) =>
                     isGroup(skill) ? (
-                        <div
-                            key={skill.id}
-                        >
+                        <div key={skill.id}>
                             <SkillGroup
                                 registerRef={registerRef}
                                 skill={skill}
                                 anchorRefs={[ref]}
                             />
                             {/* @ts-ignore */}
-                            <Links skill={skill.items[0]} linkLanguages={label === "Frameworks"} groupID={skill.id} getRef={getRef} />
+                            <Links
+                                skill={skill.items[0]}
+                                linkLanguages={label === "Frameworks"}
+                                groupID={skill.id}
+                                getRef={getRef}
+                            />
                         </div>
                     ) : (
-                        <div
-                            key={skill.id}
-                        >
+                        <div key={skill.id}>
                             <FloatingDiv
                                 anchorRefs={[ref]}
-                                ref={registerRef(skill.id)}
+                                registerRef={registerRef}
                                 skill={skill}
                             />
                             {/* @ts-ignore */}
-                            <Links skill={skill} linkLanguages={label === "Frameworks"} getRef={getRef} />
+                            <Links
+                                skill={skill}
+                                linkLanguages={label === "Frameworks"}
+                                getRef={getRef}
+                            />
                         </div>
                     )
                 )}
@@ -145,38 +157,74 @@ const SkillCategoryColumn = <T extends AnySkill>({
     );
 };
 
-const Links = ({ skill, linkLanguages, getRef, groupID }: ({ skill: LanguageSkill | FrameworkSkill | ToolSkill, linkLanguages: false, groupID: null } | { skill: FrameworkSkill, linkLanguages: true, groupID: string }) & { getRef: GetRef }) => {
-    return <>
-        {linkLanguages && skill.languages?.map((lang, i) => {
-            const ref1 = getRef(lang);
-            const ref2 = getRef(groupID || skill.id)
+const Links = ({
+    skill,
+    linkLanguages,
+    getRef,
+    groupID,
+}: (
+    | {
+          skill: LanguageSkill | FrameworkSkill | ToolSkill;
+          linkLanguages: false;
+          groupID: null;
+      }
+    | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
+) & { getRef: GetRef }) => {
+    return (
+        <>
+            {linkLanguages &&
+                skill.languages?.map((lang, i) => {
+                    const ref1 = getRef(lang);
+                    const ref2 = getRef(groupID || skill.id);
 
-            return <LinkLine fromRef={ref2!} toRef={ref1!} key={i} />
-        })}
-    </>
-}
+                    return <LinkLine fromRef={ref2!} toRef={ref1!} key={i} />;
+                })}
+        </>
+    );
+};
 
-const LanguageSkills = ({ registerRef, getRef }: { registerRef: RegisterRef, getRef: GetRef }) => (
+const LanguageSkills = ({
+    registerRef,
+    getRef,
+}: {
+    registerRef: RegisterRef;
+    getRef: GetRef;
+}) => (
     <SkillCategoryColumn<LanguageSkill>
         registerRef={registerRef}
         label="Languages"
-        data={skillsData.languages} getRef={getRef}
+        data={skillsData.languages}
+        getRef={getRef}
     />
 );
 
-const FrameworkSkills = ({ registerRef, getRef }: { registerRef: RegisterRef, getRef: GetRef }) => (
+const FrameworkSkills = ({
+    registerRef,
+    getRef,
+}: {
+    registerRef: RegisterRef;
+    getRef: GetRef;
+}) => (
     <SkillCategoryColumn<FrameworkSkill>
         registerRef={registerRef}
         label="Frameworks"
-        data={skillsData.frameworks} getRef={getRef}
+        data={skillsData.frameworks}
+        getRef={getRef}
     />
 );
 
-const ToolSkills = ({ registerRef, getRef }: { registerRef: RegisterRef, getRef: GetRef }) => (
+const ToolSkills = ({
+    registerRef,
+    getRef,
+}: {
+    registerRef: RegisterRef;
+    getRef: GetRef;
+}) => (
     <SkillCategoryColumn<ToolSkill>
         registerRef={registerRef}
         label="Tools"
-        data={skillsData.tools} getRef={getRef}
+        data={skillsData.tools}
+        getRef={getRef}
     />
 );
 
@@ -196,10 +244,7 @@ const SkillsGraphView = () => {
         []
     );
 
-    const getRef: GetRef = useCallback(
-        (id) => refIDs.current.get(id),
-        []
-    );
+    const getRef: GetRef = useCallback((id) => refIDs.current.get(id), []);
 
     const [, forceRender] = useState(0);
     useLayoutEffect(() => {
