@@ -34,7 +34,7 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                                 <Image
                                     key={i}
                                     src={pic}
-                                    alt={lang.name?.[i]!}
+                                    alt={lang.name![i]}
                                     height={32}
                                     width={32}
                                 />
