@@ -3,7 +3,7 @@ const MusicWorkPage = () => {
         <main className="scrollbar-music mx-auto h-screen w-full max-w-6xl overflow-y-auto scroll-smooth">
             <div className="mt-24 md:mt-28" />
             <p className="font-metal-mania mx-2 w-full text-center text-lg md:text-xl lg:text-3xl">
-                I have'nt started doing much of Music Production yet but, I do
+                I have&apos;nt started doing much of Music Production yet but, I do
                 occasionally post Song Covers on my YouTube Channel{" "}
                 <span className="text-base md:text-lg lg:text-xl">
                     (I would love a few likes and you subscribing to the

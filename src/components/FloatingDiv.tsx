@@ -22,7 +22,7 @@ const FloatingDiv = ({
     className: string;
     anchorRefs: React.RefObject<HTMLButtonElement | null>[];
     setDrag: Dispatch<SetStateAction<boolean>>;
-    style: React.CSSProperties
+    style?: React.CSSProperties
 }) => {
     const dragX = useMotionValue(0);
     const dragY = useMotionValue(0);
