@@ -181,7 +181,7 @@ const skills: {
                 {
                     id: "react-native",
                     name: "ReactNative",
-                    pic: "/pic/applications/reactnative.svg",
+                    pic: "/pic/applications/react.svg",
                     fields: ["Web & App Development"],
                     languages: ["js-ts"],
                 },
@@ -221,31 +221,17 @@ const skills: {
                 {
                     id: "pygame",
                     name: "Pygame",
-                    pic: "/pic/applications/pygame.svg",
+                    pic: "/pic/applications/pygame.png",
                     fields: ["Game Development"],
                     languages: ["python"],
                 },
                 {
                     id: "arcade",
                     name: "Arcade",
-                    pic: "/pic/applications/arcade.svg",
+                    pic: "/pic/applications/arcade.png",
                     fields: ["Game Development"],
                     languages: ["python"],
-                },
-                {
-                    id: "ursina",
-                    name: "Ursina",
-                    pic: "/pic/applications/ursina.svg",
-                    fields: ["Game Development"],
-                    languages: ["python"],
-                },
-                {
-                    id: "panda3d",
-                    name: "Panda3D",
-                    pic: "/pic/applications/panda3d.svg",
-                    fields: ["Game Development"],
-                    languages: ["python"],
-                },
+                }
             ],
         },
         {
@@ -256,18 +242,11 @@ const skills: {
             languages: ["c#"],
         },
         {
-            id: "love2d",
-            name: "Love2D",
-            pic: "/pic/applications/love2d.svg",
-            fields: ["Game Development"],
-            languages: ["lua"],
-        },
-        {
             id: "opencv",
             name: "OpenCV",
             pic: "/pic/applications/opencv.svg",
             fields: ["AI & Data Science & Computer Vision"],
-            languages: ["python"],
+            languages: ["python", "c++"],
         },
         {
             id: "arduino",

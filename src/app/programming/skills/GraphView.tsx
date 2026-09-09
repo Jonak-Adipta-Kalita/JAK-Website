@@ -8,6 +8,7 @@ import skillsData, {
     LanguageSkill,
     ToolSkill,
 } from "@/data/programming-skills/data";
+import Image from "next/image";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 export type RegisterRef = (id: string) => (node: HTMLDivElement | null) => void;
@@ -20,7 +21,7 @@ const SkillButton = ({
     dragging: boolean;
     skill: ToolSkill;
 }) => {
-    return <>{skill.name}</>;
+    return <div className="h-10 w-10" draggable={false}><Image draggable={false} src={typeof skill.pic === "string" ? skill.pic : skill.pic[0]} alt={skill.id} fill /></div>;
 };
 
 const FloatingDiv = ({
@@ -164,10 +165,10 @@ const Links = ({
     groupID,
 }: (
     | {
-          skill: LanguageSkill | FrameworkSkill | ToolSkill;
-          linkLanguages: false;
-          groupID: null;
-      }
+        skill: LanguageSkill | FrameworkSkill | ToolSkill;
+        linkLanguages: false;
+        groupID: null;
+    }
     | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
 ) & { getRef: GetRef }) => {
     return (
@@ -177,7 +178,7 @@ const Links = ({
                     const ref1 = getRef(lang);
                     const ref2 = getRef(groupID || skill.id);
 
-                    return <LinkLine fromRef={ref2!} toRef={ref1!} key={i} />;
+                    return <LinkLine fromRef={ref2!} toRef={ref1!} key={i} zPop />;
                 })}
         </>
     );
