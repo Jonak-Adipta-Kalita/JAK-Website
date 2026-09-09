@@ -7,8 +7,6 @@ import skills, {
 import Image from "next/image";
 import { motion } from "motion/react";
 
-// TODO: Add Skeleton for Loading Pics
-
 const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
     return (
         <div className="grid grid-cols-3 gap-4 px-5 sm:grid-cols-4 md:grid-cols-6">
@@ -46,10 +44,10 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                         {typeof lang.name === "string"
                             ? lang.name
                             : lang.name?.map((name, i) => (
-                                  <span key={i} className="mx-2 text-center">
-                                      {name}
-                                  </span>
-                              ))}
+                                <span key={i} className="mx-2 text-center">
+                                    {name}
+                                </span>
+                            ))}
                     </p>
 
                     {lang.message && (
@@ -66,11 +64,11 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
 const getMobileData = (
     skills: (
         | {
-              id: string;
-              groupName?: string;
-              message?: string;
-              items: ToolSkill[];
-          }
+            id: string;
+            groupName?: string;
+            message?: string;
+            items: ToolSkill[];
+        }
         | ToolSkill
     )[]
 ): ToolSkill[] =>

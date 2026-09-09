@@ -16,11 +16,13 @@ const FloatingDiv = ({
     className,
     anchorRefs,
     setDrag,
+    style
 }: {
     children: React.ReactNode;
     className: string;
     anchorRefs: React.RefObject<HTMLButtonElement | null>[];
     setDrag: Dispatch<SetStateAction<boolean>>;
+    style: React.CSSProperties
 }) => {
     const dragX = useMotionValue(0);
     const dragY = useMotionValue(0);
@@ -54,7 +56,7 @@ const FloatingDiv = ({
                 drag
                 dragElastic={0.2}
                 dragMomentum={true}
-                style={{ x: dragX, y: dragY }}
+                style={{ x: dragX, y: dragY, ...style }}
                 onDragStart={() => {
                     setDrag(true);
                 }}

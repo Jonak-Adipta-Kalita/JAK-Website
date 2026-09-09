@@ -17,34 +17,21 @@ export type GetRef = (id: string) => HTMLDivElement | undefined;
 const SkillButton = ({
     dragging,
     skill,
+    registerRef,
+    item
 }: {
     dragging: boolean;
     skill: ToolSkill;
+    registerRef: RegisterRef
+    item: boolean
 }) => {
-    return <div className="h-10 w-10" draggable={false}><Image draggable={false} src={typeof skill.pic === "string" ? skill.pic : skill.pic[0]} alt={skill.id} fill /></div>;
-};
-
-const FloatingDiv = ({
-    anchorRefs,
-    skill,
-    registerRef,
-}: {
-    anchorRefs: React.RefObject<HTMLButtonElement | null>[];
-    skill: ToolSkill;
-    registerRef: RegisterRef;
-}) => {
-    const [dragging, setDrag] = useState(false);
-
     return (
-        <FloatingDivBase
-            className="cursor-default"
-            setDrag={setDrag}
-            anchorRefs={anchorRefs}
-        >
-            <div ref={registerRef(skill.id)}>
-                <SkillButton dragging={dragging} skill={skill} />
-            </div>
-        </FloatingDivBase>
+        <div draggable={false} ref={registerRef(skill.id)} className={`${item ? "graph-skills" : ""}`}>
+            <Image src={skill.pic as string} alt={skill.name as string} draggable={false}
+                height={40}
+                width={40}
+            />
+        </div>
     );
 };
 
@@ -66,33 +53,60 @@ const SkillGroup = <T extends AnySkill>({
     registerRef,
     skill,
     anchorRefs,
+    itemStyle
 }: {
     registerRef: RegisterRef;
     skill: SkillGroupData<T>;
     anchorRefs: React.RefObject<HTMLButtonElement | null>[];
+    itemStyle: React.CSSProperties
 }) => {
     const [dragging, setDrag] = useState(false);
 
     return (
         <FloatingDivBase
-            className="cursor-default"
+            className="cursor-default absolute z-50"
             setDrag={setDrag}
             anchorRefs={anchorRefs}
+            style={itemStyle}
         >
-            <div ref={registerRef(skill.id)}>
+            <div ref={registerRef(skill.id)} className="flex items-center justify-center graph-skills gap-5">
                 {skill.items.map((item) => (
-                    <div
-                        key={
-                            typeof item.pic === "string"
-                                ? item.pic
-                                : item.pic[0]
-                        }
-                        ref={registerRef(item.id)}
-                    >
-                        <SkillButton dragging={dragging} skill={item} />
-                    </div>
+                    <SkillButton dragging={dragging} skill={item}
+                        registerRef={registerRef}
+                        key={item.pic as string}
+                    />
                 ))}
             </div>
+        </FloatingDivBase>
+    );
+};
+
+const SkillItem = ({
+    anchorRefs,
+    skill,
+    registerRef,
+    itemStyle
+}: {
+    anchorRefs: React.RefObject<HTMLButtonElement | null>[];
+    skill: ToolSkill;
+    registerRef: RegisterRef;
+    itemStyle: React.CSSProperties
+}) => {
+    const [dragging, setDrag] = useState(false);
+
+    return (
+        <FloatingDivBase
+            className="cursor-default absolute z-50"
+            setDrag={setDrag}
+            anchorRefs={anchorRefs}
+            style={itemStyle}
+        >
+            <SkillButton
+                dragging={dragging}
+                skill={skill}
+                registerRef={registerRef}
+                item
+            />
         </FloatingDivBase>
     );
 };
@@ -109,51 +123,69 @@ const SkillCategoryColumn = <T extends AnySkill>({
     data: SkillEntry<T>[];
 }) => {
     const ref = useRef<HTMLButtonElement | null>(null);
+    const n = data.length;
+
+    const groupedData = data.filter(isGroup);
+    const nonGroupedData = data.filter(x => !isGroup(x));
+
+    const sortedData = [...groupedData, ...nonGroupedData]
 
     return (
-        <div>
+        <div className="relative">
             <Button
                 ref={ref}
                 variant={"programming"}
                 size={"programming"}
-                className="cursor-default"
+                className="cursor-default absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
                 {label}
             </Button>
-            <div className="absolute">
-                {data.map((skill) =>
-                    isGroup(skill) ? (
-                        <div key={skill.id}>
-                            <SkillGroup
-                                registerRef={registerRef}
-                                skill={skill}
-                                anchorRefs={[ref]}
-                            />
-                            {/* @ts-ignore */}
-                            <Links
-                                skill={skill.items[0]}
-                                linkLanguages={label === "Frameworks"}
-                                groupID={skill.id}
-                                getRef={getRef}
-                            />
-                        </div>
-                    ) : (
-                        <div key={skill.id}>
-                            <FloatingDiv
-                                anchorRefs={[ref]}
-                                registerRef={registerRef}
-                                skill={skill}
-                            />
-                            {/* @ts-ignore */}
-                            <Links
-                                skill={skill}
-                                linkLanguages={label === "Frameworks"}
-                                getRef={getRef}
-                            />
-                        </div>
-                    )
-                )}
-            </div>
+            {sortedData.map((skill, i) => {
+                const angleDeg = 180 + (360 / n) * i;
+                const angleRad = (angleDeg * Math.PI) / 180;
+                const x = 250 * Math.cos(angleRad);
+                const y = 400 * Math.sin(angleRad);
+
+                const itemStyle: React.CSSProperties = {
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
+                    transform: "translate(-50%, -50%)",
+                };
+
+                return isGroup(skill) ? (
+                    <div key={skill.id}>
+                        <SkillGroup
+                            registerRef={registerRef}
+                            skill={skill}
+                            anchorRefs={[ref]}
+
+                            itemStyle={itemStyle}
+                        />
+                        {/* @ts-ignore */}
+                        <Links
+                            skill={skill.items[0]}
+                            linkLanguages={label === "Frameworks"}
+                            groupID={skill.id}
+                            getRef={getRef}
+                        />
+                    </div>
+                ) : (
+                    <div key={skill.id}>
+                        <SkillItem
+                            anchorRefs={[ref]}
+                            registerRef={registerRef}
+                            skill={skill}
+                            itemStyle={itemStyle}
+                        />
+                        {/* @ts-ignore */}
+                        <Links
+                            skill={skill}
+                            linkLanguages={label === "Frameworks"}
+                            getRef={getRef}
+                        />
+                    </div>
+                )
+            })}
         </div>
     );
 };
@@ -178,7 +210,9 @@ const Links = ({
                     const ref1 = getRef(lang);
                     const ref2 = getRef(groupID || skill.id);
 
-                    return <LinkLine fromRef={ref2!} toRef={ref1!} key={i} zPop />;
+                    return (
+                        <LinkLine fromRef={ref2!} toRef={ref1!} key={i} zPop />
+                    );
                 })}
         </>
     );
