@@ -23,7 +23,7 @@ const SkillButton = ({
     dragging: boolean;
     skill: ToolSkill;
     registerRef: RegisterRef
-    item: boolean
+    item?: boolean
 }) => {
     return (
         <div draggable={false} ref={registerRef(skill.id)} className={`${item ? "graph-skills" : ""}`}>
