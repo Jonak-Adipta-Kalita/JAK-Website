@@ -10,7 +10,7 @@ export const MyGear = () => {
 
     return (
         <MusicSection name="gear" containerClassName="space-y-5">
-            <></>
+            <div>{/* "Current" Guitar & Amp */}</div>
 
             <motion.div
                 initial={{ opacity: 0, x: 32 }}
