@@ -57,6 +57,9 @@ const FloatingDiv = ({
                 dragElastic={0.2}
                 dragMomentum={true}
                 style={{ x: dragX, y: dragY, ...style }}
+                transformTemplate={(_, generatedTransform) =>
+                    `${style ? "translate(-50%, -50%)" : ""} ${generatedTransform}`
+                }
                 onDragStart={() => {
                     setDrag(true);
                 }}

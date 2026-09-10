@@ -91,7 +91,7 @@
     }
 
     .graph-skills {
-        @apply bg-[#181825]/90 rounded-full p-5 shadow-md;
+        @apply bg-[#181825]/90 rounded-full p-3 shadow-md;
     }
 }
 

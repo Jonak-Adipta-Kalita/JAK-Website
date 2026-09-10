@@ -82,6 +82,11 @@ const MusicHeader = () => {
                                 link={link}
                                 href={`/music#${link.toLowerCase()}`}
                             />
+                        ) : link === "Work" ? (
+                            <NavLink
+                                link={link}
+                                href={`/music/${link.toLowerCase()}`}
+                            />
                         ) : (
                             <Tooltip>
                                 <TooltipTrigger asChild>

@@ -1,6 +1,88 @@
 {
-    "guitars": [],
-    "amplifiers": [],
-    "accessories": []
-    "otherInstruments": [],
+    "guitars": [
+        {
+            "id": "the-fender-acoustic",
+            "nickname": null,
+            "type": "acoustic",
+            "data": {
+                "pic": "/pic/music_gears/the-fender-acoustic.webp",
+                "year": "2020",
+                "model": "Fake Fender Hollow-Body",
+                "messages": []
+            }
+        },
+        {
+            "id": "nova",
+            "nickname": "Nova",
+            "type": "electric",
+            "data": {
+                "year": "2024",
+                "pic": "/pic/music_gears/nova.webp",
+                "model": "Ibanez GRX70QA-TBB",
+                "messages": []
+            }
+        },
+        {
+            "id": "yamaha-fs80c",
+            "nickname": null,
+            "type": "acoustic",
+            "data": {
+                "year": "2025",
+                "pic": "/pic/music_gears/yamaha-fs80c.webp",
+                "model": "Yamaha FS80C",
+                "messages": []
+            }
+        },
+
+        {
+            "id": "eclipse",
+            "nickname": "Eclipse",
+            "type": "electric",
+            "data": {
+                "year": "2026",
+                "pic": "/pic/music_gears/eclipse.webp",
+                "model": "Ibanez XPTB720",
+                "messages": []
+            },
+            "showcase": true
+        }
+    ],
+
+    "amplifiers": [
+        {
+            "id": "blackstar-idcore-v3-40w",
+            "nickname": null,
+            "data": {
+                "year": "2024",
+                "pic": "/pic/music_gears/blackstar-idcore-v3-40w.webp",
+                "model": "Blackstar IDCore v3 40w",
+                "messages": []
+            }
+        },
+        {
+            "id": "boss-katana-gen3-100w",
+            "nickname": null,
+            "data": {
+                "year": "2026",
+                "pic": "/pic/music_gears/boss-katana-gen3-100w.webp",
+                "model": "Boss Katana Gen3 100w",
+                "messages": []
+            },
+            "showcase": true
+        }
+    ],
+
+    "accessories": {
+        "guitar_picks": [],
+
+        "audio_interfaces": [],
+
+        "guitar_strings": []
+    },
+
+    "otherInstruments": [
+        {
+            "id": "vault-harmonica"
+        }
+    ]
 }
