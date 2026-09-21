@@ -4,7 +4,7 @@ tags:
   - Literature/Writing/Technology/IoT
   - Literature/Writing/Projects
   - Programming/IoT
-title: Electric Safe - IoT
+title: Electric Safe
 description: A simple wooden electronic safe made for school project in 9th grade that got eventually into a competition
 ---
 ## Backstory

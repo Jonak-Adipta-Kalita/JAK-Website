@@ -10,6 +10,8 @@ description: Sequential journey of how I learned programming
 - idk why you would want to know but... sure, go ahead :)
 
 ## How I got introduced to Programming
+- (I had an early introduction to electronics but, I don't really consider that as my "start" ;-; Read about it here if you want to -> [[iot-robotics-journey|IOT & Robotics Journey]])
+
 - It was the summer of 6th grade, we were divided into groups and tasked with creating projects for our science holiday homework.
 - One of my teammates, [Nibir](https://nibirsan.org/), wanted to learn coding to build our project. And, I just tagged along.
 - We (mostly him) approached our Computer Science teacher and requested that he teach us something useful for the project.
