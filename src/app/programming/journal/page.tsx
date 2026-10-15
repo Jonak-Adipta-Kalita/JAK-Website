@@ -71,9 +71,9 @@ const ProgrammingJournalPage = () => {
             <div className="max-w-9xl mx-auto space-y-5 lg:space-y-14">
                 <Section posts={thoughts} title="Thoughts" />
                 <Divider />
-                <Section posts={projects} title="Projects" />
-                <Divider />
                 <Section posts={journey} title="Journeys" />
+                <Divider />
+                <Section posts={projects} title="Projects" />
             </div>
         </main>
     );
