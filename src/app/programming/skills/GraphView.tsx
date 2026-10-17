@@ -37,6 +37,7 @@ const SkillButton = ({
                 draggable={false}
                 height={40}
                 width={40}
+                className="max-w-none shrink-0"
             />
         </div>
     );
@@ -208,10 +209,10 @@ const Links = ({
     groupID,
 }: (
     | {
-          skill: LanguageSkill | FrameworkSkill | ToolSkill;
-          linkLanguages: false;
-          groupID: null;
-      }
+        skill: LanguageSkill | FrameworkSkill | ToolSkill;
+        linkLanguages: false;
+        groupID: null;
+    }
     | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
 ) & { getRef: GetRef }) => {
     return (
