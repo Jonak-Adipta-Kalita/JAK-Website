@@ -42,7 +42,7 @@ const DynamicIsland = () => {
     }, []);
 
     return (
-        <header className="text-fg-programming-text z-50 mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full bg-[#061224] p-2 sm:space-x-1">
+        <header className="text-fg-programming-text bg-bg-programming-1 mt-7 flex max-w-fit items-center justify-center space-x-3 rounded-full p-2 sm:space-x-1">
             {NAV_ITEMS.map((name, index) => (
                 <motion.div
                     key={name}
@@ -70,14 +70,14 @@ const DynamicIsland = () => {
                             }
                         }
                     }}
-                    className={`${name === "Contact" ? "hidden sm:inline" : ""} z-50 cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
+                    className={`${name === "Contact" ? "hidden sm:inline" : ""} cursor-pointer rounded-full p-[clamp(0.75rem,1vw+0.5rem,1.75rem)] py-[clamp(0.5rem,0.5vw+0.25rem,0.75rem)]`}
                     initial={{ opacity: 0, y: -24 }}
                     animate={{
                         opacity: 1,
                         y: 0,
                         backgroundColor:
                             activeHeader === name
-                                ? "rgba(255,255,255,0.08)"
+                                ? "rgba(17,17,27,0.5)"
                                 : "rgba(0,0,0,0)",
                     }}
                     transition={{

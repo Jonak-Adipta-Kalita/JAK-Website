@@ -24,8 +24,8 @@ const MusicPage = () => {
             <Divider />
             <AboutMe />
             <Divider rotWave />
-            <MyWork />
-            <Divider />
+            {/* <MyWork />
+            <Divider /> */}
             <MyGear />
             <Divider rotWave />
             <MyInfluences />

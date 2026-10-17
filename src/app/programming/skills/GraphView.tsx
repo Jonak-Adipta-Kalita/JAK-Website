@@ -1,164 +1,309 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
-import buildGraphData from "@/data/programming-skills/parser";
+import FloatingDivBase from "@/components/FloatingDiv";
+import LinkLine from "@/components/LinkLine";
+import { Button } from "@/components/ui/button";
+import skillsData, {
+    FrameworkSkill,
+    LanguageSkill,
+    ToolSkill,
+} from "@/data/programming-skills/data";
+import Image from "next/image";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
-const ForceGraph = dynamic(() => import("react-force-graph-2d"), {
-    ssr: false,
-});
+export type RegisterRef = (id: string) => (node: HTMLDivElement | null) => void;
+export type GetRef = (id: string) => HTMLDivElement | undefined;
 
-const nodeColors = {
-    language: "#7F77DD",
-    framework: "#1D9E75",
-    tool: "#D85A30",
-    field: "#888780",
-    group: "#fff",
-} as { [key: string]: string };
-
-const parentPositions: Record<string, { x: number; y: number }> = {
-    languages: { x: -500, y: 0 },
-    frameworks: { x: 0, y: 0 },
-    tools: { x: 500, y: 0 },
-};
-
-const graphData = buildGraphData();
-
-const SkillsGraphView = () => {
-    const fgRef = useRef<any>(null);
-
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [dimensions, setDimensions] = useState({ w: 800, h: 600 });
-
-    useEffect(() => {
-        const el = containerRef.current;
-        if (!el) return;
-
-        const observer = new ResizeObserver(([entry]) => {
-            const { width, height } = entry.contentRect;
-            setDimensions({ w: width, h: height });
-        });
-
-        observer.observe(el);
-        return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-        const fg = fgRef.current;
-        if (!fg) return;
-
-        const fx = fg.d3Force("x");
-        const fy = fg.d3Force("y");
-        const charge = fg.d3Force("charge");
-        const link = fg.d3Force("link");
-
-        if (!fx || !fy || !charge || !link) return;
-
-        fg.centerAt(0, 0, 0);
-
-        fx.x((node: any) => parentPositions[node.parentId]?.x ?? 0).strength(
-            0.3
-        );
-
-        fy.y((node: any) => parentPositions[node.parentId]?.y ?? 0).strength(
-            0.3
-        );
-
-        charge.strength(-80);
-        link.distance(60);
-
-        fg.zoom(1, 0);
-        fg.d3ReheatSimulation();
-    }, [fgRef.current]);
-
+const SkillButton = ({
+    dragging,
+    skill,
+    registerRef,
+    item,
+}: {
+    dragging: boolean;
+    skill: ToolSkill;
+    registerRef: RegisterRef;
+    item?: boolean;
+}) => {
     return (
         <div
-            ref={containerRef}
-            className="hidden h-full w-full overflow-hidden lg:inline"
+            draggable={false}
+            ref={registerRef(skill.id)}
+            className={`${item ? "graph-skills" : ""}`}
         >
-            <ForceGraph
-                ref={fgRef}
-                width={dimensions.w}
-                height={dimensions.h}
-                graphData={graphData}
-                enableZoomInteraction={false}
-                enablePanInteraction={false}
-                linkColor={() => "rgba(255,255,255,0.15)"}
-                linkWidth={1.5}
-                nodeCanvasObject={(node: any, ctx, globalScale) => {
-                    const x = node.x ?? 0;
-                    const y = node.y ?? 0;
-                    const color = nodeColors[node.type] ?? "#888";
-
-                    if (node.type === "group") {
-                        const label = node.name;
-                        ctx.font = `bold ${13 / globalScale}px Sans-Serif`;
-                        const textWidth = ctx.measureText(label).width;
-                        const rx = textWidth / 2 + 12;
-                        const ry = 10 / globalScale;
-
-                        ctx.beginPath();
-                        ctx.ellipse(x, y, rx, ry, 0, 0, 2 * Math.PI);
-                        ctx.fillStyle = "rgba(255,255,255,0.08)";
-                        ctx.fill();
-                        ctx.strokeStyle = "rgba(255,255,255,0.7)";
-                        ctx.lineWidth = 1.2 / globalScale;
-                        ctx.stroke();
-
-                        ctx.fillStyle = "white";
-                        ctx.textAlign = "center";
-                        ctx.textBaseline = "middle";
-                        ctx.fillText(label, x, y);
-                    } else {
-                        const r = 4;
-                        ctx.beginPath();
-                        ctx.arc(x, y, r, 0, 2 * Math.PI);
-                        ctx.fillStyle = color;
-                        ctx.fill();
-                    }
-                }}
-                nodePointerAreaPaint={(node: any, color, ctx) => {
-                    const x = node.x ?? 0;
-                    const y = node.y ?? 0;
-
-                    ctx.beginPath();
-                    if (node.type === "group") {
-                        ctx.ellipse(x, y, 50, 14, 0, 0, 2 * Math.PI);
-                    } else {
-                        ctx.arc(x, y, 6, 0, 2 * Math.PI);
-                    }
-                    ctx.fillStyle = color;
-                    ctx.fill();
-                }}
-                nodeLabel={(node: any) =>
-                    node.type !== "group" ? node.name : ""
-                }
-                onNodeDrag={(node: any) => {
-                    if (
-                        ["languages", "frameworks", "tools"].includes(node.id)
-                    ) {
-                        const pos = parentPositions[node.id];
-                        node.x = pos.x;
-                        node.y = pos.y;
-                    }
-                }}
-                onEngineTick={() => {
-                    const { w, h } = dimensions;
-                    const PADDING = 40;
-                    graphData.nodes.forEach((node: any) => {
-                        if (node.fx) {
-                            node.x = Math.max(
-                                -w / 2 + PADDING,
-                                Math.min(w / 2 - PADDING, node.x ?? 0)
-                            );
-                            node.y = Math.max(
-                                -h / 2 + PADDING,
-                                Math.min(h / 2 - PADDING, node.y ?? 0)
-                            );
-                        }
-                    });
-                }}
+            <Image
+                src={skill.pic as string}
+                alt={skill.name as string}
+                draggable={false}
+                height={40}
+                width={40}
             />
+        </div>
+    );
+};
+
+type AnySkill = LanguageSkill | FrameworkSkill | ToolSkill;
+
+type SkillGroupData<T extends AnySkill> = {
+    id: string;
+    message?: string;
+    items: T[];
+};
+
+type SkillEntry<T extends AnySkill> = T | SkillGroupData<T>;
+
+const isGroup = <T extends AnySkill>(
+    skill: SkillEntry<T>
+): skill is SkillGroupData<T> => "items" in skill;
+
+const SkillGroup = <T extends AnySkill>({
+    registerRef,
+    skill,
+    anchorRefs,
+    itemStyle,
+}: {
+    registerRef: RegisterRef;
+    skill: SkillGroupData<T>;
+    anchorRefs: React.RefObject<HTMLButtonElement | null>[];
+    itemStyle: React.CSSProperties;
+}) => {
+    const [dragging, setDrag] = useState(false);
+
+    return (
+        <FloatingDivBase
+            className="absolute z-50 cursor-default"
+            setDrag={setDrag}
+            anchorRefs={anchorRefs}
+            style={itemStyle}
+        >
+            <div
+                ref={registerRef(skill.id)}
+                className="graph-skills flex items-center justify-center gap-5"
+            >
+                {skill.items.map((item) => (
+                    <SkillButton
+                        dragging={dragging}
+                        skill={item}
+                        registerRef={registerRef}
+                        key={item.pic as string}
+                    />
+                ))}
+            </div>
+        </FloatingDivBase>
+    );
+};
+
+const SkillItem = ({
+    anchorRefs,
+    skill,
+    registerRef,
+    itemStyle,
+}: {
+    anchorRefs: React.RefObject<HTMLButtonElement | null>[];
+    skill: ToolSkill;
+    registerRef: RegisterRef;
+    itemStyle: React.CSSProperties;
+}) => {
+    const [dragging, setDrag] = useState(false);
+
+    return (
+        <FloatingDivBase
+            className="absolute z-50 cursor-default"
+            setDrag={setDrag}
+            anchorRefs={anchorRefs}
+            style={itemStyle}
+        >
+            <SkillButton
+                dragging={dragging}
+                skill={skill}
+                registerRef={registerRef}
+                item
+            />
+        </FloatingDivBase>
+    );
+};
+
+const SkillCategoryColumn = <T extends AnySkill>({
+    registerRef,
+    getRef,
+    label,
+    data,
+}: {
+    registerRef: RegisterRef;
+    getRef: GetRef;
+    label: "Languages" | "Frameworks" | "Tools";
+    data: SkillEntry<T>[];
+}) => {
+    const ref = useRef<HTMLButtonElement | null>(null);
+    const n = data.length;
+
+    const groupedData = data.filter(isGroup);
+    const nonGroupedData = data.filter((x) => !isGroup(x));
+
+    const sortedData = [...groupedData, ...nonGroupedData];
+
+    return (
+        <div className="relative">
+            <Button
+                ref={ref}
+                variant={"programming"}
+                size={"programming"}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-default"
+            >
+                {label}
+            </Button>
+            {sortedData.map((skill, i) => {
+                const angleDeg = 180 + (360 / n) * i;
+                const angleRad = (angleDeg * Math.PI) / 180;
+                const x = 250 * Math.cos(angleRad);
+                const y = 400 * Math.sin(angleRad);
+
+                const itemStyle: React.CSSProperties = {
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
+                    transform: "translate(-50%, -50%)",
+                };
+
+                return isGroup(skill) ? (
+                    <div key={skill.id}>
+                        <SkillGroup
+                            registerRef={registerRef}
+                            skill={skill}
+                            anchorRefs={[ref]}
+                            itemStyle={itemStyle}
+                        />
+                        {/* @ts-ignore */}
+                        <Links
+                            skill={skill.items[0]}
+                            linkLanguages={label === "Frameworks"}
+                            groupID={skill.id}
+                            getRef={getRef}
+                        />
+                    </div>
+                ) : (
+                    <div key={skill.id}>
+                        <SkillItem
+                            anchorRefs={[ref]}
+                            registerRef={registerRef}
+                            skill={skill}
+                            itemStyle={itemStyle}
+                        />
+                        {/* @ts-ignore */}
+                        <Links
+                            skill={skill}
+                            linkLanguages={label === "Frameworks"}
+                            getRef={getRef}
+                        />
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
+
+const Links = ({
+    skill,
+    linkLanguages,
+    getRef,
+    groupID,
+}: (
+    | {
+          skill: LanguageSkill | FrameworkSkill | ToolSkill;
+          linkLanguages: false;
+          groupID: null;
+      }
+    | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
+) & { getRef: GetRef }) => {
+    return (
+        <>
+            {linkLanguages &&
+                skill.languages?.map((lang, i) => {
+                    const ref1 = getRef(lang);
+                    const ref2 = getRef(groupID || skill.id);
+
+                    return (
+                        <LinkLine fromRef={ref2!} toRef={ref1!} key={i} zPop />
+                    );
+                })}
+        </>
+    );
+};
+
+const LanguageSkills = ({
+    registerRef,
+    getRef,
+}: {
+    registerRef: RegisterRef;
+    getRef: GetRef;
+}) => (
+    <SkillCategoryColumn<LanguageSkill>
+        registerRef={registerRef}
+        label="Languages"
+        data={skillsData.languages}
+        getRef={getRef}
+    />
+);
+
+const FrameworkSkills = ({
+    registerRef,
+    getRef,
+}: {
+    registerRef: RegisterRef;
+    getRef: GetRef;
+}) => (
+    <SkillCategoryColumn<FrameworkSkill>
+        registerRef={registerRef}
+        label="Frameworks"
+        data={skillsData.frameworks}
+        getRef={getRef}
+    />
+);
+
+const ToolSkills = ({
+    registerRef,
+    getRef,
+}: {
+    registerRef: RegisterRef;
+    getRef: GetRef;
+}) => (
+    <SkillCategoryColumn<ToolSkill>
+        registerRef={registerRef}
+        label="Tools"
+        data={skillsData.tools}
+        getRef={getRef}
+    />
+);
+
+const SkillsGraphView = () => {
+    const refIDs = useRef(new Map());
+
+    const registerRef: RegisterRef = useCallback(
+        (id) => (node) => {
+            const map = refIDs.current;
+            if (node) {
+                map.set(id, node);
+                return () => {
+                    map.delete(id);
+                };
+            }
+        },
+        []
+    );
+
+    const getRef: GetRef = useCallback((id) => refIDs.current.get(id), []);
+
+    const [, forceRender] = useState(0);
+    useLayoutEffect(() => {
+        forceRender((n) => n + 1);
+    }, []);
+
+    return (
+        <div className="relative hidden h-full w-full overflow-hidden lg:inline">
+            <div className="flex h-full items-center justify-around">
+                <LanguageSkills registerRef={registerRef} getRef={getRef} />
+                <FrameworkSkills registerRef={registerRef} getRef={getRef} />
+                <ToolSkills registerRef={registerRef} getRef={getRef} />
+            </div>
         </div>
     );
 };

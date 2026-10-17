@@ -8,8 +8,7 @@ import {
     LucideProps,
     SportShoeIcon,
 } from "lucide-react";
-import { motion } from "motion/react";
-import { Portal } from "@/components/Portals/Portal";
+import { Portal } from "@/app/portals/Portal";
 
 const font = DynaPuff({
     variable: "--font-dyna-puff",

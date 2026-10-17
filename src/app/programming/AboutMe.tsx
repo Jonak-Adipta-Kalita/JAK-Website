@@ -1,6 +1,6 @@
 "use client";
 
-import img from "@/../public/My Pic.png";
+import img from "@/../public/pic/programming-my-pic.png";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
 import { useCurtain } from "@/lib/CurtainContext";
 import ScrollSnapSection from "./ProgrammingSection";
+import Link from "next/link";
 
 const AboutMe = () => {
     const [typingDone, setTypingDone] = useState(false);
@@ -18,7 +19,13 @@ const AboutMe = () => {
             I&rsquo;m passionate about{" "}
             <span className="aboutText-highlight">Coding</span>, exploring
             various areas such as Web Development, Game Development, Machine
-            Learning, Computer Vision, IoT, ...
+            Learning, Computer Vision, IoT, ... &rarr;{" "}
+            <Link
+                href="/programming/journal/programming-journey"
+                className="aboutText-highlight text-purple-400"
+            >
+                Read this Journal Entry
+            </Link>
         </>,
         <>
             <span
@@ -38,7 +45,7 @@ const AboutMe = () => {
             holds a special place in my heart.
         </>,
         <>
-            <span className="aboutText-highlightt">Astronomy</span> fascinates
+            <span className="aboutText-highlight">Astronomy</span> fascinates
             me, and I&rsquo;m always eager to learn more about the universe.
         </>,
         <>
@@ -103,11 +110,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <ScrollSnapSection
-            nav="About"
-            id="about"
-            className="flex w-full items-center justify-center lg:px-6"
-        >
+        <ScrollSnapSection nav="About" id="about" className="lg:px-6">
             <div className="max-w-9xl mx-5 mt-28 flex w-full justify-center lg:mt-0 lg:h-screen lg:items-center lg:space-x-10 xl:space-x-20">
                 <motion.div
                     className="hidden lg:inline"
@@ -116,7 +119,7 @@ const AboutMe = () => {
                     transition={{ duration: 1 }}
                     viewport={{ once: true }}
                 >
-                    <div className="relative z-40 w-88">
+                    <div className="relative z-10 w-88">
                         <Image
                             src={img}
                             alt="My Pic"
@@ -131,9 +134,9 @@ const AboutMe = () => {
                                     border: "6px solid transparent",
                                     background: `conic-gradient(
                                           from -130deg,
-                                          hsl(210 13% 30%) 0%,
+                                          hsl(210 13% 50%) 0%,
                                           #0000 10% 40%,
-                                          hsl(210 13% 30%) 75%
+                                          hsl(210 13% 50%) 75%
                                         ) border-box`,
                                     mask: `linear-gradient(#0000) padding-box intersect, linear-gradient(#000) border-box`,
                                     rotate: "3 0.5 2 90deg",
@@ -143,8 +146,8 @@ const AboutMe = () => {
                     </div>
                 </motion.div>
 
-                <div className="h-fit space-y-7 rounded-lg bg-slate-800/30 p-4 shadow-lg shadow-slate-900 lg:space-y-10 lg:p-10">
-                    <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-xl tracking-wider lg:text-left lg:text-3xl">
+                <div className="bg- bg-bg-programming-2/50 h-fit space-y-7 rounded-lg p-4 lg:space-y-10 lg:p-10">
+                    <p className="text-fg-programming-secondary font-salsa min-h-[1.5em] text-center text-[26px] tracking-wider sm:text-3xl lg:text-left lg:text-[25px] xl:text-3xl">
                         <Typewriter
                             highlightTailwind="var(--color-fg-programming-primary)"
                             typingDone={typingDone}
@@ -152,9 +155,11 @@ const AboutMe = () => {
                             textParts={[
                                 { text: "Hey, I am ", highlight: false },
                                 { text: "Jonak", highlight: true },
+                                { text: "! Happy to ", highlight: false },
                                 {
-                                    text: "! Happy to see you :D",
+                                    text: "see you :D",
                                     highlight: false,
+                                    nextLineOnSmall: true,
                                 },
                             ]}
                             strokeTimeout={20}

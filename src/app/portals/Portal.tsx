@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { EllipsisIcon, LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { Code2Icon, GuitarIcon, LanguagesIcon } from "lucide-react";
 import { useCurtain } from "@/lib/CurtainContext";
 

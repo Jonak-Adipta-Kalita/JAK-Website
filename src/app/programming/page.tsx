@@ -7,6 +7,7 @@ import Testimonials from "./Testimonials";
 import MobileSeparator from "./MobileSeparator";
 import ScrollSnapPage from "@/components/ScrollSnapSection/Page";
 import { useProgrammingNavStore } from "@/lib/hooks/navStore/useProgrammingNavStore";
+import ProgrammingJourney from "./Journey";
 
 export default function ProgrammingPage() {
     return (
@@ -22,11 +23,17 @@ export default function ProgrammingPage() {
 
             <MobileSeparator />
 
+            <ProgrammingJourney />
+
+            <MobileSeparator />
+
             <Testimonials />
 
             <MobileSeparator />
 
             <ContactMe />
+
+            <div className="mb-10" />
         </ScrollSnapPage>
     );
 }

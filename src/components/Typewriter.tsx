@@ -8,6 +8,7 @@ interface TypewriterProps {
     textParts: {
         text: string;
         highlight: boolean;
+        nextLineOnSmall?: boolean;
     }[];
 
     typingDone: boolean;
@@ -61,11 +62,20 @@ const Typewriter = ({
             if (!slice) return null;
 
             return part.highlight ? (
-                <span key={i} style={{ color: highlightTailwind }}>
+                <span
+                    key={i}
+                    style={{ color: highlightTailwind }}
+                    className={`${part.nextLineOnSmall ? "block sm:inline" : ""}`}
+                >
                     {slice}
                 </span>
             ) : (
-                <span key={i}>{slice}</span>
+                <span
+                    key={i}
+                    className={`${part.nextLineOnSmall ? "block sm:inline" : ""}`}
+                >
+                    {slice}
+                </span>
             );
         });
     };

@@ -9,7 +9,7 @@ const MusicHero = () => {
         >
             <div className="absolute inset-0">
                 <Image
-                    src="/music-hero.webp"
+                    src="/pic/music-hero.webp"
                     alt="Hero Image"
                     fill
                     priority

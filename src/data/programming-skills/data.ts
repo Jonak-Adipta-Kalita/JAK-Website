@@ -14,46 +14,46 @@ export const OtherFields = [
 ] as const;
 export const AllFields = [...Fields, ...OtherFields] as const;
 
-export const LanguageNames = [
-    "Python",
-    "JavaScript / Typescript",
-    "Go",
-    "Lua",
-    "Java",
-    "C#",
-    "SQL",
-    "C",
-    "Rust",
-    "C++",
+export const LanguageIDs = [
+    "python",
+    "js-ts",
+    "go",
+    "lua",
+    "java",
+    "c#",
+    "sql",
+    "c",
+    "rust",
+    "c++",
 ] as const;
 
-interface Skill {
+export interface Skill {
     id: string;
-    name: string;
-    pic: string | [string];
+    name?: string | string[];
+    pic: string | string[];
     message?: string;
     fields: (typeof Fields)[number][] | null;
-    extraLinks?: string[];
 }
 
-type LanguageSkill = Skill & { name: (typeof LanguageNames)[number] };
-type FrameworkSkill = Skill & {
-    languages: (typeof LanguageNames)[number][] | null;
+export type LanguageSkill = Skill & { id: (typeof LanguageIDs)[number] };
+export type FrameworkSkill = Skill & {
+    languages: (typeof LanguageIDs)[number][] | null;
 };
-type ToolSkill = Omit<Skill, "fields"> & {
+export type ToolSkill = Omit<Skill, "fields"> & {
     fields: (typeof AllFields)[number][] | null;
 };
 
-// TODO: Get rid of the OtherFields + Probably reduce the Fields, too many is a headache - need a better system
-
 const skills: {
-    languages: LanguageSkill[];
+    languages: (
+        | { id: string; message?: string; items: LanguageSkill[] }
+        | LanguageSkill
+    )[];
     frameworks: (
-        | { id: string; groupName: string; frameworks: FrameworkSkill[] }
+        | { id: string; groupName: string; items: FrameworkSkill[] }
         | FrameworkSkill
     )[];
     tools: (
-        | { id: string; groupName: string; tools: ToolSkill[] }
+        | { id: string; groupName: string; items: ToolSkill[] }
         | ToolSkill
     )[];
 } = {
@@ -62,47 +62,67 @@ const skills: {
             id: "python",
             name: "Python",
             message: "1st Love",
-            pic: "/pic/python.webp",
+            pic: "/pic/applications/python.svg",
             fields: null,
         },
         {
             id: "js-ts",
-            name: "JavaScript / Typescript",
             message: "Most Utilized",
-            pic: "/pic/typescript.webp",
-            fields: ["Web & App Development"],
-        },
-        {
-            id: "go",
-            name: "Go",
-            pic: "/pic/golang.webp",
-            fields: null,
+            items: [
+                {
+                    id: "js-ts",
+                    name: "JavaScript",
+                    pic: "/pic/applications/javascript.svg",
+                    fields: ["Web & App Development"],
+                },
+                {
+                    id: "js-ts",
+                    name: "TypeScript",
+                    pic: "/pic/applications/typescript.svg",
+                    fields: ["Web & App Development"],
+                },
+            ],
         },
         {
             id: "lua",
             name: "Lua",
-            pic: "/pic/lua.webp",
+            pic: "/pic/applications/lua.svg",
+            message: "Primarily for Ricing",
             fields: null,
         },
         {
             id: "java",
             name: "Java",
-            message: "Only for Minecraft Mods",
-            pic: "/pic/java.webp",
+            message: "Only for Minecraft",
+            pic: "/pic/applications/java.svg",
             fields: ["Game Development"],
         },
         {
-            id: "csharp",
+            id: "c#",
             name: "C#",
             message: "Only for Game Dev",
-            pic: "/pic/csharp.webp",
+            pic: "/pic/applications/csharp.svg",
             fields: ["Game Development"],
         },
         {
             id: "sql",
             name: "SQL",
-            pic: "/pic/sql.webp",
+            pic: "/pic/applications/database.svg",
             fields: null,
+        },
+        {
+            id: "go",
+            name: "Go",
+            pic: "/pic/applications/go.svg",
+            fields: null,
+            message: "Learning...",
+        },
+        {
+            id: "rust",
+            name: "Rust",
+            pic: "/pic/applications/rust.svg",
+            fields: null,
+            message: "Learning...",
         },
     ],
 
@@ -110,152 +130,130 @@ const skills: {
         {
             id: "python-web-frameworks",
             groupName: "Web Framemworks for Python",
-            frameworks: [
+            items: [
                 {
                     id: "django",
                     name: "Django",
-                    pic: "/pic/django.webp",
+                    pic: "/pic/applications/django.svg",
                     fields: ["Web & App Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
                 {
                     id: "flask",
                     name: "Flask",
-                    pic: "/pic/flask.webp",
+                    pic: "/pic/applications/flask.svg",
                     fields: ["Web & App Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
             ],
         },
         {
             id: "js/ts-web-frameworks",
             groupName: "Web Frameworks for JS/TS",
-            frameworks: [
+            items: [
                 {
                     id: "express",
                     name: "ExpressJS",
-                    pic: "/pic/express.webp",
+                    pic: "/pic/applications/express.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "react",
                     name: "React",
-                    pic: "/pic/react.webp",
+                    pic: "/pic/applications/react.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "next",
                     name: "Next",
-                    pic: "/pic/next.webp",
+                    pic: "/pic/applications/next.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["js-ts"],
                 },
             ],
         },
         {
             id: "js/ts-app-frameworks",
             groupName: "App Frameworks for JS/TS",
-            frameworks: [
+            items: [
                 {
                     id: "react-native",
                     name: "ReactNative",
-                    pic: "/pic/reactnative.webp",
+                    pic: "/pic/applications/react.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "expo",
                     name: "Expo",
-                    pic: "/pic/expo.webp",
+                    pic: "/pic/applications/expo.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["js-ts"],
                 },
             ],
         },
         {
             id: "js/ts-css-frameworks",
             groupName: "CSS Frameworks for Frontend",
-            frameworks: [
+            items: [
                 {
                     id: "bootstrap",
                     name: "Bootstrap",
-                    pic: "/pic/bootstrap.webp",
+                    pic: "/pic/applications/bootstrap.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
-                    extraLinks: ["django"],
+                    languages: ["js-ts"],
                 },
                 {
                     id: "tailwind",
                     name: "Tailwind",
-                    pic: "/pic/tailwind.webp",
+                    pic: "/pic/applications/tailwind.svg",
                     fields: ["Web & App Development"],
-                    languages: ["JavaScript / Typescript"],
+                    languages: ["js-ts"],
                 },
             ],
         },
         {
             id: "python-game-dev",
             groupName: "Game Dev in Python",
-            frameworks: [
+            items: [
                 {
                     id: "pygame",
                     name: "Pygame",
-                    pic: "/pic/pygame.webp",
+                    pic: "/pic/applications/pygame.png",
                     fields: ["Game Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
                 {
                     id: "arcade",
                     name: "Arcade",
-                    pic: "/pic/arcade.webp",
+                    pic: "/pic/applications/arcade.png",
                     fields: ["Game Development"],
-                    languages: ["Python"],
-                },
-                {
-                    id: "ursina",
-                    name: "Ursina",
-                    pic: "/pic/ursina.webp",
-                    fields: ["Game Development"],
-                    languages: ["Python"],
-                },
-                {
-                    id: "panda3d",
-                    name: "Panda3D",
-                    pic: "/pic/panda3d.webp",
-                    fields: ["Game Development"],
-                    languages: ["Python"],
+                    languages: ["python"],
                 },
             ],
         },
         {
             id: "godot",
             name: "Godot",
-            pic: "/pic/godot.webp",
+            pic: "/pic/applications/godot.svg",
             fields: ["Game Development"],
-            languages: ["C#"],
-        },
-        {
-            id: "love2d",
-            name: "Love2D",
-            pic: "/pic/love2d.webp",
-            fields: ["Game Development"],
-            languages: ["Lua"],
+            languages: ["c#"],
         },
         {
             id: "opencv",
             name: "OpenCV",
-            pic: "/pic/opencv.webp",
+            pic: "/pic/applications/opencv.svg",
             fields: ["AI & Data Science & Computer Vision"],
-            languages: ["Python"],
+            languages: ["python", "c++"],
         },
         {
             id: "arduino",
             name: "Arduino",
-            pic: "/pic/arduino.webp",
+            pic: "/pic/applications/arduino.svg",
             fields: ["Internet of Things"],
-            languages: ["C++"],
+            languages: ["c++"],
         },
     ],
 
@@ -263,17 +261,17 @@ const skills: {
         {
             id: "text-editor",
             groupName: "Text Editors",
-            tools: [
+            items: [
                 {
                     id: "vscode",
                     name: "VSCode",
-                    pic: "/pic/vscode.webp",
+                    pic: "/pic/applications/vscode.svg",
                     fields: ["Text Editor"],
                 },
                 {
                     id: "nvim",
                     name: "NVim",
-                    pic: "/pic/nvim.webp",
+                    pic: "/pic/applications/nvim.svg",
                     fields: ["Text Editor"],
                 },
             ],
@@ -281,96 +279,96 @@ const skills: {
         {
             id: "git",
             name: "Git",
-            pic: "/pic/git.webp",
+            pic: "/pic/applications/git.svg",
             fields: null,
+        },
+        {
+            id: "figma",
+            name: "Figma",
+            pic: "/pic/applications/figma.svg",
+            fields: ["Web & App Development"],
         },
         {
             id: "web-hosting",
             groupName: "Platforms for Web Hosting",
-            tools: [
+            items: [
                 {
                     id: "vercel",
                     name: "Vercel",
-                    pic: "/pic/vercel.webp",
+                    pic: "/pic/applications/vercel.svg",
                     fields: ["Cloud & DevOps"],
                 },
                 {
                     id: "netlify",
                     name: "Netlify",
-                    pic: "/pic/netlify.webp",
+                    pic: "/pic/applications/netlify.svg",
                     fields: ["Cloud & DevOps"],
                 },
             ],
         },
         {
-            id: "figma",
-            name: "Figma",
-            pic: "/pic/figma.webp",
-            fields: ["Web & App Development"],
-        },
-        {
             id: "operating-system",
             groupName: "Operating Systems",
-            tools: [
+            items: [
                 {
                     id: "arch",
                     name: "Arch",
-                    message: "EndeavourOS btw",
-                    pic: "/pic/arch.webp",
+                    message: "I use Arch btw :D",
+                    pic: "/pic/applications/arch.svg",
                     fields: ["Operating System"],
                 },
                 {
                     id: "windows11",
                     name: "Windows 11",
-                    pic: "/pic/windows11.webp",
+                    pic: "/pic/applications/windows11.svg",
                     fields: ["Operating System"],
-                },
-            ],
-        },
-        {
-            id: "database-management-system",
-            groupName: "Database Management Systems",
-            tools: [
-                {
-                    id: "postgresql",
-                    name: "PostgreSQL",
-                    pic: "/pic/postgresql.webp",
-                    fields: ["Database"],
-                },
-                {
-                    id: "mariadb",
-                    name: "MariaDB",
-                    pic: "/pic/mariadb.webp",
-                    fields: ["Database"],
                 },
             ],
         },
         {
             id: "blender",
             name: "Blender",
-            pic: "/pic/blender.webp",
+            pic: "/pic/applications/blender.svg",
             fields: ["Game Development"],
         },
         {
             id: "firebase",
             name: "Firebase",
-            pic: "/pic/firebase.webp",
+            pic: "/pic/applications/firebase.svg",
             fields: ["Cloud & DevOps"],
+        },
+        {
+            id: "database-management-system",
+            groupName: "Database Management Systems",
+            items: [
+                {
+                    id: "postgresql",
+                    name: "PostgreSQL",
+                    pic: "/pic/applications/postgresql.svg",
+                    fields: ["Database"],
+                },
+                {
+                    id: "mariadb",
+                    name: "MariaDB",
+                    pic: "/pic/applications/mariadb.svg",
+                    fields: ["Database"],
+                },
+            ],
         },
         {
             id: "productivity",
             groupName: "Productivity",
-            tools: [
+            items: [
                 {
                     id: "xournalpp",
                     name: "Xournal++",
-                    pic: "/pic/xournalpp.webp",
+                    pic: "/pic/applications/xournalpp.svg",
                     fields: ["Productivity"],
                 },
                 {
                     id: "obsidian",
                     name: "Obsidian",
-                    pic: "/pic/obsidian.webp",
+                    pic: "/pic/applications/obsidian.svg",
                     fields: ["Productivity"],
                 },
             ],
