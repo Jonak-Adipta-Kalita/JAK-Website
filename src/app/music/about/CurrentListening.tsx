@@ -26,6 +26,7 @@ const CurrentListening = () => {
     const [track, setTrack] = useState<Track | null>(null);
     const ref = useRef<HTMLDivElement>(null);
 
+    // TODO: Use useInView
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {

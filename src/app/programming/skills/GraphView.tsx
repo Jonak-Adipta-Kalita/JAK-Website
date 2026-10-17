@@ -8,6 +8,7 @@ import skillsData, {
     LanguageSkill,
     ToolSkill,
 } from "@/data/programming-skills/data";
+import { useInView } from "@/lib/hooks/useInView";
 import Image from "next/image";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
@@ -275,7 +276,7 @@ const ToolSkills = ({
     />
 );
 
-const SkillsGraphView = () => {
+const SkillsGraph = () => {
     const refIDs = useRef(new Map());
 
     const registerRef: RegisterRef = useCallback(
@@ -299,12 +300,21 @@ const SkillsGraphView = () => {
     }, []);
 
     return (
-        <div className="relative hidden h-full w-full overflow-hidden lg:inline">
-            <div className="flex h-full items-center justify-around">
-                <LanguageSkills registerRef={registerRef} getRef={getRef} />
-                <FrameworkSkills registerRef={registerRef} getRef={getRef} />
-                <ToolSkills registerRef={registerRef} getRef={getRef} />
-            </div>
+        <div className="flex h-full items-center justify-around">
+            <LanguageSkills registerRef={registerRef} getRef={getRef} />
+            <FrameworkSkills registerRef={registerRef} getRef={getRef} />
+            <ToolSkills registerRef={registerRef} getRef={getRef} />
+        </div>
+
+    )
+}
+
+const SkillsGraphView = () => {
+    const [ref, inView] = useInView<HTMLDivElement>("200px")
+
+    return (
+        <div className="relative hidden h-full w-full overflow-hidden lg:block" ref={ref}>
+            {inView && <SkillsGraph />}
         </div>
     );
 };

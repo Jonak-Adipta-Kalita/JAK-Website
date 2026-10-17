@@ -22,6 +22,7 @@ const ScrollSnapSection = ({
     const { setActiveHeader } = useNavStore();
     const sectionRef = useRef(null);
 
+    // TODO: Use useInView
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
