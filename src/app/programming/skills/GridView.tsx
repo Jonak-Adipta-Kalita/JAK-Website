@@ -44,10 +44,10 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
                         {typeof lang.name === "string"
                             ? lang.name
                             : lang.name?.map((name, i) => (
-                                <span key={i} className="mx-2 text-center">
-                                    {name}
-                                </span>
-                            ))}
+                                  <span key={i} className="mx-2 text-center">
+                                      {name}
+                                  </span>
+                              ))}
                     </p>
 
                     {lang.message && (
@@ -64,11 +64,11 @@ const SkillSet = ({ skills }: { skills: LanguageSkill[] | ToolSkill[] }) => {
 const getMobileData = (
     skills: (
         | {
-            id: string;
-            groupName?: string;
-            message?: string;
-            items: ToolSkill[];
-        }
+              id: string;
+              groupName?: string;
+              message?: string;
+              items: ToolSkill[];
+          }
         | ToolSkill
     )[]
 ): ToolSkill[] =>

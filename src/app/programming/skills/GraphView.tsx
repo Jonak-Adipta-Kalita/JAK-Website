@@ -18,16 +18,23 @@ const SkillButton = ({
     dragging,
     skill,
     registerRef,
-    item
+    item,
 }: {
     dragging: boolean;
     skill: ToolSkill;
-    registerRef: RegisterRef
-    item?: boolean
+    registerRef: RegisterRef;
+    item?: boolean;
 }) => {
     return (
-        <div draggable={false} ref={registerRef(skill.id)} className={`${item ? "graph-skills" : ""}`}>
-            <Image src={skill.pic as string} alt={skill.name as string} draggable={false}
+        <div
+            draggable={false}
+            ref={registerRef(skill.id)}
+            className={`${item ? "graph-skills" : ""}`}
+        >
+            <Image
+                src={skill.pic as string}
+                alt={skill.name as string}
+                draggable={false}
                 height={40}
                 width={40}
             />
@@ -53,25 +60,30 @@ const SkillGroup = <T extends AnySkill>({
     registerRef,
     skill,
     anchorRefs,
-    itemStyle
+    itemStyle,
 }: {
     registerRef: RegisterRef;
     skill: SkillGroupData<T>;
     anchorRefs: React.RefObject<HTMLButtonElement | null>[];
-    itemStyle: React.CSSProperties
+    itemStyle: React.CSSProperties;
 }) => {
     const [dragging, setDrag] = useState(false);
 
     return (
         <FloatingDivBase
-            className="cursor-default absolute z-50"
+            className="absolute z-50 cursor-default"
             setDrag={setDrag}
             anchorRefs={anchorRefs}
             style={itemStyle}
         >
-            <div ref={registerRef(skill.id)} className="flex items-center justify-center graph-skills gap-5">
+            <div
+                ref={registerRef(skill.id)}
+                className="graph-skills flex items-center justify-center gap-5"
+            >
                 {skill.items.map((item) => (
-                    <SkillButton dragging={dragging} skill={item}
+                    <SkillButton
+                        dragging={dragging}
+                        skill={item}
                         registerRef={registerRef}
                         key={item.pic as string}
                     />
@@ -85,18 +97,18 @@ const SkillItem = ({
     anchorRefs,
     skill,
     registerRef,
-    itemStyle
+    itemStyle,
 }: {
     anchorRefs: React.RefObject<HTMLButtonElement | null>[];
     skill: ToolSkill;
     registerRef: RegisterRef;
-    itemStyle: React.CSSProperties
+    itemStyle: React.CSSProperties;
 }) => {
     const [dragging, setDrag] = useState(false);
 
     return (
         <FloatingDivBase
-            className="cursor-default absolute z-50"
+            className="absolute z-50 cursor-default"
             setDrag={setDrag}
             anchorRefs={anchorRefs}
             style={itemStyle}
@@ -126,9 +138,9 @@ const SkillCategoryColumn = <T extends AnySkill>({
     const n = data.length;
 
     const groupedData = data.filter(isGroup);
-    const nonGroupedData = data.filter(x => !isGroup(x));
+    const nonGroupedData = data.filter((x) => !isGroup(x));
 
-    const sortedData = [...groupedData, ...nonGroupedData]
+    const sortedData = [...groupedData, ...nonGroupedData];
 
     return (
         <div className="relative">
@@ -136,7 +148,7 @@ const SkillCategoryColumn = <T extends AnySkill>({
                 ref={ref}
                 variant={"programming"}
                 size={"programming"}
-                className="cursor-default absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-default"
             >
                 {label}
             </Button>
@@ -158,7 +170,6 @@ const SkillCategoryColumn = <T extends AnySkill>({
                             registerRef={registerRef}
                             skill={skill}
                             anchorRefs={[ref]}
-
                             itemStyle={itemStyle}
                         />
                         {/* @ts-ignore */}
@@ -184,7 +195,7 @@ const SkillCategoryColumn = <T extends AnySkill>({
                             getRef={getRef}
                         />
                     </div>
-                )
+                );
             })}
         </div>
     );
@@ -197,10 +208,10 @@ const Links = ({
     groupID,
 }: (
     | {
-        skill: LanguageSkill | FrameworkSkill | ToolSkill;
-        linkLanguages: false;
-        groupID: null;
-    }
+          skill: LanguageSkill | FrameworkSkill | ToolSkill;
+          linkLanguages: false;
+          groupID: null;
+      }
     | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
 ) & { getRef: GetRef }) => {
     return (

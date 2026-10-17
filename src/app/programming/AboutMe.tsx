@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
 import { useCurtain } from "@/lib/CurtainContext";
 import ScrollSnapSection from "./ProgrammingSection";
+import Link from "next/link";
 
 const AboutMe = () => {
     const [typingDone, setTypingDone] = useState(false);
@@ -18,7 +19,13 @@ const AboutMe = () => {
             I&rsquo;m passionate about{" "}
             <span className="aboutText-highlight">Coding</span>, exploring
             various areas such as Web Development, Game Development, Machine
-            Learning, Computer Vision, IoT, ...
+            Learning, Computer Vision, IoT, ... &rarr;{" "}
+            <Link
+                href="/programming/journal/programming-journey"
+                className="aboutText-highlight text-purple-400"
+            >
+                Read this Journal Entry
+            </Link>
         </>,
         <>
             <span
@@ -38,7 +45,7 @@ const AboutMe = () => {
             holds a special place in my heart.
         </>,
         <>
-            <span className="aboutText-highlightt">Astronomy</span> fascinates
+            <span className="aboutText-highlight">Astronomy</span> fascinates
             me, and I&rsquo;m always eager to learn more about the universe.
         </>,
         <>

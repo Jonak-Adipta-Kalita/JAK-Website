@@ -50,3 +50,4 @@ description: The journey of learning Python
 - etc. Yea, I love this language.
 
 - There are other fields where I have utilized Python too. I am not writing Journals on like 97% of my projects coz there is no point in writing about those, they are too old for me.
+- Yea, so.. here you go -> [https://github.com/Jonak-Adipta-Kalita/JAK-Python-Tutorials][https://github.com/Jonak-Adipta-Kalita/JAK-Python-Tutorials]

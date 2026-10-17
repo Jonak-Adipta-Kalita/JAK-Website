@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Suspense, useRef } from "react";
 import MusicSection from "../MusicSection";
@@ -10,16 +10,23 @@ const MusicGearPage = () => {
     const mainRef = useRef<HTMLElement>(null);
 
     return (
-        <main className="scrollbar-music h-screen w-full overflow-y-auto scroll-smooth" ref={mainRef}>
+        <main
+            className="scrollbar-music h-screen w-full overflow-y-auto scroll-smooth"
+            ref={mainRef}
+        >
             <Suspense fallback={null}>
                 <ScrollToHash mainRef={mainRef} />
             </Suspense>
             <div className="mt-24 md:mt-28" />
-            <motion.p initial={{ opacity: 0, y: 10 }}
+            <motion.p
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="font-metal-mania max-w-9xl mx-auto px-5 md:px-10 lg:px-14 text-lg md:text-xl lg:text-3xl mb-10">So... I am a bit of an Ibanez fanboi :D</motion.p>
+                className="font-metal-mania max-w-9xl mx-auto mb-10 px-5 text-lg md:px-10 md:text-xl lg:px-14 lg:text-3xl"
+            >
+                So... I am a bit of an Ibanez fanboi :D
+            </motion.p>
             <MusicSection name="guitars">
                 <></>
             </MusicSection>

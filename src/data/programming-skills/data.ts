@@ -231,7 +231,7 @@ const skills: {
                     pic: "/pic/applications/arcade.png",
                     fields: ["Game Development"],
                     languages: ["python"],
-                }
+                },
             ],
         },
         {

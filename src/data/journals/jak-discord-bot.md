@@ -5,5 +5,5 @@ tags:
   - Literature/Writing/Technology/Software
   - Literature/Writing/Projects
 title: JAK Discord Bot
-description: A multipurpose discord bot :D
+description: A multipurpose discord bot :D (archived)
 ---
