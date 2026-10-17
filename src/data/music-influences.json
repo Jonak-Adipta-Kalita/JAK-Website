@@ -1,5 +1,14 @@
 {
-    "currentObsession": "Lorna Shore",
+    "currentObsession": {
+        "name": "Pineapple Express",
+        "url": "https://www.last.fm/music/Pineapple+Express",
+        "image": "https://lastfm.freetls.fastly.net/i/u/770x0/a131ef57e6dd01eebe303c034b9b6d8b.jpg#a131ef57e6dd01eebe303c034b9b6d8b",
+        "fav_songs": [
+            "Fineapple",
+            "Aithalakadi"
+        ],
+        "extra": ["Came to my undergrad university ehe :D", "Love Folk Metal"]
+    },
 
     "primaryInfluences": [
         {
