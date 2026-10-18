@@ -1,6 +1,7 @@
 "use client";
 
 import { NavStore } from "@/lib/hooks/navStore/navStore";
+import useInView from "@/lib/hooks/useInView";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 import { StoreApi } from "zustand";
@@ -21,28 +22,13 @@ const ScrollSnapSection = ({
 }) => {
     const { setActiveHeader } = useNavStore();
     const sectionRef = useRef(null);
+    const inView = useInView(sectionRef, 0.7);
 
-    // TODO: Use useInView
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (
-                    entry.isIntersecting &&
-                    nav &&
-                    !useNavStore.getState().isScrolling
-                ) {
-                    setActiveHeader(nav);
-                }
-            },
-            { threshold: 0.7 }
-        );
-
-        if (sectionRef.current) observer.observe(sectionRef.current);
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
+        if (inView && nav && !useNavStore.getState().isScrolling) {
+            setActiveHeader(nav);
+        }
+    }, [inView]);
 
     return (
         <section

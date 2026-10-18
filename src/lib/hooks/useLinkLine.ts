@@ -27,7 +27,10 @@ export function useLinkLine(
             const y2 = b.top + b.height / 2;
 
             setLinePos((prev) =>
-                prev.x1 === x1 && prev.y1 === y1 && prev.x2 === x2 && prev.y2 === y2
+                prev.x1 === x1 &&
+                prev.y1 === y1 &&
+                prev.x2 === x2 &&
+                prev.y2 === y2
                     ? prev
                     : { x1, y1, x2, y2 }
             );

@@ -38,7 +38,7 @@ const SkillButton = ({
                 draggable={false}
                 height={40}
                 width={40}
-                className="max-w-none shrink-0 size-[calc(40px*var(--graph-scale,1))]"
+                className="size-[calc(40px*var(--graph-scale,1))] max-w-none shrink-0"
             />
         </div>
     );
@@ -218,10 +218,10 @@ const Links = ({
     groupID,
 }: (
     | {
-        skill: LanguageSkill | FrameworkSkill | ToolSkill;
-        linkLanguages: false;
-        groupID: null;
-    }
+          skill: LanguageSkill | FrameworkSkill | ToolSkill;
+          linkLanguages: false;
+          groupID: null;
+      }
     | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
 ) & { getRef: GetRef }) => {
     return (
@@ -242,7 +242,8 @@ const Links = ({
 const LanguageSkills = ({
     registerRef,
     getRef,
-    radiusX, radiusY
+    radiusX,
+    radiusY,
 }: {
     registerRef: RegisterRef;
     getRef: GetRef;
@@ -253,33 +254,38 @@ const LanguageSkills = ({
         registerRef={registerRef}
         label="Languages"
         data={skillsData.languages}
-        getRef={getRef} radiusX={radiusX} radiusY={radiusY}
+        getRef={getRef}
+        radiusX={radiusX}
+        radiusY={radiusY}
     />
 );
 
 const FrameworkSkills = ({
     registerRef,
     getRef,
-    radiusX, radiusY
+    radiusX,
+    radiusY,
 }: {
     registerRef: RegisterRef;
     getRef: GetRef;
     radiusX: number;
     radiusY: number;
-
 }) => (
     <SkillCategoryColumn<FrameworkSkill>
         registerRef={registerRef}
         label="Frameworks"
         data={skillsData.frameworks}
-        getRef={getRef} radiusX={radiusX} radiusY={radiusY}
+        getRef={getRef}
+        radiusX={radiusX}
+        radiusY={radiusY}
     />
 );
 
 const ToolSkills = ({
     registerRef,
     getRef,
-    radiusX, radiusY
+    radiusX,
+    radiusY,
 }: {
     registerRef: RegisterRef;
     getRef: GetRef;
@@ -290,7 +296,9 @@ const ToolSkills = ({
         registerRef={registerRef}
         label="Tools"
         data={skillsData.tools}
-        getRef={getRef} radiusX={radiusX} radiusY={radiusY}
+        getRef={getRef}
+        radiusX={radiusX}
+        radiusY={radiusY}
     />
 );
 
@@ -327,17 +335,31 @@ const SkillsGraph = ({
 
     return (
         <div className="flex h-full items-center justify-around">
-            <LanguageSkills registerRef={registerRef} getRef={getRef} radiusX={radiusX} radiusY={radiusY} />
-            <FrameworkSkills registerRef={registerRef} getRef={getRef} radiusX={radiusX} radiusY={radiusY} />
-            <ToolSkills registerRef={registerRef} getRef={getRef} radiusX={radiusX} radiusY={radiusY} />
+            <LanguageSkills
+                registerRef={registerRef}
+                getRef={getRef}
+                radiusX={radiusX}
+                radiusY={radiusY}
+            />
+            <FrameworkSkills
+                registerRef={registerRef}
+                getRef={getRef}
+                radiusX={radiusX}
+                radiusY={radiusY}
+            />
+            <ToolSkills
+                registerRef={registerRef}
+                getRef={getRef}
+                radiusX={radiusX}
+                radiusY={radiusY}
+            />
         </div>
-
-    )
-}
+    );
+};
 
 const SkillsGraphView = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const inView = useInView(containerRef, 0.1)
+    const inView = useInView(containerRef, 0.1);
     const [size, setSize] = useState({ w: 0, h: 0 });
 
     useLayoutEffect(() => {
@@ -346,19 +368,21 @@ const SkillsGraphView = () => {
 
         const ro = new ResizeObserver(([entry]) => {
             const { width, height } = entry.contentRect;
-            setSize({ h: height, w: width })
+            setSize({ h: height, w: width });
         });
 
         ro.observe(el);
-        return () => ro.disconnect()
-    })
+        return () => ro.disconnect();
+    });
 
-    const scale = size.w
-        ? Math.min(1, size.w / REF.w, size.h / REF.h)
-        : 1;
+    const scale = size.w ? Math.min(1, size.w / REF.w, size.h / REF.h) : 1;
 
     return (
-        <div className="relative hidden h-full w-full overflow-hidden lg:block" ref={containerRef} style={{ "--graph-scale": scale } as React.CSSProperties}>
+        <div
+            className="relative hidden h-full w-full overflow-hidden lg:block"
+            ref={containerRef}
+            style={{ "--graph-scale": scale } as React.CSSProperties}
+        >
             {inView && (
                 <SkillsGraph radiusX={180 * scale} radiusY={400 * scale} />
             )}

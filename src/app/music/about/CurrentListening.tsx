@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
+import useInView from "@/lib/hooks/useInView";
 
 interface Track {
     name: string;
@@ -25,24 +26,15 @@ interface Track {
 const CurrentListening = () => {
     const [track, setTrack] = useState<Track | null>(null);
     const ref = useRef<HTMLDivElement>(null);
+    const inView = useInView(ref, 0.5);
 
-    // TODO: Use useInView
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    fetch("/api/current_listening")
-                        .then((r) => r.json())
-                        .then((data) => setTrack(data));
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.5 }
-        );
-
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, []);
+        if (inView) {
+            fetch("/api/current_listening")
+                .then((r) => r.json())
+                .then((data) => setTrack(data));
+        }
+    }, [inView]);
 
     return (
         <motion.div

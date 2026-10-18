@@ -21,6 +21,6 @@ const useInView = <T extends Element>(
     }, [ref, threshold]);
 
     return inView;
-}
+};
 
-export default useInView
+export default useInView;
