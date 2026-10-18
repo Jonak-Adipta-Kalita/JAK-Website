@@ -1,19 +1,26 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-export function useInView<T extends Element>(rootMargin = "200px") {
-    const ref = useRef<T>(null);
+const useInView = <T extends Element>(
+    ref: React.RefObject<T | null>,
+    threshold = 0.1
+) => {
     const [inView, setInView] = useState(false);
 
     useEffect(() => {
         const el = ref.current;
         if (!el) return;
         const io = new IntersectionObserver(
-            ([entry]) => setInView(entry.isIntersecting),
-            { rootMargin }
+            ([entry]) =>
+                setInView(
+                    entry.isIntersecting && entry.intersectionRatio >= threshold
+                ),
+            { threshold }
         );
         io.observe(el);
         return () => io.disconnect();
-    }, [rootMargin]);
+    }, [ref, threshold]);
 
-    return [ref, inView] as const;
+    return inView;
 }
+
+export default useInView

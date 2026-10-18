@@ -15,24 +15,27 @@ export function useLinkLine(
     });
 
     useEffect(() => {
-        const updateLine = () => {
-            if (!fromRef || !toRef) return;
-            const fromBox = fromRef.getBoundingClientRect();
-            const toBox = toRef.getBoundingClientRect();
-            setLinePos({
-                x1: fromBox.left + fromBox.width / 2,
-                y1: fromBox.top + fromBox.height / 2,
-                x2: toBox.left + toBox.width / 2,
-                y2: toBox.top + toBox.height / 2,
-            });
+        if (!fromRef || !toRef) return;
+        let raf = 0;
+
+        const tick = () => {
+            const a = fromRef.getBoundingClientRect();
+            const b = toRef.getBoundingClientRect();
+            const x1 = a.left + a.width / 2;
+            const y1 = a.top + a.height / 2;
+            const x2 = b.left + b.width / 2;
+            const y2 = b.top + b.height / 2;
+
+            setLinePos((prev) =>
+                prev.x1 === x1 && prev.y1 === y1 && prev.x2 === x2 && prev.y2 === y2
+                    ? prev
+                    : { x1, y1, x2, y2 }
+            );
+            raf = requestAnimationFrame(tick);
         };
-        updateLine();
-        window.addEventListener("resize", updateLine);
-        const interval = setInterval(updateLine, 5);
-        return () => {
-            window.removeEventListener("resize", updateLine);
-            clearInterval(interval);
-        };
+
+        tick();
+        return () => cancelAnimationFrame(raf);
     }, [fromRef, toRef]);
 
     return linePos;

@@ -8,7 +8,7 @@ import skillsData, {
     LanguageSkill,
     ToolSkill,
 } from "@/data/programming-skills/data";
-import { useInView } from "@/lib/hooks/useInView";
+import useInView from "@/lib/hooks/useInView";
 import Image from "next/image";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
@@ -38,7 +38,7 @@ const SkillButton = ({
                 draggable={false}
                 height={40}
                 width={40}
-                className="max-w-none shrink-0"
+                className="max-w-none shrink-0 size-[calc(40px*var(--graph-scale,1))]"
             />
         </div>
     );
@@ -80,7 +80,7 @@ const SkillGroup = <T extends AnySkill>({
         >
             <div
                 ref={registerRef(skill.id)}
-                className="graph-skills flex items-center justify-center gap-5"
+                className="graph-skills flex items-center justify-center gap-[calc(20px*var(--graph-scale,1))]"
             >
                 {skill.items.map((item) => (
                     <SkillButton
@@ -130,11 +130,15 @@ const SkillCategoryColumn = <T extends AnySkill>({
     getRef,
     label,
     data,
+    radiusX,
+    radiusY,
 }: {
     registerRef: RegisterRef;
     getRef: GetRef;
     label: "Languages" | "Frameworks" | "Tools";
     data: SkillEntry<T>[];
+    radiusX: number;
+    radiusY: number;
 }) => {
     const ref = useRef<HTMLButtonElement | null>(null);
     const n = data.length;
@@ -151,14 +155,18 @@ const SkillCategoryColumn = <T extends AnySkill>({
                 variant={"programming"}
                 size={"programming"}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-default"
+                style={{
+                    padding: "calc(32px * var(--graph-scale, 1))",
+                    fontSize: "calc(24px * var(--graph-scale, 1))",
+                }}
             >
                 {label}
             </Button>
             {sortedData.map((skill, i) => {
                 const angleDeg = 180 + (360 / n) * i;
                 const angleRad = (angleDeg * Math.PI) / 180;
-                const x = 250 * Math.cos(angleRad);
-                const y = 400 * Math.sin(angleRad);
+                const x = radiusX * Math.cos(angleRad);
+                const y = radiusY * Math.sin(angleRad);
 
                 const itemStyle: React.CSSProperties = {
                     left: `calc(50% + ${x}px)`,
@@ -234,49 +242,67 @@ const Links = ({
 const LanguageSkills = ({
     registerRef,
     getRef,
+    radiusX, radiusY
 }: {
     registerRef: RegisterRef;
     getRef: GetRef;
+    radiusX: number;
+    radiusY: number;
 }) => (
     <SkillCategoryColumn<LanguageSkill>
         registerRef={registerRef}
         label="Languages"
         data={skillsData.languages}
-        getRef={getRef}
+        getRef={getRef} radiusX={radiusX} radiusY={radiusY}
     />
 );
 
 const FrameworkSkills = ({
     registerRef,
     getRef,
+    radiusX, radiusY
 }: {
     registerRef: RegisterRef;
     getRef: GetRef;
+    radiusX: number;
+    radiusY: number;
+
 }) => (
     <SkillCategoryColumn<FrameworkSkill>
         registerRef={registerRef}
         label="Frameworks"
         data={skillsData.frameworks}
-        getRef={getRef}
+        getRef={getRef} radiusX={radiusX} radiusY={radiusY}
     />
 );
 
 const ToolSkills = ({
     registerRef,
     getRef,
+    radiusX, radiusY
 }: {
     registerRef: RegisterRef;
     getRef: GetRef;
+    radiusX: number;
+    radiusY: number;
 }) => (
     <SkillCategoryColumn<ToolSkill>
         registerRef={registerRef}
         label="Tools"
         data={skillsData.tools}
-        getRef={getRef}
+        getRef={getRef} radiusX={radiusX} radiusY={radiusY}
     />
 );
 
-const SkillsGraph = () => {
+const REF = { w: 1536, h: 900 };
+
+const SkillsGraph = ({
+    radiusX,
+    radiusY,
+}: {
+    radiusX: number;
+    radiusY: number;
+}) => {
     const refIDs = useRef(new Map());
 
     const registerRef: RegisterRef = useCallback(
@@ -301,20 +327,41 @@ const SkillsGraph = () => {
 
     return (
         <div className="flex h-full items-center justify-around">
-            <LanguageSkills registerRef={registerRef} getRef={getRef} />
-            <FrameworkSkills registerRef={registerRef} getRef={getRef} />
-            <ToolSkills registerRef={registerRef} getRef={getRef} />
+            <LanguageSkills registerRef={registerRef} getRef={getRef} radiusX={radiusX} radiusY={radiusY} />
+            <FrameworkSkills registerRef={registerRef} getRef={getRef} radiusX={radiusX} radiusY={radiusY} />
+            <ToolSkills registerRef={registerRef} getRef={getRef} radiusX={radiusX} radiusY={radiusY} />
         </div>
 
     )
 }
 
 const SkillsGraphView = () => {
-    const [ref, inView] = useInView<HTMLDivElement>("200px")
+    const containerRef = useRef<HTMLDivElement>(null);
+    const inView = useInView(containerRef, 0.1)
+    const [size, setSize] = useState({ w: 0, h: 0 });
+
+    useLayoutEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const ro = new ResizeObserver(([entry]) => {
+            const { width, height } = entry.contentRect;
+            setSize({ h: height, w: width })
+        });
+
+        ro.observe(el);
+        return () => ro.disconnect()
+    })
+
+    const scale = size.w
+        ? Math.min(1, size.w / REF.w, size.h / REF.h)
+        : 1;
 
     return (
-        <div className="relative hidden h-full w-full overflow-hidden lg:block" ref={ref}>
-            {inView && <SkillsGraph />}
+        <div className="relative hidden h-full w-full overflow-hidden lg:block" ref={containerRef} style={{ "--graph-scale": scale } as React.CSSProperties}>
+            {inView && (
+                <SkillsGraph radiusX={180 * scale} radiusY={400 * scale} />
+            )}
         </div>
     );
 };
