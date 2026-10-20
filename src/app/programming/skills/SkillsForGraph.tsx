@@ -3,7 +3,11 @@ import { RegisterRef, SkillGroupData } from "./GraphView";
 import Image from "next/image";
 import { useState } from "react";
 import FloatingDiv from "@/components/FloatingDiv";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const SkillButton = ({
     skill,
@@ -45,7 +49,6 @@ const SkillGroup = <T extends AnySkill>({
     itemStyle: React.CSSProperties;
 }) => {
     const [dragging, setDrag] = useState(false);
-    console.log(skill.groupName)
 
     return (
         <FloatingDiv
@@ -70,9 +73,9 @@ const SkillGroup = <T extends AnySkill>({
                         ))}
                     </div>
                 </TooltipTrigger>
-                {(skill.groupName || skill.message) && (
+                {((!dragging && skill.groupName) || skill.message) && (
                     <TooltipContent>
-                        <p className="text-xl text-fg-programming-text font-semibold">
+                        <p className="text-fg-programming-text text-xl font-semibold">
                             {skill.groupName || skill.message}
                         </p>
                     </TooltipContent>
@@ -111,9 +114,9 @@ const SkillItem = ({
                         item
                     />
                 </TooltipTrigger>
-                {skill.message && (
+                {!dragging && skill.message && (
                     <TooltipContent>
-                        <p className="text-xl text-fg-programming-text font-semibold">
+                        <p className="text-fg-programming-text text-xl font-semibold">
                             {skill.message}
                         </p>
                     </TooltipContent>
@@ -123,5 +126,4 @@ const SkillItem = ({
     );
 };
 
-
-export { SkillItem, SkillGroup }
+export { SkillItem, SkillGroup };

@@ -21,7 +21,7 @@ export type SkillGroupData<T extends AnySkill> = {
     id: string;
     message?: string;
     items: T[];
-    groupName: string,
+    groupName?: string;
 };
 
 export type SkillEntry<T extends AnySkill> = T | SkillGroupData<T>;
@@ -123,10 +123,10 @@ const Links = ({
     groupID,
 }: (
     | {
-        skill: LanguageSkill | FrameworkSkill | ToolSkill;
-        linkLanguages: false;
-        groupID: null;
-    }
+          skill: LanguageSkill | FrameworkSkill | ToolSkill;
+          linkLanguages: false;
+          groupID: null;
+      }
     | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
 ) & { getRef: GetRef }) => {
     return (

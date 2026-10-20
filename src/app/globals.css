@@ -91,7 +91,7 @@
     }
 
     .graph-skills {
-        @apply rounded-xl bg-[#181825]/90 shadow-md cursor-pointer hover:scale-110 active:scale-95 transition duration-200 ease-in-out ring-2 ring-stone-700/50;
+        @apply cursor-pointer rounded-xl bg-[#181825]/90 shadow-md ring-2 ring-stone-700/50 transition duration-200 ease-in-out hover:scale-110 active:scale-95;
         padding: calc(12px * var(--graph-scale, 1));
     }
 }

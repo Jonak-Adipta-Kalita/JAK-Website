@@ -332,7 +332,8 @@ const skills: {
             name: "Blender",
             pic: "/pic/applications/blender.svg",
             fields: ["Game Development"],
-        }, {
+        },
+        {
             id: "database-management-system",
             groupName: "Database Management Systems",
             items: [
