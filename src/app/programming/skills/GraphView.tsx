@@ -1,129 +1,34 @@
 "use client";
 
-import FloatingDivBase from "@/components/FloatingDiv";
 import LinkLine from "@/components/LinkLine";
 import { Button } from "@/components/ui/button";
 import skillsData, {
+    AnySkill,
     FrameworkSkill,
     LanguageSkill,
     ToolSkill,
 } from "@/data/programming-skills/data";
 import useInView from "@/lib/hooks/useInView";
-import Image from "next/image";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { SkillGroup, SkillItem } from "./SkillsForGraph";
 
 export type RegisterRef = (id: string) => (node: HTMLDivElement | null) => void;
 export type GetRef = (id: string) => HTMLDivElement | undefined;
 
-const SkillButton = ({
-    dragging,
-    skill,
-    registerRef,
-    item,
-}: {
-    dragging: boolean;
-    skill: ToolSkill;
-    registerRef: RegisterRef;
-    item?: boolean;
-}) => {
-    return (
-        <div
-            draggable={false}
-            ref={registerRef(skill.id)}
-            className={`${item ? "graph-skills" : ""}`}
-        >
-            <Image
-                src={skill.pic as string}
-                alt={skill.name as string}
-                draggable={false}
-                height={40}
-                width={40}
-                className="size-[calc(40px*var(--graph-scale,1))] max-w-none shrink-0"
-            />
-        </div>
-    );
-};
+// TODO: Render the Skill Fields
 
-type AnySkill = LanguageSkill | FrameworkSkill | ToolSkill;
-
-type SkillGroupData<T extends AnySkill> = {
+export type SkillGroupData<T extends AnySkill> = {
     id: string;
     message?: string;
     items: T[];
+    groupName: string,
 };
 
-type SkillEntry<T extends AnySkill> = T | SkillGroupData<T>;
+export type SkillEntry<T extends AnySkill> = T | SkillGroupData<T>;
 
 const isGroup = <T extends AnySkill>(
     skill: SkillEntry<T>
 ): skill is SkillGroupData<T> => "items" in skill;
-
-const SkillGroup = <T extends AnySkill>({
-    registerRef,
-    skill,
-    anchorRefs,
-    itemStyle,
-}: {
-    registerRef: RegisterRef;
-    skill: SkillGroupData<T>;
-    anchorRefs: React.RefObject<HTMLButtonElement | null>[];
-    itemStyle: React.CSSProperties;
-}) => {
-    const [dragging, setDrag] = useState(false);
-
-    return (
-        <FloatingDivBase
-            className="absolute z-50 cursor-default"
-            setDrag={setDrag}
-            anchorRefs={anchorRefs}
-            style={itemStyle}
-        >
-            <div
-                ref={registerRef(skill.id)}
-                className="graph-skills flex items-center justify-center gap-[calc(20px*var(--graph-scale,1))]"
-            >
-                {skill.items.map((item) => (
-                    <SkillButton
-                        dragging={dragging}
-                        skill={item}
-                        registerRef={registerRef}
-                        key={item.pic as string}
-                    />
-                ))}
-            </div>
-        </FloatingDivBase>
-    );
-};
-
-const SkillItem = ({
-    anchorRefs,
-    skill,
-    registerRef,
-    itemStyle,
-}: {
-    anchorRefs: React.RefObject<HTMLButtonElement | null>[];
-    skill: ToolSkill;
-    registerRef: RegisterRef;
-    itemStyle: React.CSSProperties;
-}) => {
-    const [dragging, setDrag] = useState(false);
-
-    return (
-        <FloatingDivBase
-            className="absolute z-50 cursor-default"
-            setDrag={setDrag}
-            anchorRefs={anchorRefs}
-            style={itemStyle}
-        >
-            <SkillButton
-                dragging={dragging}
-                skill={skill}
-                registerRef={registerRef}
-                item
-            />
-        </FloatingDivBase>
-    );
-};
 
 const SkillCategoryColumn = <T extends AnySkill>({
     registerRef,
@@ -218,10 +123,10 @@ const Links = ({
     groupID,
 }: (
     | {
-          skill: LanguageSkill | FrameworkSkill | ToolSkill;
-          linkLanguages: false;
-          groupID: null;
-      }
+        skill: LanguageSkill | FrameworkSkill | ToolSkill;
+        linkLanguages: false;
+        groupID: null;
+    }
     | { skill: FrameworkSkill; linkLanguages: true; groupID: string }
 ) & { getRef: GetRef }) => {
     return (

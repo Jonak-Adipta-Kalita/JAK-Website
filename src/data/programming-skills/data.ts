@@ -2,7 +2,7 @@ export const Fields = [
     "Web & App Development",
     "Game Development",
     "Internet of Things",
-    // "Systems Programming",
+    "Systems Programming",
     "AI & Data Science & Computer Vision",
     "Cloud & DevOps",
     "Database",
@@ -42,6 +42,8 @@ export type FrameworkSkill = Skill & {
 export type ToolSkill = Omit<Skill, "fields"> & {
     fields: (typeof AllFields)[number][] | null;
 };
+
+export type AnySkill = LanguageSkill | FrameworkSkill | ToolSkill;
 
 const skills: {
     languages: (
@@ -330,14 +332,7 @@ const skills: {
             name: "Blender",
             pic: "/pic/applications/blender.svg",
             fields: ["Game Development"],
-        },
-        {
-            id: "firebase",
-            name: "Firebase",
-            pic: "/pic/applications/firebase.svg",
-            fields: ["Cloud & DevOps"],
-        },
-        {
+        }, {
             id: "database-management-system",
             groupName: "Database Management Systems",
             items: [
